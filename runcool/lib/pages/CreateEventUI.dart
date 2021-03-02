@@ -13,7 +13,7 @@ class CreateEventUIState extends State<CreateEventUI> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: _background,
+        backgroundColor: Colors.black,
         centerTitle: true,
         title: Text(
           'New Event',
@@ -21,9 +21,38 @@ class CreateEventUIState extends State<CreateEventUI> {
           textAlign: TextAlign.center,
         ),
       ),
-      body: Center(
-        child: Text('Create your events here.'),
+      body: Container(
+        color: _background,
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          children: [
+            Container(
+              color: Colors.black,
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width,
+                height: 300,
+                child: const Card(
+                  child: Text('Past Event Card'),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 20.0),
+        child: FloatingActionButton.extended(
+          label: Text('Create New'),
+          foregroundColor: Colors.black,
+          backgroundColor: Colors.white,
+          onPressed: () {
+            print('Clicked!');
+          },
+          elevation: 0,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

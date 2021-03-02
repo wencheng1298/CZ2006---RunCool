@@ -4,7 +4,8 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 //Required for routing to different UIs
 import './pages/HomePageUI.dart';
 import './pages/MyActivitiesUI.dart';
-import './pages/CreateEventUI.dart';
+// import './pages/CreateEventUI.dart';
+import './pages/ChooseEventUI.dart'; //Temporary
 import './pages/NotificationUI.dart';
 import './pages/ProfileUI.dart';
 
@@ -39,7 +40,8 @@ class _RuncoolNavBarState extends State<RuncoolNavBar> {
   final List<Widget> _pages = [
     HomePageUI(),
     MyActivitiesUI(),
-    CreateEventUI(),
+    // CreateEventUI(),
+    ChooseEventUI(),
     NotificationUI(),
     ProfileUI(),
   ];
