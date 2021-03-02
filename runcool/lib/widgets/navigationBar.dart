@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class NavigationBar extends StatelessWidget {
-  Color appColor;
-  Color bgColor;
+  final Color appColor;
+  final Color bgColor;
 
   //Constructor - Takes in special color + bgcolor
   NavigationBar(this.appColor, this.bgColor);
@@ -34,3 +34,4 @@ class NavigationBar extends StatelessWidget {
     );
   }
 }
+

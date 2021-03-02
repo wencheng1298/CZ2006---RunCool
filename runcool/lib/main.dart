@@ -1,7 +1,13 @@
-
 import 'package:flutter/material.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
-import './widgets/navigationBar.dart';
+//Required for routing to different UIs
+import './pages/HomePageUI.dart';
+import './pages/MyActivitiesUI.dart';
+import './pages/CreateEventUI.dart';
+import './pages/NotificationUI.dart';
+import './pages/ProfileUI.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -15,49 +21,60 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: RuncoolNavBar(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class RuncoolNavBar extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _RuncoolNavBarState createState() => _RuncoolNavBarState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _RuncoolNavBarState extends State<RuncoolNavBar> {
   Color _turqoise = Color(0xff58C5CC);
   Color _background = Color(0xff322F2F);
 
+  int _currentIndex = 0;
+  final List<Widget> _pages = [
+    HomePageUI(),
+    MyActivitiesUI(),
+    CreateEventUI(),
+    NotificationUI(),
+    ProfileUI(),
+  ];
+
+  void onTappedBar(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+    print(_pages[_currentIndex]);
+    print('Tapped index: $index');
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    return new Scaffold(
+      body: _pages[_currentIndex],
+      bottomNavigationBar: CurvedNavigationBar(
+        onTap: onTappedBar,
+        color: _turqoise,
         backgroundColor: _background,
-        centerTitle: true,
-        title: Text(
-          'Home Page',
-          style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.center,
+        buttonBackgroundColor: _turqoise,
+        height: 50,
+        items: <Widget>[
+          Icon(Icons.home_outlined, size: 30, color: Colors.black),
+          Icon(Icons.explore_outlined, size: 30, color: Colors.black),
+          Icon(Icons.add_circle_outline, size: 30, color: Colors.black),
+          Icon(Icons.notification_important_outlined,
+              size: 30, color: Colors.black),
+          Icon(Icons.person_outline, size: 30, color: Colors.black),
+        ],
+        animationDuration: Duration(
+          milliseconds: 100,
         ),
+        animationCurve: Curves.linear,
       ),
-      body: Container(
-        color: Colors.black,
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Demo App',
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            )
-          ],
-        ),
-      ),
-      bottomNavigationBar: NavigationBar(_turqoise, Colors.black), 
     );
   }
 }

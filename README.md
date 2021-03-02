@@ -1,3 +1,3 @@
 # CZ2006---RunCool
 
-Testing
+A Cool project which allows you to find friends for fitness.
