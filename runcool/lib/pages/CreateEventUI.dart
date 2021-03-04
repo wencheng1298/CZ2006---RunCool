@@ -29,6 +29,17 @@ class CreateEventUIState extends State<CreateEventUI> {
         child: Column(
           children: [
             Container(
+              padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Choose from past activities',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Container(
               color: Colors.black,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
@@ -48,7 +59,8 @@ class CreateEventUIState extends State<CreateEventUI> {
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ChooseEventUI()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => ChooseEventUI()));
           },
           elevation: 0,
         ),
