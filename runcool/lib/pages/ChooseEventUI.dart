@@ -27,7 +27,9 @@ class ChooseEventUIState extends State<ChooseEventUI> {
         ),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: (){print('Go back to createEventUI');},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: Container(
@@ -75,6 +77,22 @@ class ChooseEventUIState extends State<ChooseEventUI> {
                 ),
               ),
             ),
+            Container(
+              padding: const EdgeInsets.only(top: 50, right: 20),
+              alignment: Alignment.bottomRight,
+              child: OutlinedButton(
+                child: Text('Next'),
+                onPressed: () {
+                  print('Pressed Next');
+                },
+                style: TextButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    primary: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    )),
+              ),
+            )
           ],
         ),
       ),

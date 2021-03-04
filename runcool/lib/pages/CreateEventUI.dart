@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ChooseEventUI.dart';
 
 class CreateEventUI extends StatefulWidget {
   @override
@@ -47,7 +48,7 @@ class CreateEventUIState extends State<CreateEventUI> {
           foregroundColor: Colors.black,
           backgroundColor: Colors.white,
           onPressed: () {
-            print('Clicked!');
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ChooseEventUI()));
           },
           elevation: 0,
         ),
