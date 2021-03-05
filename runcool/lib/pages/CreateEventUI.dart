@@ -22,6 +22,7 @@ class CreateEventUIState extends State<CreateEventUI> {
           textAlign: TextAlign.center,
         ),
       ),
+      //Need to learn how to make the page scrollable
       body: Container(
         color: _background,
         height: MediaQuery.of(context).size.height,
@@ -35,6 +36,7 @@ class CreateEventUIState extends State<CreateEventUI> {
                 'Choose from past activities',
                 style: TextStyle(
                   fontSize: 24,
+                  fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
               ),
@@ -45,7 +47,7 @@ class CreateEventUIState extends State<CreateEventUI> {
                 width: MediaQuery.of(context).size.width,
                 height: 300,
                 child: const Card(
-                  child: Text('Past Event Card'),
+                  child: Text('Past Event Card 2'),
                 ),
               ),
             ),

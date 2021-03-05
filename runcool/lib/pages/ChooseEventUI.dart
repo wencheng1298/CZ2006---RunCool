@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'CreateEventUI.dart';
+import './RunningUI/CreateRunningUI1.dart';
+import './GymmingUI/CreateGymmingUI1.dart';
+import './ZumbaUI/CreateZumbaUI1.dart';
 
 class ChooseEventUI extends StatefulWidget {
   @override
@@ -11,8 +14,24 @@ class ChooseEventUIState extends State<ChooseEventUI> {
   Color _turqoise = Color(0xff58C5CC);
   Color _background = Color(0xff322F2F);
 
-  String eventChoice;
+  bool _buttonDisabled = true;
+
+  String eventType;
   List<String> eventTypes = ['Running', 'Gymming', 'Zumba'];
+
+  Function goNextPage(String eventChoice) {
+    if (eventChoice == 'Running') {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => CreateRunningUI1()));
+    } else if (eventChoice == 'Gymming') {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => CreateGymmingUI1()));
+    } else if (eventChoice == "Zumba") {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => CreateZumbaUI1()));
+    }
+    ;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,10 +80,17 @@ class ChooseEventUIState extends State<ChooseEventUI> {
                     color: Colors.white,
                     fontSize: 17,
                   ),
-                  value: eventChoice,
+                  value: eventType,
+                  hint: Text(
+                    '--None--',
+                    style: TextStyle(color: Colors.white),
+                  ),
                   onChanged: (newChoice) {
                     setState(() {
-                      eventChoice = newChoice;
+                      eventType = newChoice;
+                      if(_buttonDisabled){
+                        _buttonDisabled = false;
+                      }
                     });
                   },
                   items: eventTypes.map((choice) {
@@ -77,14 +103,13 @@ class ChooseEventUIState extends State<ChooseEventUI> {
                 ),
               ),
             ),
+            //Need to change the value of _buttonDisabled and reset State
             Container(
               padding: const EdgeInsets.only(top: 50, right: 20),
               alignment: Alignment.bottomRight,
               child: OutlinedButton(
                 child: Text('Next'),
-                onPressed: () {
-                  print('Pressed Next');
-                },
+                onPressed: _buttonDisabled ? null : () => goNextPage(eventType),
                 style: TextButton.styleFrom(
                     backgroundColor: Colors.white,
                     primary: Colors.black,
