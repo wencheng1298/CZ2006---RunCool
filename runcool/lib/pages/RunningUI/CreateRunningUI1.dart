@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:runcool/pages/CreateEventUI.dart';
 import './../../widgets/InputTextField.dart';
 import './../../widgets/InputFieldTextTitles.dart';
 import './CreateRunningUI2.dart';
+import './../../widgets/GoogleMapPlacement.dart';
 
 class CreateRunningUI1 extends StatefulWidget {
   @override
@@ -35,14 +35,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
         color: _background,
         child: Column(
           children: [
-            Container(
-              height: 200,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.green,
-              child: Center(
-                child: Text("Put the google map here"),
-              ),
-            ),
+            GoogleMapPlacement(),
             Container(
               height: 410,
               child: ListView(

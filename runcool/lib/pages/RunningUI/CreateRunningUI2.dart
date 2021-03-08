@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './../../widgets/InputTextField.dart';
 import './../../widgets/InputFieldTextTitles.dart';
+import './../../widgets//GoogleMapPlacement.dart';
 
 enum EventPrivy { public, friends_only }
 
@@ -9,14 +10,14 @@ class CreateRunningUI2 extends StatefulWidget {
   _CreateRunningUI2State createState() => _CreateRunningUI2State();
 }
 
-class _CreateRunningUI2State extends State<CreateRunningUI2> {
+class _CreateRunningUI2State extends State<CreateRunningUI2>
+    with SingleTickerProviderStateMixin {
   Color _background = Color(0xff322F2F);
   Color _turqoise = Color(0xff58C5CC);
+  EventPrivy openTo;
 
   @override
   Widget build(BuildContext context) {
-    EventPrivy openTo = EventPrivy.public;
-
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -33,23 +34,17 @@ class _CreateRunningUI2State extends State<CreateRunningUI2> {
         color: _background,
         child: Column(
           children: [
-            Container(
-              height: 200,
-              width: MediaQuery.of(context).size.width,
-              color: Colors.green,
-              child: Center(
-                child: Text("Put the google map here"),
-              ),
-            ),
+            GoogleMapPlacement(),
+            SizedBox(height: 10),
             Container(
               height: 470,
               child: ListView(
                 padding: EdgeInsets.all(8),
                 children: [
                   Align(
-                      alignment: Alignment.topLeft,
-                      child:
-                          InputFieldTextTitles('Enter the name of your route')),
+                    alignment: Alignment.topLeft,
+                    child: InputFieldTextTitles('Enter the name of your route'),
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(left: 8, right: 8),
                     child: InputTextField(),
@@ -98,40 +93,82 @@ class _CreateRunningUI2State extends State<CreateRunningUI2> {
                     alignment: Alignment.topLeft,
                     child: InputFieldTextTitles('Event Open to:'),
                   ),
-                  Column(
-                    children: [
-                      ListTile(
-                        title: const Text(
-                          "Public",
-                          style: TextStyle(color: Colors.white),
+                  Theme(
+                    data: ThemeData(unselectedWidgetColor: Colors.white24),
+                    child: Column(
+                      children: [
+                        ListTile(
+                          title: const Text(
+                            "Public",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          leading: Radio(
+                            value: EventPrivy.public,
+                            groupValue: openTo,
+                            activeColor: Colors.blue,
+                            onChanged: (EventPrivy value) {
+                              setState(() {
+                                openTo = value;
+                              });
+                            },
+                          ),
                         ),
-                        leading: Radio(
-                          value: EventPrivy.public,
-                          groupValue: openTo,
-                          onChanged: (EventPrivy value) {
-                            setState(() {
-                              openTo = value;
-                            });
-                          },
+                        ListTile(
+                          title: const Text(
+                            "Friends Only",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          leading: Radio(
+                            value: EventPrivy.friends_only,
+                            groupValue: openTo,
+                            activeColor: Colors.blue,
+                            onChanged: (EventPrivy value) {
+                              setState(() {
+                                openTo = value;
+                              });
+                            },
+                          ),
                         ),
+                      ],
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: InputFieldTextTitles('Description'),
+                  ),
+                  TextField(
+                    autofocus: false,
+                    keyboardType: TextInputType.multiline,
+                    minLines: 6,
+                    maxLines: 10,
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Colors.grey[800],
+                      contentPadding:
+                          EdgeInsets.only(left: 14, bottom: 8, top: 8),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: _turqoise, width: 2),
                       ),
-                      ListTile(
-                        title: const Text(
-                          "Friends Only",
-                          style: TextStyle(color: Colors.white),
-                        ),
-                        leading: Radio(
-                          value: EventPrivy.friends_only,
-                          groupValue: openTo,
-                          onChanged: (EventPrivy value) {
-                            setState(() {
-                              openTo = value;
-                            });
-                          },
-                        ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(color: Colors.white10, width: 2),
                       ),
-                    ],
-                  )
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    width: 80,
+                    child: OutlinedButton(
+                      child: Text('Create'),
+                      onPressed: null,
+                      style: TextButton.styleFrom(
+                          backgroundColor: _turqoise,
+                          primary: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          )),
+                    ),
+                  ),
                 ],
               ),
             ),

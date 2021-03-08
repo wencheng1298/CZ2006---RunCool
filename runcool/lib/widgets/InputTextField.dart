@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class InputTextField extends StatelessWidget {
   final Color _turqoise = Color(0xff58C5CC);
-  
+  FocusNode _focusNode;
+
   @override
   Widget build(BuildContext context) {
     return Theme(
