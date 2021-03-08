@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import './../../widgets/InputTextField.dart';
 import './../../widgets/InputFieldTextTitles.dart';
 import './../../widgets//GoogleMapPlacement.dart';
+import './../EventCreatedSuccessUI.dart';
+import './../../widgets/DatePickerWidget.dart';
+import './../../widgets/TimePickerWidget.dart';
 
 enum EventPrivy { public, friends_only }
 
@@ -15,6 +18,11 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
   Color _background = Color(0xff322F2F);
   Color _turqoise = Color(0xff58C5CC);
   EventPrivy openTo;
+
+  void createEvent() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => EventCreatedSuccessUI()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +63,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0, right: 8),
-                    child: InputTextField(),
+                    child: DatePickerWidget(),
                   ),
                   Align(
                     alignment: Alignment.topLeft,
@@ -63,7 +71,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0, right: 8),
-                    child: InputTextField(),
+                    child: TimePickerWidget(),
                   ),
                   Align(
                     alignment: Alignment.topLeft,
@@ -105,7 +113,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                           leading: Radio(
                             value: EventPrivy.public,
                             groupValue: openTo,
-                            activeColor: Colors.blue,
+                            activeColor: _turqoise,
                             onChanged: (EventPrivy value) {
                               setState(() {
                                 openTo = value;
@@ -121,7 +129,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                           leading: Radio(
                             value: EventPrivy.friends_only,
                             groupValue: openTo,
-                            activeColor: Colors.blue,
+                            activeColor: _turqoise,
                             onChanged: (EventPrivy value) {
                               setState(() {
                                 openTo = value;
@@ -160,7 +168,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                     width: 80,
                     child: OutlinedButton(
                       child: Text('Create'),
-                      onPressed: null,
+                      onPressed: () => createEvent(),
                       style: TextButton.styleFrom(
                           backgroundColor: _turqoise,
                           primary: Colors.black,
