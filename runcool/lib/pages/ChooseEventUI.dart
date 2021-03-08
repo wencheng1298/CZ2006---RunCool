@@ -19,7 +19,7 @@ class ChooseEventUIState extends State<ChooseEventUI> {
   String eventType;
   List<String> eventTypes = ['Running', 'Gymming', 'Zumba'];
 
-  Function goNextPage(String eventChoice) {
+  void goNextPage(String eventChoice) {
     if (eventChoice == 'Running') {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => CreateRunningUI1()));
@@ -29,8 +29,7 @@ class ChooseEventUIState extends State<ChooseEventUI> {
     } else if (eventChoice == "Zumba") {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => CreateZumbaUI1()));
-    }
-    ;
+    };
   }
 
   @override
