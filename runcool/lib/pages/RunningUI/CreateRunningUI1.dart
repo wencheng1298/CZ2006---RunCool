@@ -10,7 +10,7 @@ class CreateRunningUI1 extends StatefulWidget {
 }
 
 class _CreateRunningUI1State extends State<CreateRunningUI1> {
-  Color _background = Color(0xff322F2F);
+  Color _background = Color(0xff1f1b24);
   Color _turqoise = Color(0xff58C5CC);
 
   void goNextPage() {

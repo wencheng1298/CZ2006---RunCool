@@ -34,7 +34,7 @@ class RuncoolNavBar extends StatefulWidget {
 
 class _RuncoolNavBarState extends State<RuncoolNavBar> {
   Color _turqoise = Color(0xff58C5CC);
-  Color _background = Color(0xff322F2F);
+  Color _background = Color(0xff1f1b24);
 
   int _currentIndex = 0;
   final List<Widget> _pages = [

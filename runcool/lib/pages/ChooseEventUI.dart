@@ -12,7 +12,7 @@ class ChooseEventUI extends StatefulWidget {
 
 class ChooseEventUIState extends State<ChooseEventUI> {
   Color _turqoise = Color(0xff58C5CC);
-  Color _background = Color(0xff322F2F);
+  Color _background = Color(0xff1f1b24);
 
   bool _buttonDisabled = true;
 

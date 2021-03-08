@@ -15,7 +15,7 @@ class CreateRunningUI2 extends StatefulWidget {
 
 class _CreateRunningUI2State extends State<CreateRunningUI2>
     with SingleTickerProviderStateMixin {
-  Color _background = Color(0xff322F2F);
+  Color _background = Color(0xff1f1b24);
   Color _turqoise = Color(0xff58C5CC);
   EventPrivy openTo;
 

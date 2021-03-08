@@ -8,7 +8,7 @@ class CreateEventUI extends StatefulWidget {
 
 class CreateEventUIState extends State<CreateEventUI> {
   Color _turqoise = Color(0xff58C5CC);
-  Color _background = Color(0xff322F2F);
+  Color _background = Color(0xff1f1b24);
 
   @override
   Widget build(BuildContext context) {
