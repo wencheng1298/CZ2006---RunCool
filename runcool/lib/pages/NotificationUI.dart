@@ -22,7 +22,7 @@ class NotificationUIState extends State<NotificationUI> {
         ),
       ),
       body: Center(
-        child: Text('Here are notifications. wc chill plz'),
+        child: Text('Here are notifications. wc chill '),
       ),
     );
   }
