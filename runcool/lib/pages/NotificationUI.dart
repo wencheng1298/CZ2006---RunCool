@@ -8,7 +8,7 @@ class NotificationUI extends StatefulWidget {
 class NotificationUIState extends State<NotificationUI> {
   Color _turqoise = Color(0xff58C5CC);
   Color _background = Color(0xff322F2F);
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +22,7 @@ class NotificationUIState extends State<NotificationUI> {
         ),
       ),
       body: Center(
-        child: Text('Here are notifications.'),
+        child: Text('Here are notifications. wc chill plz'),
       ),
     );
   }
