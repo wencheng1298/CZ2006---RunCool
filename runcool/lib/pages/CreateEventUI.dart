@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'ChooseEventUI.dart';
-
+import 'EventPage.dart';
 class CreateEventUI extends StatefulWidget {
   @override
   CreateEventUIState createState() => CreateEventUIState();
@@ -9,6 +9,11 @@ class CreateEventUI extends StatefulWidget {
 class CreateEventUIState extends State<CreateEventUI> {
   Color _turqoise = Color(0xff58C5CC);
   Color _background = Color(0xff1f1b24);
+
+  void goEventPage() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => EventPage())); //find out if need to individually create or can use and add on..
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +51,12 @@ class CreateEventUIState extends State<CreateEventUI> {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: 300,
-                child: const Card(
-                  child: Text('Past Event Card 2'),
-                ),
+                child: GestureDetector( //clickable widget
+                  onTap: () => goEventPage(), //go to event page...
+                  child: const Card(
+                    child: Text('Past Event Card 2'+'\n   Click on me to try   '),
+                  ),
+                )
               ),
             ),
           ],

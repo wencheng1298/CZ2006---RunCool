@@ -28,14 +28,13 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/CZ2006---RunCool.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CZ2006---RunCool.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+    <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="Added Gymming and Zumba UI">
+      <change afterPath="$PROJECT_DIR$/runcool/lib/pages/EventPage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runcool/lib/pages/joinEventPage.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runcool/lib/widgets/EventTextDetails.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runcool/lib/widgets/EventTextTitle.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/GymmingUI/CreateGymmingUI1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/GymmingUI/CreateGymmingUI1.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/ZumbaUI/CreateZumbaUI1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/ZumbaUI/CreateZumbaUI1.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/CreateEventUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/CreateEventUI.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,12 +62,17 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../src/flutter/bin/cache/dart-sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/runcool/lib/widgets" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="flutter.settings" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\keith\Documents\GitHub\CZ2006---RunCool\runcool\lib\widgets" />
+    </key>
   </component>
   <component name="RunManager" selected="Flutter.main.dart">
     <configuration name="main_dart" type="DartTestRunConfigurationType" factoryName="Dart Test">
@@ -99,6 +103,14 @@
       <option name="presentableId" value="Default" />
       <updated>1615217520236</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added Gymming and Zumba UI">
+      <created>1615291921716</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1615291921743</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,6 +136,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Gymming and Zumba UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Gymming and Zumba UI" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2117" y="38" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615276305542">
@@ -185,5 +201,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824/1920.0.1360.728@0.0.1536.824" timestamp="1615260812202" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1615296300031">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1360.728@0.0.1536.824" timestamp="1615296300031" />
   </component>
 </project>
