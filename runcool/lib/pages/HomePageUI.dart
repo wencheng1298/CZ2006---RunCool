@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:runcool/pages/FilterUI/SelectItemsFIlterUI.dart';
 
 import './../widgets/navigationBar.dart';
 
@@ -10,6 +11,24 @@ class HomePageUI extends StatefulWidget {
 class HomePageUIState extends State<HomePageUI> {
   Color _turqoise = Color(0xff58C5CC);
   Color _background = Color(0xff322F2F);
+
+  void FilterItem(){
+
+    Navigator.push(context,
+    MaterialPageRoute(builder: (context) => SelectItemsFIlterUI()));    
+  }
+
+/*   Widget popupMenuButton<String>(
+    icon: Icon(Icons.add,size: 30.0),
+    itembuilder: (BuildContext context)=><PopupMenuEntry<String>>[
+
+      PopupMenuItem<String>(
+        value: "one_val",
+        child: Text("one"),
+      ),
+    ],
+
+  ); */
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +42,10 @@ class HomePageUIState extends State<HomePageUI> {
           textAlign: TextAlign.center,
         ),
         actions: <Widget>[
-          IconButton(
+           IconButton(
               icon: Icon(Icons.menu),
-              onPressed: () {
-                print("Menu clicked"); //should change to make it pop up
-              },
-              color: Colors.white54),
+              onPressed: () => FilterItem(),)
+              
         ],
       ),
       body: SingleChildScrollView( //let the app be scrollable
