@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './EventPage.dart';
 
 class EventCreatedSuccessUI extends StatefulWidget {
   @override
@@ -8,6 +9,11 @@ class EventCreatedSuccessUI extends StatefulWidget {
 class EventCreatedSuccessUIState extends State<EventCreatedSuccessUI> {
   Color _turqoise = Color(0xff58C5CC);
   Color _background = Color(0xff322F2F);
+
+  void viewEvent() {
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => EventPage()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +53,7 @@ class EventCreatedSuccessUIState extends State<EventCreatedSuccessUI> {
                       'See Event Details',
                       style: TextStyle(fontSize: 22),
                     ),
-                    onPressed: null,
+                    onPressed: () => viewEvent(),
                     style: TextButton.styleFrom(
                         backgroundColor: _turqoise,
                         primary: Colors.black,

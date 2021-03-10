@@ -10,7 +10,7 @@ class HomePageUI extends StatefulWidget {
 
 class HomePageUIState extends State<HomePageUI> {
   Color _turqoise = Color(0xff58C5CC);
-  Color _background = Color(0xff322F2F);
+  Color _background = Color(0xff1f1b24);
 
   void FilterItem(){
 
@@ -34,7 +34,7 @@ class HomePageUIState extends State<HomePageUI> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: _background,
+        backgroundColor: Colors.black,
         centerTitle: true,
         title: Text(
           'Home Page',
@@ -50,7 +50,7 @@ class HomePageUIState extends State<HomePageUI> {
       ),
       body: SingleChildScrollView( //let the app be scrollable
         child: Container(
-          color: Colors.black,
+          color: _background,
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Column(

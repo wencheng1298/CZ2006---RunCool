@@ -15,8 +15,9 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
 
   void goNextPage() {
     Navigator.push(
-      context, MaterialPageRoute(builder: (context) => CreateRunningUI2()));
+        context, MaterialPageRoute(builder: (context) => CreateRunningUI2()));
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,13 +58,27 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                     padding: const EdgeInsets.only(left: 8.0, right: 8),
                     child: InputTextField(),
                   ),
+                                  Align(
+                  alignment: Alignment.topLeft,
+                  child: InputFieldTextTitles('CheckPoints'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 8.0, right: 8),
+                  child: Container(
+                    height: 50,
+                    color: _turqoise,
+                    child: const Center(
+                      child: Text('Add CheckPoint'),
+                    ),
+                  ),
+                ),
                 ],
               ),
             ),
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left:16.0, top: 20),
+                  padding: const EdgeInsets.only(left: 16.0, top: 20),
                   child: const Text(
                     "Estimated Distance: ",
                     style: TextStyle(color: Colors.white),
