@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class NotificationUI extends StatefulWidget {
@@ -21,9 +22,29 @@ class NotificationUIState extends State<NotificationUI> {
           textAlign: TextAlign.center,
         ),
       ),
-      body: Center(
-        child: Text('Here are notifications. wc chill '),
-      ),
+      body: Container(
+          decoration: BoxDecoration(
+            color: _background,
+            image: DecorationImage(
+                image: AssetImage('images/gym.jpg'),
+                fit: BoxFit.cover,
+                colorFilter: new ColorFilter.mode(
+                    _background.withOpacity(0.2), BlendMode.dstATop)),
+          ),
+          child: Container(
+            child: Column(
+              children: [
+                Text(
+                  "Friend Requests",
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                      color: _turqoise),
+                ),
+              ],
+            ),
+          ),
+          constraints: BoxConstraints.expand()),
     );
   }
 }
