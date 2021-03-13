@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:runcool/pages/SignUpUI/SignUpUI1.dart';
+import 'package:runcool/pages/SignUpUI/LogIn.dart';
 
 //Required for routing to different UIs
 import './pages/HomePageUI.dart';
@@ -9,6 +9,7 @@ import './pages/CreateEventUI.dart';
 import './pages/ChooseEventUI.dart'; //Temporary
 import './pages/NotificationUI.dart';
 import './pages/ProfileUI.dart';
+import './pages/SignUpUI/LogIn.dart';
 import './pages/SignUpUI/SignUpUI1.dart';
 
 void main() {
@@ -19,7 +20,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    precacheImage(AssetImage("images/gym.jpg"), context);
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-      home: SignUpUI1(),
+      home: LogInUI(),
     );
   }
 }

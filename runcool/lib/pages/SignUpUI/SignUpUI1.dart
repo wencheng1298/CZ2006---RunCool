@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../widgets/InputTextField.dart';
 import '../../widgets/InputFieldTextTitles.dart';
-import './../../utils/constants.dart';
+import './../../utils/everythingUtils.dart';
 
 
 class SignUpUI1 extends StatefulWidget {
@@ -20,13 +20,7 @@ class SignUpUI1State extends State<SignUpUI1> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        centerTitle: true,
-        title: Text(
-          'Sign Up',
-          style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.center,
-        ),
+        title: Text('Sign Up'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -37,17 +31,34 @@ class SignUpUI1State extends State<SignUpUI1> {
       body: Container(
         height: MediaQuery.of(context).size.height,
         color: kBackgroundColor,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 60),
-              child: Center(
-                  child: Text(
-                'Sign Up!',
-                style: TextStyle(color: Colors.white, fontSize: 36,),
-              )),
+        child: BackgroundImage(
+          child: Container(
+            margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 30),
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 60, bottom: 60),
+                  child: Center(
+                    child: Text(
+                      'Sign Up!',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 36,
+                      ),
+                    ),
+                  ),
+                ),
+                InputTextField2(text: 'EMAIL'),
+                SizedBox(height: 20),
+                InputTextField2(text: 'PASSWORD'),
+                SizedBox(height: 20),
+                InputTextField2(text: 'PASSWORD CONFIRM'),
+                SizedBox(height: 20),
+                ButtonType1(onPress: () {}, text: 'Sign up!')
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

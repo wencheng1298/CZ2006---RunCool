@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import '../utils/constants.dart';
-import '../utils/screen.dart';
+import '../utils/everythingUtils.dart';
 import './notificationDependancies/screen.dart';
 
 class NotificationUI extends StatefulWidget {

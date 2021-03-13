@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../utils/screen.dart';
+import '../../utils/everythingUtils.dart';
 
 class FriendRequestCard extends StatelessWidget {
   final String friendNotification;
