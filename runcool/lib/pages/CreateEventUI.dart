@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'ChooseEventUI.dart';
 import 'EventPage.dart';
+import './../utils/backgroundImage.dart';
+
 class CreateEventUI extends StatefulWidget {
   @override
   CreateEventUIState createState() => CreateEventUIState();
@@ -12,7 +14,10 @@ class CreateEventUIState extends State<CreateEventUI> {
 
   void goEventPage() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => EventPage())); //find out if need to individually create or can use and add on..
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                EventPage())); //find out if need to individually create or can use and add on..
   }
 
   @override
@@ -27,39 +32,41 @@ class CreateEventUIState extends State<CreateEventUI> {
           textAlign: TextAlign.center,
         ),
       ),
-      //Need to learn how to make the page scrollable
-      body: Container(
-        color: _background,
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-              alignment: Alignment.centerLeft,
-              child: Text(
-                'Choose from past activities',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+
+      body: BackgroundImage(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Choose from past activities',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 ),
               ),
-            ),
-            Container(
-              color: Colors.black,
-              child: SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: 300,
-                child: GestureDetector( //clickable widget
-                  onTap: () => goEventPage(), //go to event page...
-                  child: const Card(
-                    child: Text('Past Event Card 2'+'\n   Click on me to try   '),
-                  ),
-                )
+              Container(
+                color: Colors.black,
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 300,
+                    child: GestureDetector(
+                      //clickable widget
+                      onTap: () => goEventPage(), //go to event page...
+                      child: const Card(
+                        child: Text(
+                            'Past Event Card 2' + '\n   Click on me to try   '),
+                      ),
+                    )),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       floatingActionButton: Padding(
