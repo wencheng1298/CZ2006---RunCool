@@ -30,19 +30,21 @@ class FriendRequestCard extends StatelessWidget {
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
           ),
-          TinyButton(
-            text: "Accept",
-            colour: kTurquoise,
-            onPress: () {
-              print('accept friend request');
-            },
-          ), // Accept
-          TinyButton(
+          ButtonBar(children: [
+            TinyButton(
+              text: "Accept",
+              colour: kTurquoise,
               onPress: () {
-                print('delete friend request');
+                print('accept event invite');
               },
-              text: 'Delete',
-              colour: Colors.white),
+            ), // Accept
+            TinyButton(
+                onPress: () {
+                  print('delete event Invite');
+                },
+                text: 'Delete',
+                colour: Colors.white),
+          ]),
         ],
       ),
     );
@@ -75,30 +77,35 @@ class EventInviteCard extends StatelessWidget {
               ),
             ],
           ),
-          Row(children: [
-            GestureDetector(
-              onTap: () {
-                print('event name in invite clicked');
-              },
-              child: Text(
-                eventNotification,
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-            TinyButton(
-              text: "Accept",
-              colour: kTurquoise,
-              onPress: () {
-                print('accept event invite');
-              },
-            ), // Accept
-            TinyButton(
-                onPress: () {
-                  print('delete event Invite');
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () {
+                  print('event name in invite clicked');
                 },
-                text: 'Delete',
-                colour: Colors.white),
-          ]),
+                child: Text(
+                  eventNotification,
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+              ButtonBar(children: [
+                TinyButton(
+                  text: "Accept",
+                  colour: kTurquoise,
+                  onPress: () {
+                    print('accept event invite');
+                  },
+                ), // Accept
+                TinyButton(
+                    onPress: () {
+                      print('delete event Invite');
+                    },
+                    text: 'Delete',
+                    colour: Colors.white),
+              ]),
+            ],
+          ),
         ]));
   }
 }
