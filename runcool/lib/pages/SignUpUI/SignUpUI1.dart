@@ -3,6 +3,7 @@ import '../../widgets/InputTextField.dart';
 import '../../widgets/InputFieldTextTitles.dart';
 import './../../utils/constants.dart';
 
+
 class SignUpUI1 extends StatefulWidget {
   @override
   SignUpUI1State createState() => SignUpUI1State();
