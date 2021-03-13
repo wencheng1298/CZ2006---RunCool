@@ -23,7 +23,7 @@ class FriendRequestCard extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              print("friend clicked");
+              print("friend somee clicked");
             },
             child: Text(
               friendNotification,
