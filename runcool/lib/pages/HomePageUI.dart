@@ -41,6 +41,7 @@ class HomePageUIState extends State<HomePageUI> {
           style: TextStyle(color: Colors.white),
           textAlign: TextAlign.center,
         ),
+        leading: Container(),
         actions: <Widget>[
            IconButton(
               icon: Icon(Icons.menu),

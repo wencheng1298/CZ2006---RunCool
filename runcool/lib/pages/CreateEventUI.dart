@@ -31,8 +31,8 @@ class CreateEventUIState extends State<CreateEventUI> {
           style: TextStyle(color: Colors.white),
           textAlign: TextAlign.center,
         ),
+        leading: Container(),
       ),
-
       body: BackgroundImage(
         child: Container(
           height: MediaQuery.of(context).size.height,

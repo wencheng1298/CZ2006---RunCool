@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class InputTextField extends StatelessWidget {
   final Color _turqoise = Color(0xff58C5CC);
-  FocusNode _focusNode;
+  final String hint;
+
+  InputTextField({this.hint});
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +28,8 @@ class InputTextField extends StatelessWidget {
               borderSide: BorderSide(color: _turqoise, width: 2),
               borderRadius: BorderRadius.circular(35),
             ),
+            hintText: hint?? "",
+            hintStyle: TextStyle(color: Colors.white),
           ),
         ),
       ),

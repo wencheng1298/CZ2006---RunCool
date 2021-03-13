@@ -48,6 +48,7 @@ class NotificationUIState extends State<NotificationUI> {
           'Notifications',
           textAlign: TextAlign.center,
         ),
+        leading: Container(),
       ),
       body: BackgroundImage(
         child: SingleChildScrollView(

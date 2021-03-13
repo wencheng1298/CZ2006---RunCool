@@ -15,7 +15,7 @@ class InputTextField2 extends StatelessWidget {
           style: TextStyle(color: Colors.white),
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.grey[800].withOpacity(0.3),
+            fillColor: Colors.grey[800].withOpacity(0.5),
             contentPadding: EdgeInsets.only(left: 14, bottom: 8, top: 8),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: kTurquoise, width: 2),
@@ -26,7 +26,7 @@ class InputTextField2 extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
             ),
             hintText: text ?? '',
-            hintStyle: TextStyle(color: Colors.grey, fontSize: 20),
+            hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
           ),
         ),
       ),

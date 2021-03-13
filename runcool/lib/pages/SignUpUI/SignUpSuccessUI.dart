@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../widgets/InputTextField.dart';
 import '../../widgets/InputFieldTextTitles.dart';
-import '../../utils/constants.dart';
-import './../../utils/buttons.dart';
-import './../../main.dart';
+import '../../utils/everythingUtils.dart';
+import './../RuncoolNavBar.dart';
 
 class SignUpSuccessUI extends StatefulWidget {
   @override
@@ -29,30 +28,42 @@ class SignUpSuccessUIState extends State<SignUpSuccessUI> {
             textAlign: TextAlign.center,
           ),
           leading: Container()),
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        color: kBackgroundColor,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 60),
-              child: Center(
+      body: BackgroundImage(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: ListView(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 100, left: 30, right: 30),
                 child: Text(
-                  'Sign Up!',
+                  'Your Profile has been created!',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 36,
+                    fontSize: 40,
                   ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  top: 30, left: 10, right: 10, bottom: 20),
-              child: TinyButton(
-                  onPress: goToNavPage, text: "Go To Home Page", colour: kTurquoise),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.only(top: 40, left: 30, right: 30),
+                child: Text(
+                  'Enjoy our services.',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 40,
+                  ),
+                ),
+              ),
+              SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.all(30),
+                child: TinyButton(
+                    onPress: goToNavPage,
+                    text: "Go To Home Page",
+                    colour: kTurquoise),
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -12,7 +12,10 @@ class TinyButton extends StatelessWidget {
     return RawMaterialButton(
       onPressed: onPress,
       fillColor: colour ?? Colors.white,
-      child: Text(text),
+      child: Text(
+        text,
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
       constraints: BoxConstraints(minWidth: 75.0, minHeight: 30.0),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     );
@@ -20,10 +23,12 @@ class TinyButton extends StatelessWidget {
 }
 
 class ButtonType1 extends StatelessWidget {
-  ButtonType1({@required this.onPress, @required this.text, this.colour});
   final Function onPress;
   final Color colour;
   final String text;
+
+  ButtonType1({@required this.onPress, @required this.text, this.colour});
+
   @override
   Widget build(BuildContext context) {
     print(colour);

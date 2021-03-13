@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../widgets/InputTextField.dart';
 import '../../widgets/InputFieldTextTitles.dart';
 import './../../utils/everythingUtils.dart';
+import './SignUpUI2.dart';
 
 
 class SignUpUI1 extends StatefulWidget {
@@ -10,10 +11,10 @@ class SignUpUI1 extends StatefulWidget {
 }
 
 class SignUpUI1State extends State<SignUpUI1> {
-  // void goNextPage() {
-  //   Navigator.push(
-  //       context, MaterialPageRoute(builder: (context) => CreateRunningUI2()));
-  // }
+  void goNextPage() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => SignUpUI2()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class SignUpUI1State extends State<SignUpUI1> {
                 SizedBox(height: 20),
                 InputTextField2(text: 'PASSWORD CONFIRM'),
                 SizedBox(height: 20),
-                ButtonType1(onPress: () {}, text: 'Sign up!')
+                ButtonType1(onPress: () => goNextPage(), text: 'Sign up!')
               ],
             ),
           ),
