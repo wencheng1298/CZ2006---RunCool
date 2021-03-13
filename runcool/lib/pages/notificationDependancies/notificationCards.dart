@@ -23,7 +23,7 @@ class FriendRequestCard extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              print("friend clicked");
+              print("friend somee clicked");
             },
             child: Text(
               friendNotification,
@@ -42,8 +42,7 @@ class FriendRequestCard extends StatelessWidget {
                 onPress: () {
                   print('delete event Invite');
                 },
-                text: 'Delete',
-                colour: Colors.white),
+                text: 'Delete'),
           ]),
         ],
       ),
