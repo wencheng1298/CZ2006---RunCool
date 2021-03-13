@@ -6,17 +6,24 @@ class BackgroundImage extends StatelessWidget {
   BackgroundImage({@required this.child});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: kBackgroundColor,
-        image: DecorationImage(
-            image: AssetImage('images/gym.jpg'),
-            fit: BoxFit.cover,
-            colorFilter: new ColorFilter.mode(
-                kBackgroundColor.withOpacity(0.2), BlendMode.dstATop)),
-      ),
-      constraints: BoxConstraints.expand(),
-      child: child,
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        Positioned.fill(
+          child: Container(
+            decoration: BoxDecoration(
+              color: kBackgroundColor,
+              image: DecorationImage(
+                  image: AssetImage('images/gym.jpg'),
+                  fit: BoxFit.fitWidth,
+                  colorFilter: new ColorFilter.mode(
+                      kBackgroundColor.withOpacity(0.2), BlendMode.dstATop)),
+            ),
+            // constraints: BoxConstraints.expand(),
+          ),
+        ),
+        child,
+      ],
     );
   }
 }
