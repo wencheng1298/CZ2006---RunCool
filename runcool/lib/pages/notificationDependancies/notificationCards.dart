@@ -42,8 +42,7 @@ class FriendRequestCard extends StatelessWidget {
                 onPress: () {
                   print('delete event Invite');
                 },
-                text: 'Delete',
-                colour: Colors.white),
+                text: 'Delete'),
           ]),
         ],
       ),
