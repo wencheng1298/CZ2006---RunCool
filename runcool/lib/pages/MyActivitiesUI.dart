@@ -21,8 +21,60 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
           textAlign: TextAlign.center,
         ),
       ),
-      body: Center(
-        child: Text('Here are the upcoming activities.'),
+      body: SingleChildScrollView( 
+        child: Container(
+          color: _background,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'UPCOMING EVENTS',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Container(
+                color: Colors.black,
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: 300,
+                  child: const Card(
+                    child: Text('Upcoming events card'),
+                  ),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'PAST EVENTS',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Container(
+                color: Colors.black,
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: 300,
+                  child: const Card(
+                    child: Text('Past events card'),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

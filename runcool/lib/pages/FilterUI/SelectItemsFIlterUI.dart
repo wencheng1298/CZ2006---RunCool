@@ -57,27 +57,33 @@ class _SelectItemsFIlterUIState extends State<SelectItemsFIlterUI> {
           style: TextStyle(color: Colors.white),
           textAlign: TextAlign.center,
         ),
-        actions: <Widget>[
+/*         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.cancel),
               onPressed: () {
                 Navigator.pop(context);
               },
               color: Colors.white54),
-        ],
+        ], */
       ),
-      body: Center(
-        //let the app be scrollable
+      body: SingleChildScrollView(
         child: Container(
-          color: Colors.black,
+          color: _background,
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-          child: ListView(
+          child: Column(
             children: [
-              SizedBox(height: 200),
-              Text(
-                "Region",
-                style: TextStyle(color: Colors.white, fontSize: 21),
+              Container(
+                padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Region',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
               ),
               SizedBox(height: 20),
               Padding(
@@ -120,10 +126,11 @@ class _SelectItemsFIlterUIState extends State<SelectItemsFIlterUI> {
                   ),
                 ),
               ),
-              SizedBox(height: 200),
+              SizedBox(height: 20),
               Text(
                 "Date",
                 style: TextStyle(color: Colors.white, fontSize: 21),
+                textAlign: TextAlign.left,
               ),
               SizedBox(height: 20),
               ElevatedButton(
@@ -135,12 +142,17 @@ class _SelectItemsFIlterUIState extends State<SelectItemsFIlterUI> {
               Column(
                 children: <Widget>[
                   Text(
-                      "Start Date: ${DateFormat('dd/MM/yyyy').format(_startDate).toString()}"),
+                    "Start Date: ${DateFormat('dd/MM/yyyy').format(_startDate).toString()}",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                   Text(
-                      "End Date: ${DateFormat('dd/MM/yyyy').format(_endDate).toString()}"),
+                    "End Date: ${DateFormat('dd/MM/yyyy').format(_endDate).toString()}",
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 ],
               ),
-              Container(
+              SizedBox(height: 20),
+              Padding(
                   padding: new EdgeInsets.all(16.0),
                   child: Column(
                     children: <Widget>[
@@ -150,19 +162,29 @@ class _SelectItemsFIlterUIState extends State<SelectItemsFIlterUI> {
                       Text("Activity",
                           style: TextStyle(color: Colors.white, fontSize: 21)),
                       CheckboxListTile(
-                        secondary: const Icon(Icons.run_circle_sharp),
-                        title: const Text('Run'),
+                        title: const Text(
+                          'Run',
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                        secondary: const Icon(Icons.run_circle_sharp,
+                            color: Colors.white),
                         value: this._valueRun,
                         onChanged: (bool value) {
                           setState(() {
                             this._valueRun = value;
                           });
                         },
+                        activeColor: Colors.white,
+                        checkColor: Colors.blue,
                       ),
                       CheckboxListTile(
                         controlAffinity: ListTileControlAffinity.trailing,
-                        secondary: const Icon(Icons.fitness_center),
-                        title: const Text('Gym'),
+                        title: const Text(
+                          'Gym',
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                        secondary: const Icon(Icons.fitness_center,
+                            color: Colors.white),
                         value: this._valueGym,
                         onChanged: (bool value) {
                           setState(() {
@@ -172,8 +194,12 @@ class _SelectItemsFIlterUIState extends State<SelectItemsFIlterUI> {
                       ),
                       CheckboxListTile(
                         controlAffinity: ListTileControlAffinity.trailing,
-                        secondary: const Icon(Icons.music_note_sharp),
-                        title: const Text('Zumba'),
+                        title: const Text(
+                          'Zumba',
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                        secondary: const Icon(Icons.music_note_sharp,
+                            color: Colors.white),
                         value: this._valueZumba,
                         onChanged: (bool value) {
                           setState(() {
@@ -183,6 +209,20 @@ class _SelectItemsFIlterUIState extends State<SelectItemsFIlterUI> {
                       ),
                     ],
                   )),
+            Container(
+                    padding: const EdgeInsets.all(20),
+                    width: 200,
+                    child: OutlinedButton(
+                      child: Text('Apply'),
+                      onPressed: () => apply(),
+                      style: TextButton.styleFrom(
+                          backgroundColor: _turqoise,
+                          primary: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          )),
+                    ),
+                  ),
             ],
           ),
         ),
