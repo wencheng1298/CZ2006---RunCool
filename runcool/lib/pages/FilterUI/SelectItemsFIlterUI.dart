@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:date_range_picker/date_range_picker.dart' as DateRagePicker;
 import 'package:intl/intl.dart';
+import 'package:runcool/pages/HomePageUI.dart';
 import 'dart:async';
 
-import './../EventPage.dart';
+import './../HomePageUI.dart';
 
 class SelectItemsFIlterUI extends StatefulWidget {
   @override
@@ -43,7 +44,7 @@ class _SelectItemsFIlterUIState extends State<SelectItemsFIlterUI> {
 
   void apply() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => EventPage()));
+        context, MaterialPageRoute(builder: (context) => HomePageUI()));
   }
 
   @override
@@ -191,6 +192,8 @@ class _SelectItemsFIlterUIState extends State<SelectItemsFIlterUI> {
                             this._valueGym = value;
                           });
                         },
+                        activeColor: Colors.white,
+                        checkColor: Colors.blue,
                       ),
                       CheckboxListTile(
                         controlAffinity: ListTileControlAffinity.trailing,
@@ -206,6 +209,8 @@ class _SelectItemsFIlterUIState extends State<SelectItemsFIlterUI> {
                             this._valueZumba = value;
                           });
                         },
+                        activeColor: Colors.white,
+                        checkColor: Colors.blue,
                       ),
                     ],
                   )),

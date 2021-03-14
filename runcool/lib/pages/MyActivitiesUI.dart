@@ -7,6 +7,23 @@ class MyActivitiesUI extends StatefulWidget {
 }
 
 class MyActivitiesUIState extends State<MyActivitiesUI> {
+    Container EventCards(String heading, String subHeading) {
+    return Container(
+      width: 300,
+      child: Card(
+        child: Wrap(
+          children: <Widget>[
+            ListTile(
+              title: Text(heading),
+              subtitle: Text(subHeading),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+  
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,8 +61,13 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: 300,
-                  child: const Card(
-                    child: Text('Upcoming events card'),
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      EventCards("Upcoming events card", "Event 1"),
+                      EventCards("Upcoming events card", "Event 2"),
+                      EventCards("Upcoming events card", "Event 3"),
+                    ],
                   ),
                 ),
               ),
@@ -66,11 +88,26 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: 300,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      EventCards("Past events card", "Event 1"),
+                      EventCards("Past events card", "Event 2"),
+                      EventCards("Past events card", "Event 3"),
+                    ],
+                  ),
+                ),
+              ),
+              /*Container(
+                color: Colors.black,
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width,
+                  height: 300,
                   child: const Card(
                     child: Text('Past events card'),
                   ),
                 ),
-              ),
+              ),*/
             ],
           ),
         ),

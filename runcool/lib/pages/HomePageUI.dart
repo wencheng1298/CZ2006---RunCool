@@ -12,10 +12,25 @@ class HomePageUIState extends State<HomePageUI> {
   Color _turqoise = Color(0xff58C5CC);
   Color _background = Color(0xff1f1b24);
 
-  void FilterItem(){
-
+  void FilterItem() {
     Navigator.push(context,
-    MaterialPageRoute(builder: (context) => SelectItemsFIlterUI()));    
+        MaterialPageRoute(builder: (context) => SelectItemsFIlterUI()));
+  }
+
+  Container EventCards(String heading, String subHeading) {
+    return Container(
+      width: 400,
+      child: Card(
+        child: Wrap(
+          children: <Widget>[
+            ListTile(
+              title: Text(heading),
+              subtitle: Text(subHeading),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
 /*   Widget popupMenuButton<String>(
@@ -43,13 +58,14 @@ class HomePageUIState extends State<HomePageUI> {
         ),
         leading: Container(),
         actions: <Widget>[
-           IconButton(
-              icon: Icon(Icons.menu),
-              onPressed: () => FilterItem(),)
-              
+          IconButton(
+            icon: Icon(Icons.menu),
+            onPressed: () => FilterItem(),
+          )
         ],
       ),
-      body: SingleChildScrollView( //let the app be scrollable
+      body: SingleChildScrollView(
+        //let the app be scrollable
         child: Container(
           color: _background,
           height: MediaQuery.of(context).size.height,
@@ -73,8 +89,13 @@ class HomePageUIState extends State<HomePageUI> {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: 300,
-                  child: const Card(
-                    child: Text('Event for you card'),
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      EventCards("Events for you", "Event 1"),
+                      EventCards("Events for you", "Event 2"),
+                      EventCards("Events for you", "Event 3"),
+                    ],
                   ),
                 ),
               ),
@@ -95,8 +116,13 @@ class HomePageUIState extends State<HomePageUI> {
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: 300,
-                  child: const Card(
-                    child: Text('Friends up to card'),
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: <Widget>[
+                      EventCards("Friends up to", "Event 1"),
+                      EventCards("Friends up to", "Event 2"),
+                      EventCards("Friends up to", "Event 3"),
+                    ],
                   ),
                 ),
               ),
