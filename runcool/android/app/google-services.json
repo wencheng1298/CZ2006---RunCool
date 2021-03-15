@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "198711776459",
+    "project_id": "runcool-7443b",
+    "storage_bucket": "runcool-7443b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:198711776459:android:0f4a91396d66e5f810f74e",
+        "android_client_info": {
+          "package_name": "com.future.runcool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "198711776459-56uf2fkliebuv40ni99jvu92mqo11774.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9fay5k7TciLmnWRIwn405Uh--SsHArhk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "198711776459-56uf2fkliebuv40ni99jvu92mqo11774.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
