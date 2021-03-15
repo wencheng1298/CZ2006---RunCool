@@ -21,7 +21,6 @@ class _RuncoolNavBarState extends State<RuncoolNavBar> {
     HomePageUI(),
     MyActivitiesUI(),
     CreateEventUI(),
-    // ChooseEventUI(),
     NotificationUI(),
     ProfileUI(),
   ];
