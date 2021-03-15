@@ -2,42 +2,40 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Authentication {
-  String email;
-  String password;
-  User loggedInUser;
+  // User loggedInUser;
   final _auth = FirebaseAuth.instance;
-
-  Authentication({this.email, this.password});
 
   Future<User> signUp(String email, String password) async {
     try {
+      _auth.signOut();
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
-      return getCurrUser();
     } catch (e) {
       print(e);
     }
+    return getCurrUser();
   }
 
   Future<User> logIn(String email, String password) async {
     try {
+      _auth.signOut();
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      return getCurrUser();
     } catch (e) {
       print(e);
     }
+    return getCurrUser();
   }
 
   User getCurrUser() {
     try {
-      final user = _auth.currentUser;
-      if (user != null) {
-        loggedInUser = user;
-        return loggedInUser;
-      }
+      return _auth.currentUser;
     } catch (e) {
       print(e);
     }
-    // return loggedInUser;
+    return null;
+  }
+
+  void logOut() {
+    _auth.signOut();
   }
 }
