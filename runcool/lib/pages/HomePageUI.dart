@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runcool/pages/FilterUI/SelectItemsFIlterUI.dart';
+import '../firebase/authentication.dart';
 
 import './../widgets/navigationBar.dart';
 
@@ -11,6 +12,13 @@ class HomePageUI extends StatefulWidget {
 class HomePageUIState extends State<HomePageUI> {
   Color _turqoise = Color(0xff58C5CC);
   Color _background = Color(0xff1f1b24);
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    print(Authentication().getCurrUser().email);
+  }
 
   void FilterItem() {
     Navigator.push(context,

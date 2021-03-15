@@ -4,17 +4,23 @@ import '../../utils/constants.dart';
 import './../../utils/backgroundImage.dart';
 import './../../utils/buttons.dart';
 import './SignUpSuccessUI.dart';
-
+import '../../firebase/authentication.dart';
 
 class SignUpUI2 extends StatefulWidget {
+  final Map<String, String> credentials;
+  SignUpUI2({this.credentials});
   @override
   SignUpUI2State createState() => SignUpUI2State();
 }
 
 class SignUpUI2State extends State<SignUpUI2> {
-  void goNextPage() {
+  void signUpAndGoNextPage() async {
+    // final user = await Authentication()
+    //     .signUp(widget.credentials['email'], widget.credentials['password']);
+    // if (user != null) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => SignUpSuccessUI()));
+    // }
   }
 
   @override
@@ -132,12 +138,19 @@ class SignUpUI2State extends State<SignUpUI2> {
                 child: CircleAvatar(
                   radius: 55,
                   backgroundColor: Colors.grey[800],
-                  child: Icon(Icons.camera_enhance_rounded, size: 35,),
+                  child: Icon(
+                    Icons.camera_enhance_rounded,
+                    size: 35,
+                  ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top:30, left:10, right: 10, bottom: 20),
-                child: TinyButton(onPress: goNextPage, text: "Create", colour: kTurquoise),
+                padding: const EdgeInsets.only(
+                    top: 30, left: 10, right: 10, bottom: 20),
+                child: TinyButton(
+                    onPress: signUpAndGoNextPage,
+                    text: "Create",
+                    colour: kTurquoise),
               ),
             ],
           ),
