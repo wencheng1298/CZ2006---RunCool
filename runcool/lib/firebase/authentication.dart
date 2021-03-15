@@ -7,7 +7,6 @@ class Authentication {
 
   Future<User> signUp(String email, String password) async {
     try {
-      _auth.signOut();
       await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
     } catch (e) {
@@ -18,7 +17,6 @@ class Authentication {
 
   Future<User> logIn(String email, String password) async {
     try {
-      _auth.signOut();
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } catch (e) {
       print(e);
@@ -27,11 +25,11 @@ class Authentication {
   }
 
   User getCurrUser() {
-    try {
-      return _auth.currentUser;
-    } catch (e) {
-      print(e);
-    }
+    // try {
+    //   return _auth.currentUser;
+    // } catch (e) {
+    //   print(e);
+    // }
     return null;
   }
 

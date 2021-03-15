@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:runcool/firebase/authentication.dart';
+import 'package:runcool/pages/RuncoolNavBar.dart';
 import 'package:runcool/pages/SignUpUI/LogIn.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 //Required for routing to different UIs
 import './pages/HomePageUI.dart';
@@ -36,7 +39,8 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-      home: LogInUI(),
+      home:
+          Authentication().getCurrUser() == null ? LogInUI() : RuncoolNavBar(),
     );
   }
 }

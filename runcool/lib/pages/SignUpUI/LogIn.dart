@@ -44,13 +44,13 @@ class _LogInUIState extends State<LogInUI> {
               SizedBox(height: 20),
               ButtonType1(
                   onPress: () async {
-                    final user = await Authentication().logIn(email, password);
-                    if (user != null) {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RuncoolNavBar()));
-                    }
+                    // final user = await Authentication().logIn(email, password);
+                    // if (user != null) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RuncoolNavBar()));
+                    // }
                   },
                   text: 'Login'),
               Container(
