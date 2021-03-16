@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../widgets/InputTextField.dart';
-import '../../widgets/InputFieldTextTitles.dart';
+import '../../utils/InputTextField.dart';
+import '../../utils/InputFieldTextTitles.dart';
 import './../../utils/everythingUtils.dart';
 import './SignUpUI2.dart';
 
@@ -63,7 +63,7 @@ class SignUpUI1State extends State<SignUpUI1> {
                   onChange: (value) => credentials['password'] = value,
                 ),
                 SizedBox(height: 20),
-                InputTextField2(text: 'PASSWORD CONFIRM'),
+                InputTextField1(text: 'PASSWORD CONFIRM'),
                 SizedBox(height: 20),
                 ButtonType1(onPress: () => goNextPage(), text: 'Sign up!')
               ],

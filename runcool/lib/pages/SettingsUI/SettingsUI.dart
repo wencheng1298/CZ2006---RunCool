@@ -4,7 +4,7 @@ import 'package:runcool/utils/textInputs.dart';
 import 'package:runcool/utils/buttons.dart';
 import '../../utils/backgroundImage.dart';
 import '../../utils/buttons.dart';
-import '../../widgets/InputTextField.dart';
+import '../../utils/InputTextField.dart';
 import '../SignUpUI/LogIn.dart';
 import '../SignUpUI/LogIn.dart';
 import '../SignUpUI/LogIn.dart';
@@ -39,11 +39,11 @@ class _SettingsUIState extends State<SettingsUI> {
             //mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(height: 60),
-              InputTextField2(text: 'Current password'),
+              InputTextField1(text: 'Current password'),
               SizedBox(height: 10),
-              InputTextField2(text: 'New password'),
+              InputTextField1(text: 'New password'),
               SizedBox(height: 10),
-              InputTextField2(text: 'New password re-confirm'),
+              InputTextField1(text: 'New password re-confirm'),
               SizedBox(height: 30),
               ButtonType1(onPress: () => LogIn(), text: 'Update password'),
               SizedBox(height: 70),
