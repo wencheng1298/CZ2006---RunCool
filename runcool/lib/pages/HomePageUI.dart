@@ -17,7 +17,7 @@ class HomePageUIState extends State<HomePageUI> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print(Authentication().getCurrUser().email);
+    // print(Authentication().getCurrUser().email);
   }
 
   void FilterItem() {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './../utils/everythingUtils.dart';
+import './SettingsUI/SettingsUI.dart';
 
 class ProfileUI extends StatefulWidget {
   @override
@@ -8,11 +9,19 @@ class ProfileUI extends StatefulWidget {
 
 class ProfileUIState extends State<ProfileUI> {
   double fontMainSize = 15;
+  void Settings() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => SettingsUI()));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.settings),
+          onPressed: () => Settings(),
+        ),
         backgroundColor: Colors.black,
         centerTitle: true,
         title: Text(
@@ -20,7 +29,7 @@ class ProfileUIState extends State<ProfileUI> {
           style: TextStyle(color: Colors.white),
           textAlign: TextAlign.center,
         ),
-        leading: Container(),
+        //leading: Container(),
       ),
       body: BackgroundImage(
         child: ListView(
@@ -257,7 +266,6 @@ class ProfileUIState extends State<ProfileUI> {
                   Icon(Icons.account_circle, size: 70, color: kTurquoise),
                   Icon(Icons.account_circle, size: 70, color: kTurquoise),
                   Icon(Icons.account_circle, size: 70, color: kTurquoise),
-
                 ],
               ),
             ),
