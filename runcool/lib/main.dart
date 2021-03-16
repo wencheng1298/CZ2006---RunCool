@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:runcool/firebase/authentication.dart';
+import 'package:runcool/pages/RuncoolNavBar.dart';
 import 'package:runcool/pages/SignUpUI/LogIn.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 //Required for routing to different UIs
 import './pages/HomePageUI.dart';
@@ -11,7 +15,13 @@ import './pages/ProfileUI.dart';
 import './pages/SignUpUI/LogIn.dart';
 import './pages/SignUpUI/SignUpUI1.dart';
 
-void main() {
+// void main() {
+//   runApp(MyApp());
+// }
+void main() async {
+  // https://stackoverflow.com/a/63492262
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -29,8 +39,8 @@ class MyApp extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-      home: LogInUI(),
+      home:
+          Authentication().getCurrUser() == null ? LogInUI() : RuncoolNavBar(),
     );
   }
 }
-

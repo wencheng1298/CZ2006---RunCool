@@ -4,7 +4,6 @@ import '../../widgets/InputFieldTextTitles.dart';
 import './../../utils/everythingUtils.dart';
 import './SignUpUI2.dart';
 
-
 class SignUpUI1 extends StatefulWidget {
   @override
   SignUpUI1State createState() => SignUpUI1State();
@@ -13,8 +12,12 @@ class SignUpUI1 extends StatefulWidget {
 class SignUpUI1State extends State<SignUpUI1> {
   void goNextPage() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => SignUpUI2()));
+        context,
+        MaterialPageRoute(
+            builder: (context) => SignUpUI2(credentials: credentials)));
   }
+
+  Map<String, String> credentials = {"email": "", "password": ''};
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +53,15 @@ class SignUpUI1State extends State<SignUpUI1> {
                     ),
                   ),
                 ),
-                InputTextField2(text: 'EMAIL'),
+                InputTextField1(
+                  text: 'EMAIL',
+                  onChange: (value) => credentials['email'] = value,
+                ),
                 SizedBox(height: 20),
-                InputTextField2(text: 'PASSWORD'),
+                InputTextField1(
+                  text: 'PASSWORD',
+                  onChange: (value) => credentials['password'] = value,
+                ),
                 SizedBox(height: 20),
                 InputTextField2(text: 'PASSWORD CONFIRM'),
                 SizedBox(height: 20),

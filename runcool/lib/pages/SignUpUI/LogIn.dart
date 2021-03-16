@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:runcool/utils/everythingUtils.dart';
 import 'SignUpUI1.dart';
 import 'package:runcool/pages/SettingUI/SettingsUI.dart';
+import '../../firebase/authentication.dart';
+import '../RuncoolNavBar.dart';
 
 const textStyle = TextStyle(color: Colors.white, fontSize: 15);
 
@@ -11,6 +13,8 @@ class LogInUI extends StatefulWidget {
 }
 
 class _LogInUIState extends State<LogInUI> {
+  String email;
+  String password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,11 +29,31 @@ class _LogInUIState extends State<LogInUI> {
                 image: AssetImage('images/logo.png'),
                 height: 300,
               ),
-              InputTextField2(text: 'EMAIL'),
+              InputTextField1(
+                text: 'EMAIL',
+                onChange: (value) {
+                  email = value;
+                },
+              ),
               SizedBox(height: 20),
-              InputTextField2(text: 'PASSWORD'),
+              InputTextField1(
+                text: 'PASSWORD',
+                onChange: (value) {
+                  password = value;
+                },
+              ),
               SizedBox(height: 20),
-              ButtonType1(onPress: () {}, text: 'Login'),
+              ButtonType1(
+                  onPress: () async {
+                    // final user = await Authentication().logIn(email, password);
+                    // if (user != null) {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RuncoolNavBar()));
+                    // }
+                  },
+                  text: 'Login'),
               Container(
                 margin: EdgeInsets.only(top: 10, bottom: 5),
                 child: Row(
