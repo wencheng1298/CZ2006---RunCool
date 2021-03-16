@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import './../utils/everythingUtils.dart';
+<<<<<<< HEAD
 import './SettingsUI/SettingsUI.dart';
+
 
 class ProfileUI extends StatefulWidget {
   @override
