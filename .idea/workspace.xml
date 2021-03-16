@@ -27,6 +27,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExportToHTMLSettings">
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../3\exportToHTML" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -78,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615812237542</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added settings UI">
+      <created>1615899821961</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615899821961</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -135,15 +145,28 @@
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.right/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
     <state width="841" height="101" key="GridCell.Tab.0.right/0.0.912.568@0.0.912.568" timestamp="1615393853483" />
+    <state x="0" y="104" key="MergeDialog" timestamp="1615900110451">
+      <screen x="0" y="0" width="1094" height="690" />
+    </state>
+    <state x="0" y="104" key="MergeDialog/0.0.1094.690@0.0.1094.690" timestamp="1615900110451" />
+    <state x="210" y="215" key="MultipleFileMergeDialog" timestamp="1615900110491">
+      <screen x="0" y="0" width="1094" height="690" />
+    </state>
+    <state x="210" y="215" key="MultipleFileMergeDialog/0.0.1094.690@0.0.1094.690" timestamp="1615900110491" />
     <state x="0" y="0" key="SettingsEditor" timestamp="1615797736072">
       <screen x="0" y="0" width="1094" height="690" />
     </state>
     <state x="0" y="0" key="SettingsEditor/0.0.1094.690@0.0.1094.690" timestamp="1615797736072" />
     <state x="277" y="85" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1615217877873" />
     <state x="0" y="0" key="SettingsEditor/0.0.912.568@0.0.912.568" timestamp="1615391298134" />
-    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615218039663">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="-7" y="52" key="Vcs.Push.Dialog.v2" timestamp="1615899868818">
+      <screen x="0" y="0" width="1094" height="690" />
     </state>
+    <state x="-7" y="52" key="Vcs.Push.Dialog.v2/0.0.1094.690@0.0.1094.690" timestamp="1615899868818" />
+    <state x="412" y="296" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1615899967894">
+      <screen x="0" y="0" width="1094" height="690" />
+    </state>
+    <state x="412" y="296" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1094.690@0.0.1094.690" timestamp="1615899967894" />
     <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1615218039663" />
     <state x="117" y="-1" width="672" height="678" key="search.everywhere.popup" timestamp="1615389681639">
       <screen x="0" y="0" width="912" height="568" />
