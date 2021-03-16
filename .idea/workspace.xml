@@ -19,14 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/runcool/lib/pages/SettingUI/SettingsUI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+    <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="Added settings UI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/ProfileUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/ProfileUI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/LogIn.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/LogIn.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/pubspec.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +45,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../linkedin_lesson" />
     <property name="project.structure.last.edited" value="Project" />
@@ -76,6 +71,14 @@
       <option name="presentableId" value="Default" />
       <updated>1615217520236</updated>
     </task>
+    <task id="LOCAL-00001" summary="Added settings UI">
+      <created>1615812237542</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1615812237542</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -89,6 +92,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added settings UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added settings UI" />
   </component>
   <component name="WindowStateProjectService">
     <state x="0" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615391820273">
