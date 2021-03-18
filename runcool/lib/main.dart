@@ -8,8 +8,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 //Required for routing to different UIs
 import './pages/HomePageUI.dart';
 import './pages/MyActivitiesUI.dart';
-import './pages/CreateEventUI.dart';
-import './pages/ChooseEventUI.dart'; //Temporary
+import 'pages/Events/CreateEventUI.dart';
+import 'pages/Events/ChooseEventUI.dart'; //Temporary
 import './pages/NotificationUI.dart';
 import './pages/ProfileUI.dart';
 import './pages/SignUpUI/LogIn.dart';

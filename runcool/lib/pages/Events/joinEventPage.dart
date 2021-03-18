@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/EventTextTitle.dart';
-import '../widgets/EventTextDetails.dart';
+import '../../utils/EventTextTitle.dart';
+import '../../utils/EventTextDetails.dart';
 
 class joinEventPage extends StatefulWidget {
   @override

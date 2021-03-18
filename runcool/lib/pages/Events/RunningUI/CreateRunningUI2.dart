@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import './../../widgets/InputTextField.dart';
-import './../../widgets/InputFieldTextTitles.dart';
-import './../../widgets//GoogleMapPlacement.dart';
 import './../EventCreatedSuccessUI.dart';
-import './../../widgets/DatePickerWidget.dart';
-import './../../widgets/TimePickerWidget.dart';
 
+import './../../../utils/everythingUtils.dart';
 enum EventPrivy { public, friends_only }
 
 class CreateRunningUI2 extends StatefulWidget {

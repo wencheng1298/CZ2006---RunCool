@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import './../../widgets/InputTextField.dart';
-import './../../widgets/InputFieldTextTitles.dart';
 import './CreateRunningUI2.dart';
-import './../../widgets/GoogleMapPlacement.dart';
+import './../../../utils/everythingUtils.dart';
+
 
 class CreateRunningUI1 extends StatefulWidget {
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './EventPage.dart';
+import 'EventPage.dart';
 
 class EventCreatedSuccessUI extends StatefulWidget {
   @override

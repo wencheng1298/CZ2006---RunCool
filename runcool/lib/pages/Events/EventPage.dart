@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:runcool/widgets/GoogleMapPlacement.dart';
-import '../widgets/EventTextTitle.dart';
-import '../widgets/EventTextDetails.dart';
+import 'package:runcool/utils/GoogleMapPlacement.dart';
+import '../../utils/EventTextTitle.dart';
+import '../../utils/EventTextDetails.dart';
 import 'joinEventPage.dart';
 
 class EventPage extends StatefulWidget {

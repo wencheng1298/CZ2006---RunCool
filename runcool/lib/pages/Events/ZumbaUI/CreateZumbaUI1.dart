@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:runcool/widgets/GoogleMapPlacement.dart';
-import './../../widgets/InputTextField.dart';
-import './../../widgets/InputFieldTextTitles.dart';
+import 'package:runcool/utils/GoogleMapPlacement.dart';
+import './../../../utils/everythingUtils.dart';
 
 import './../RunningUI/CreateRunningUI2.dart'; // find out if it is possible to use the same page, but change a bit/add on
 

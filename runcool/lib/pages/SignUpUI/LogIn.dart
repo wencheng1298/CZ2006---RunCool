@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runcool/utils/everythingUtils.dart';
 import 'SignUpUI1.dart';
-import 'package:runcool/pages/SettingUI/SettingsUI.dart';
+import './../SettingsUI/SettingsUI.dart';
 import '../../firebase/authentication.dart';
 import '../RuncoolNavBar.dart';
 

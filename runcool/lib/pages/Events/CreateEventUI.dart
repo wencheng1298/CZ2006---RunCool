@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'ChooseEventUI.dart';
 import 'EventPage.dart';
-import './../utils/backgroundImage.dart';
+import '../../utils/backgroundImage.dart';
 
 class CreateEventUI extends StatefulWidget {
   @override

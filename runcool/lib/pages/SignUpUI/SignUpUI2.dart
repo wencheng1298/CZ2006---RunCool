@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../widgets/InputTextField.dart';
+import '../../utils/InputTextField.dart';
 import '../../utils/constants.dart';
 import './../../utils/backgroundImage.dart';
 import './../../utils/buttons.dart';

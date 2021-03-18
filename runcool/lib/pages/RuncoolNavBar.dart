@@ -3,7 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 import 'HomePageUI.dart';
 import 'MyActivitiesUI.dart';
-import 'CreateEventUI.dart';
+import 'Events/CreateEventUI.dart';
 import 'NotificationUI.dart';
 import 'ProfileUI.dart';
 
