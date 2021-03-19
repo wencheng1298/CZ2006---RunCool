@@ -40,9 +40,9 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
   @override
   Widget build(BuildContext context) {
     return TinyButton(
-      onPress: () => {
-        selectDate(context),
-        widget.updateDate(date)
+      onPress: () async => {
+        await selectDate(context),
+        widget.updateDate(date.year, date.month, date.day)
         },
       text: getText(),
       colour: kTurquoise,

@@ -18,12 +18,12 @@ class CreateRunningUI2 extends StatefulWidget {
 
 class _CreateRunningUI2State extends State<CreateRunningUI2>
     with SingleTickerProviderStateMixin {
-  EventPrivy openToPublic;
+  EventPrivy openTo;
 
   Map eventDetails;
   _CreateRunningUI2State(this.eventDetails);
 
-  List<String> difficultyLevels = ['easy', 'medium', 'hard'];
+  List<String> difficultyLevels = ['Easy', 'Medium', 'Hard'];
 
   void createEvent() {
     Navigator.push(context,
@@ -76,8 +76,14 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0, right: 8),
                       child: DatePickerWidget(
-                        updateDate: (val) {
-                          eventDetails['Date'] = val;
+                        updateDate: (year, month, day) {
+                          int hour = 0, minute = 0;
+                          if (eventDetails.containsKey('Date')) {
+                            hour = eventDetails['Date'].hour;
+                            minute = eventDetails['Date'].minute;
+                          }
+                          eventDetails['Date'] =
+                              new DateTime(year, month, day, hour, minute);
                         },
                       ),
                     ),
@@ -87,7 +93,18 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0, right: 8),
-                      child: TimePickerWidget(),
+                      child: TimePickerWidget(
+                        updateTime: (hour, minute) {
+                          int year = 0, month = 0, day = 0;
+                          if (eventDetails.containsKey('Date')) {
+                            year = eventDetails['Date'].year;
+                            month = eventDetails['Date'].month;
+                            day = eventDetails['Date'].day;
+                          }
+                          eventDetails['Date'] =
+                              new DateTime(year, month, day, hour, minute);
+                        },
+                      ),
                     ),
                     Align(
                       alignment: Alignment.topLeft,
@@ -184,11 +201,12 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                             ),
                             leading: Radio(
                               value: EventPrivy.public,
-                              groupValue: openToPublic,
+                              groupValue: openTo,
                               activeColor: kTurquoise,
                               onChanged: (EventPrivy value) {
+                                eventDetails['openToPublic'] = true;
                                 setState(() {
-                                  openToPublic = value;
+                                  openTo = value;
                                 });
                               },
                             ),
@@ -200,11 +218,12 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                             ),
                             leading: Radio(
                               value: EventPrivy.friends_only,
-                              groupValue: openToPublic,
+                              groupValue: openTo,
                               activeColor: kTurquoise,
                               onChanged: (EventPrivy value) {
+                                eventDetails['openToPublic'] = false;
                                 setState(() {
-                                  openToPublic = value;
+                                  openTo = value;
                                 });
                               },
                             ),
@@ -219,7 +238,6 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                     DescriptionTextField(
                       onChange: (val) {
                         eventDetails['description'] = val;
-                        print(eventDetails['description']);
                       },
                     ),
                     Container(

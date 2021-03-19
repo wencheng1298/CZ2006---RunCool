@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import './../utils/everythingUtils.dart';
 
 class TimePickerWidget extends StatefulWidget {
+  final Function updateTime;
+  
+  TimePickerWidget({@required this.updateTime});
+
   @override
   _TimePickerWidgetState createState() => _TimePickerWidgetState();
 }
@@ -33,27 +37,12 @@ class _TimePickerWidgetState extends State<TimePickerWidget> {
   @override
   Widget build(BuildContext context) {
     return TinyButton(
-      onPress: () => selectTime(context),
+      onPress: () async => {
+        await selectTime(context),
+        widget.updateTime(time.hour, time.minute),
+      },
       text: getText(),
       colour: kTurquoise,
     );
-
-    //     OutlinedButton(
-    //   style: TextButton.styleFrom(
-    //     minimumSize: Size.fromHeight(35),
-    //     backgroundColor: Colors.white70,
-    //     primary: _turqoise,
-    //     shape: RoundedRectangleBorder(
-    //       borderRadius: BorderRadius.circular(15),
-    //     ),
-    //   ),
-    //   child: FittedBox(
-    //     child: Text(
-    //       getText(),
-    //       style: TextStyle(fontSize: 20, color: Colors.black),
-    //     ),
-    //   ),
-    //   onPressed: () => selectTime(context),
-    // );
   }
 }
