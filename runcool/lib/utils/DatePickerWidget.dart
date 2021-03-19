@@ -16,7 +16,10 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
     if (date == null) {
       return "Select Date";
     } else {
-      return '${date.day}/${date.month}/${date.year}';
+      final day = date.day.toString();
+      final month = date.month.toString();
+      final year = date.year.toString();
+      return '$day/$month/$year';
     }
   }
 

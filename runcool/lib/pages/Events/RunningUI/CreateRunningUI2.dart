@@ -1,10 +1,9 @@
-import 'dart:ffi';
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import './../EventCreatedSuccessUI.dart';
 
 import './../../../utils/everythingUtils.dart';
+import './../../../firebase/CreateEventManager.dart';
 
 enum EventPrivy { public, friends_only }
 
@@ -245,7 +244,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                       width: 80,
                       child: TinyButton(
                         onPress: () => {
-                          print(eventDetails),
+                          CreateEventManager().updateEvent(eventDetails),
                         }, //createEvent,
                         text: "Create",
                         colour: kTurquoise,
