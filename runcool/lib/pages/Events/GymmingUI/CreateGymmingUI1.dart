@@ -46,7 +46,7 @@ class _CreateGymmingUI1State extends State<CreateGymmingUI1> {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 8, right: 8),
-                  child: InputTextField(),
+                  child: InputTextField1(height: 35),
                 ),
                 Align(
                   alignment: Alignment.topLeft,

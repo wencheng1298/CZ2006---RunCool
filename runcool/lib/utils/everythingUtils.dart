@@ -7,5 +7,4 @@ export 'EventTextDetails.dart';
 export 'EventTextTitle.dart';
 export 'GoogleMapPlacement.dart';
 export 'InputFieldTextTitles.dart';
-export 'InputTextField.dart';
 export 'TimePickerWidget.dart';

@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runcool/pages/ProfileUI.dart';
-import 'package:runcool/utils/textInputs.dart';
-import 'package:runcool/utils/buttons.dart';
-import '../../utils/backgroundImage.dart';
-import '../../utils/buttons.dart';
-import '../../utils/InputTextField.dart';
-import '../SignUpUI/LogIn.dart';
-import '../SignUpUI/LogIn.dart';
+import './../../utils/everythingUtils.dart';
 import '../SignUpUI/LogIn.dart';
 
 class SettingsUI extends StatefulWidget {

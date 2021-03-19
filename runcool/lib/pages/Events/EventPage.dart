@@ -3,6 +3,7 @@ import 'package:runcool/utils/GoogleMapPlacement.dart';
 import '../../utils/EventTextTitle.dart';
 import '../../utils/EventTextDetails.dart';
 import 'joinEventPage.dart';
+import './../RuncoolNavBar.dart';
 
 class EventPage extends StatefulWidget {
   @override
@@ -21,6 +22,14 @@ class _EventPageState extends State<EventPage> {
                 joinEventPage())); //find out if need to individually create or can use and add on..
   }
 
+  void goHomePage() {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                RuncoolNavBar())); //find out if need to individually create or can use and add on..
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,6 +41,10 @@ class _EventPageState extends State<EventPage> {
             'Event Name', //need to make this dynamic
             style: TextStyle(color: Colors.white),
             textAlign: TextAlign.center,
+          ),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: goHomePage,
           ),
         ),
         body: Container(

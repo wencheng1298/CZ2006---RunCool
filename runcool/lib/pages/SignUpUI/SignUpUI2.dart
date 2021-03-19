@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import '../../utils/InputTextField.dart';
-import '../../utils/constants.dart';
-import './../../utils/backgroundImage.dart';
-import './../../utils/buttons.dart';
 import './SignUpSuccessUI.dart';
+import './../../utils/everythingUtils.dart';
 import '../../firebase/authentication.dart';
 
 class SignUpUI2 extends StatefulWidget {
@@ -75,34 +72,34 @@ class SignUpUI2State extends State<SignUpUI2> {
               SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: InputTextField(hint: "Name"),
+                child: InputTextField1(text: "Name", height: 35),
               ),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: InputTextField(hint: "Age"),
+                child: InputTextField1(text: "Age", height: 35),
               ),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: InputTextField(hint: "Gender"),
+                child: InputTextField1(text: "Gender", height: 35),
               ),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: InputTextField(hint: "Hobbies"),
+                child: InputTextField1(text: "Hobbies", height: 35),
               ),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: InputTextField(hint: "Region"),
+                child: InputTextField1(text: "Region", height: 35),
               ),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: InputTextField(hint: "Occupation"),
+                child: InputTextField1(text: "Occupation", height: 35),
               ),
               Padding(
                 padding: const EdgeInsets.all(10),
-                child: InputTextField(hint: "Instagram Handle"),
+                child: InputTextField1(text: "Instagram Handle", height: 35),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 10, left: 8, right: 8),
+                padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
                 child: TextField(
                   autofocus: false,
                   keyboardType: TextInputType.multiline,
@@ -111,7 +108,7 @@ class SignUpUI2State extends State<SignUpUI2> {
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.grey[800],
+                    fillColor: Colors.grey[800].withOpacity(0.5),
                     contentPadding:
                         EdgeInsets.only(left: 14, bottom: 8, top: 8),
                     focusedBorder: OutlineInputBorder(
@@ -123,7 +120,7 @@ class SignUpUI2State extends State<SignUpUI2> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     hintText: "Bio",
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
                   ),
                 ),
               ),
