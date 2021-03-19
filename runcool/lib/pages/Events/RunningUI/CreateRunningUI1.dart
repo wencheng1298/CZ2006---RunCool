@@ -3,14 +3,18 @@ import './CreateRunningUI2.dart';
 import './../../../utils/everythingUtils.dart';
 
 class CreateRunningUI1 extends StatefulWidget {
+
   @override
   _CreateRunningUI1State createState() => _CreateRunningUI1State();
 }
 
 class _CreateRunningUI1State extends State<CreateRunningUI1> {
-  void goNextPage() {
+
+  Map eventDetails = {"eventType": "Running"};
+
+  void goNextPage(details) {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => CreateRunningUI2()));
+        context, MaterialPageRoute(builder: (context) => CreateRunningUI2(eventDetails: details)));
   }
 
   @override
@@ -85,7 +89,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                       alignment: Alignment.bottomRight,
                       child: OutlinedButton(
                         child: Text('Next'),
-                        onPressed: () => goNextPage(),
+                        onPressed: () => goNextPage(eventDetails),
                         style: TextButton.styleFrom(
                             backgroundColor: Colors.white,
                             primary: Colors.black,

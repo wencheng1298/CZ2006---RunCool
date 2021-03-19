@@ -9,18 +9,19 @@ import './../../../utils/everythingUtils.dart';
 enum EventPrivy { public, friends_only }
 
 class CreateRunningUI2 extends StatefulWidget {
+  final Map eventDetails;
+  CreateRunningUI2({this.eventDetails});
+
   @override
-  _CreateRunningUI2State createState() => _CreateRunningUI2State();
+  _CreateRunningUI2State createState() => _CreateRunningUI2State(eventDetails);
 }
 
 class _CreateRunningUI2State extends State<CreateRunningUI2>
     with SingleTickerProviderStateMixin {
   EventPrivy openToPublic;
-  var name;
-  var pace;
-  var noOfParticipants;
-  var difficulty;
-  var description;
+
+  Map eventDetails;
+  _CreateRunningUI2State(this.eventDetails);
 
   List<String> difficultyLevels = ['easy', 'medium', 'hard'];
 
@@ -64,7 +65,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                       child: InputTextField1(
                         height: 35,
                         onChange: (val) {
-                          name = val;
+                          eventDetails['name'] = val;
                         },
                       ),
                     ),
@@ -74,7 +75,11 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0, right: 8),
-                      child: DatePickerWidget(),
+                      child: DatePickerWidget(
+                        updateDate: (val) {
+                          eventDetails['Date'] = val;
+                        },
+                      ),
                     ),
                     Align(
                       alignment: Alignment.topLeft,
@@ -94,7 +99,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                       child: NumberTextField(
                         height: 35,
                         onChange: (val) {
-                          pace = double.parse(val);
+                          eventDetails['pace'] = double.parse(val);
                         },
                       ),
                     ),
@@ -108,7 +113,14 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                       child: NumberTextField(
                         height: 35,
                         onChange: (val) {
-                          noOfParticipants = double.parse(val);
+                          try {
+                            val = double.parse(val);
+                            eventDetails['noOfParticipants'] =
+                                double.parse(val);
+                          } catch (error) {
+                            // Need find out how to catch and show error
+                            eventDetails['noOfParticipants'] = 0;
+                          }
                         },
                       ),
                     ),
@@ -137,14 +149,14 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                             color: Colors.white,
                             fontSize: 17,
                           ),
-                          value: difficulty,
+                          value: eventDetails['difficulty'],
                           hint: Text(
                             '--None--',
                             style: TextStyle(color: Colors.white),
                           ),
                           onChanged: (newChoice) {
                             setState(() {
-                              difficulty = newChoice;
+                              eventDetails['difficulty'] = newChoice;
                             });
                           },
                           items: difficultyLevels.map((choice) {
@@ -206,15 +218,17 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                     ),
                     DescriptionTextField(
                       onChange: (val) {
-                        description = val;
-                        print(description);
+                        eventDetails['description'] = val;
+                        print(eventDetails['description']);
                       },
                     ),
                     Container(
                       padding: const EdgeInsets.all(20),
                       width: 80,
                       child: TinyButton(
-                        onPress: createEvent,
+                        onPress: () => {
+                          print(eventDetails),
+                        }, //createEvent,
                         text: "Create",
                         colour: kTurquoise,
                       ),
