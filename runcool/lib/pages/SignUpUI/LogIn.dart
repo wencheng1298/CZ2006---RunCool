@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:runcool/utils/everythingUtils.dart';
 import 'SignUpUI1.dart';
 import './../SettingsUI/SettingsUI.dart';
-import '../../firebase/authentication.dart';
+import '../../firebase/authenticationManager.dart';
 import '../RuncoolNavBar.dart';
 
 const textStyle = TextStyle(color: Colors.white, fontSize: 15);

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runcool/pages/FilterUI/SelectItemsFIlterUI.dart';
-import '../firebase/authentication.dart';
-
+import '../firebase/authenticationManager.dart';
 
 class HomePageUI extends StatefulWidget {
   @override

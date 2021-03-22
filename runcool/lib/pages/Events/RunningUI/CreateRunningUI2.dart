@@ -1,9 +1,8 @@
-
 import 'package:flutter/material.dart';
 import './../EventCreatedSuccessUI.dart';
 
 import './../../../utils/everythingUtils.dart';
-import './../../../firebase/CreateEventManager.dart';
+import '../../../firebase/EventManagers/CreateEventManager.dart';
 
 enum EventPrivy { public, friends_only }
 

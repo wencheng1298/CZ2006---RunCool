@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // import '../utils/constants.dart';
 import '../utils/everythingUtils.dart';
 import './notificationDependancies/screen.dart';
+import '../firebase/ProfileManager.dart';
 
 class NotificationUI extends StatefulWidget {
   @override
@@ -38,6 +39,7 @@ class NotificationUIState extends State<NotificationUI> {
   void initState() {
     _fillLists();
     super.initState();
+    ProfileManager().getUser();
   }
 
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './SignUpSuccessUI.dart';
 import './../../utils/everythingUtils.dart';
-import '../../firebase/authentication.dart';
+import '../../firebase/authenticationManager.dart';
 
 class SignUpUI2 extends StatefulWidget {
   final Map<String, String> credentials;
