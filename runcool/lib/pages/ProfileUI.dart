@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './../utils/everythingUtils.dart';
 import './SettingsUI/SettingsUI.dart';
-
+import './SettingsUI/EditProfileUI.dart';
 
 class ProfileUI extends StatefulWidget {
   @override
@@ -15,23 +15,35 @@ class ProfileUIState extends State<ProfileUI> {
         context, MaterialPageRoute(builder: (context) => SettingsUI()));
   }
 
+  void Edit() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => EditProfileUI()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.settings),
-          onPressed: () => Settings(),
-        ),
-        backgroundColor: Colors.black,
-        centerTitle: true,
-        title: Text(
-          'Profile',
-          style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.center,
-        ),
-        //leading: Container(),
-      ),
+          leading: IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () => Settings(),
+          ),
+          backgroundColor: Colors.black,
+          centerTitle: true,
+          title: Text(
+            'Profile',
+            style: TextStyle(color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+          actions: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child:
+                  IconButton(icon: Icon(Icons.edit), onPressed: () => Edit()),
+            ),
+
+            //leading: Container(),
+          ]),
       body: BackgroundImage(
         child: ListView(
           children: [
