@@ -9,6 +9,7 @@ class EditProfileUI extends StatefulWidget {
 
 class _EditProfileUIState extends State<EditProfileUI> {
   double fontMainSize = 15;
+  double _value = 50;
 
   @override
   Widget build(BuildContext context) {
@@ -45,169 +46,69 @@ class _EditProfileUIState extends State<EditProfileUI> {
           ),
           InputTextField1(text: 'name'),
           SizedBox(height: 10),
-          InputTextField1(text: 'testing'),
+          InputTextField1(text: 'age'),
           SizedBox(height: 10),
-          InputTextField1(text: 'New password re-confirm'),
+          InputTextField1(text: 'others'),
+          SizedBox(height: 10),
+          InputTextField1(text: 'lives in ..'),
+          SizedBox(height: 10),
+          InputTextField1(text: 'occupation'),
+          SizedBox(height: 10),
+          InputTextField1(text: 'insta handle'),
+          SizedBox(height: 10),
+          InputTextField1(text: 'Bio'),
+          SizedBox(height: 20),
           Container(
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: Icon(Icons.face, size: 18, color: kTurquoise),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Age',
-                    style: TextStyle(fontSize: fontMainSize, color: kTurquoise),
-                  ),
-                ),
-                Text(
-                  'user input',
-                  style: TextStyle(fontSize: fontMainSize, color: Colors.white),
-                )
-              ],
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Fitness level',
+                style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Container(
+            child: Slider(
+              min: 0,
+              max: 100,
+              value: _value,
+              divisions: 3,
+              activeColor: kTurquoise,
+              inactiveColor: Colors.lightBlue[900],
+              onChanged: (value) {
+                setState(() {
+                  _value = value;
+                });
+              },
             ),
           ),
           Container(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child:
-                      Icon(Icons.insert_emoticon, size: 18, color: kTurquoise),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.symmetric(horizontal: 15.0),
                   child: Text(
-                    'Gender',
-                    style: TextStyle(fontSize: fontMainSize, color: kTurquoise),
-                  ),
-                ),
-                Text(
-                  'user input',
-                  style: TextStyle(fontSize: fontMainSize, color: Colors.white),
-                )
-              ],
-            ),
-          ),
-          Container(
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child:
-                      Icon(Icons.directions_run, size: 18, color: kTurquoise),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Enjoys',
-                    style: TextStyle(fontSize: fontMainSize, color: kTurquoise),
-                  ),
-                ),
-                Text(
-                  'user input',
-                  style: TextStyle(fontSize: fontMainSize, color: Colors.white),
-                )
-              ],
-            ),
-          ),
-          Container(
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: Icon(Icons.home, size: 18, color: kTurquoise),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Lives in',
-                    style: TextStyle(fontSize: fontMainSize, color: kTurquoise),
-                  ),
-                ),
-                Text(
-                  'user input',
-                  style: TextStyle(fontSize: fontMainSize, color: Colors.white),
-                )
-              ],
-            ),
-          ),
-          Container(
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: Icon(Icons.card_travel, size: 18, color: kTurquoise),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Currently',
-                    style: TextStyle(fontSize: fontMainSize, color: kTurquoise),
-                  ),
-                ),
-                Text(
-                  'user input',
-                  style: TextStyle(fontSize: fontMainSize, color: Colors.white),
-                )
-              ],
-            ),
-          ),
-          Container(
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child:
-                      Icon(Icons.fitness_center, size: 18, color: kTurquoise),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'Fitness level',
-                    style: TextStyle(fontSize: fontMainSize, color: kTurquoise),
-                  ),
-                ),
-                Text(
-                  'user input',
-                  style: TextStyle(fontSize: fontMainSize, color: Colors.white),
-                )
-              ],
-            ),
-          ),
-          Container(
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child:
-                      Icon(Icons.directions_run, size: 18, color: kTurquoise),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    'User Insta handle',
+                    'Beginner',
                     style:
                         TextStyle(fontSize: fontMainSize, color: Colors.white),
                   ),
                 ),
-              ],
-            ),
-          ),
-          Container(
-            child: Row(
-              children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child:
-                      Icon(Icons.assignment_ind, size: 18, color: kTurquoise),
+                  padding: EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Text(
+                    'Regular',
+                    style:
+                        TextStyle(fontSize: fontMainSize, color: Colors.white),
+                  ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.symmetric(horizontal: 15.0),
                   child: Text(
-                    'user input short bio',
+                    'Advanced',
                     style:
                         TextStyle(fontSize: fontMainSize, color: Colors.white),
                   ),
