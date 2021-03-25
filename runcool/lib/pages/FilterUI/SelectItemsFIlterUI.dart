@@ -21,8 +21,15 @@ class _SelectItemsFIlterUIState extends State<SelectItemsFIlterUI> {
   bool _valueGym = false;
   bool _valueZumba = false;
 
+/*   bool _buttonDisabled2(){
+    if (!_buttonDisabled1 && (_valueRun || _valueGym || _valueZumba) ){
+      () => apply();
+    }
+  } can add the blank out button next time*/
+  
+
   String regionChoice;
-  List<String> regionChoices = ['north-east', 'central', 'south-east'];
+  List<String> regionChoices = ['Central', 'East', 'North', 'North-East', 'West'];
 
   DateTime _startDate = DateTime.now();
   DateTime _endDate = DateTime.now().add(Duration(days: 7));
