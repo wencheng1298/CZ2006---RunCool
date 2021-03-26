@@ -7,6 +7,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:runcool/utils/GoogleMapsAppData.dart';
 import 'package:runcool/utils/GoogleMapsAppData.dart';
+import 'package:runcool/firebase/Wrapper.dart';
 
 //Required for routing to different UIs
 import './pages/HomePageUI.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context)=> GoogleMapsAppData(),
+      create: (context) => GoogleMapsAppData(),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -44,8 +45,8 @@ class MyApp extends StatelessWidget {
             centerTitle: true,
           ),
         ),
-        home:
-            AuthenticationManager().getCurrUserFromFirebase() == null ? LogInUI() : RuncoolNavBar(),
+        home: Wrapper(),
+        // AuthenticationManager().getCurrUserFromFirebase() == null ? LogInUI() : RuncoolNavBar(),
       ),
     );
   }
