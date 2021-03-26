@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:runcool/firebase/authenticationManager.dart';
+import 'package:provider/provider.dart';
+import 'package:runcool/firebase/authentication.dart';
 import 'package:runcool/pages/RuncoolNavBar.dart';
 import 'package:runcool/pages/SignUpUI/LogIn.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:runcool/utils/GoogleMapsAppData.dart';
+import 'package:runcool/utils/GoogleMapsAppData.dart';
 
 //Required for routing to different UIs
 import './pages/HomePageUI.dart';
@@ -29,19 +32,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.black,
-          titleTextStyle: TextStyle(color: Colors.white),
-          centerTitle: true,
+    return ChangeNotifierProvider(
+      create: (context)=> GoogleMapsAppData(),
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.black,
+            titleTextStyle: TextStyle(color: Colors.white),
+            centerTitle: true,
+          ),
         ),
+        home:
+            Authentication().getCurrUser() == null ? LogInUI() : RuncoolNavBar(),
       ),
-      home: AuthenticationManager.loggedInUser == null
-          ? LogInUI()
-          : RuncoolNavBar(),
     );
   }
 }

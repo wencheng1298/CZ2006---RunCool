@@ -8,3 +8,4 @@ export 'EventTextTitle.dart';
 export 'GoogleMapPlacement.dart';
 export 'InputFieldTextTitles.dart';
 export 'TimePickerWidget.dart';
+export 'configGMaps.dart';
