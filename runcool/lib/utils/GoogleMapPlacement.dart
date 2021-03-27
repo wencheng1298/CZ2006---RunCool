@@ -27,7 +27,7 @@ class GoogleMapPlacement extends StatefulWidget {
 
 class _GoogleMapState extends State<GoogleMapPlacement> {
 
-  CameraPosition _initialLocation = CameraPosition(target: LatLng(1.3521, 103.8198)); //Singapore
+  // CameraPosition _initialLocation = CameraPosition(target: LatLng(1.3521, 103.8198)); //Singapore
   //GoogleMapController mapController;
   Completer<GoogleMapController> _mapController = Completer();
 
