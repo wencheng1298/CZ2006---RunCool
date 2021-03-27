@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:runcool/pages/FilterUI/SelectItemsFIlterUI.dart';
 import '../firebase/authenticationManager.dart';
+import 'package:provider/provider.dart';
+import 'package:runcool/firebase/Service/database.dart';
 
 class HomePageUI extends StatefulWidget {
   @override
@@ -53,86 +56,89 @@ class HomePageUIState extends State<HomePageUI> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        centerTitle: true,
-        title: Text(
-          'Home Page',
-          style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.center,
+    return StreamProvider<QuerySnapshot>.value(
+      value: DatabaseService().userSnapshot,
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          centerTitle: true,
+          title: Text(
+            'Home Page',
+            style: TextStyle(color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+          leading: Container(),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.menu),
+              onPressed: () => FilterItem(),
+            )
+          ],
         ),
-        leading: Container(),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.menu),
-            onPressed: () => FilterItem(),
-          )
-        ],
-      ),
-      body: SingleChildScrollView(
-        //let the app be scrollable
-        child: Container(
-          color: _background,
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'EVENTS FOR YOU',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+        body: SingleChildScrollView(
+          //let the app be scrollable
+          child: Container(
+            color: _background,
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'EVENTS FOR YOU',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                color: Colors.black,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      EventCards("Events for you", "Event 1"),
-                      EventCards("Events for you", "Event 2"),
-                      EventCards("Events for you", "Event 3"),
-                    ],
+                Container(
+                  color: Colors.black,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 300,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: <Widget>[
+                        EventCards("Events for you", "Event 1"),
+                        EventCards("Events for you", "Event 2"),
+                        EventCards("Events for you", "Event 3"),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'See what your friends are up to',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                Container(
+                  padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'See what your friends are up to',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                color: Colors.black,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      EventCards("Friends up to", "Event 1"),
-                      EventCards("Friends up to", "Event 2"),
-                      EventCards("Friends up to", "Event 3"),
-                    ],
+                Container(
+                  color: Colors.black,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 300,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: <Widget>[
+                        EventCards("Friends up to", "Event 1"),
+                        EventCards("Friends up to", "Event 2"),
+                        EventCards("Friends up to", "Event 3"),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

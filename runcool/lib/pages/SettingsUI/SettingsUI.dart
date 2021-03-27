@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:runcool/pages/ProfileUI.dart';
 import './../../utils/everythingUtils.dart';
 import '../SignUpUI/LogIn.dart';
+import 'package:runcool/firebase/Service/auth.dart';
 
 class SettingsUI extends StatefulWidget {
   @override
   _SettingsUIState createState() => _SettingsUIState();
 }
+
+final AuthService _auth = AuthService();
 
 class _SettingsUIState extends State<SettingsUI> {
   void LogIn() {
@@ -42,9 +45,12 @@ class _SettingsUIState extends State<SettingsUI> {
               ButtonType1(onPress: () => LogIn(), text: 'Update password'),
               SizedBox(height: 70),
               ButtonType1(
-                onPress: () => LogIn(),
                 text: 'Log Out',
                 colour: Colors.red,
+                onPress: () async {
+                  await _auth.signOut();
+                  return LogIn();
+                },
               )
               //ButtonType1(onPress: () => goNextPage(), text: 'log out')
             ],

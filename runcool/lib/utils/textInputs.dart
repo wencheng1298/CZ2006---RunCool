@@ -9,7 +9,6 @@ class InputTextField1 extends StatefulWidget {
   final Function onChange;
   final double height;
 
-
   InputTextField1({this.text, this.onChange, this.height});
   @override
   _InputTextField1State createState() => _InputTextField1State();
@@ -26,6 +25,51 @@ class _InputTextField1State extends State<InputTextField1> {
           onChanged: widget.onChange,
           keyboardType: TextInputType.streetAddress,
           style: TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.grey[800].withOpacity(0.5),
+            contentPadding: EdgeInsets.only(left: 14, bottom: 8, top: 8),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: kTurquoise, width: 2),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: kTurquoise, width: 2),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            hintText: widget.text ?? '',
+            hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class InputTextFormFill extends StatefulWidget {
+  final String text;
+  final Function onChange;
+  final double height;
+  final bool obscure;
+
+  InputTextFormFill({this.text, this.onChange, this.height, this.obscure});
+
+  @override
+  InputTextFormFillState createState() => InputTextFormFillState();
+}
+
+class InputTextFormFillState extends State<InputTextFormFill> {
+  @override
+  Widget build(BuildContext context) {
+    return Theme(
+      data: Theme.of(context).copyWith(splashColor: Colors.transparent),
+      child: Container(
+        height: widget.height ?? 45,
+        child: TextFormField(
+          onChanged: widget.onChange,
+          keyboardType: TextInputType.streetAddress,
+          style: TextStyle(color: Colors.white),
+          obscureText: widget.obscure,
           decoration: InputDecoration(
             filled: true,
             fillColor: Colors.grey[800].withOpacity(0.5),
@@ -131,8 +175,8 @@ class GoogleMapsSearchField extends StatefulWidget {
   //final FocusNode focusNode;
   final Function onTap;
 
-
-  GoogleMapsSearchField({this.text,this.onTap, this.onChange, this.height, this.textcontroller});
+  GoogleMapsSearchField(
+      {this.text, this.onTap, this.onChange, this.height, this.textcontroller});
   OverlayEntry createOverlayEntry;
 
   @override
@@ -140,7 +184,6 @@ class GoogleMapsSearchField extends StatefulWidget {
 }
 
 class _GoogleMapsSearchFieldState extends State<GoogleMapsSearchField> {
-
   /*OverlayEntry _overlayEntry;
   final LayerLink _layerLink = LayerLink();
   final FocusNode _focusNode = FocusNode();
@@ -202,7 +245,6 @@ class _GoogleMapsSearchFieldState extends State<GoogleMapsSearchField> {
     );
   }*/
 
-
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -210,31 +252,31 @@ class _GoogleMapsSearchFieldState extends State<GoogleMapsSearchField> {
       child: Container(
         height: widget.height ?? 45,
         //child: CompositedTransformTarget(
-          //link: this._layerLink,
-          child: TextField(
-            //focusNode: _focusNode,
-            onTap: widget.onTap,
-            controller: widget.textcontroller,
-            onChanged: widget.onChange,
-            keyboardType: TextInputType.streetAddress,
-            style: TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.grey[800].withOpacity(0.5),
-              contentPadding: EdgeInsets.only(left: 14, bottom: 8, top: 8),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: kTurquoise, width: 2),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: kTurquoise, width: 2),
-                borderRadius: BorderRadius.circular(15),
-              ),
-              hintText: widget.text ?? '',
-              hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
-              //suffixIcon: Icon(Icons.search),
+        //link: this._layerLink,
+        child: TextField(
+          //focusNode: _focusNode,
+          onTap: widget.onTap,
+          controller: widget.textcontroller,
+          onChanged: widget.onChange,
+          keyboardType: TextInputType.streetAddress,
+          style: TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+            filled: true,
+            fillColor: Colors.grey[800].withOpacity(0.5),
+            contentPadding: EdgeInsets.only(left: 14, bottom: 8, top: 8),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: kTurquoise, width: 2),
+              borderRadius: BorderRadius.circular(15),
             ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: kTurquoise, width: 2),
+              borderRadius: BorderRadius.circular(15),
+            ),
+            hintText: widget.text ?? '',
+            hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
+            //suffixIcon: Icon(Icons.search),
           ),
+        ),
         //),
       ),
     );

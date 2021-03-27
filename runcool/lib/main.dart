@@ -8,6 +8,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:runcool/utils/GoogleMapsAppData.dart';
 import 'package:runcool/utils/GoogleMapsAppData.dart';
 import 'package:runcool/firebase/Wrapper.dart';
+import 'package:runcool/firebase/Service/auth.dart';
+import 'package:runcool/models/User.dart';
 
 //Required for routing to different UIs
 import './pages/HomePageUI.dart';
@@ -33,21 +35,45 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => GoogleMapsAppData(),
+    return
+        //MultiProvider(
+        //providers: [
+        StreamProvider<AppUser>.value(
+      value: AuthService().user,
       child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          appBarTheme: AppBarTheme(
-            backgroundColor: Colors.black,
-            titleTextStyle: TextStyle(color: Colors.white),
-            centerTitle: true,
-          ),
-        ),
         home: Wrapper(),
-        // AuthenticationManager().getCurrUserFromFirebase() == null ? LogInUI() : RuncoolNavBar(),
       ),
     );
+    // ChangeNotifierProvider(
+    //   create: (context) => GoogleMapsAppData(),
+    //   child: MaterialApp(
+    //     title: 'Flutter Demo',
+    //     theme: ThemeData(
+    //       primarySwatch: Colors.blue,
+    //       appBarTheme: AppBarTheme(
+    //         backgroundColor: Colors.black,
+    //         titleTextStyle: TextStyle(color: Colors.white),
+    //         centerTitle: true,
+    //       ),
+    //     ),
+    //   ),
+    // ),
+    // ],
+    // );
+
+    // AuthenticationManager().getCurrUserFromFirebase() == null ? LogInUI() : RuncoolNavBar(),
   }
 }
+//
+// return ChangeNotifierProvider(
+//   create: (context) => GoogleMapsAppData(),
+//   child: MaterialApp(
+//       title: 'Flutter Demo',
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//         appBarTheme: AppBarTheme(
+//           backgroundColor: Colors.black,
+//           titleTextStyle: TextStyle(color: Colors.white),
+//           centerTitle: true,
+//         ),
+//       ),

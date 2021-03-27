@@ -2,6 +2,47 @@ import 'package:flutter/material.dart';
 import './../utils/everythingUtils.dart';
 import './SettingsUI/SettingsUI.dart';
 import './SettingsUI/EditProfileUI.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:runcool/models/User.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:runcool/firebase/Service/database.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:runcool/models/User.dart';
+import 'package:runcool/firebase/Service/database.dart';
+import 'package:provider/provider.dart';
+
+class GetUserName extends StatelessWidget {
+  final String documentId;
+
+  GetUserName(this.documentId);
+
+  @override
+  Widget build(BuildContext context) {
+    //final user = Provider.of<User>(context);
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
+    return FutureBuilder<DocumentSnapshot>(
+      future: users.doc(documentId).get(),
+      builder:
+          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+        if (snapshot.hasError) {
+          return Text("Something went wrong");
+        }
+
+        if (snapshot.connectionState == ConnectionState.done) {
+          Map<String, dynamic> data = snapshot.data.data();
+          return Text(
+            " ${data['name']}",
+            style: TextStyle(
+                fontSize: 30, color: kTurquoise, fontWeight: FontWeight.bold),
+          );
+        }
+
+        return Text("loading");
+      },
+    );
+  }
+}
 
 class ProfileUI extends StatefulWidget {
   @override
@@ -22,6 +63,9 @@ class ProfileUIState extends State<ProfileUI> {
 
   @override
   Widget build(BuildContext context) {
+    String userId = FirebaseAuth.instance.currentUser.uid;
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+
     return Scaffold(
       appBar: AppBar(
           leading: IconButton(
@@ -57,13 +101,16 @@ class ProfileUIState extends State<ProfileUI> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                'Noah',
-                style: TextStyle(
-                    fontSize: 30,
-                    color: kTurquoise,
-                    fontWeight: FontWeight.bold),
-              ),
+              //child: GetUserName(userId),
+              child: GetUserName('HZVHv7uJAbaZJk54FiamoGriJTs2'),
+              //users.getId()
+              //users.doc().toString()
+              //users.parent.toString()
+              //'Noah',
+              // style: TextStyle(
+              //     fontSize: 30,
+              //     color: kTurquoise,
+              //     fontWeight: FontWeight.bold),
             ),
             Container(
               child: Row(
