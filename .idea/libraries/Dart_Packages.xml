@@ -2,6 +2,13 @@
   <library name="Dart Packages" type="DartPackagesLibraryType">
     <properties>
       <option name="packageNameToDirsMap">
+        <entry key="angles">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/angles-1.2.1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="async">
           <value>
             <list>
@@ -422,6 +429,13 @@
             </list>
           </value>
         </entry>
+        <entry key="utm">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/utm-0.1.2/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="vector_math">
           <value>
             <list>
@@ -433,6 +447,7 @@
     </properties>
     <CLASSES>
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/git/date_range_picker-87993aa58bbfff82d0f40d7b14edabfdc6d73eef/lib" />
+      <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/angles-1.2.1/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.5.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/boolean_selector-2.1.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/characters-1.1.0/lib" />
@@ -488,6 +503,7 @@
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/term_glyph-1.2.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/test_api-0.2.19/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/typed_data-1.3.0/lib" />
+      <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/utm-0.1.2/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/bin/cache/pkg/sky_engine/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/packages/flutter/lib" />

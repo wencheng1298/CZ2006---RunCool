@@ -5,11 +5,6 @@ import './../SettingsUI/SettingsUI.dart';
 import '../../firebase/authenticationManager.dart';
 import '../RuncoolNavBar.dart';
 
-// import 'dart:async' show Future;
-// import 'package:flutter/services.dart' show rootBundle;
-// import 'dart:convert';
-// import 'package:flutter/services.dart';
-
 const textStyle = TextStyle(color: Colors.white, fontSize: 15);
 
 class LogInUI extends StatefulWidget {
@@ -20,23 +15,6 @@ class LogInUI extends StatefulWidget {
 class _LogInUIState extends State<LogInUI> {
   String email;
   String password;
-
-  // Map<String, dynamic> data;
-  //
-  // Future<String> loadJsonData() async {
-  //   var jsonText = await rootBundle.loadString('assets/gyms-sg-geojson.json');
-  //   setState(() => data = json.decode(jsonText));
-  //   print(data);
-  //   print(data["features"][0]["geometry"]["coordinates"]);
-  //
-  //   return 'success';
-  // }
-  //
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   this.loadJsonData();
-  // }
 
   @override
   Widget build(BuildContext context) {
