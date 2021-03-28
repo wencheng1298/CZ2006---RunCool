@@ -7,6 +7,7 @@ import '../RuncoolNavBar.dart';
 import 'package:runcool/firebase/Authenticate/authenticate.dart';
 import 'package:runcool/firebase/Service/auth.dart';
 import 'package:runcool/utils/loading.dart';
+import 'ForgotPasswordUI.dart';
 
 const textStyle = TextStyle(color: Colors.white, fontSize: 15);
 
@@ -145,6 +146,10 @@ class _LogInUIState extends State<LogInUI> {
                     GestureDetector(
                       onTap: () {
                         print('forgot passsword');
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ResetScreen()));
                       },
                       child: Text('forgot password?', style: textStyle),
                     ),

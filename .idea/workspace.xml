@@ -29,27 +29,14 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="added wrapper class and few minor edits to auth">
-      <change afterPath="$PROJECT_DIR$/runcool/lib/firebase/Authenticate/authenticate.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/firebase/Authenticate/signIn.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/firebase/Service/database.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/models/User.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/utils/loading.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+    <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="edited auth">
+      <change afterPath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/ForgotPasswordUI.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/Service/auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/firebase/Service/auth.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/Wrapper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/firebase/Wrapper.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/authenticationManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/firebase/authenticationManager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/HomePageUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/HomePageUI.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/pages/ProfileUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/ProfileUI.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SettingsUI/SettingsUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/SettingsUI/SettingsUI.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/LogIn.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/LogIn.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/SignUpUI1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/SignUpUI1.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/SignUpUI2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/SignUpUI2.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/utils/textInputs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/textInputs.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +66,6 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../dicee-flutter" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -145,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616759003817</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="edited auth">
+      <created>1616873335162</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1616873335163</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -177,7 +170,8 @@
     <MESSAGE value="added edit profile ( not finished but just pushing whatever nonsense i have)" />
     <MESSAGE value="working Google Maps, Autocomplete function working, no routing yet." />
     <MESSAGE value="added wrapper class and few minor edits to auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="added wrapper class and few minor edits to auth" />
+    <MESSAGE value="edited auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="edited auth" />
   </component>
   <component name="WindowStateProjectService">
     <state x="121" y="0" key="#Project_Structure" timestamp="1616753566681">
@@ -202,38 +196,38 @@
     <state x="391" y="163" key="FileChooserDialogImpl/0.0.1094.690@0.0.1094.690" timestamp="1615440083241" />
     <state x="489" y="206" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1616398725787" />
     <state x="549" y="195" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1615217814188" />
-    <state width="716" height="144" key="GridCell.Tab.0.bottom" timestamp="1616862674591">
+    <state width="713" height="144" key="GridCell.Tab.0.bottom" timestamp="1616905781638">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.bottom/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
-    <state width="716" height="144" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616862674591" />
+    <state width="713" height="144" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616905781638" />
     <state width="551" height="104" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
     <state width="1491" height="197" key="GridCell.Tab.0.bottom/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1616749797560" />
     <state width="1491" height="198" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1616746956904" />
     <state width="841" height="101" key="GridCell.Tab.0.bottom/0.0.912.568@0.0.912.568" timestamp="1615393853484" />
-    <state width="716" height="144" key="GridCell.Tab.0.center" timestamp="1616862674591">
+    <state width="713" height="144" key="GridCell.Tab.0.center" timestamp="1616905781638">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.center/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
-    <state width="716" height="144" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616862674591" />
+    <state width="713" height="144" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616905781638" />
     <state width="551" height="104" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
     <state width="1491" height="197" key="GridCell.Tab.0.center/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1616749797559" />
     <state width="1491" height="198" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1616746956903" />
     <state width="841" height="101" key="GridCell.Tab.0.center/0.0.912.568@0.0.912.568" timestamp="1615393853483" />
-    <state width="716" height="144" key="GridCell.Tab.0.left" timestamp="1616862674590">
+    <state width="713" height="144" key="GridCell.Tab.0.left" timestamp="1616905781638">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.left/0.0.1094.690@0.0.1094.690" timestamp="1615798491907" />
-    <state width="716" height="144" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616862674590" />
+    <state width="713" height="144" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616905781638" />
     <state width="551" height="104" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
     <state width="1491" height="197" key="GridCell.Tab.0.left/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1616749797559" />
     <state width="1491" height="198" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1616746956902" />
     <state width="841" height="101" key="GridCell.Tab.0.left/0.0.912.568@0.0.912.568" timestamp="1615393853483" />
-    <state width="716" height="144" key="GridCell.Tab.0.right" timestamp="1616862674591">
+    <state width="713" height="144" key="GridCell.Tab.0.right" timestamp="1616905781638">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.right/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
-    <state width="716" height="144" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616862674591" />
+    <state width="713" height="144" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616905781638" />
     <state width="551" height="104" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
     <state width="1491" height="197" key="GridCell.Tab.0.right/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1616749797560" />
     <state width="1491" height="198" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616746956904" />
@@ -253,11 +247,11 @@
     <state x="0" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1616771444519" />
     <state x="277" y="85" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1615217877873" />
     <state x="0" y="0" key="SettingsEditor/0.0.912.568@0.0.912.568" timestamp="1615391298134" />
-    <state x="173" y="106" key="Vcs.Push.Dialog.v2" timestamp="1616759012645">
+    <state x="173" y="106" key="Vcs.Push.Dialog.v2" timestamp="1616873343731">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="-7" y="52" key="Vcs.Push.Dialog.v2/0.0.1094.690@0.0.1094.690" timestamp="1615899868818" />
-    <state x="173" y="106" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1616759012645" />
+    <state x="173" y="106" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1616873343731" />
     <state x="184" y="136" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1616408594636" />
     <state x="207" y="129" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1616739729733" />
     <state x="482" y="292" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616791159795">

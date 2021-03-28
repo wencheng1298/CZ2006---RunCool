@@ -162,7 +162,8 @@ class SignUpUI2State extends State<SignUpUI2> {
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: InputTextFormFill(
-                      // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                      //validator: (value) =>
+                      //   value.isEmpty ? 'Enter an email' : null,
                       obscure: false,
                       text: 'Instagram Handle',
                       onChange: (value) {

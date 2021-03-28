@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:runcool/pages/ProfileUI.dart';
 import './../../utils/everythingUtils.dart';
@@ -9,15 +10,22 @@ class SettingsUI extends StatefulWidget {
   _SettingsUIState createState() => _SettingsUIState();
 }
 
-final AuthService _auth = AuthService();
-
 class _SettingsUIState extends State<SettingsUI> {
   void LogIn() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => LogInUI()));
   }
 
+  //final AuthService _auth = AuthService();
+  final _auth = FirebaseAuth.instance;
+
+  final _formkey = GlobalKey<FormState>();
+
+  String password;
+
   @override
   Widget build(BuildContext context) {
+    var user = _auth.currentUser;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,
@@ -38,12 +46,37 @@ class _SettingsUIState extends State<SettingsUI> {
               SizedBox(height: 60),
               InputTextField1(text: 'Current password'),
               SizedBox(height: 10),
-              InputTextField1(text: 'New password'),
+              InputTextFormFill(
+                obscure: true,
+                text: 'New PASSWORD',
+                onChange: (value) {
+                  setState(() {
+                    password = value;
+                  });
+                },
+              ),
               SizedBox(height: 10),
-              InputTextField1(text: 'New password re-confirm'),
+              InputTextFormFill(
+                obscure: true,
+                text: 'Reconfirm new password',
+                onChange: (value) {
+                  setState(() {
+                    password = value;
+                  });
+                },
+              ),
+              SizedBox(height: 15),
+              ButtonType1(
+                  text: 'Update password',
+                  onPress: () async {
+                    await user.updatePassword(password);
+                    // setState(() {
+                    //   response= 'password changed';
+                    // });
+                    LogIn();
+                  }),
+
               SizedBox(height: 30),
-              ButtonType1(onPress: () => LogIn(), text: 'Update password'),
-              SizedBox(height: 70),
               ButtonType1(
                 text: 'Log Out',
                 colour: Colors.red,

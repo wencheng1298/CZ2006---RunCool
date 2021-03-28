@@ -21,26 +21,26 @@ class GetUserName extends StatelessWidget {
     //final user = Provider.of<User>(context);
     CollectionReference users = FirebaseFirestore.instance.collection('users');
 
-    return FutureBuilder<DocumentSnapshot>(
-      future: users.doc(documentId).get(),
-      builder:
-          (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-        if (snapshot.hasError) {
-          return Text("Something went wrong");
-        }
-
-        if (snapshot.connectionState == ConnectionState.done) {
-          Map<String, dynamic> data = snapshot.data.data();
-          return Text(
-            " ${data['name']}",
-            style: TextStyle(
-                fontSize: 30, color: kTurquoise, fontWeight: FontWeight.bold),
-          );
-        }
-
-        return Text("loading");
-      },
-    );
+    // return FutureBuilder<DocumentSnapshot>(
+    //   future: users.doc(documentId).get(),
+    //   builder:
+    //       (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+    //     if (snapshot.hasError) {
+    //       return Text("Something went wrong");
+    //     }
+    //
+    //     if (snapshot.connectionState == ConnectionState.done) {
+    //       Map<String, dynamic> data = snapshot.data.data();
+    //       return Text(
+    //         " ${data['name']}",
+    //         style: TextStyle(
+    //             fontSize: 30, color: kTurquoise, fontWeight: FontWeight.bold),
+    //       );
+    //     }
+    //
+    //     return Text("loading");
+    //   },
+    // );
   }
 }
 
@@ -50,6 +50,8 @@ class ProfileUI extends StatefulWidget {
 }
 
 class ProfileUIState extends State<ProfileUI> {
+  final _auth = FirebaseAuth.instance;
+
   double fontMainSize = 15;
   void Settings() {
     Navigator.push(
@@ -63,8 +65,37 @@ class ProfileUIState extends State<ProfileUI> {
 
   @override
   Widget build(BuildContext context) {
-    String userId = FirebaseAuth.instance.currentUser.uid;
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    String uid;
+    // String name;
+    // int age;
+    // String gender;
+    // String hobbies;
+    // String region;
+    // String occupation;
+    // String insta;
+    // String bio;
+
+    String email;
+
+    // var user = _auth.currentUser;
+    // if (user != null) {
+    //   //TODO create a static var for UID. This should be in authentication pg. use dot set
+
+    //   uid = user.uid;
+    //   // name = user.name;
+    //   // age = user.age;
+    //   // gender = user.gender;
+    //   // hobbies = user.hobbies;
+    //   // region = user.region;
+    //   // occupation = user.occupation;
+    //   // insta = user.insta;
+    //   // bio = user.bio;
+    //   email = user.email;
+    // }
+    final user = Provider.of<AppUser>(context);
+
+    // String userId = FirebaseAuth.instance.currentUser.uid;
+    // CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     return Scaffold(
       appBar: AppBar(
@@ -100,18 +131,29 @@ class ProfileUIState extends State<ProfileUI> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              //child: GetUserName(userId),
-              child: GetUserName('HZVHv7uJAbaZJk54FiamoGriJTs2'),
-              //users.getId()
-              //users.doc().toString()
-              //users.parent.toString()
-              //'Noah',
-              // style: TextStyle(
-              //     fontSize: 30,
-              //     color: kTurquoise,
-              //     fontWeight: FontWeight.bold),
-            ),
+                padding: const EdgeInsets.all(8.0),
+                //child: GetUserName(userId),
+                child: Text(
+                  //'user input',
+                  user.uid,
+
+                  //name,
+                  style: TextStyle(
+                      fontSize: 30,
+                      color: kTurquoise,
+                      fontWeight: FontWeight.bold),
+                )
+                //GetUserName(uid),
+                //'HZVHv7uJAbaZJk54FiamoGriJTs2'
+                //users.getId()
+                //users.doc().toString()
+                //users.parent.toString()
+                //'Noah',
+                // style: TextStyle(
+                //     fontSize: 30,
+                //     color: kTurquoise,
+                //     fontWeight: FontWeight.bold),
+                ),
             Container(
               child: Row(
                 children: <Widget>[
@@ -129,6 +171,7 @@ class ProfileUIState extends State<ProfileUI> {
                   ),
                   Text(
                     'user input',
+                    //age.toString(),
                     style:
                         TextStyle(fontSize: fontMainSize, color: Colors.white),
                   )
@@ -153,6 +196,8 @@ class ProfileUIState extends State<ProfileUI> {
                   ),
                   Text(
                     'user input',
+
+                    // gender,
                     style:
                         TextStyle(fontSize: fontMainSize, color: Colors.white),
                   )
@@ -177,6 +222,8 @@ class ProfileUIState extends State<ProfileUI> {
                   ),
                   Text(
                     'user input',
+
+                    //hobbies,
                     style:
                         TextStyle(fontSize: fontMainSize, color: Colors.white),
                   )
@@ -200,6 +247,7 @@ class ProfileUIState extends State<ProfileUI> {
                   ),
                   Text(
                     'user input',
+                    //region,
                     style:
                         TextStyle(fontSize: fontMainSize, color: Colors.white),
                   )
@@ -216,13 +264,14 @@ class ProfileUIState extends State<ProfileUI> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      'Currently',
+                      'Occupation:',
                       style:
                           TextStyle(fontSize: fontMainSize, color: kTurquoise),
                     ),
                   ),
                   Text(
                     'user input',
+                    //occupation,
                     style:
                         TextStyle(fontSize: fontMainSize, color: Colors.white),
                   )
@@ -264,7 +313,8 @@ class ProfileUIState extends State<ProfileUI> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      'User Insta handle',
+                      'user input',
+                      //insta,
                       style: TextStyle(
                           fontSize: fontMainSize, color: Colors.white),
                     ),
@@ -283,7 +333,8 @@ class ProfileUIState extends State<ProfileUI> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      'user input short bio',
+                      'user input',
+                      //bio,
                       style: TextStyle(
                           fontSize: fontMainSize, color: Colors.white),
                     ),

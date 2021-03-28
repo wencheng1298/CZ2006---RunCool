@@ -1,38 +1,26 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../utils/everythingUtils.dart';
-import './../../utils/everythingUtils.dart';
-import './SignUpUI2.dart';
 import 'package:runcool/firebase/Service/auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class SignUpUI1 extends StatefulWidget {
+class ResetScreen extends StatefulWidget {
   @override
-  SignUpUI1State createState() => SignUpUI1State();
+  _ResetScreenState createState() => _ResetScreenState();
 }
 
-class SignUpUI1State extends State<SignUpUI1> {
-  final AuthService _auth = AuthService();
+class _ResetScreenState extends State<ResetScreen> {
+  final _auth = FirebaseAuth.instance;
   final _formkey = GlobalKey<FormState>();
 
   String email;
-  String password;
-  String error = '';
-
-  void goNextPage() {
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => SignUpUI2(credentials: credentials)));
-  }
-
-  Map<String, String> credentials = {"email": "", "password": ''};
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('Sign Up'),
+        title: Text('Forgot Password'),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -50,18 +38,6 @@ class SignUpUI1State extends State<SignUpUI1> {
             child: Column(
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 60, bottom: 60),
-                    child: Center(
-                      child: Text(
-                        'Sign Up!',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 36,
-                        ),
-                      ),
-                    ),
-                  ),
                   InputTextFormFill(
                       // validator:(value)=> value.isEmpty?'Enter an email' :null,
                       obscure: false,
@@ -71,48 +47,18 @@ class SignUpUI1State extends State<SignUpUI1> {
                           email = value;
                         });
                       }),
-                  InputTextFormFill(
-                    obscure: true,
-                    text: 'PASSWORD',
-                    onChange: (value) {
-                      setState(() {
-                        password = value;
-                      });
-                    },
-                  ),
-                  InputTextFormFill(
-                    obscure: true,
-                    text: 'CONFIRM PASSWORD',
-                    onChange: (value) {
-                      setState(() {
-                        password = value;
-                      });
-                    },
-                  ),
+
                   SizedBox(height: 20),
                   ButtonType1(
-                      text: 'Sign up!',
+                      text: 'Reset now',
                       onPress: () async {
                         // if(_formkey.currentState.validate()){
                         //   print(email);
                         //   print(password);
                         // }
-                        dynamic result = await _auth
-                            .registerWithEmailAndPassword(email, password);
-                        if (result == null) {
-                          setState(() {
-                            error = 'Invalid entry';
-                          });
-                        } else {
-                          goNextPage();
-                          print(result.uid);
-                        }
+                        await _auth.sendPasswordResetEmail(email: email);
+                        Navigator.of(context).pop();
                       }),
-                  SizedBox(height: 12.0),
-                  Text(
-                    error,
-                    style: TextStyle(color: Colors.red, fontSize: 14.0),
-                  ),
 
                   //=> goNextPage(), text: 'Sign up!'
                 ]
