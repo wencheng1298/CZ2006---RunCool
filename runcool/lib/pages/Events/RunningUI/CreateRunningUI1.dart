@@ -24,7 +24,6 @@ String API_KEY = GoogleAPIKey;
 Uri PLACES_API_KEY = Uri.parse(API_KEY);
 
 class CreateRunningUI1 extends StatefulWidget {
-
   final String title;
   CreateRunningUI1({Key key, this.title}) : super(key: key);
 
@@ -33,7 +32,6 @@ class CreateRunningUI1 extends StatefulWidget {
 }
 
 class _CreateRunningUI1State extends State<CreateRunningUI1> {
-
   Completer<GoogleMapController> _mapController = Completer();
   StreamSubscription locationSubscription;
   TextEditingController startTextEditingController = TextEditingController();
@@ -41,19 +39,24 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
 
   @override
   void initState() {
-    final googleMapsController = Provider.of<GoogleMapsAppData>(context, listen: false);
-    locationSubscription = googleMapsController.selectedLocation.stream.listen((place) {
+    final googleMapsController =
+        Provider.of<GoogleMapsAppData>(context, listen: false);
+    locationSubscription =
+        googleMapsController.selectedLocation.stream.listen((place) {
       if (place != null) {
         _goToPlace(place);
       }
     });
-    startTextEditingController.addListener(() { startTextEditingController.text;});
+    startTextEditingController.addListener(() {
+      startTextEditingController.text;
+    });
     super.initState();
   }
 
   @override
   void dispose() {
-    final googleMapsController = Provider.of<GoogleMapsAppData>(context, listen: false);
+    final googleMapsController =
+        Provider.of<GoogleMapsAppData>(context, listen: false);
     googleMapsController.dispose();
     locationSubscription.cancel();
     super.dispose();
@@ -68,12 +71,11 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
             builder: (context) => CreateRunningUI2(eventDetails: details)));
   }
 
-    @override
+  @override
   Widget build(BuildContext context) {
     final googleMapsAppData = Provider.of<GoogleMapsAppData>(context);
     //String startingAddress = googleMapsAppData.startingPlace.name;
     //startTextEditingController.text = startingAddress;
-
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -97,59 +99,68 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                     onMapCreated: (GoogleMapController controller) {
                       _mapController.complete(controller);
                     },
-
+                    // eventType: "running",
                   ),
                   if (googleMapsAppData.searchResults != null &&
                       googleMapsAppData.searchResults.length != 0)
                     Container(
-                    height: 200,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(.6),
-                      backgroundBlendMode: BlendMode.darken,
+                      height: 200,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(.6),
+                        backgroundBlendMode: BlendMode.darken,
+                      ),
                     ),
-                  ),
                   if (googleMapsAppData.searchResults != null &&
                       googleMapsAppData.searchResults.length != 0)
                     Container(
-                    height: 200,
-                    child: ListView.separated(
+                      height: 200,
+                      child: ListView.separated(
                         itemCount: googleMapsAppData.searchResults.length,
-                        separatorBuilder: (BuildContext context, int index,) => DividerWidget(), //seperate with a divider..
-                        itemBuilder: (context,index){
-                        return ListTile(
-                          title: Column(
-                            children:[
-                            Text(
-                              googleMapsAppData.searchResults[index].main_text,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(fontSize: 16.0,color: Colors.white),
-                            ),
-                              SizedBox(height: 3.0,),
+                        separatorBuilder: (
+                          BuildContext context,
+                          int index,
+                        ) =>
+                            DividerWidget(), //seperate with a divider..
+                        itemBuilder: (context, index) {
+                          return ListTile(
+                            title: Column(children: [
                               Text(
-                                googleMapsAppData.searchResults[index].secondary_text,
+                                googleMapsAppData
+                                    .searchResults[index].main_text,
                                 overflow: TextOverflow.ellipsis,
-                                style: TextStyle(fontSize: 12.0,color: Colors.blueGrey),
+                                style: TextStyle(
+                                    fontSize: 16.0, color: Colors.white),
                               ),
-                            ]
-                          ),
-                          onTap: () {
-                            googleMapsAppData.setSelectedLocation(
-                              googleMapsAppData.searchResults[index].placeId
-                            );
-                            Place startAddress = googleMapsAppData.getPlaceSelected(googleMapsAppData.searchResults[index].placeId);
-                            //startTextEditingController.text = startAddress;
-                            googleMapsAppData.updateStartLocationAddress(startAddress);
-                            //googleMapsAppData.getPlaceAddressDetails(googleMapsAppData.searchResults[index].placeId);
-                          },
-                        );
+                              SizedBox(
+                                height: 3.0,
+                              ),
+                              Text(
+                                googleMapsAppData
+                                    .searchResults[index].secondary_text,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontSize: 12.0, color: Colors.blueGrey),
+                              ),
+                            ]),
+                            onTap: () {
+                              googleMapsAppData.setSelectedLocation(
+                                  googleMapsAppData
+                                      .searchResults[index].placeId);
+                              Place startAddress = googleMapsAppData
+                                  .getPlaceSelected(googleMapsAppData
+                                      .searchResults[index].placeId);
+                              //startTextEditingController.text = startAddress;
+                              googleMapsAppData
+                                  .updateStartLocationAddress(startAddress);
+                              //googleMapsAppData.getPlaceAddressDetails(googleMapsAppData.searchResults[index].placeId);
+                            },
+                          );
                         },
-                      shrinkWrap: true,
-                      physics: ClampingScrollPhysics(),
-                        ),
-                  ),
-
-
+                        shrinkWrap: true,
+                        physics: ClampingScrollPhysics(),
+                      ),
+                    ),
                 ],
               ),
               Container(
@@ -161,38 +172,44 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                       alignment: Alignment.topLeft,
                       child: InputFieldTextTitles('Start'),
                     ),
-
-                    Padding(
-                          padding: const EdgeInsets.only(left: 8, right: 8),
-                          child: Column(
-                            children: [
-                              GoogleMapsSearchField(
-                                text: (
-                                Provider.of<GoogleMapsAppData>(context).startingPlace != null
-                                    ? Provider.of<GoogleMapsAppData>(context).startingPlace.name
-                                    :'Starting Address'
-                                ), //the hint text
-                                textcontroller: startTextEditingController,
-                                onChange: (value) => googleMapsAppData.searchPlaces(value) ,
-                              ),
-
-                          ],
-                          ),
-                        ),
-                    Align(
-                          alignment: Alignment.topLeft,
-                          child: InputFieldTextTitles('End'),
-                        ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8, right: 8),
                       child: Column(
                         children: [
                           GoogleMapsSearchField(
-                            text: Provider.of<GoogleMapsAppData>(context).destPlace != null
-                                ? Provider.of<GoogleMapsAppData>(context).destPlace.name
-                                :'Ending Address', //the hint text
-                          textcontroller: destTextEditingController,
-                            onChange: (value) => googleMapsAppData.searchPlaces(value) ,
+                            text: (Provider.of<GoogleMapsAppData>(context)
+                                        .startingPlace !=
+                                    null
+                                ? Provider.of<GoogleMapsAppData>(context)
+                                    .startingPlace
+                                    .name
+                                : 'Starting Address'), //the hint text
+                            textcontroller: startTextEditingController,
+                            onChange: (value) =>
+                                googleMapsAppData.searchPlaces(value),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: InputFieldTextTitles('End'),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 8, right: 8),
+                      child: Column(
+                        children: [
+                          GoogleMapsSearchField(
+                            text: Provider.of<GoogleMapsAppData>(context)
+                                        .destPlace !=
+                                    null
+                                ? Provider.of<GoogleMapsAppData>(context)
+                                    .destPlace
+                                    .name
+                                : 'Ending Address', //the hint text
+                            textcontroller: destTextEditingController,
+                            onChange: (value) =>
+                                googleMapsAppData.searchPlaces(value),
                             onTap: () async {
                               await getPlaceDirection();
                             },
@@ -200,7 +217,6 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                         ],
                       ),
                     ),
-
                     Align(
                       alignment: Alignment.topLeft,
                       child: InputFieldTextTitles('CheckPoints'),
@@ -255,34 +271,32 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
 
   Future<void> _goToPlace(Place place) async {
     final GoogleMapController controller = await _mapController.future;
-    controller.animateCamera(
-      CameraUpdate.newCameraPosition(
-          CameraPosition(
-              target: LatLng(place.geometry.location.lat,place.geometry.location.lng),
-          zoom: 14)
-      )
-    );
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+        target:
+            LatLng(place.geometry.location.lat, place.geometry.location.lng),
+        zoom: 14)));
   }
 
   Future<void> getPlaceDirection() async {
-    var initialPos = Provider.of<GoogleMapsAppData>(context, listen: false).startingPlace;
-    var finalPos = Provider.of<GoogleMapsAppData>(context, listen: false).destPlace;
-    
-    var startLatLng = LatLng(initialPos.geometry.location.lat, initialPos.geometry.location.lng);
-    var desLatLng = LatLng(finalPos.geometry.location.lat, finalPos.geometry.location.lat);
+    var initialPos =
+        Provider.of<GoogleMapsAppData>(context, listen: false).startingPlace;
+    var finalPos =
+        Provider.of<GoogleMapsAppData>(context, listen: false).destPlace;
+
+    var startLatLng = LatLng(
+        initialPos.geometry.location.lat, initialPos.geometry.location.lng);
+    var desLatLng =
+        LatLng(finalPos.geometry.location.lat, finalPos.geometry.location.lat);
 
     /*showDialog(
       context: context,
       builder: (BuildContext context) => ProgressDialog(message: "Please wait...",)
     );*/
 
-    var details = await PlacesService.obtainPlaceDirectionDetails(startLatLng,desLatLng);
+    var details =
+        await PlacesService.obtainPlaceDirectionDetails(startLatLng, desLatLng);
 
     print("this is encoded points: ");
     print(details.encodedPoints);
-
   }
-
-
-
 }

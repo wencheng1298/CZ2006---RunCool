@@ -1,0 +1,3985 @@
+{
+  "type": "FeatureCollection",
+  "name": "EXERCISEFACILITIES",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "78989",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Tras Street",
+        "ADDRESSBLOCKHOUSENUMBER": "50",
+        "DESCRIPTION2": null,
+        "INC_CRC": "0E28997B4498C8C3",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.844202079591994, 1.27811388348071]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "287992",
+        "ADDRESSBUILDINGNAME": "House J and S",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Turf Club Road",
+        "ADDRESSBLOCKHOUSENUMBER": "100",
+        "DESCRIPTION2": null,
+        "INC_CRC": "CAA5268B7BA8784D",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.795898242377007, 1.3342195983767]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "579783",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Bishan St. 4",
+        "ADDRESSBLOCKHOUSENUMBER": "5",
+        "DESCRIPTION2": null,
+        "INC_CRC": "E7A4A38558FA4D85",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.850922071159005, 1.35528262760188]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "555981",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Serangoon Gardens Way",
+        "ADDRESSBLOCKHOUSENUMBER": "85A",
+        "DESCRIPTION2": null,
+        "INC_CRC": "72ED7C57972BE722",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.864884313372997, 1.36389982541919]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "738597",
+        "ADDRESSBUILDINGNAME": "Woodlands Stadium",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "WoodlandsCentre",
+        "ADDRESSBLOCKHOUSENUMBER": "495",
+        "DESCRIPTION2": null,
+        "INC_CRC": "E5E3FFD742FDA4E4",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.780306573729007, 1.43489537703518]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "569770",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Ang Mo Kio Ave 9",
+        "ADDRESSBLOCKHOUSENUMBER": "200",
+        "DESCRIPTION2": null,
+        "INC_CRC": "4C197828BD636D1B",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.845767858372, 1.38227243116352]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "769130",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "YishunAve 1",
+        "ADDRESSBLOCKHOUSENUMBER": "101",
+        "DESCRIPTION2": null,
+        "INC_CRC": "04252044DEABBBC4",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.83117739651, 1.41201836574556]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "48583",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "8",
+        "ADDRESSSTREETNAME": "Raffles Quay",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "D1821E116B43B866",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.851677105820997, 1.28089478900143]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238859",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "13",
+        "ADDRESSFLOORNUMBER": "8",
+        "ADDRESSSTREETNAME": null,
+        "ADDRESSBLOCKHOUSENUMBER": "41282",
+        "DESCRIPTION2": null,
+        "INC_CRC": "8DB4EB06CC571742",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.835240311923002, 1.30372322367268]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "237994",
+        "ADDRESSBUILDINGNAME": "Great World City Mall",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "14",
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Kim Seng Promenade",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "4E6DAE68287521DF",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.831757911004999, 1.29380236091495]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "188024",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": "4",
+        "ADDRESSSTREETNAME": "Victoria Street",
+        "ADDRESSBLOCKHOUSENUMBER": "230",
+        "DESCRIPTION2": null,
+        "INC_CRC": "DF55DA5797DF3D77",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.855786976518004, 1.30014248326867]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "569933",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "36",
+        "ADDRESSFLOORNUMBER": "B1",
+        "ADDRESSSTREETNAME": "Ang Mo Kio Ave 3",
+        "ADDRESSBLOCKHOUSENUMBER": "53",
+        "DESCRIPTION2": null,
+        "INC_CRC": "48276C872F56DADC",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.848399235570994, 1.36924890739398]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Sky Fitness - Serangoon Gardens",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "559022",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "10",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Bughley Drive Blk B",
+        "ADDRESSBLOCKHOUSENUMBER": "45",
+        "DESCRIPTION2": null,
+        "INC_CRC": "51E0C317DBD72838",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.859571053739998, 1.36000966368369]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Zattva Yoga Studio",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238841",
+        "ADDRESSBUILDINGNAME": "Orchard Plaza",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "9",
+        "ADDRESSFLOORNUMBER": "7",
+        "ADDRESSSTREETNAME": "Orchard Road",
+        "ADDRESSBLOCKHOUSENUMBER": "150",
+        "DESCRIPTION2": null,
+        "INC_CRC": "79FB226A0AB7930E",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.841150152248005, 1.30125729612721]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "307683",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Velocity @ Novena",
+        "ADDRESSBLOCKHOUSENUMBER": "3",
+        "DESCRIPTION2": null,
+        "INC_CRC": "2CB5FB93CDC8D55D",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.843656771807005, 1.32021101601674]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "117439",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "29",
+        "ADDRESSFLOORNUMBER": "7",
+        "ADDRESSSTREETNAME": "Pasir Panjang Road",
+        "ADDRESSBLOCKHOUSENUMBER": "20",
+        "DESCRIPTION2": null,
+        "INC_CRC": "F4EFE161320877D9",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.799064826968007, 1.274827493389]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "188306",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "11",
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Selegie Road",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "FE55DC370B8A0B59",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.849264282608999, 1.3001084594134]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "68912",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "9",
+        "ADDRESSSTREETNAME": null,
+        "ADDRESSBLOCKHOUSENUMBER": null,
+        "DESCRIPTION2": null,
+        "INC_CRC": "9E298D73F4034553",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.847522674168005, 1.27771181456553]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "48619",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Raffles Place",
+        "ADDRESSBLOCKHOUSENUMBER": "14",
+        "DESCRIPTION2": null,
+        "INC_CRC": "31D5AE9B685FA3B5",
+        "FMEL_UPD_D": "20181212173018",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.850574044319004, 1.28348363887373]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "38983",
+        "ADDRESSBUILDINGNAME": "Suntec City Mall",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "7",
+        "ADDRESSSTREETNAME": "Temasek Boulevard",
+        "ADDRESSBLOCKHOUSENUMBER": "3",
+        "DESCRIPTION2": null,
+        "INC_CRC": "707D40085D853452",
+        "FMEL_UPD_D": "20181212173018",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.857675501543, 1.29487905112126]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "418935",
+        "ADDRESSBUILDINGNAME": "Kingston Terrace",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Kingston Terrace",
+        "ADDRESSBLOCKHOUSENUMBER": "14D",
+        "DESCRIPTION2": null,
+        "INC_CRC": "67FD054BD7FDF7CB",
+        "FMEL_UPD_D": "20181212173018",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.912862460832997, 1.31988383852338]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "599625",
+        "ADDRESSBUILDINGNAME": "Mandarin Park Shop Houses",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "51 Chun Tin Road",
+        "ADDRESSBLOCKHOUSENUMBER": null,
+        "DESCRIPTION2": null,
+        "INC_CRC": "0621E5B04CE748FD",
+        "FMEL_UPD_D": "20181212173018",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.772716769691996, 1.34174220136525]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "397628",
+        "ADDRESSBUILDINGNAME": "Kallang wave mall",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "1 Stadium place #02-07",
+        "ADDRESSBLOCKHOUSENUMBER": null,
+        "DESCRIPTION2": null,
+        "INC_CRC": "9A7626566D5D7F1D",
+        "FMEL_UPD_D": "20180727120246",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.872750707738007, 1.30384327849927]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "600134",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "309",
+        "ADDRESSFLOORNUMBER": "4",
+        "ADDRESSSTREETNAME": "Jurong Gateway Road",
+        "ADDRESSBLOCKHOUSENUMBER": "134",
+        "DESCRIPTION2": null,
+        "INC_CRC": "47C03D160CFA8054",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.738708272229999, 1.33386246359672]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Rhythmic Yoga Works",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "188091",
+        "ADDRESSBUILDINGNAME": "Far East Shopping Centre",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Orchard Road",
+        "ADDRESSBLOCKHOUSENUMBER": "575",
+        "DESCRIPTION2": null,
+        "INC_CRC": "193BAB36DB0C0EC5",
+        "FMEL_UPD_D": "20180727120246",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.856934794867001, 1.29800183598617]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Om Shiva Yoga - Chip Bee",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "278000",
+        "ADDRESSBUILDINGNAME": "Chip Bee Gardens",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Jalan Rumia",
+        "ADDRESSBLOCKHOUSENUMBER": "45",
+        "DESCRIPTION2": null,
+        "INC_CRC": "019967C0B5FEC648",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.797538795861996, 1.31099316329402]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Om Shiva Yoga - Horse City",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "287992",
+        "ADDRESSBUILDINGNAME": "Horse City",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "02B",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Turf Club Road",
+        "ADDRESSBLOCKHOUSENUMBER": "100",
+        "DESCRIPTION2": null,
+        "INC_CRC": "CAA5268B7356F9BB",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.795898242377007, 1.3342195983767]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "307591",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "10",
+        "ADDRESSFLOORNUMBER": "4",
+        "ADDRESSSTREETNAME": "Thomson Road",
+        "ADDRESSBLOCKHOUSENUMBER": "101",
+        "DESCRIPTION2": null,
+        "INC_CRC": "65E2947EF964CB81",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.843463185077994, 1.31733464253519]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238857",
+        "ADDRESSBUILDINGNAME": "Asia Square Tower 1",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": "6",
+        "ADDRESSSTREETNAME": "Marina View",
+        "ADDRESSBLOCKHOUSENUMBER": "8",
+        "DESCRIPTION2": null,
+        "INC_CRC": "8CA6543133538778",
+        "FMEL_UPD_D": "20160504105933",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.836202014579001, 1.30310526758961]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "529508",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "4",
+        "ADDRESSSTREETNAME": "Tampines Central",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "0E5BDF23B9B550FF",
+        "FMEL_UPD_D": "20160504105933",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.943586936733993, 1.35308485692255]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238873",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Ngee Ann City",
+        "ADDRESSBLOCKHOUSENUMBER": "8",
+        "DESCRIPTION2": null,
+        "INC_CRC": "80D12C5172266541",
+        "FMEL_UPD_D": "20160504105933",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.83467613466, 1.30242417909429]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "48423",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "26",
+        "ADDRESSFLOORNUMBER": "B1",
+        "ADDRESSSTREETNAME": "Cross Street",
+        "ADDRESSBLOCKHOUSENUMBER": "18",
+        "DESCRIPTION2": null,
+        "INC_CRC": "E95592F9A510E94C",
+        "FMEL_UPD_D": "20160504105933",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.846878913528997, 1.28351522358922]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "415979",
+        "ADDRESSBUILDINGNAME": "Eunos Techpark",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "6",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Kaki Bukit Place",
+        "ADDRESSBLOCKHOUSENUMBER": "60",
+        "DESCRIPTION2": null,
+        "INC_CRC": "740A9C40632BFA6A",
+        "FMEL_UPD_D": "20160504105933",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.904054104623995, 1.33407188854164]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238884",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "4",
+        "ADDRESSFLOORNUMBER": "5",
+        "ADDRESSSTREETNAME": "Orchard Road",
+        "ADDRESSBLOCKHOUSENUMBER": "583",
+        "DESCRIPTION2": null,
+        "INC_CRC": "1CBCEAA8DCE05C7D",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.828509016300998, 1.30619579913532]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "689236",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Choa Chu Kang St 53",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "657E21243B67D8C2",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.747920712444994, 1.39066617204386]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "129907",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Clementi Ave 3",
+        "ADDRESSBLOCKHOUSENUMBER": "518",
+        "DESCRIPTION2": null,
+        "INC_CRC": "0ECC239A9E5BE231",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.764861415666999, 1.31101498462879]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "iPilates",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "229572",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "6",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Claymore Hill",
+        "ADDRESSBLOCKHOUSENUMBER": "8",
+        "DESCRIPTION2": null,
+        "INC_CRC": "CC585D492FF046BB",
+        "FMEL_UPD_D": "20160504105933",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.832038066910002, 1.30763492632515]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Sky Pilates",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238881",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "3",
+        "ADDRESSFLOORNUMBER": "5",
+        "ADDRESSSTREETNAME": "Orchard Road",
+        "ADDRESSBLOCKHOUSENUMBER": "541",
+        "DESCRIPTION2": null,
+        "INC_CRC": "5DDCD3528F520732",
+        "FMEL_UPD_D": "20160504105933",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.830722583997002, 1.30508723301058]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "CrossFit Fire City",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "338988",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "5",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Kampong Bugis",
+        "ADDRESSBLOCKHOUSENUMBER": "11",
+        "DESCRIPTION2": null,
+        "INC_CRC": "DBC99240555E4035",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.866029977780997, 1.30851817439858]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "49568",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "China Street",
+        "ADDRESSBLOCKHOUSENUMBER": "26",
+        "DESCRIPTION2": null,
+        "INC_CRC": "2B065B4D81010FCA",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.847820901709994, 1.28305772642104]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "39596",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "38",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "Raffles Boulevard",
+        "ADDRESSBLOCKHOUSENUMBER": "9",
+        "DESCRIPTION2": null,
+        "INC_CRC": "F4DDE37F537AD715",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.859343974187993, 1.29296504773614]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "49145",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "5",
+        "ADDRESSSTREETNAME": null,
+        "ADDRESSBLOCKHOUSENUMBER": null,
+        "DESCRIPTION2": null,
+        "INC_CRC": "3BDFD9B0E01F133D",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.847771918337997, 1.28554561731843]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "530205",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "11",
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Hougang Street 21",
+        "ADDRESSBLOCKHOUSENUMBER": "205",
+        "DESCRIPTION2": null,
+        "INC_CRC": "94714536BEEAB243",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.885079928731997, 1.35949663830553]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238839",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "9",
+        "ADDRESSFLOORNUMBER": "4",
+        "ADDRESSSTREETNAME": "Orchard Road",
+        "ADDRESSBLOCKHOUSENUMBER": "68",
+        "DESCRIPTION2": null,
+        "INC_CRC": "79227FDEDF3DAB6E",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.845047628502996, 1.30074756196423]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "574408",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "49",
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Upper Thomson Road",
+        "ADDRESSBLOCKHOUSENUMBER": "301",
+        "DESCRIPTION2": null,
+        "INC_CRC": "1A6B6A0AB76D4A9A",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.830919788426002, 1.35466901882051]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "CrossFit Singapore",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "408830",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "13",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "Ubi Avenue 4",
+        "ADDRESSBLOCKHOUSENUMBER": "81",
+        "DESCRIPTION2": null,
+        "INC_CRC": "032A31735DABE181",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.891768174079999, 1.33354943541229]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Curves - Marine Parade",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "160140",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "13",
+        "ADDRESSSTREETNAME": "Marine Parade Central",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "D51E49EA5998835F",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.829524333744004, 1.2781561439556]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Elements Pilates",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "247918",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "8",
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Tanglin Road",
+        "ADDRESSBLOCKHOUSENUMBER": "",
+        "DESCRIPTION2": null,
+        "INC_CRC": "39F348823D05A7E7",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.825078878265003, 1.30527220041532]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Bikram Yoga",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "179103",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "14",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "North Bridge Road",
+        "ADDRESSBLOCKHOUSENUMBER": "252",
+        "DESCRIPTION2": null,
+        "INC_CRC": "8B7EB611C2BCC165",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.853119912535007, 1.2938935875293]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Bikram Yoga Harbourfront",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "99253",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "13",
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "",
+        "ADDRESSBLOCKHOUSENUMBER": "",
+        "DESCRIPTION2": null,
+        "INC_CRC": "41CC26A587749B62",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.818625588158994, 1.26206336450486]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "199777",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "B Arab Street",
+        "ADDRESSBLOCKHOUSENUMBER": "80",
+        "DESCRIPTION2": null,
+        "INC_CRC": "20BDFF1E9571FDF8",
+        "FMEL_UPD_D": "20171121145650",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.859188259635999, 1.3014790011719]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "18982",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "3",
+        "ADDRESSFLOORNUMBER": "16",
+        "ADDRESSSTREETNAME": "Marina Boulevard",
+        "ADDRESSBLOCKHOUSENUMBER": "12",
+        "DESCRIPTION2": null,
+        "INC_CRC": "8F637F6D9220E08D",
+        "FMEL_UPD_D": "20171121145650",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.854297425626996, 1.27910567910157]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "49824",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "35B",
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "35B Boat Quay",
+        "ADDRESSBLOCKHOUSENUMBER": null,
+        "DESCRIPTION2": null,
+        "INC_CRC": "150B4896253E1146",
+        "FMEL_UPD_D": "20171121145650",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.849673970078996, 1.28625502575823]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "307987",
+        "ADDRESSBUILDINGNAME": "Revenue House",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "2",
+        "ADDRESSFLOORNUMBER": "5",
+        "ADDRESSSTREETNAME": "55 Newton Road",
+        "ADDRESSBLOCKHOUSENUMBER": null,
+        "DESCRIPTION2": null,
+        "INC_CRC": "B61A5200655F788D",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.841975314872002, 1.31948959451122]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "188021",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Victoria Street Bugis Junction",
+        "ADDRESSBLOCKHOUSENUMBER": "200",
+        "DESCRIPTION2": null,
+        "INC_CRC": "D641A1261476D87A",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.855327954497, 1.29906799078836]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "659081",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Bukit Batok West Ave 5",
+        "ADDRESSBLOCKHOUSENUMBER": "810",
+        "DESCRIPTION2": null,
+        "INC_CRC": "00B7C4A8E6B769F1",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.753023750300002, 1.35790704666032]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "179030",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "17",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "River Valley Road",
+        "ADDRESSBLOCKHOUSENUMBER": "177",
+        "DESCRIPTION2": null,
+        "INC_CRC": "4441732872B3FC5F",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.844586298874006, 1.29151478613339]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pilates Bodyworks - Holland",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "270036",
+        "ADDRESSBUILDINGNAME": "Buona Vista Community Club",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "Holland Drive",
+        "ADDRESSBLOCKHOUSENUMBER": "36",
+        "DESCRIPTION2": null,
+        "INC_CRC": "4631ECA28789B6FA",
+        "FMEL_UPD_D": "20160504105933",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.792547486779995, 1.30918211194726]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Total Yoga - Clarke Quay",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "59917",
+        "ADDRESSBUILDINGNAME": "Hui Seng Building",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Carpenter Street",
+        "ADDRESSBLOCKHOUSENUMBER": "38",
+        "DESCRIPTION2": null,
+        "INC_CRC": "7F5BF3C2974A506F",
+        "FMEL_UPD_D": "20171121145650",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.847772935259997, 1.28790271682791]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Midview Body & Mind",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "573972",
+        "ADDRESSBUILDINGNAME": "Midview City",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "138",
+        "ADDRESSFLOORNUMBER": "8",
+        "ADDRESSSTREETNAME": "Sin Ming Lane",
+        "ADDRESSBLOCKHOUSENUMBER": "28",
+        "DESCRIPTION2": null,
+        "INC_CRC": "BAB87D4CFCC68591",
+        "FMEL_UPD_D": "20171121145650",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.833930717119003, 1.35821656561939]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pilates Inc - The Moving Body Group - Amoy Street",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "69901",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Amoy Street Level 1",
+        "ADDRESSBLOCKHOUSENUMBER": "82",
+        "DESCRIPTION2": null,
+        "INC_CRC": "7ACFBBEA403DC32D",
+        "FMEL_UPD_D": "20171121145650",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.846733698071006, 1.28078047914706]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "538832",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Hougang Ave 4",
+        "ADDRESSBLOCKHOUSENUMBER": "93",
+        "DESCRIPTION2": null,
+        "INC_CRC": "4799581394079A15",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.888071733220002, 1.37057348785749]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "609517",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Jurong East St. 31",
+        "ADDRESSBLOCKHOUSENUMBER": "21",
+        "DESCRIPTION2": null,
+        "INC_CRC": "36E5745AABDF5045",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.728835249034006, 1.34621561227092]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "648965",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Jurong West St 93",
+        "ADDRESSBLOCKHOUSENUMBER": "20",
+        "DESCRIPTION2": null,
+        "INC_CRC": "E4C452427E90B81F",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.693768902190001, 1.33841806492775]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "519640",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Pasir Ris Central",
+        "ADDRESSBLOCKHOUSENUMBER": "120",
+        "DESCRIPTION2": null,
+        "INC_CRC": "75B56EEB2293FAB1",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.951822500419993, 1.37444845586245]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "59763",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "28",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Havelock Road 2HR",
+        "ADDRESSBLOCKHOUSENUMBER": "2",
+        "DESCRIPTION2": null,
+        "INC_CRC": "D9C883412EA536DC",
+        "FMEL_UPD_D": "20180704152348",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.844901339347004, 1.28672853496612]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "609930",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "5",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "International Business Park",
+        "ADDRESSBLOCKHOUSENUMBER": "2",
+        "DESCRIPTION2": null,
+        "INC_CRC": "5ADE95E16F4DE7AF",
+        "FMEL_UPD_D": "20180704152348",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.746960566284997, 1.3296904778472]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "18960",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Orchard Road",
+        "ADDRESSBLOCKHOUSENUMBER": "3",
+        "DESCRIPTION2": null,
+        "INC_CRC": "788B7E5BA692EB6D",
+        "FMEL_UPD_D": "20180704152348",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.851103466005, 1.27900797406852]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "449874",
+        "ADDRESSBUILDINGNAME": "Big Splash",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "05A",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "East Coast Parkway",
+        "ADDRESSBLOCKHOUSENUMBER": "902 B",
+        "DESCRIPTION2": null,
+        "INC_CRC": "3DBE70577DEED93A",
+        "FMEL_UPD_D": "20180704152348",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.899774980097007, 1.29747626957084]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "158790",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Tiong Bahru Road",
+        "ADDRESSBLOCKHOUSENUMBER": "900",
+        "DESCRIPTION2": null,
+        "INC_CRC": "33FF9E423E3E3908",
+        "FMEL_UPD_D": "20180704152348",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.819773109932001, 1.28907794925009]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "88998",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "3rd Floor 31B Kreta Ayer Road",
+        "ADDRESSBLOCKHOUSENUMBER": null,
+        "DESCRIPTION2": null,
+        "INC_CRC": "DD0CFDD91DBB75CF",
+        "FMEL_UPD_D": "20180704152348",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.842160502745998, 1.28065569131695]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "730900",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "11",
+        "ADDRESSFLOORNUMBER": "6",
+        "ADDRESSSTREETNAME": "South Woodlands Drive",
+        "ADDRESSBLOCKHOUSENUMBER": "900",
+        "DESCRIPTION2": null,
+        "INC_CRC": "6E838EA7DB6D86F9",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.786619615679996, 1.43507789397688]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "119964",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "03A",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Alexandra Road",
+        "ADDRESSBLOCKHOUSENUMBER": "991",
+        "DESCRIPTION2": null,
+        "INC_CRC": "A9F429BA815FB2AE",
+        "FMEL_UPD_D": "20171121150616",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.802911911186996, 1.27441958484294]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "188440",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "New Bugis St",
+        "ADDRESSBLOCKHOUSENUMBER": "164A",
+        "DESCRIPTION2": null,
+        "INC_CRC": "F4CBBAAE83F1BB8F",
+        "FMEL_UPD_D": "20160504170134",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.855247873281996, 1.30091799345463]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Central Pilates",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "227977",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "9",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Winstedt Road",
+        "ADDRESSBLOCKHOUSENUMBER": "10",
+        "DESCRIPTION2": null,
+        "INC_CRC": "AB171A85B419B656",
+        "FMEL_UPD_D": "20180704152348",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.841910545157006, 1.30992450385743]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Breathe Pilates - Novena",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "307506",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "33",
+        "ADDRESSFLOORNUMBER": "9",
+        "ADDRESSSTREETNAME": "Sinaran Drive",
+        "ADDRESSBLOCKHOUSENUMBER": "10",
+        "DESCRIPTION2": null,
+        "INC_CRC": "3FF83B00B3889020",
+        "FMEL_UPD_D": "20180704152348",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.843892126913005, 1.32042967863542]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Ananda Marga Yoga Society of Singapore - MacPherson",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "368150",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "A MacPherson Road",
+        "ADDRESSBLOCKHOUSENUMBER": "439",
+        "DESCRIPTION2": null,
+        "INC_CRC": "954EBECDBB1C33F2",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.881024688612996, 1.33201025602617]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "48622",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "0",
+        "ADDRESSFLOORNUMBER": "7",
+        "ADDRESSSTREETNAME": "Raffles Place",
+        "ADDRESSBLOCKHOUSENUMBER": "30",
+        "DESCRIPTION2": null,
+        "INC_CRC": "55F348B658CA9A22",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.851927274914004, 1.28423792027966]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "529652",
+        "ADDRESSBUILDINGNAME": "NTUC Income Tampines Junction",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "8",
+        "ADDRESSSTREETNAME": "Tampines Avenue 5",
+        "ADDRESSBLOCKHOUSENUMBER": "300",
+        "DESCRIPTION2": null,
+        "INC_CRC": "41D9806063028807",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.939635804139996, 1.35429510351818]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "449269",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "15",
+        "ADDRESSFLOORNUMBER": "7",
+        "ADDRESSSTREETNAME": "Marine Parade Road",
+        "ADDRESSBLOCKHOUSENUMBER": "80",
+        "DESCRIPTION2": null,
+        "INC_CRC": "8F1010F8ADCA9342",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.905113590458001, 1.30119131472187]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "98585",
+        "ADDRESSBUILDINGNAME": "VivoCity",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "10",
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Harbourfront Walk",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "EBADE26CDF33C220",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.821808629396003, 1.26439468181096]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "49315",
+        "ADDRESSBUILDINGNAME": "Ocean Financial Centre",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": "4",
+        "ADDRESSSTREETNAME": "Collyer Quay",
+        "ADDRESSBLOCKHOUSENUMBER": "10",
+        "DESCRIPTION2": null,
+        "INC_CRC": "5279FD4AB71A1AD6",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.851838945740994, 1.28298072623658]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "228210",
+        "ADDRESSBUILDINGNAME": "Pacific Plaza",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": "4",
+        "ADDRESSSTREETNAME": "Scotts Road",
+        "ADDRESSBLOCKHOUSENUMBER": "9",
+        "DESCRIPTION2": null,
+        "INC_CRC": "0A374185578ECB2D",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.832126408153997, 1.30653722380828]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "529536",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "18",
+        "ADDRESSFLOORNUMBER": "5",
+        "ADDRESSSTREETNAME": "Tampines Central 1",
+        "ADDRESSBLOCKHOUSENUMBER": "10",
+        "DESCRIPTION2": null,
+        "INC_CRC": "90D4D9CD3BD92CEA",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.945019457970005, 1.35431556438278]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Gym Nation",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "679910",
+        "ADDRESSBUILDINGNAME": "Senja Cashew CC",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "2",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "Bukit Panjang Road",
+        "ADDRESSBLOCKHOUSENUMBER": "101",
+        "DESCRIPTION2": null,
+        "INC_CRC": "D961379FBEED3A0A",
+        "FMEL_UPD_D": "20160504170134",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.764659583272007, 1.38158679370649]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Yoga Shala",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "88266",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Yan Kit Road",
+        "ADDRESSBLOCKHOUSENUMBER": "11",
+        "DESCRIPTION2": null,
+        "INC_CRC": "73F9ADF677C46246",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.841918377905003, 1.27652575407135]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Total Yoga - Orchard Road",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "229572",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "4",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Claymore Hill",
+        "ADDRESSBLOCKHOUSENUMBER": "8",
+        "DESCRIPTION2": null,
+        "INC_CRC": "CC585D49B7A6AB10",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.832038066910002, 1.30763492632515]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Viva Fit Singapore - Beach Road",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "189688",
+        "ADDRESSBUILDINGNAME": "Bulkhaul House",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "2",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "Beach Rd",
+        "ADDRESSBLOCKHOUSENUMBER": "67",
+        "DESCRIPTION2": null,
+        "INC_CRC": "E49D75A98E1B1ED4",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.856304899663996, 1.29695905771991]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Viva Fit Singapore - Raffles Place",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "48979",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "0",
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Malacca Street",
+        "ADDRESSBLOCKHOUSENUMBER": "20",
+        "DESCRIPTION2": null,
+        "INC_CRC": "146FD2E7D4B5A1AB",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.850711622747994, 1.28394229110606]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "48616",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "0",
+        "ADDRESSFLOORNUMBER": "6",
+        "ADDRESSSTREETNAME": "Raffles Place",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "D06CEF960BB10419",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.850982351780999, 1.28433994842242]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "544964",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Anchorvale Road",
+        "ADDRESSBLOCKHOUSENUMBER": "57",
+        "DESCRIPTION2": null,
+        "INC_CRC": "4DBCC23E5FEED82A",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.885784253769003, 1.39550158789593]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "529652",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Tampines Ave 5",
+        "ADDRESSBLOCKHOUSENUMBER": "505",
+        "DESCRIPTION2": null,
+        "INC_CRC": "41D9806016B6F96F",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.939635804139996, 1.35429510351818]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "319392",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Toa Payoh Lor 6",
+        "ADDRESSBLOCKHOUSENUMBER": "301",
+        "DESCRIPTION2": null,
+        "INC_CRC": "E68BF3E7C1D30BCF",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.849986788240997, 1.33060010108942]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "98854",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Telok Blangah Road",
+        "ADDRESSBLOCKHOUSENUMBER": "434",
+        "DESCRIPTION2": null,
+        "INC_CRC": "5AB246115C3F248B",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.812930291680004, 1.27029599179716]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Yoga Place",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "208568",
+        "ADDRESSBUILDINGNAME": "King George's Building",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "King George's Ave",
+        "ADDRESSBLOCKHOUSENUMBER": "328",
+        "DESCRIPTION2": null,
+        "INC_CRC": "CBB24D03E2FE458E",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.862090963732001, 1.30992191079359]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "WabiSabi Holistic Lifestyle",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "59817",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "12",
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Eu Tong Sen St. The Central",
+        "ADDRESSBLOCKHOUSENUMBER": "6",
+        "DESCRIPTION2": null,
+        "INC_CRC": "CA6518431554247F",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.846556006065001, 1.28886291929991]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Yaatra",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "88852",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "A Neil Road",
+        "ADDRESSBLOCKHOUSENUMBER": "114",
+        "DESCRIPTION2": null,
+        "INC_CRC": "83CABA853785A748",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.841769864721002, 1.27917902296384]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pilates Body Pilot - Biopolis",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "138667",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "4",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Biopolis Way",
+        "ADDRESSBLOCKHOUSENUMBER": "11",
+        "DESCRIPTION2": null,
+        "INC_CRC": "4C534929B93B4FD1",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.791460023588996, 1.30451127820755]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pilates Bodyworks - Finlayson Green",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "49246",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "12",
+        "ADDRESSSTREETNAME": "Finlayson Green",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "270F7A5B7642F5B3",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.851286590696006, 1.28224086928672]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "569931",
+        "ADDRESSBUILDINGNAME": "Aramsa ~ The Garden Spa",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Bishan Park II",
+        "ADDRESSBLOCKHOUSENUMBER": null,
+        "DESCRIPTION2": null,
+        "INC_CRC": "A96E493522B51019",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.847493236369999, 1.36254434770061]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "249683",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Dempsey Road",
+        "ADDRESSBLOCKHOUSENUMBER": "6",
+        "DESCRIPTION2": null,
+        "INC_CRC": "CD2E40A13B047C9D",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.808565893546003, 1.30484978466339]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Yoga Connections",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "419903",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "A Changi Road",
+        "ADDRESSBLOCKHOUSENUMBER": "498",
+        "DESCRIPTION2": null,
+        "INC_CRC": "7BDBBA93976A9409",
+        "FMEL_UPD_D": "20181212173018",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.914005195669006, 1.31923098288927]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pilates Inc - The Moving Body Group - East Coast",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "428766",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "5",
+        "ADDRESSFLOORNUMBER": "6",
+        "ADDRESSSTREETNAME": "East Coast Road",
+        "ADDRESSBLOCKHOUSENUMBER": "46",
+        "DESCRIPTION2": null,
+        "INC_CRC": "D6386C12A786B0C7",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.903338648383993, 1.30438467004432]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Platinum Yoga",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "449408",
+        "ADDRESSBUILDINGNAME": "Parkway Centre",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "5",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Marine Parade Central",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "E63CC7C7DC804474",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.905996039697001, 1.30188733852456]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pure Yoga - Chevron House",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "48622",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "30 Raffles Place",
+        "ADDRESSBLOCKHOUSENUMBER": "4",
+        "DESCRIPTION2": null,
+        "INC_CRC": "55F348B63DA0EC03",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.851927274914004, 1.28423792027966]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pure Yoga - Ngee Ann City",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238873",
+        "ADDRESSBUILDINGNAME": "Ngee Ann City Tower A",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "391A Orchard Road",
+        "ADDRESSBLOCKHOUSENUMBER": "18",
+        "DESCRIPTION2": null,
+        "INC_CRC": "80D12C516CF43CFE",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.83467613466, 1.30242417909429]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Real Yoga",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238843",
+        "ADDRESSBUILDINGNAME": "The Centrepoint",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "6",
+        "ADDRESSFLOORNUMBER": "6",
+        "ADDRESSSTREETNAME": "Orchard Road",
+        "ADDRESSBLOCKHOUSENUMBER": "176",
+        "DESCRIPTION2": null,
+        "INC_CRC": "17CFC6C940B57390",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.839758898411006, 1.30197804716068]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "89835",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Bukit Pasoh Rd",
+        "ADDRESSBLOCKHOUSENUMBER": "21B",
+        "DESCRIPTION2": null,
+        "INC_CRC": "4E3130390C3D3425",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.840532034231998, 1.27901545155803]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "469645",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Bedok North St 2",
+        "ADDRESSBLOCKHOUSENUMBER": "5",
+        "DESCRIPTION2": null,
+        "INC_CRC": "75B1D5A52513200F",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.938328173261993, 1.32585712140622]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238882",
+        "ADDRESSBUILDINGNAME": "Liat Towers",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Orchard Road",
+        "ADDRESSBLOCKHOUSENUMBER": "4",
+        "DESCRIPTION2": null,
+        "INC_CRC": "ECC6FB237686A01D",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.829984827987005, 1.30550611670641]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "138632",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "11",
+        "ADDRESSFLOORNUMBER": "23",
+        "ADDRESSSTREETNAME": "Fusionopolis Way",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "9E0F71EB521A8E23",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.787404060027995, 1.29929406658312]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "208539",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "6",
+        "ADDRESSSTREETNAME": "Kitchener Road",
+        "ADDRESSBLOCKHOUSENUMBER": "180",
+        "DESCRIPTION2": null,
+        "INC_CRC": "1D075CE9E2DB70DC",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.856487121487007, 1.31139349438914]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "89752",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Cantonment Road",
+        "ADDRESSBLOCKHOUSENUMBER": "51",
+        "DESCRIPTION2": null,
+        "INC_CRC": "534BEFC669635369",
+        "FMEL_UPD_D": "20160504170134",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.840386703019007, 1.27870948631099]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "247974",
+        "ADDRESSBUILDINGNAME": "Spa Boutique",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Nassim Road",
+        "ADDRESSBLOCKHOUSENUMBER": "6",
+        "DESCRIPTION2": null,
+        "INC_CRC": "932A900A6346F19A",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.814556916596999, 1.29792400181845]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Singapore CrossFit Hub",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "368241",
+        "ADDRESSBUILDINGNAME": "Citimac Building",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "11",
+        "ADDRESSFLOORNUMBER": "7",
+        "ADDRESSSTREETNAME": "Blk B",
+        "ADDRESSBLOCKHOUSENUMBER": "605",
+        "DESCRIPTION2": null,
+        "INC_CRC": "31AD9522FBA3F2BE",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.887714301749, 1.33378882726631]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Sky Fitness - Harbourfront",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "99254",
+        "ADDRESSBUILDINGNAME": "HarbourFront Tower 2",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "16",
+        "ADDRESSSTREETNAME": "HarbourFront Place",
+        "ADDRESSBLOCKHOUSENUMBER": "3",
+        "DESCRIPTION2": null,
+        "INC_CRC": "36A4F41E7C420D17",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.818686870632007, 1.26448635050271]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Spaboutique",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "258373",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Nassim Road",
+        "ADDRESSBLOCKHOUSENUMBER": "6",
+        "DESCRIPTION2": null,
+        "INC_CRC": "6A3697AF1FF07C6F",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.825932498525006, 1.30778575196489]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "The Pilates Place",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "78999",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "Tras Street",
+        "ADDRESSBLOCKHOUSENUMBER": "60",
+        "DESCRIPTION2": null,
+        "INC_CRC": "900FFAC2BAC9586E",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.844133723257002, 1.27787296456741]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "449408",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "7",
+        "ADDRESSSTREETNAME": "Marine Parade Central",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "E63CC7C7C3C8A2DF",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.905996039697001, 1.30188733852456]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Krav Maga Singapore",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "59295",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "0",
+        "ADDRESSFLOORNUMBER": "5",
+        "ADDRESSSTREETNAME": "North Canal Road",
+        "ADDRESSBLOCKHOUSENUMBER": "39",
+        "DESCRIPTION2": null,
+        "INC_CRC": "1B056E088123BADB",
+        "FMEL_UPD_D": "20160504105933",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.847025695669998, 1.28712786568231]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Brazilian Jiu Jitzu Singapore",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "228149",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "19",
+        "ADDRESSFLOORNUMBER": "6",
+        "ADDRESSSTREETNAME": "Sophia Road",
+        "ADDRESSBLOCKHOUSENUMBER": "",
+        "DESCRIPTION2": null,
+        "INC_CRC": "C8249F9DE196CF6C",
+        "FMEL_UPD_D": "20170921144815",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.849176266239994, 1.30107054671992]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Viva Fit Singapore - Tanjong Pagar",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "82001",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "24",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "Tanjong Pagar Plaza",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "4429E461D112F2DF",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.842393171371, 1.27559619819284]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pilates Flow",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "269748",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "6",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "2nd Avenue Junction",
+        "ADDRESSBLOCKHOUSENUMBER": "733",
+        "DESCRIPTION2": null,
+        "INC_CRC": "B3C3A5372AD5DC1F",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.799469917652004, 1.32982544868962]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Yoga On Nassim",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "269758",
+        "ADDRESSBUILDINGNAME": "Spa Boutique",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Nassim Road",
+        "ADDRESSBLOCKHOUSENUMBER": "6",
+        "DESCRIPTION2": null,
+        "INC_CRC": "FC71B3A9BE8CC69A",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.796264512394998, 1.3310218845731]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "YogaDivas - Leonie Hill",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "258373",
+        "ADDRESSBUILDINGNAME": "Leonie Hill Condo",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Leonie Hill Road",
+        "ADDRESSBLOCKHOUSENUMBER": "",
+        "DESCRIPTION2": null,
+        "INC_CRC": "6A3697AFDE3C67E1",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.825932498525006, 1.30778575196489]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "YogaDivas - Phoenix Park",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "247974",
+        "ADDRESSBUILDINGNAME": "Phoenix Park",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Tanglin Road",
+        "ADDRESSBLOCKHOUSENUMBER": "308",
+        "DESCRIPTION2": null,
+        "INC_CRC": "932A900ADA8D102D",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.814556916596999, 1.29792400181845]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Balancing Rocks Yoga Studio",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "199551",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "0",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "Beach Road",
+        "ADDRESSBLOCKHOUSENUMBER": "287",
+        "DESCRIPTION2": null,
+        "INC_CRC": "0315F25C07EC3F64",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.860481773328999, 1.30097708408221]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Basic Essence",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "259760",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "4",
+        "ADDRESSFLOORNUMBER": "4",
+        "ADDRESSSTREETNAME": "Bukit Timah Road",
+        "ADDRESSBLOCKHOUSENUMBER": "501",
+        "DESCRIPTION2": null,
+        "INC_CRC": "D1ABF0A06FAE584E",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.814245545297993, 1.32257317593847]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "588172",
+        "ADDRESSBUILDINGNAME": "Goh & Goh Building",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Upper Bukit Timah Road",
+        "ADDRESSBLOCKHOUSENUMBER": "110M",
+        "DESCRIPTION2": null,
+        "INC_CRC": "395714429B806FF4",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.776280180623999, 1.34094072442015]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "229233",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "5",
+        "ADDRESSFLOORNUMBER": "4",
+        "ADDRESSSTREETNAME": "Handy Road",
+        "ADDRESSBLOCKHOUSENUMBER": "2",
+        "DESCRIPTION2": null,
+        "INC_CRC": "A83A7EE1E338FE98",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.847789792827996, 1.29918374721933]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Reebok CrossFit Enduro",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "207629",
+        "ADDRESSBUILDINGNAME": "Teck Heng Long Industrial Building",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "3",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Syed Alwi Road",
+        "ADDRESSBLOCKHOUSENUMBER": "11",
+        "DESCRIPTION2": null,
+        "INC_CRC": "C1D57D06F78833B4",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.858169031632002, 1.30681472605594]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Absolute Yoga - River Valley",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "248371",
+        "ADDRESSBUILDINGNAME": "Valley Point",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "River Valley Rd",
+        "ADDRESSBLOCKHOUSENUMBER": "491",
+        "DESCRIPTION2": null,
+        "INC_CRC": "ABBD171C5FB606F7",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.826940812301004, 1.29301786111442]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Breathe Pilates - East Coast",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "428915",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "5",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "East Coast Road",
+        "ADDRESSBLOCKHOUSENUMBER": "217",
+        "DESCRIPTION2": null,
+        "INC_CRC": "B51077E952EEDD45",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.906933727641004, 1.30759648523611]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Absolute Yoga - Telok Ayer",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "68611",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "Telok Ayer Street",
+        "ADDRESSBLOCKHOUSENUMBER": "157A",
+        "DESCRIPTION2": null,
+        "INC_CRC": "D5CF6BE11AFD0623",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.847638181704994, 1.28041369547153]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Pilatique Pilates Studio",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "69250",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "8",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Gemmil Lane",
+        "ADDRESSBLOCKHOUSENUMBER": "",
+        "DESCRIPTION2": null,
+        "INC_CRC": "E12B723270D39FAE",
+        "FMEL_UPD_D": "20160510155332",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.846934447584005, 1.2824640229959]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Canvass Art and Yoga Studio",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "589820",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "A Binjai Park",
+        "ADDRESSBLOCKHOUSENUMBER": "5",
+        "DESCRIPTION2": null,
+        "INC_CRC": "2C4C2676E4D02F56",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.786616299314005, 1.33583564516194]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "COMO Shambhala Urban Escape",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238876",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "5",
+        "ADDRESSFLOORNUMBER": "6",
+        "ADDRESSSTREETNAME": "",
+        "ADDRESSBLOCKHOUSENUMBER": "",
+        "DESCRIPTION2": null,
+        "INC_CRC": "52C2AA03A80F1CC5",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.828468717264997, 1.30717806036195]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "79017",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Tras Street",
+        "ADDRESSBLOCKHOUSENUMBER": "78",
+        "DESCRIPTION2": null,
+        "INC_CRC": "3184BE45EA24B962",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.844050900534, 1.27742661017112]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "398007",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "20",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": null,
+        "ADDRESSBLOCKHOUSENUMBER": "41306",
+        "DESCRIPTION2": null,
+        "INC_CRC": "8ECD88F1C9D9C8FC",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.881270808536996, 1.30746518712488]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "159837",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "Bukit Merah Central",
+        "ADDRESSBLOCKHOUSENUMBER": "3500",
+        "DESCRIPTION2": null,
+        "INC_CRC": "C34C57B8FCD041D3",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.818078216385999, 1.28205540617869]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "574363",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "A Upper Thomson Road",
+        "ADDRESSBLOCKHOUSENUMBER": "232",
+        "DESCRIPTION2": null,
+        "INC_CRC": "77541E8EC177DEE4",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.835093523471997, 1.35306949447786]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "49745",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "Canton Street",
+        "ADDRESSBLOCKHOUSENUMBER": "3",
+        "DESCRIPTION2": null,
+        "INC_CRC": "AFFC85770638F52B",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.849431927363, 1.28621325740623]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "68805",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "6",
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Shenton Way",
+        "ADDRESSBLOCKHOUSENUMBER": "3",
+        "DESCRIPTION2": null,
+        "INC_CRC": "A2A479FA606148A4",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.850071543607001, 1.27851893758259]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Being In Yoga",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "287988",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "Turf Club Road",
+        "ADDRESSBLOCKHOUSENUMBER": "2",
+        "DESCRIPTION2": null,
+        "INC_CRC": "FC46CA789110B05E",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.795941517597996, 1.33589728896884]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Focus Pilates - Orchard",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238862",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "3",
+        "ADDRESSFLOORNUMBER": "8",
+        "ADDRESSSTREETNAME": "Orchard Road",
+        "ADDRESSBLOCKHOUSENUMBER": "302",
+        "DESCRIPTION2": null,
+        "INC_CRC": "48A1BC63BFFBB884",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.834826945699007, 1.30394638048361]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Focus Pilates - Raffles Place",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "48979",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "0",
+        "ADDRESSFLOORNUMBER": "12",
+        "ADDRESSSTREETNAME": "Malacca Street",
+        "ADDRESSBLOCKHOUSENUMBER": "20",
+        "DESCRIPTION2": null,
+        "INC_CRC": "146FD2E76AF1A98C",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.850711622747994, 1.28394229110606]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Impakt Singapore",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "68909",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Robinson Road",
+        "ADDRESSBLOCKHOUSENUMBER": "146",
+        "DESCRIPTION2": null,
+        "INC_CRC": "AD9F9000BEBC9F24",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.848096103439005, 1.27816986401168]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Iyengar Yoga Centre Singapore - Goldhill Centre",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "308899",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "31",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": "Goldhill Plaza",
+        "ADDRESSBLOCKHOUSENUMBER": "1",
+        "DESCRIPTION2": null,
+        "INC_CRC": "3C9373D12BA7E236",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.842889382967002, 1.31782868295281]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Iyengar Yoga Centre Singapore - Neil Road Centre",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "88875",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Neil Road",
+        "ADDRESSBLOCKHOUSENUMBER": "146B",
+        "DESCRIPTION2": null,
+        "INC_CRC": "5EE4FB8BA1708A35",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.840648509607007, 1.27828754868066]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Jagsport",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "208574",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "King George's Ave",
+        "ADDRESSBLOCKHOUSENUMBER": "340B",
+        "DESCRIPTION2": null,
+        "INC_CRC": "D84656A0FF0465BC",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.862434227156001, 1.31015179809918]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "88507",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": null,
+        "ADDRESSSTREETNAME": "A Tanjong Pagar Road",
+        "ADDRESSBLOCKHOUSENUMBER": "86",
+        "DESCRIPTION2": null,
+        "INC_CRC": "5DCBB969F19760DA",
+        "FMEL_UPD_D": "20161208083431",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.843683536783999, 1.27843513234261]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "49870",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "1",
+        "ADDRESSFLOORNUMBER": "2",
+        "ADDRESSSTREETNAME": null,
+        "ADDRESSBLOCKHOUSENUMBER": "41276",
+        "DESCRIPTION2": null,
+        "INC_CRC": "202E559F0023EC78",
+        "FMEL_UPD_D": "20161208083431",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.849144620548998, 1.2884814659674]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "238882",
+        "ADDRESSBUILDINGNAME": "Far East Shopping Centre",
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": "10",
+        "ADDRESSFLOORNUMBER": "16",
+        "ADDRESSSTREETNAME": "Orchard Road",
+        "ADDRESSBLOCKHOUSENUMBER": "545",
+        "DESCRIPTION2": null,
+        "INC_CRC": "ECC6FB238AF634C4",
+        "FMEL_UPD_D": "20161208083431",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.829984827987005, 1.30550611670641]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": null,
+        "description": null,
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "648886",
+        "ADDRESSBUILDINGNAME": null,
+        "HYPERLINK": null,
+        "PHOTOURL": null,
+        "ADDRESSUNITNUMBER": null,
+        "ADDRESSFLOORNUMBER": "3",
+        "ADDRESSSTREETNAME": "Jurong West Central 3",
+        "ADDRESSBLOCKHOUSENUMBER": "63",
+        "DESCRIPTION2": null,
+        "INC_CRC": "CB59096796BD4CB6",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.706460886825994, 1.33983014805774]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Kapap Singapore",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "89129",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Keong Siak Road",
+        "ADDRESSBLOCKHOUSENUMBER": "22",
+        "DESCRIPTION2": null,
+        "INC_CRC": "8241A65DAFFC7C4F",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.841668651741003, 1.28004625410654]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Kate Porter Yoga",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "449290",
+        "ADDRESSBUILDINGNAME": "Laguna Park",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "27",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Marine Parade Road",
+        "ADDRESSBLOCKHOUSENUMBER": "5000",
+        "DESCRIPTION2": null,
+        "INC_CRC": "099AC91AF17E3FE1",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.931988303013995, 1.31004098717818]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Oasis Holistic",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "180010",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "50",
+        "ADDRESSFLOORNUMBER": "1",
+        "ADDRESSSTREETNAME": "Selegie Road",
+        "ADDRESSBLOCKHOUSENUMBER": "10",
+        "DESCRIPTION2": null,
+        "INC_CRC": "1679DDC29E8498C7",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.850537243386995, 1.30370879489711]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "OhmSantih Yoga",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "189203",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Haji Lane",
+        "ADDRESSBLOCKHOUSENUMBER": "10A",
+        "DESCRIPTION2": null,
+        "INC_CRC": "D08D3C89A2C6FE0B",
+        "FMEL_UPD_D": "20160127095840",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.859384497354, 1.30050427305572]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "Name": "Masters' Yoga Sadhan",
+        "description": "",
+        "LANDYADDRESSPOINT": "0",
+        "LANDXADDRESSPOINT": "0",
+        "ADDRESSPOSTALCODE": "88509",
+        "ADDRESSBUILDINGNAME": "",
+        "HYPERLINK": "",
+        "PHOTOURL": "",
+        "ADDRESSUNITNUMBER": "",
+        "ADDRESSFLOORNUMBER": "",
+        "ADDRESSSTREETNAME": "Tanjong Pagar Road",
+        "ADDRESSBLOCKHOUSENUMBER": "88A",
+        "DESCRIPTION2": null,
+        "INC_CRC": "D2D1FC4B571EA9BE",
+        "FMEL_UPD_D": "20161208083431",
+        "NAME2": null
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [103.843673722806003, 1.27839696546876]
+      }
+    }
+  ]
+}

@@ -3,7 +3,7 @@ import './../utils/everythingUtils.dart';
 
 class TimePickerWidget extends StatefulWidget {
   final Function updateTime;
-  
+
   TimePickerWidget({@required this.updateTime});
 
   @override
@@ -28,6 +28,13 @@ class _TimePickerWidgetState extends State<TimePickerWidget> {
     final newTime = await showTimePicker(
       context: context,
       initialTime: time ?? initialTime,
+      initialEntryMode: TimePickerEntryMode.input,
+      builder: (context, child) {
+        return Theme(
+          child: child,
+          data: ThemeData.dark(),
+        );
+      },
     );
 
     if (newTime == null) return;

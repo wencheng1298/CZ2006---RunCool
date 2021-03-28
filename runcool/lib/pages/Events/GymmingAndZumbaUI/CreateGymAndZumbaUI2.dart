@@ -1,32 +1,37 @@
 import 'package:flutter/material.dart';
-import './../EventCreatedSuccessUI.dart';
+import '../EventCreatedSuccessUI.dart';
 
-import './../../../utils/everythingUtils.dart';
-import './../../../firebase/EventManagers/CreateEventManager.dart';
+import '../../../utils/everythingUtils.dart';
+import '../../../firebase/EventManagers/CreateEventManager.dart';
 
 enum EventPrivy { public, friends_only }
 
-class CreateRunningUI2 extends StatefulWidget {
+class CreateGymAndZumbaUI2 extends StatefulWidget {
   final Map eventDetails;
-  CreateRunningUI2({this.eventDetails});
+  CreateGymAndZumbaUI2({this.eventDetails});
 
   @override
-  _CreateRunningUI2State createState() => _CreateRunningUI2State(eventDetails);
+  _CreateGymAndZumbaUI2State createState() =>
+      _CreateGymAndZumbaUI2State(eventDetails);
 }
 
-class _CreateRunningUI2State extends State<CreateRunningUI2>
+class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
     with SingleTickerProviderStateMixin {
   EventPrivy openTo;
 
   Map eventDetails;
-  _CreateRunningUI2State(this.eventDetails);
+  _CreateGymAndZumbaUI2State(this.eventDetails);
 
   List<String> difficultyLevels = ['Easy', 'Medium', 'Hard'];
 
   void createEvent(Map eventDetails) {
     CreateEventManager().updateEvent(eventDetails);
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => EventCreatedSuccessUI(eventName: eventDetails['name'])));
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => EventCreatedSuccessUI(
+                  eventName: eventDetails['name'],
+                )));
   }
 
   @override
@@ -37,7 +42,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
         backgroundColor: Colors.black,
         centerTitle: true,
         title: Text(
-          'Create Running UI 2',
+          'Create ${widget.eventDetails['eventType']} UI 2',
           style: TextStyle(color: Colors.white),
           textAlign: TextAlign.center,
         ),
@@ -55,10 +60,12 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                   padding: EdgeInsets.all(8),
                   children: [
                     Align(
-                      alignment: Alignment.topLeft,
-                      child:
-                          InputFieldTextTitles('Enter the name of your route'),
-                    ),
+                        alignment: Alignment.topLeft,
+                        child: (eventDetails['eventType'] == "Gymming")
+                            ? InputFieldTextTitles(
+                                'Enter the name of your routine')
+                            : InputFieldTextTitles(
+                                'Enter the name of your dance event')),
                     Padding(
                       padding: const EdgeInsets.only(left: 8, right: 8),
                       child: InputTextField1(
@@ -70,54 +77,96 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                     ),
                     Align(
                       alignment: Alignment.topLeft,
-                      child: InputFieldTextTitles('Date of the run'),
+                      child: InputFieldTextTitles('Date of the session'),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0, right: 8),
                       child: DatePickerWidget(
                         updateDate: (year, month, day) {
-                          int hour = 0, minute = 0;
+                          int startHour = 0, startMinute = 0;
+                          int endHour = 0, endMinute = 0;
                           if (eventDetails.containsKey('startTime')) {
-                            hour = eventDetails['startTime'].hour;
-                            minute = eventDetails['startTime'].minute;
+                            startHour = eventDetails['startTime'].hour;
+                            startMinute = eventDetails['startTime'].minute;
                           }
-                          eventDetails['startTime'] =
-                              new DateTime(year, month, day, hour, minute);
-                        },
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: InputFieldTextTitles('Select Start Time'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0, right: 8),
-                      child: TimePickerWidget(
-                        updateTime: (hour, minute) {
-                          int year = 0, month = 0, day = 0;
-                          if (eventDetails.containsKey('startTime')) {
-                            year = eventDetails['startTime'].year;
-                            month = eventDetails['startTime'].month;
-                            day = eventDetails['startTime'].day;
+                          if (eventDetails.containsKey('endTime')) {
+                            endHour = eventDetails['endTime'].hour;
+                            endMinute = eventDetails['endTime'].minute;
                           }
-                          eventDetails['startTime'] =
-                              new DateTime(year, month, day, hour, minute);
+                          eventDetails['startTime'] = new DateTime(
+                              year, month, day, startHour, startMinute);
+                          eventDetails['endTime'] = new DateTime(
+                              year, month, day, endHour, endMinute);
                         },
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child:
-                          InputFieldTextTitles('Enter the pace of run (km/h)'),
+                    Row(
+                      children: [
+                        Container(
+                          child: Expanded(
+                            child: Center(
+                              child: InputFieldTextTitles('Start Time'),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          child: Expanded(
+                            child: Center(
+                              child: InputFieldTextTitles('End Time'),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0, right: 8),
-                      child: NumberTextField(
-                        height: 35,
-                        onChange: (val) {
-                          eventDetails['pace'] = double.parse(val);
-                        },
-                      ),
+                    Row(
+                      children: [
+                        //Start Time
+                        Container(
+                          child: Expanded(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 16, right: 8),
+                              child: Container(
+                                child: TimePickerWidget(
+                                  updateTime: (hour, minute) {
+                                    int year = 0, month = 0, day = 0;
+                                    if (eventDetails.containsKey('startTime')) {
+                                      year = eventDetails['startTime'].year;
+                                      month = eventDetails['startTime'].month;
+                                      day = eventDetails['startTime'].day;
+                                    }
+                                    eventDetails['startTime'] = new DateTime(
+                                        year, month, day, hour, minute);
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        //End Time
+                        Container(
+                          child: Expanded(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 16, left: 8),
+                              child: Container(
+                                child: TimePickerWidget(
+                                  updateTime: (hour, minute) {
+                                    int year = 0, month = 0, day = 0;
+                                    if (eventDetails.containsKey('startTime')) {
+                                      year = eventDetails['startTime'].year;
+                                      month = eventDetails['startTime'].month;
+                                      day = eventDetails['startTime'].day;
+                                    }
+                                    eventDetails['endTime'] = new DateTime(
+                                        year, month, day, hour, minute);
+                                  },
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                     Align(
                       alignment: Alignment.topLeft,
@@ -243,7 +292,9 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                       padding: const EdgeInsets.all(20),
                       width: 80,
                       child: TinyButton(
-                        onPress: () => createEvent(eventDetails), 
+                        onPress: () => {
+                          createEvent(eventDetails),
+                        },
                         text: "Create",
                         colour: kTurquoise,
                       ),

@@ -29,8 +29,6 @@ class _RuncoolNavBarState extends State<RuncoolNavBar> {
     setState(() {
       _currentIndex = index;
     });
-    print(_pages[_currentIndex]);
-    print('Tapped index: $index');
   }
 
   @override

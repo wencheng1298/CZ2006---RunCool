@@ -9,10 +9,11 @@ class CreateEventManager{
 
   CollectionReference events = FirebaseFirestore.instance.collection('events');
 
-  updateEvent(Map eventDetails){
+  updateEvent(Map eventDetails) {
     //Convert to Map<String, dynamic>
     Map<String, dynamic> data = eventDetails.map((key,value)=>MapEntry(key.toString(), value));
-    
-    // events.add(data);
+    data['deleted'] = false;
+    events.add(data);
+    // print(data);
   }
 }

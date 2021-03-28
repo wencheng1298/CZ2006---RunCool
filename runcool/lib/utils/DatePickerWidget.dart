@@ -11,7 +11,7 @@ class DatePickerWidget extends StatefulWidget {
 
 class _DatePickerWidgetState extends State<DatePickerWidget> {
   DateTime date;
-  
+
   String getText() {
     if (date == null) {
       return "Select Date";
@@ -30,6 +30,14 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       initialDate: date ?? initialDate,
       firstDate: DateTime(DateTime.now().day),
       lastDate: DateTime(DateTime.now().year + 5),
+      initialEntryMode: DatePickerEntryMode.input,
+      initialDatePickerMode: DatePickerMode.year,
+      builder: (context, child) {
+        return Theme(
+          child: child,
+          data: ThemeData.dark(),
+        );
+      },
     );
     if (newDate == null || newDate.isBefore(initialDate)) {
       date = null;
@@ -46,7 +54,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
       onPress: () async => {
         await selectDate(context),
         widget.updateDate(date.year, date.month, date.day)
-        },
+      },
       text: getText(),
       colour: kTurquoise,
     );

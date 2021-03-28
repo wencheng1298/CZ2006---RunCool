@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './RunningUI/CreateRunningUI1.dart';
-import './GymmingUI/CreateGymmingUI1.dart';
-import './ZumbaUI/CreateZumbaUI1.dart';
+import './GymmingAndZumbaUI/CreateGymmingUI1.dart';
+import 'GymmingAndZumbaUI/CreateZumbaUI1.dart';
 
 import 'CreateEventUI.dart';
 import './../../utils/everythingUtils.dart';
