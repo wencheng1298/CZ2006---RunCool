@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:runcool/pages/Events/GymmingAndZumbaUI/CreateGymAndZumbaUI2.dart';
 import 'package:runcool/utils/GoogleMapPlacement.dart';
-import './../../../utils/everythingUtils.dart';
-
-import './../RunningUI/CreateRunningUI2.dart'; // find out if it is possible to use the same page, but change a bit/add on
-
+import '../../../utils/everythingUtils.dart';
 
 class CreateZumbaUI1 extends StatefulWidget {
   @override
@@ -11,12 +9,15 @@ class CreateZumbaUI1 extends StatefulWidget {
 }
 
 class _CreateZumbaUI1State extends State<CreateZumbaUI1> {
-  Color _background = Color(0xff1f1b24);
-  Color _turqoise = Color(0xff58C5CC); //?
+  Map eventDetails = {"eventType": "Zumba"};
 
   void goNextPage() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => CreateRunningUI2())); //find out if need to individually create or can use and add on..
+        context,
+        MaterialPageRoute(
+            builder: (context) => CreateGymAndZumbaUI2(
+                  eventDetails: eventDetails,
+                ))); //find out if need to individually create or can use and add on..
   }
 
   @override
@@ -27,13 +28,13 @@ class _CreateZumbaUI1State extends State<CreateZumbaUI1> {
         backgroundColor: Colors.black,
         centerTitle: true,
         title: Text(
-          'New Routine',
+          'New Dance',
           style: TextStyle(color: Colors.white),
           textAlign: TextAlign.center,
         ),
       ),
       body: Container(
-        color: _background,
+        color: kBackgroundColor,
         child: Column(
           children: [
             GoogleMapPlacement(),
@@ -56,7 +57,12 @@ class _CreateZumbaUI1State extends State<CreateZumbaUI1> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 8, right: 8),
-                      child: InputTextField1(height: 35),
+                      child: InputTextField1(
+                        height: 35,
+                        onChange: (val) {
+                          eventDetails['danceGenre'] = val;
+                        },
+                      ),
                     ),
                     Align(
                       alignment: Alignment.topLeft,
@@ -66,13 +72,11 @@ class _CreateZumbaUI1State extends State<CreateZumbaUI1> {
                         padding: const EdgeInsets.only(left: 8.0, right: 8),
                         child: Container(
                           height: 50,
-                          color: _turqoise,
+                          color: kTurquoise,
                           child: const Center(child: Text('Add Dance Music')),
-                        )
-                    ),
+                        )),
                   ],
-                )
-            ),
+                )),
             Row(
               children: [
                 Expanded(

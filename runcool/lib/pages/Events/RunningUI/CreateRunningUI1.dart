@@ -99,7 +99,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                     onMapCreated: (GoogleMapController controller) {
                       _mapController.complete(controller);
                     },
-                    eventType: "running",
+                    // eventType: "running",
                   ),
                   if (googleMapsAppData.searchResults != null &&
                       googleMapsAppData.searchResults.length != 0)

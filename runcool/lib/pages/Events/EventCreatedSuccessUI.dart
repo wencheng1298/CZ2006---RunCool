@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
+import './../../utils/everythingUtils.dart';
 import 'EventPage.dart';
 
 class EventCreatedSuccessUI extends StatefulWidget {
+  final String eventName;
+  EventCreatedSuccessUI({this.eventName});
+
   @override
   EventCreatedSuccessUIState createState() => EventCreatedSuccessUIState();
 }
 
 class EventCreatedSuccessUIState extends State<EventCreatedSuccessUI> {
-  Color _turqoise = Color(0xff58C5CC);
-  Color _background = Color(0xff322F2F);
-
   void viewEvent() {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => EventPage()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => EventPage()));
   }
 
   @override
@@ -28,41 +29,42 @@ class EventCreatedSuccessUIState extends State<EventCreatedSuccessUI> {
           ),
           leading: Container(),
         ),
-        body: Container(
-            height: MediaQuery.of(context).size.height,
-            color: _background,
-            child: Column(
-              children: [
-                SizedBox(height: 50),
-                Padding(
-                  padding: const EdgeInsets.all(26),
-                  child: Text(
-                    "Your Event: The Nice Tour - has been created successfully!",
-                    style: TextStyle(
-                      fontSize: 50,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(20),
-                  width: MediaQuery.of(context).size.width,
-                  height: 80,
-                  child: OutlinedButton(
+        body: BackgroundImage(
+          child: Container(
+              height: MediaQuery.of(context).size.height,
+              child: Column(
+                children: [
+                  SizedBox(height: 50),
+                  Padding(
+                    padding: const EdgeInsets.all(26),
                     child: Text(
-                      'See Event Details',
-                      style: TextStyle(fontSize: 22),
+                      "Your Event: ${widget.eventName} - has been created successfully!",
+                      style: TextStyle(
+                        fontSize: 50,
+                        color: Colors.white,
+                      ),
                     ),
-                    onPressed: () => viewEvent(),
-                    style: TextButton.styleFrom(
-                        backgroundColor: _turqoise,
-                        primary: Colors.black,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        )),
                   ),
-                ),
-              ],
-            )));
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    width: MediaQuery.of(context).size.width,
+                    height: 80,
+                    child: OutlinedButton(
+                      child: Text(
+                        'See Event Details',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                      onPressed: () => viewEvent(),
+                      style: TextButton.styleFrom(
+                          backgroundColor: kTurquoise,
+                          primary: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          )),
+                    ),
+                  ),
+                ],
+              )),
+        ));
   }
 }
