@@ -21,7 +21,8 @@ class SignUpUI1State extends State<SignUpUI1> {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => SignUpUI2(credentials: credentials)));
+            //builder: (context) => SignUpUI2(credentials: credentials)));
+            builder: (context) => SignUpUI2()));
   }
 
   Map<String, String> credentials = {"email": "", "password": ''};

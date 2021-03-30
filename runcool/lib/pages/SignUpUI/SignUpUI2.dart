@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../models/User.dart';
 import './SignUpSuccessUI.dart';
 import './../../utils/everythingUtils.dart';
 import '../../firebase/authenticationManager.dart';
 import 'package:runcool/firebase/Service/auth.dart';
 import 'package:runcool/firebase/Service/database.dart';
+import 'package:runcool/firebase/ProfileManager.dart';
 
 class SignUpUI2 extends StatefulWidget {
-  final Map<String, String> credentials;
-  SignUpUI2({this.credentials});
+  Map profileDetails;
+  //SignUpUI2({this.profileDetails});
+
+  // final Map<String, String> credentials;
+  // SignUpUI2({this.credentials});
   @override
   SignUpUI2State createState() => SignUpUI2State();
 }
@@ -15,6 +21,8 @@ class SignUpUI2 extends StatefulWidget {
 class SignUpUI2State extends State<SignUpUI2> {
   final AuthService _auth = AuthService();
   final _formkey = GlobalKey<FormState>();
+  Map profileDetails;
+  //SignUpUI2State({this.profileDetails});
 
   String name;
   int age;
@@ -34,8 +42,16 @@ class SignUpUI2State extends State<SignUpUI2> {
     // }
   }
 
+  void createProfile(Map profileDetails) {
+    ProfileManager().updateProfile(profileDetails);
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => SignUpSuccessUI()));
+  }
+
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<AppUser>(context);
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -90,87 +106,82 @@ class SignUpUI2State extends State<SignUpUI2> {
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: InputTextFormFill(
-                      // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                      obscure: false,
-                      text: 'Name',
-                      onChange: (value) {
-                        setState(() {
-                          name = value;
-                        });
-                      }),
+                    // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                    obscure: false,
+                    text: 'Name',
+
+                    onChange: (val) {
+                      profileDetails['name'] = val;
+                    },
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: InputTextFormFill(
-                      // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                      obscure: false,
-                      text: 'age',
-                      onChange: (value) {
-                        setState(() {
-                          age = value;
-                        });
-                      }),
+                    // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                    obscure: false,
+                    text: 'age',
+                    onChange: (val) {
+                      profileDetails['age'] = val;
+                    },
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: InputTextFormFill(
-                      // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                      obscure: false,
-                      text: 'Gender',
-                      onChange: (value) {
-                        setState(() {
-                          gender = value;
-                        });
-                      }),
+                    // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                    obscure: false,
+                    text: 'Gender',
+
+                    onChange: (val) {
+                      profileDetails['gender'] = val;
+                    },
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: InputTextFormFill(
-                      // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                      obscure: false,
-                      text: 'Hobbies',
-                      onChange: (value) {
-                        setState(() {
-                          hobbies = value;
-                        });
-                      }),
+                    // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                    obscure: false,
+                    text: 'Hobbies',
+                    onChange: (val) {
+                      profileDetails['hobbies'] = val;
+                    },
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: InputTextFormFill(
-                      // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                      obscure: false,
-                      text: 'Region',
-                      onChange: (value) {
-                        setState(() {
-                          region = value;
-                        });
-                      }),
+                    // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                    obscure: false,
+                    text: 'Region',
+                    onChange: (val) {
+                      profileDetails['region'] = val;
+                    },
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: InputTextFormFill(
-                      // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                      obscure: false,
-                      text: 'Occupation',
-                      onChange: (value) {
-                        setState(() {
-                          occupation = value;
-                        });
-                      }),
+                    // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                    obscure: false,
+                    text: 'Occupation',
+                    onChange: (val) {
+                      profileDetails['occupation'] = val;
+                    },
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: InputTextFormFill(
-                      //validator: (value) =>
-                      //   value.isEmpty ? 'Enter an email' : null,
-                      obscure: false,
-                      text: 'Instagram Handle',
-                      onChange: (value) {
-                        setState(() {
-                          insta = value;
-                        });
-                      }),
+                    //validator: (value) =>
+                    //   value.isEmpty ? 'Enter an email' : null,
+                    obscure: false,
+                    text: 'Instagram Handle',
+                    onChange: (val) {
+                      profileDetails['instagram'] = val;
+                    },
+                  ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 10, left: 10, right: 10),
@@ -179,9 +190,7 @@ class SignUpUI2State extends State<SignUpUI2> {
                       obscure: false,
                       text: 'Bio',
                       onChange: (value) {
-                        setState(() {
-                          bio = value;
-                        });
+                        profileDetails['bio'] = value;
                       }),
                   //autofocus: false,
                   //keyboardType: TextInputType.multiline,
@@ -227,6 +236,13 @@ class SignUpUI2State extends State<SignUpUI2> {
                   child: ButtonType1(
                       text: 'Create!',
                       onPress: () async {
+                        //print(profileDetails);
+                        ProfileManager().updateUser(profileDetails);
+                        print(user.uid);
+                        signUpAndGoNextPage();
+
+                        // ProfileManager().updateProfile(profileDetails);
+
                         // if(_formkey.currentState.validate()){
                         //   print(email);
                         //   print(password);
@@ -242,7 +258,6 @@ class SignUpUI2State extends State<SignUpUI2> {
                         //         occupation,
                         //         insta,
                         //         bio);
-                        signUpAndGoNextPage();
                       }),
 
                   // TinyButton(

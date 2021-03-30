@@ -35,31 +35,32 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return
-        //MultiProvider(
-        //providers: [
-        StreamProvider<AppUser>.value(
-      value: AuthService().user,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => GoogleMapsAppData()),
+        StreamProvider<AppUser>.value(value: AuthService().user)
+      ],
       child: MaterialApp(
         home: Wrapper(),
       ),
     );
-    // ChangeNotifierProvider(
-    //   create: (context) => GoogleMapsAppData(),
-    //   child: MaterialApp(
-    //     title: 'Flutter Demo',
-    //     theme: ThemeData(
-    //       primarySwatch: Colors.blue,
-    //       appBarTheme: AppBarTheme(
-    //         backgroundColor: Colors.black,
-    //         titleTextStyle: TextStyle(color: Colors.white),
-    //         centerTitle: true,
+    //],
+    //   ChangeNotifierProvider(
+    //     create: (context) => GoogleMapsAppData(),
+    //     child: MaterialApp(
+    //       title: 'Flutter Demo',
+    //       theme: ThemeData(
+    //         primarySwatch: Colors.blue,
+    //         appBarTheme: AppBarTheme(
+    //           backgroundColor: Colors.black,
+    //           titleTextStyle: TextStyle(color: Colors.white),
+    //           centerTitle: true,
+    //         ),
     //       ),
     //     ),
     //   ),
-    // ),
     // ],
-    // );
+    //  );
 
     // AuthenticationManager().getCurrUserFromFirebase() == null ? LogInUI() : RuncoolNavBar(),
   }
@@ -77,3 +78,35 @@ class MyApp extends StatelessWidget {
 //           centerTitle: true,
 //         ),
 //       ),
+
+//working code
+//
+// return
+// //MultiProvider(
+// //providers: [
+// StreamProvider<AppUser>.value(
+// value: AuthService().user,
+// child: MaterialApp(
+// home: Wrapper(),
+// ),
+// );
+// // ChangeNotifierProvider(
+// //   create: (context) => GoogleMapsAppData(),
+// //   child: MaterialApp(
+// //     title: 'Flutter Demo',
+// //     theme: ThemeData(
+// //       primarySwatch: Colors.blue,
+// //       appBarTheme: AppBarTheme(
+// //         backgroundColor: Colors.black,
+// //         titleTextStyle: TextStyle(color: Colors.white),
+// //         centerTitle: true,
+// //       ),
+// //     ),
+// //   ),
+// // ),
+// // ],
+// // );
+//
+// // AuthenticationManager().getCurrUserFromFirebase() == null ? LogInUI() : RuncoolNavBar(),
+// }
+// }

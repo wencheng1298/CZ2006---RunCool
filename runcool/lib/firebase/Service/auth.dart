@@ -22,11 +22,11 @@ class AuthService {
     return user != null ? AppUser(uid: user.uid) : null;
   }
 
-  // auth change user stream
   Stream<AppUser> get user {
     return _auth
         .authStateChanges()
         .map((User user) => _userFromFirebaseUser(user));
+
     //  .map(_userFromFirebaseUser);
   }
   //register with email and pw
@@ -49,6 +49,7 @@ class AuthService {
         // insta,
         // bio,
       );
+
       return _userFromFirebaseUser(user);
     } catch (e) {
       print(e.toString());
