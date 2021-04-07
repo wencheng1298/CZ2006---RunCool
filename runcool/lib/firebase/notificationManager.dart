@@ -49,19 +49,28 @@ class NotificationManager {
     });
   }
 
-  void getData() async {
-    await for (var snapshot in user.snapshots()) {
-      List<dynamic> notifications = snapshot.data()['notifications'];
-      dynamic notifStreams =
-          notifications.map((notif) async => await notif.get());
-      for (var x in notifications) {
-        dynamic notif = await x.get();
-        print(notif.data());
-        // dynamic f = await notif.onSnapshot();
-        // print(f.runtimeType);
-      }
-      // print(notifStreams.runtimeType);
-    }
+  // void getData() async {
+  //   await for (var snapshot in user.snapshots()) {
+  //     List<dynamic> notifications = snapshot.data()['notifications'];
+  //     dynamic notifStreams =
+  //         notifications.map((notif) async => await notif.get());
+  //     for (var x in notifications) {
+  //       dynamic notif = await x.get();
+  //       print(notif.data());
+  //       // dynamic f = await notif.onSnapshot();
+  //       // print(f.runtimeType);
+  //     }
+  //     // print(notifStreams.runtimeType);
+  //   }
+  // }
+
+  //get users notifications
+  void get notifications {
+    print("hello");
+    user.snapshots().map((DocumentSnapshot snapshot) {
+      dynamic nofic = snapshot.data()['notifications'];
+      print(nofic);
+    });
   }
 
   Future<String> reject() async {

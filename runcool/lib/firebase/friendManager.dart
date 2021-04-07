@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'notificationManager.dart';
-import 'notificationManager.dart';
 
 class FriendManager {
   final _firestore = FirebaseFirestore.instance;

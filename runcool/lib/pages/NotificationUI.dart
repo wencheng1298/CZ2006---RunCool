@@ -2,11 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import '../utils/constants.dart';
 import '../firebase/notificationManager.dart';
-import '../firebase/notificationManager.dart';
 import '../utils/everythingUtils.dart';
 import './notificationDependancies/screen.dart';
-import '../firebase/ProfileManager.dart';
-import '../firebase/notificationManager.dart';
+import '../firebase/EventManagers/EventManager.dart';
+// import '../firebase/ProfileManager.dart';
 
 class NotificationUI extends StatefulWidget {
   @override
@@ -41,11 +40,13 @@ class NotificationUIState extends State<NotificationUI> {
   @override
   void initState() {
     _fillLists();
+
     super.initState();
+    print(EventManager().getEventData("eZoBIWxnC1Hc2RVrWumE"));
     // ProfileManager().getUser();
-    // NotificationManager().getData();
+    // NotificationManager().notifications;
     // NotificationManager().createNotification(
-    //     {"name": "wec", "iwi": 3, "event": "rSmLBegwwf0v5x3jGHV3"});
+    //     {"name": "wec", "iwi": 3, "event": "rSmLBegwwf0v5x3jGHV3"}, "wief");
   }
 
   @override

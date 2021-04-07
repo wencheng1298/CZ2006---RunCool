@@ -41,6 +41,15 @@ class MyApp extends StatelessWidget {
         StreamProvider<AppUser>.value(value: AuthService().user)
       ],
       child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.black,
+            titleTextStyle: TextStyle(color: Colors.white),
+            centerTitle: true,
+          ),
+        ),
         home: Wrapper(),
       ),
     );
@@ -48,15 +57,7 @@ class MyApp extends StatelessWidget {
     //   ChangeNotifierProvider(
     //     create: (context) => GoogleMapsAppData(),
     //     child: MaterialApp(
-    //       title: 'Flutter Demo',
-    //       theme: ThemeData(
-    //         primarySwatch: Colors.blue,
-    //         appBarTheme: AppBarTheme(
-    //           backgroundColor: Colors.black,
-    //           titleTextStyle: TextStyle(color: Colors.white),
-    //           centerTitle: true,
-    //         ),
-    //       ),
+
     //     ),
     //   ),
     // ],

@@ -26,12 +26,12 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
 
   void createEvent(Map eventDetails) {
     String docID = EventManager().updateEvent(eventDetails);
-    // EventManager().getEventById("eZoBIWxnC1Hc2RVrWumE");
+
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) =>
-            EventCreatedSuccessUI(eventName: eventDetails['name'], docID: docID),
+        builder: (context) => EventCreatedSuccessUI(
+            eventName: eventDetails['name'], docID: docID),
       ),
     );
   }
