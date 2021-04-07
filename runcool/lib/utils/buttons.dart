@@ -38,7 +38,7 @@ class ButtonType1 extends StatelessWidget {
       fillColor: colour ?? kTurquoise,
       child: Text(
         text,
-        style: TextStyle(fontSize: 20),
+        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
       constraints: BoxConstraints(minWidth: 200.0, minHeight: 45.0),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),

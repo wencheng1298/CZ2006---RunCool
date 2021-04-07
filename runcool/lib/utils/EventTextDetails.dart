@@ -12,7 +12,7 @@ class EventTextDetails extends StatelessWidget {
       child: Text(
         _title,
         textAlign: TextAlign.left,
-        style: TextStyle(fontSize: 12, color: Colors.white),
+        style: TextStyle(fontSize: 14, color: Colors.white),
       ),
     );
   }

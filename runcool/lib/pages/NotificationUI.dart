@@ -42,7 +42,7 @@ class NotificationUIState extends State<NotificationUI> {
     _fillLists();
 
     super.initState();
-    print(EventManager().getEventData("eZoBIWxnC1Hc2RVrWumE"));
+    // print(EventManager().getEventData("eZoBIWxnC1Hc2RVrWumE"));
     // ProfileManager().getUser();
     // NotificationManager().notifications;
     // NotificationManager().createNotification(

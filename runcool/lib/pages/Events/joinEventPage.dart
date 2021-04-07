@@ -1,47 +1,42 @@
 import 'package:flutter/material.dart';
 import '../../utils/EventTextTitle.dart';
-import '../../utils/EventTextDetails.dart';
+import '../../utils/everythingUtils.dart';
 
-class joinEventPage extends StatefulWidget {
+class JoinEventPage extends StatefulWidget {
   @override
-  joinEventPageState createState() => joinEventPageState();
+  _JoinEventPageState createState() => _JoinEventPageState();
 }
 
-class joinEventPageState extends State<joinEventPage> {
-  Color _turqoise = Color(0xff58C5CC);
-  Color _background = Color(0xff322F2F);
-
+class _JoinEventPageState extends State<JoinEventPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: _background,
+        backgroundColor: Colors.black,
         centerTitle: true,
-        title: Text(
-          'Event Name', //need to make this dynamic
-          style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.center,
-        ),
+        //   title: Text(
+        //     'Event Name', //need to make this dynamic
+        //     style: TextStyle(
+        //       color: Colors.white),
+        //   ),
       ),
-      body: Container(
-        color: _background,
-        child: Column(children: [
-          Text(
-            'You have successfully joined: ',
-            style: TextStyle(fontSize: 24, color: Colors.white),
-            textAlign: TextAlign.justify,
-          ),
-          EventTextTitle('Event Name'),
-          Align(
-            alignment: Alignment.bottomCenter, //er not at the bottom.
-            child: ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: Text('Back to Event Page'),
+      body: BackgroundImage(
+        child: Container(
+          child: Column(children: [
+            SizedBox(
+              height: 50,
             ),
-          )
-        ]),
+            Padding(
+              padding: EdgeInsets.all(26),
+              child: Text(
+                'You have successfully joined- The Event Name',
+                style: TextStyle(fontSize: 50, color: Colors.white),
+              ),
+            ),
+            SizedBox(height: 50),
+            ButtonType1(onPress: (){ Navigator.pop(context);}, text: "Back to Event Page")
+          ]),
+        ),
       ),
     );
   }
