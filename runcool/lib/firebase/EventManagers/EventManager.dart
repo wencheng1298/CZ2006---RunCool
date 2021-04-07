@@ -15,7 +15,6 @@ class EventManager {
         eventDetails.map((key, value) => MapEntry(key.toString(), value));
     data['deleted'] = false;
     var docID = await events.add(data);
-    // print("Docid: " + docID.id);
     return docID.id;
     // print(data);
   }

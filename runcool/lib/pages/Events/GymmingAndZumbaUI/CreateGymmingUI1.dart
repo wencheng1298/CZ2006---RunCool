@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import './../../../utils/everythingUtils.dart';
+import 'package:provider/provider.dart';
+import 'package:runcool/models/User.dart';
 
 import './CreateGymAndZumbaUI2.dart';
 
@@ -22,6 +24,9 @@ class _CreateGymmingUI1State extends State<CreateGymmingUI1> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<AppUser>(context);
+    eventDetails['creator'] = user.uid;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(

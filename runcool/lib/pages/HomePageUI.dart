@@ -14,7 +14,6 @@ class HomePageUI extends StatefulWidget {
 class HomePageUIState extends State<HomePageUI> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     // print(Authentication().getCurrUser().email);
   }
@@ -23,34 +22,6 @@ class HomePageUIState extends State<HomePageUI> {
     Navigator.push(context,
         MaterialPageRoute(builder: (context) => SelectItemsFIlterUI()));
   }
-
-  Container EventCards(String heading, String subHeading) {
-    return Container(
-      width: 400,
-      child: Card(
-        child: Wrap(
-          children: <Widget>[
-            ListTile(
-              title: Text(heading),
-              subtitle: Text(subHeading),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-/*   Widget popupMenuButton<String>(
-    icon: Icon(Icons.add,size: 30.0),
-    itembuilder: (BuildContext context)=><PopupMenuEntry<String>>[
-
-      PopupMenuItem<String>(
-        value: "one_val",
-        child: Text("one"),
-      ),
-    ],
-
-  ); */
 
   @override
   Widget build(BuildContext context) {
@@ -73,12 +44,11 @@ class HomePageUIState extends State<HomePageUI> {
             )
           ],
         ),
-        body: SingleChildScrollView(
-          //let the app be scrollable
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            child: BackgroundImage(
+        body: BackgroundImage(
+          child: SingleChildScrollView(
+            child: Container(
+              height: MediaQuery.of(context).size.height + 30,
+              width: MediaQuery.of(context).size.width,
               child: Column(
                 children: [
                   Container(
@@ -96,13 +66,13 @@ class HomePageUIState extends State<HomePageUI> {
                   Container(
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width,
-                      height: 300,
+                      height: 340,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
-                          EventCards("Events for you", "Event 1"),
-                          EventCards("Events for you", "Event 2"),
-                          EventCards("Events for you", "Event 3"),
+                          EventCard(),
+                          EventCard(),
+                          EventCard(),
                         ],
                       ),
                     ),
@@ -122,13 +92,13 @@ class HomePageUIState extends State<HomePageUI> {
                   Container(
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width,
-                      height: 300,
+                      height: 340,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
-                          EventCards("Friends up to", "Event 1"),
-                          EventCards("Friends up to", "Event 2"),
-                          EventCards("Friends up to", "Event 3"),
+                          EventCard(),
+                          EventCard(),
+                          EventCard(),
                         ],
                       ),
                     ),

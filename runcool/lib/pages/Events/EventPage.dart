@@ -67,7 +67,7 @@ class _EventPageState extends State<EventPage> {
                         children: [
                           Align(
                             alignment: Alignment.topLeft,
-                            child: EventTextTitle(event.name),
+                            child: EventTextTitle(event.name??""),
                           ),
                           Row(
                               //mainAxisAlignment: MainAxisAlignment.start,
@@ -172,7 +172,7 @@ class _EventPageState extends State<EventPage> {
                             child: Align(
                               alignment: Alignment.topLeft,
                               child: EventTextDetails(
-                                  'This is a description of the event haha. I love CZ2004'),
+                                  'This is a description of the event haha.This is a description of the event haha.This is a description of the event haha.This is a description of the event haha. I love CZ2004'),
                             ),
                           ),
                           Align(
@@ -246,7 +246,7 @@ class _EventPageState extends State<EventPage> {
                     )
                   ])));
                 } else {
-                  return null;
+                  return Loading();
                 }
               }),
         ));

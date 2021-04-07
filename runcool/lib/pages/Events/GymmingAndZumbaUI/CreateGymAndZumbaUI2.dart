@@ -24,9 +24,8 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
 
   List<String> difficultyLevels = ['Easy', 'Medium', 'Hard'];
 
-  void createEvent(Map eventDetails) {
-    String docID = EventManager().updateEvent(eventDetails);
-
+  void createEvent(Map eventDetails) async {
+    String docID = await EventManager().updateEvent(eventDetails);
     Navigator.push(
       context,
       MaterialPageRoute(

@@ -9,3 +9,5 @@ export 'GoogleMapPlacement.dart';
 export 'InputFieldTextTitles.dart';
 export 'TimePickerWidget.dart';
 export 'configGMaps.dart';
+export 'loading.dart';
+export 'eventCard.dart';

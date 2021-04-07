@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:runcool/utils/everythingUtils.dart';
 import 'ChooseEventUI.dart';
 import 'EventPage.dart';
 import '../../utils/backgroundImage.dart';
@@ -9,9 +10,6 @@ class CreateEventUI extends StatefulWidget {
 }
 
 class CreateEventUIState extends State<CreateEventUI> {
-  Color _turqoise = Color(0xff58C5CC);
-  Color _background = Color(0xff1f1b24);
-
   void goEventPage() {
     Navigator.push(
         context,
@@ -34,38 +32,27 @@ class CreateEventUIState extends State<CreateEventUI> {
         leading: Container(),
       ),
       body: BackgroundImage(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'Choose from past activities',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+        child: SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(top: 10, bottom: 20, left: 15),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Choose from past activities',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                color: Colors.black,
-                child: SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: 300,
-                    child: GestureDetector(
-                      //clickable widget
-                      onTap: () => goEventPage(), //go to event page...
-                      child: const Card(
-                        child: Text(
-                            'Past Event Card 2' + '\n   Click on me to try   '),
-                      ),
-                    )),
-              ),
-            ],
+                EventCard(fn: goEventPage),
+              ],
+            ),
           ),
         ),
       ),
