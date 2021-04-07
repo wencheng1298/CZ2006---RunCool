@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 // import '../utils/constants.dart';
 import '../firebase/notificationManager.dart';
 import '../utils/everythingUtils.dart';
 import './notificationDependancies/screen.dart';
 import '../firebase/EventManagers/EventManager.dart';
+import '../models/Notification.dart';
 // import '../firebase/ProfileManager.dart';
 
 class NotificationUI extends StatefulWidget {
@@ -40,36 +42,42 @@ class NotificationUIState extends State<NotificationUI> {
   @override
   void initState() {
     _fillLists();
-
     super.initState();
     // print(EventManager().getEventData("eZoBIWxnC1Hc2RVrWumE"));
-    // ProfileManager().getUser();
-    // NotificationManager().notifications;
+
+    // NotificationManager().getNotifications();
     // NotificationManager().createNotification(
     //     {"name": "wec", "iwi": 3, "event": "rSmLBegwwf0v5x3jGHV3"}, "wief");
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Notifications',
-          textAlign: TextAlign.center,
+    return StreamProvider<List<AppNotification>>.value(
+      value: NotificationManager().notifications,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Notifications',
+            textAlign: TextAlign.center,
+          ),
+          leading: Container(),
         ),
-        leading: Container(),
-      ),
-      body: BackgroundImage(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              NotificationsWrap(
-                  title: "Friend Requests", notifications: requestWidgets),
-              NotificationsWrap(
-                  title: "Event Invites", notifications: inviteWidgets),
-              NotificationsWrap(
-                  title: "Event Updates", notifications: updateWidgets)
-            ],
+        body: BackgroundImage(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(
+                  "hello",
+                  style: TextStyle(color: Colors.white),
+                ),
+                NotificationsWrap(
+                    title: "Friend Requests", notifications: requestWidgets),
+                NotificationsWrap(
+                    title: "Event Invites", notifications: inviteWidgets),
+                NotificationsWrap(
+                    title: "Event Updates", notifications: updateWidgets)
+              ],
+            ),
           ),
         ),
       ),

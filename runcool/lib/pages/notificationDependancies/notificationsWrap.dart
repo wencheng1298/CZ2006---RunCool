@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../utils/everythingUtils.dart';
+import 'package:provider/provider.dart';
 
 class NotificationsWrap extends StatelessWidget {
   final List<Widget> notifications;

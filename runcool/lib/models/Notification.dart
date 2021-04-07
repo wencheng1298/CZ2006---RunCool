@@ -1,7 +1,8 @@
 import 'package:runcool/models/User.dart';
 import 'package:runcool/models/Event.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Notification {
+class AppNotification {
   final String notificationType;
   final AppUser notifier;
   final DateTime time;
@@ -9,5 +10,13 @@ class Notification {
   // final bool eventUpdated;
   // final int noOfMessages;
 
-  Notification({this.notificationType, this.notifier, this.time, this.event});
+  AppNotification(
+      {this.notificationType, this.notifier, this.time, this.event});
+  factory AppNotification.fromFirestore(DocumentSnapshot doc) {
+    Map data = doc.data();
+    return AppNotification(
+        notifier: data['notifier'] ?? '',
+        notificationType: data['notificationType'],
+        time: data['time']);
+  }
 }
