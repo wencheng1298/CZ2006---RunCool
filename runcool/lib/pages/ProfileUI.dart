@@ -52,6 +52,32 @@ class ProfileUI extends StatefulWidget {
 class ProfileUIState extends State<ProfileUI> {
   final _auth = FirebaseAuth.instance;
 
+  List<String> friends = [
+    'Paula',
+    'Eugene',
+    'Sarah',
+    'Bob',
+    'Ho',
+    'RERE',
+    'BIZ'
+  ];
+  List<Widget> friendsWidgets = [];
+
+  void _fillFriends() {
+    setState(() {
+      friends.forEach((element) {
+        friendsWidgets
+            .add(Icon(Icons.account_circle, size: 70, color: kTurquoise));
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    _fillFriends();
+    super.initState();
+  }
+
   double fontMainSize = 15;
   void Settings() {
     Navigator.push(
@@ -131,17 +157,17 @@ class ProfileUIState extends State<ProfileUI> {
               ),
             ),
             Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(top: 5),
                 //child: GetUserName(userId),
                 child: Text(
                   //'user input',
-                  user.uid,
-
+                  user.name ?? "Genius",
                   //name,
                   style: TextStyle(
                       fontSize: 30,
                       color: kTurquoise,
                       fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
                 )
                 //GetUserName(uid),
                 //'HZVHv7uJAbaZJk54FiamoGriJTs2'
@@ -159,7 +185,7 @@ class ProfileUIState extends State<ProfileUI> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0),
-                    child: Icon(Icons.face, size: 18, color: kTurquoise),
+                    child: Icon(Icons.face, size: 18, color: Colors.grey[300]),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -185,7 +211,7 @@ class ProfileUIState extends State<ProfileUI> {
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0),
                     child: Icon(Icons.insert_emoticon,
-                        size: 18, color: kTurquoise),
+                        size: 18, color: Colors.grey[300]),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -210,8 +236,8 @@ class ProfileUIState extends State<ProfileUI> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0),
-                    child:
-                        Icon(Icons.directions_run, size: 18, color: kTurquoise),
+                    child: Icon(Icons.directions_run,
+                        size: 18, color: Colors.grey[300]),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -236,7 +262,7 @@ class ProfileUIState extends State<ProfileUI> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0),
-                    child: Icon(Icons.home, size: 18, color: kTurquoise),
+                    child: Icon(Icons.home, size: 18, color: Colors.grey[300]),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -260,7 +286,8 @@ class ProfileUIState extends State<ProfileUI> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0),
-                    child: Icon(Icons.card_travel, size: 18, color: kTurquoise),
+                    child: Icon(Icons.card_travel,
+                        size: 18, color: Colors.grey[300]),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -284,8 +311,8 @@ class ProfileUIState extends State<ProfileUI> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0),
-                    child:
-                        Icon(Icons.fitness_center, size: 18, color: kTurquoise),
+                    child: Icon(Icons.fitness_center,
+                        size: 18, color: Colors.grey[300]),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -308,8 +335,8 @@ class ProfileUIState extends State<ProfileUI> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0),
-                    child:
-                        Icon(Icons.directions_run, size: 18, color: kTurquoise),
+                    child: Icon(Icons.directions_run,
+                        size: 18, color: Colors.grey[300]),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -328,8 +355,8 @@ class ProfileUIState extends State<ProfileUI> {
                 children: <Widget>[
                   Padding(
                     padding: const EdgeInsets.only(left: 15.0),
-                    child:
-                        Icon(Icons.assignment_ind, size: 18, color: kTurquoise),
+                    child: Icon(Icons.assignment_ind,
+                        size: 18, color: Colors.grey[300]),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -360,25 +387,14 @@ class ProfileUIState extends State<ProfileUI> {
                 ],
               ),
             ),
-            Container(
-              height: 80,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15.0),
-                    child:
-                        Icon(Icons.account_circle, size: 70, color: kTurquoise),
-                  ),
-                  Icon(Icons.account_circle, size: 70, color: kTurquoise),
-                  Icon(Icons.account_circle, size: 70, color: kTurquoise),
-                  Icon(Icons.account_circle, size: 70, color: kTurquoise),
-                  Icon(Icons.account_circle, size: 70, color: kTurquoise),
-                  Icon(Icons.account_circle, size: 70, color: kTurquoise),
-                  Icon(Icons.account_circle, size: 70, color: kTurquoise),
-                  Icon(Icons.account_circle, size: 70, color: kTurquoise),
-                  Icon(Icons.account_circle, size: 70, color: kTurquoise),
-                ],
+            Padding(
+              padding: const EdgeInsets.only(left: 8, right:8),
+              child: Container(
+                height: 80,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  children: friendsWidgets,
+                ),
               ),
             ),
           ],

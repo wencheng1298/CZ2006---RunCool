@@ -12,8 +12,23 @@ class HomePageUI extends StatefulWidget {
 }
 
 class HomePageUIState extends State<HomePageUI> {
+  List<Widget> eventsForYouWidgets = [];
+  List<Widget> friendEventsWidgets = [];
+  List<String> events = ['Event 1', 'Event 2'];
+
+  void _fillEventsList() {
+    setState(() {
+      events.forEach((element) {
+        eventsForYouWidgets.add(EventCard());
+
+        friendEventsWidgets.add(EventCard()); //Replace this to check if friend is in event
+      });
+    });
+  }
+
   @override
   void initState() {
+    _fillEventsList();
     super.initState();
     // print(Authentication().getCurrUser().email);
   }
@@ -46,9 +61,7 @@ class HomePageUIState extends State<HomePageUI> {
         ),
         body: BackgroundImage(
           child: SingleChildScrollView(
-            child: Container(
-              height: MediaQuery.of(context).size.height + 30,
-              width: MediaQuery.of(context).size.width,
+            child: Expanded(
               child: Column(
                 children: [
                   Container(
@@ -69,11 +82,7 @@ class HomePageUIState extends State<HomePageUI> {
                       height: 340,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
-                        children: <Widget>[
-                          EventCard(),
-                          EventCard(),
-                          EventCard(),
-                        ],
+                        children: eventsForYouWidgets,
                       ),
                     ),
                   ),
@@ -95,14 +104,11 @@ class HomePageUIState extends State<HomePageUI> {
                       height: 340,
                       child: ListView(
                         scrollDirection: Axis.horizontal,
-                        children: <Widget>[
-                          EventCard(),
-                          EventCard(),
-                          EventCard(),
-                        ],
+                        children: friendEventsWidgets,
                       ),
                     ),
                   ),
+                  SizedBox(height: 10),
                 ],
               ),
             ),

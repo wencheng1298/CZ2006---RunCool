@@ -10,6 +10,27 @@ class CreateEventUI extends StatefulWidget {
 }
 
 class CreateEventUIState extends State<CreateEventUI> {
+  List<Widget> pastEventsWidgets = [];
+  List<String> events = ['Event 1', 'Event 2', '3'];
+
+  void _fillPastEventsList() {
+    setState(() {
+      // Replace this by checking event dates
+      events.forEach((element) {
+        pastEventsWidgets.add(EventCard(
+          fn: goEventPage,
+        ));
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    _fillPastEventsList();
+    super.initState();
+    // print(Authentication().getCurrUser().email);
+  }
+
   void goEventPage() {
     Navigator.push(
         context,
@@ -33,9 +54,7 @@ class CreateEventUIState extends State<CreateEventUI> {
       ),
       body: BackgroundImage(
         child: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
+          child: Expanded(
             child: Column(
               children: [
                 Container(
@@ -50,7 +69,9 @@ class CreateEventUIState extends State<CreateEventUI> {
                     ),
                   ),
                 ),
-                EventCard(fn: goEventPage),
+                Column(
+                  children: pastEventsWidgets,
+                )
               ],
             ),
           ),

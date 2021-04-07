@@ -7,6 +7,26 @@ class MyActivitiesUI extends StatefulWidget {
 }
 
 class MyActivitiesUIState extends State<MyActivitiesUI> {
+  List<Widget> upcomingEventsWidgets = [];
+  List<Widget> pastEventsWidgets = [];
+  List<String> events = ['Event 1', 'Event 2', 'Event 3'];
+
+  void _fillEventsList() {
+    setState(() {
+      // Replace this by checking event dates
+      events.forEach((element) {
+        upcomingEventsWidgets.add(EventCard());
+        pastEventsWidgets.add(EventCard());
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    _fillEventsList();
+    super.initState();
+    // print(Authentication().getCurrUser().email);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +43,7 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
       ),
       body: BackgroundImage(
         child: SingleChildScrollView(
-          child: Container(
-            height: MediaQuery.of(context).size.height + 40,
-            width: MediaQuery.of(context).size.width,
+          child: Expanded(
             child: Column(
               children: [
                 Container(
@@ -45,13 +63,8 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
                     width: MediaQuery.of(context).size.width,
                     height: 340,
                     child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        EventCard(),
-                        EventCard(),
-                        EventCard(),
-                      ],
-                    ),
+                        scrollDirection: Axis.horizontal,
+                        children: upcomingEventsWidgets),
                   ),
                 ),
                 Container(
@@ -72,14 +85,11 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
                     height: 340,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
-                      children: <Widget>[
-                        EventCard(),
-                        EventCard(),
-                        EventCard(),
-                      ],
+                      children: pastEventsWidgets,
                     ),
                   ),
                 ),
+                SizedBox(height: 10),
               ],
             ),
           ),

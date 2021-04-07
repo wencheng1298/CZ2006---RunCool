@@ -36,4 +36,8 @@ class EventManager {
   Stream<Event> getEventData(docID) {
     return events.doc(docID).snapshots().map(_eventDataFromSnapshot);
   }
+
+  Stream<QuerySnapshot> get eventsSnapshots {
+    return events.snapshots();
+  }
 }
