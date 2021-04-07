@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:runcool/models/Notification.dart';
+import 'package:runcool/models/User.dart';
 import 'friendManager.dart';
 
 class NotificationManager {
@@ -65,13 +67,27 @@ class NotificationManager {
   // }
 
   //get users notifications
-  void get notifications {
-    print("hello");
+  Stream<List<AppNotification>> get notifications {
     user.snapshots().map((DocumentSnapshot snapshot) {
-      dynamic nofic = snapshot.data()['notifications'];
-      print(nofic);
+      return snapshot.data()['notifications'].map((nid) {
+        var ref = _firestore.collection('notifications').doc(nid).snapshots();
+        ref.map((doc) => AppNotification.fromFirestore(doc));
+      }).toList();
     });
   }
+
+  // AppUser getAppUserFromId(userId) async {
+  //   await _firestore.collection('users').doc(userId).get();
+  //   for (var message in message.docs)
+  //
+  // }
+
+  // Notification _notificationListFromSnapshot(DocumentSnapshot snapshot) {
+  //   dynamic notification = snapshot.data();
+  //   return Notification(
+  //       notificationType: notification['notificationType'],
+  //       notifier: notification['notifier']);
+  // }
 
   Future<String> reject() async {
     try {
