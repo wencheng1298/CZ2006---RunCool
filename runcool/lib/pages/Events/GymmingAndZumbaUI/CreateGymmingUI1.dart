@@ -13,11 +13,11 @@ class _CreateGymmingUI1State extends State<CreateGymmingUI1> {
 
   void goNextPage() {
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => CreateGymAndZumbaUI2(
-                eventDetails:
-                    eventDetails))); //find out if need to individually create or can use and add on..
+      context,
+      MaterialPageRoute(
+        builder: (context) => CreateGymAndZumbaUI2(eventDetails: eventDetails),
+      ),
+    ); //find out if need to individually create or can use and add on..
   }
 
   @override

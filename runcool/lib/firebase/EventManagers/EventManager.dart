@@ -1,19 +1,29 @@
 // Still in testing
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class CreateEventManager{
+class EventManager{
 
   final String uid;
 
-  CreateEventManager({this.uid});
+  EventManager({this.uid});
 
   CollectionReference events = FirebaseFirestore.instance.collection('events');
 
-  updateEvent(Map eventDetails) {
+  updateEvent(Map eventDetails) async {
     //Convert to Map<String, dynamic>
     Map<String, dynamic> data = eventDetails.map((key,value)=>MapEntry(key.toString(), value));
     data['deleted'] = false;
-    events.add(data);
+    var docID = await events.add(data);
+    // print("Docid: " + docID.id);
+    return docID.id;
     // print(data);
+  }
+
+  getEventById(String docID) async{
+    var details = await events.doc(docID).get();
+    
+    
+    // print(details.runtimeType);
+    // return details;
   }
 }

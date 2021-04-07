@@ -4,14 +4,20 @@ import '../../utils/EventTextTitle.dart';
 import '../../utils/EventTextDetails.dart';
 import 'joinEventPage.dart';
 import './../RuncoolNavBar.dart';
+import '../../firebase/EventManagers/EventManager.dart';
 import './../../utils/everythingUtils.dart';
 
 class EventPage extends StatefulWidget {
+  String docID;
+  String testID = "eZoBIWxnC1Hc2RVrWumE";
+  EventPage({this.docID});
+  
   @override
   _EventPageState createState() => _EventPageState();
 }
 
 class _EventPageState extends State<EventPage> {
+
   void joinPage() {
     Navigator.push(
         context,

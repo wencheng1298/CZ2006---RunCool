@@ -4,14 +4,15 @@ import 'EventPage.dart';
 
 class EventCreatedSuccessUI extends StatefulWidget {
   final String eventName;
-  EventCreatedSuccessUI({this.eventName});
+  final String docID;
+  EventCreatedSuccessUI({this.eventName, this.docID});
 
   @override
   EventCreatedSuccessUIState createState() => EventCreatedSuccessUIState();
 }
 
 class EventCreatedSuccessUIState extends State<EventCreatedSuccessUI> {
-  void viewEvent() {
+  void viewEvent(String docID) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => EventPage()));
   }
@@ -54,7 +55,7 @@ class EventCreatedSuccessUIState extends State<EventCreatedSuccessUI> {
                         'See Event Details',
                         style: TextStyle(fontSize: 22),
                       ),
-                      onPressed: () => viewEvent(),
+                      onPressed: () => viewEvent(widget.docID),
                       style: TextButton.styleFrom(
                           backgroundColor: kTurquoise,
                           primary: Colors.black,

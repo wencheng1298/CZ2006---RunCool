@@ -7,7 +7,7 @@ class MyActivitiesUI extends StatefulWidget {
 }
 
 class MyActivitiesUIState extends State<MyActivitiesUI> {
-    Container EventCards(String heading, String subHeading) {
+  Container EventCards(String heading, String subHeading) {
     return Container(
       width: 300,
       child: Card(
@@ -22,8 +22,7 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
       ),
     );
   }
-  
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,78 +36,77 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
         ),
         leading: Container(),
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          color: kBackgroundColor,
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'UPCOMING EVENTS',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+      body: BackgroundImage(
+        child: SingleChildScrollView(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: Column(
+              children: [
+                Container(
+                  padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'UPCOMING EVENTS',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                color: Colors.black,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      EventCards("Upcoming events card", "Event 1"),
-                      EventCards("Upcoming events card", "Event 2"),
-                      EventCards("Upcoming events card", "Event 3"),
-                    ],
+                Container(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 300,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: <Widget>[
+                        EventCards("Upcoming events card", "Event 1"),
+                        EventCards("Upcoming events card", "Event 2"),
+                        EventCards("Upcoming events card", "Event 3"),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'PAST EVENTS',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                Container(
+                  padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'PAST EVENTS',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                color: Colors.black,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: 300,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      EventCards("Past events card", "Event 1"),
-                      EventCards("Past events card", "Event 2"),
-                      EventCards("Past events card", "Event 3"),
-                    ],
+                Container(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 300,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: <Widget>[
+                        EventCards("Past events card", "Event 1"),
+                        EventCards("Past events card", "Event 2"),
+                        EventCards("Past events card", "Event 3"),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              /*Container(
-                color: Colors.black,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width,
-                  height: 300,
-                  child: const Card(
-                    child: Text('Past events card'),
+                /*Container(
+                  color: Colors.black,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: 300,
+                    child: const Card(
+                      child: Text('Past events card'),
+                    ),
                   ),
-                ),
-              ),*/
-            ],
+                ),*/
+              ],
+            ),
           ),
         ),
       ),

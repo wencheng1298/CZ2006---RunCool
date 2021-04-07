@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../EventCreatedSuccessUI.dart';
 
 import '../../../utils/everythingUtils.dart';
-import '../../../firebase/EventManagers/CreateEventManager.dart';
+import '../../../firebase/EventManagers/EventManager.dart';
 
 enum EventPrivy { public, friends_only }
 
@@ -25,13 +25,15 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
   List<String> difficultyLevels = ['Easy', 'Medium', 'Hard'];
 
   void createEvent(Map eventDetails) {
-    CreateEventManager().updateEvent(eventDetails);
+    String docID = EventManager().updateEvent(eventDetails);
+    // EventManager().getEventById("eZoBIWxnC1Hc2RVrWumE");
     Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (context) => EventCreatedSuccessUI(
-                  eventName: eventDetails['name'],
-                )));
+      context,
+      MaterialPageRoute(
+        builder: (context) =>
+            EventCreatedSuccessUI(eventName: eventDetails['name'], docID: docID),
+      ),
+    );
   }
 
   @override
