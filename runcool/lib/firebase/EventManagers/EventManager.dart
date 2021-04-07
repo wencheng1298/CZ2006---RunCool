@@ -25,15 +25,25 @@ class EventManager {
   //   // print(details.runtimeType);
   //   // return details;
   // }
-  Event _eventDataFromSnapshot(DocumentSnapshot snapshot) {
-    dynamic event = snapshot.data();
-    return Event(
-      eventType: event['eventType'],
-      name: event['name'],
-    );
+  // Event _eventDataFromSnapshot(DocumentSnapshot snapshot) {
+  //   dynamic event = snapshot.data();
+  //   return Event(
+  //     eventType: event['eventType'],
+  //     name: event['name'],
+  //   );
+  // }
+  //
+  // Stream<Event> getEventData(docID) {
+  //   return events.doc(docID).snapshots().map(_eventDataFromSnapshot);
+  // }
+  //
+  Stream<Event> getEventData(docID) {
+    return events.doc(docID).snapshots().map((doc) => Event.fromFirestore(doc));
   }
 
-  Stream<Event> getEventData(docID) {
-    return events.doc(docID).snapshots().map(_eventDataFromSnapshot);
+  Stream<List<Event>> getEvents() {
+    return events.snapshots().map((snapshot) {
+      return snapshot.docs.map((doc) => Event.fromFirestore(doc)).toList();
+    });
   }
 }
