@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../utils/everythingUtils.dart';
+import '../../models/Notification.dart';
 
 class FriendRequestCard extends StatelessWidget {
-  final String friendNotification;
+  final AppNotification friendNotification;
   FriendRequestCard({@required this.friendNotification});
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class FriendRequestCard extends StatelessWidget {
               print("friend somee clicked");
             },
             child: Text(
-              friendNotification,
+              friendNotification.notifier ?? "Friend Name",
               style: TextStyle(color: Colors.white, fontSize: 20),
             ),
           ),
@@ -51,7 +52,7 @@ class FriendRequestCard extends StatelessWidget {
 }
 
 class EventInviteCard extends StatelessWidget {
-  final String eventNotification;
+  final AppNotification eventNotification;
   EventInviteCard({@required this.eventNotification});
   @override
   Widget build(BuildContext context) {
@@ -84,7 +85,7 @@ class EventInviteCard extends StatelessWidget {
                   print('event name in invite clicked');
                 },
                 child: Text(
-                  eventNotification,
+                  "EVENT NAME",
                   style: TextStyle(color: Colors.white),
                 ),
               ),
@@ -110,7 +111,7 @@ class EventInviteCard extends StatelessWidget {
 }
 
 class EventUpdateCard extends StatelessWidget {
-  final String eventNotification;
+  final AppNotification eventNotification;
   EventUpdateCard({@required this.eventNotification});
   @override
   Widget build(BuildContext context) {
@@ -129,7 +130,7 @@ class EventUpdateCard extends StatelessWidget {
             children: [
               GestureDetector(
                 child: Text(
-                  eventNotification,
+                  "event name",
                   style: TextStyle(color: Colors.white),
                 ),
                 onTap: () {

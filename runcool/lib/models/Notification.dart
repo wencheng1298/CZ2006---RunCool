@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AppNotification {
   final String notificationType;
-  final AppUser notifier;
+  final String notifier;
   final DateTime time;
   final Event event;
   // final bool eventUpdated;

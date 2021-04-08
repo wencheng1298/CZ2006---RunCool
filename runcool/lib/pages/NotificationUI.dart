@@ -24,26 +24,30 @@ class NotificationUIState extends State<NotificationUI> {
   List<String> updates = ['Event 1', 'Event 2'];
   // TODO: replace with actual lists of notification class from database/ entities
 
-  void _fillLists() {
-    setState(() {
-      requests.forEach((element) {
-        requestWidgets.add(FriendRequestCard(friendNotification: element));
-      });
-      invites.forEach((element) {
-        inviteWidgets.add(EventInviteCard(
-          eventNotification: element,
-        ));
-      });
-      updates.forEach((element) {
-        updateWidgets.add(EventUpdateCard(eventNotification: element));
-      });
-    });
-  }
+  // void _fillLists() {
+  //   setState(() {
+  //     requests.forEach((element) {
+  //       requestWidgets.add(FriendRequestCard(friendNotification: element));
+  //     });
+  //     invites.forEach((element) {
+  //       inviteWidgets.add(EventInviteCard(
+  //         eventNotification: element,
+  //       ));
+  //     });
+  //     updates.forEach((element) {
+  //       updateWidgets.add(EventUpdateCard(eventNotification: element));
+  //     });
+  //   });
+  // }
 
   @override
   void initState() {
-    _fillLists();
+    // _fillLists();
     super.initState();
+    // var x = NotificationManager().getNotifications();
+    // print(x.runtimeType);
+    // NotificationManager()
+    //     .createNotification({"event": "sshdhd"}, "XLx1W21TqGoExTabn8LN");
   }
 
   @override
@@ -62,16 +66,9 @@ class NotificationUIState extends State<NotificationUI> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Text(
-                  "hello",
-                  style: TextStyle(color: Colors.white),
-                ),
-                NotificationsWrap(
-                    title: "Friend Requests", notifications: requestWidgets),
-                NotificationsWrap(
-                    title: "Event Invites", notifications: inviteWidgets),
-                NotificationsWrap(
-                    title: "Event Updates", notifications: updateWidgets)
+                NotificationsWrap(title: "Friend Request"),
+                NotificationsWrap(title: "Event Invite"),
+                NotificationsWrap(title: "Event Update")
               ],
             ),
           ),
