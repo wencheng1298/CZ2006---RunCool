@@ -4,7 +4,7 @@ import 'SignUpUI1.dart';
 import './../SettingsUI/SettingsUI.dart';
 import '../../firebase/authenticationManager.dart';
 import '../RuncoolNavBar.dart';
-import 'package:runcool/firebase/Authenticate/authenticate.dart';
+
 import 'package:runcool/firebase/Service/auth.dart';
 import 'package:runcool/utils/loading.dart';
 import 'ForgotPasswordUI.dart';
@@ -21,7 +21,7 @@ class LogInUI extends StatefulWidget {
 
 class _LogInUIState extends State<LogInUI> {
   final _formKey = GlobalKey<FormState>();
-  final AuthService _auth = AuthService();
+  final AuthenticationManager _auth = AuthenticationManager();
 
   String email;
   String password;
@@ -102,10 +102,6 @@ class _LogInUIState extends State<LogInUI> {
                           setState(() {
                             loading = true;
                           });
-                          print(email);
-                          print(password);
-                          // final user = await Authentication().logIn(email, password);
-                          // if (user != null) {
                           dynamic result = await _auth
                               .signInWithEmailAndPassword(email, password);
                           if (result == null) {
@@ -137,21 +133,26 @@ class _LogInUIState extends State<LogInUI> {
                                       builder: (context) => SignUpUI1()));
                             },
                             child: Text('Sign up.',
-                                style:
-                                    TextStyle(color: kTurquoise, fontSize: 15)),
+                                style: TextStyle(
+                                    color: kTurquoise,
+                                    fontSize: 15,
+                                    decoration: TextDecoration.underline)),
                           ),
                         ],
                       ),
                     ),
                     GestureDetector(
                       onTap: () {
-                        print('forgot passsword');
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => ResetScreen()));
                       },
-                      child: Text('forgot password?', style: textStyle),
+                      child: Text('forgot password?',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              decoration: TextDecoration.underline)),
                     ),
                     SizedBox(height: 12.0),
                     Text(

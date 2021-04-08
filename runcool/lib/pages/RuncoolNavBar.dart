@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:runcool/firebase/ProfileManager.dart';
 
 import 'HomePageUI.dart';
 import 'MyActivitiesUI.dart';
 import 'Events/CreateEventUI.dart';
 import 'NotificationUI.dart';
 import 'ProfileUI.dart';
+
+import 'package:provider/provider.dart';
+import '../models/User.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class RuncoolNavBar extends StatefulWidget {
   @override
@@ -33,26 +38,30 @@ class _RuncoolNavBarState extends State<RuncoolNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: _pages[_currentIndex],
-      bottomNavigationBar: CurvedNavigationBar(
-        onTap: onTappedBar,
-        color: _turqoise,
-        backgroundColor: _background,
-        buttonBackgroundColor: _turqoise,
-        height: 50,
-        items: <Widget>[
-          Icon(Icons.home_outlined, size: 30, color: Colors.black),
-          Icon(Icons.explore_outlined, size: 30, color: Colors.black),
-          Icon(Icons.add_circle_outline, size: 30, color: Colors.black),
-          Icon(Icons.notification_important_outlined,
-              size: 30, color: Colors.black),
-          Icon(Icons.person_outline, size: 30, color: Colors.black),
-        ],
-        animationDuration: Duration(
-          milliseconds: 100,
+    final user = Provider.of<User>(context);
+    return StreamProvider<AppUser>.value(
+      value: ProfileManager().getUserFromID(user.uid),
+      child: new Scaffold(
+        body: _pages[_currentIndex],
+        bottomNavigationBar: CurvedNavigationBar(
+          onTap: onTappedBar,
+          color: _turqoise,
+          backgroundColor: _background,
+          buttonBackgroundColor: _turqoise,
+          height: 50,
+          items: <Widget>[
+            Icon(Icons.home_outlined, size: 30, color: Colors.black),
+            Icon(Icons.explore_outlined, size: 30, color: Colors.black),
+            Icon(Icons.add_circle_outline, size: 30, color: Colors.black),
+            Icon(Icons.notification_important_outlined,
+                size: 30, color: Colors.black),
+            Icon(Icons.person_outline, size: 30, color: Colors.black),
+          ],
+          animationDuration: Duration(
+            milliseconds: 100,
+          ),
+          animationCurve: Curves.linear,
         ),
-        animationCurve: Curves.linear,
       ),
     );
   }

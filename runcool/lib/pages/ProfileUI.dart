@@ -118,33 +118,35 @@ class ProfileUIState extends State<ProfileUI> {
     //   // bio = user.bio;
     //   email = user.email;
     // }
-    final user = Provider.of<AppUser>(context);
+    final AppUser user = Provider.of<AppUser>(context);
 
     // String userId = FirebaseAuth.instance.currentUser.uid;
     // CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     return Scaffold(
-      appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () => Settings(),
-          ),
-          backgroundColor: Colors.black,
-          centerTitle: true,
-          title: Text(
-            'Profile',
-            style: TextStyle(color: Colors.white),
-            textAlign: TextAlign.center,
-          ),
-          actions: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child:
-                  IconButton(icon: Icon(Icons.edit), onPressed: () => Edit()),
-            ),
+      appBar: (user == null)
+          ? Loading()
+          : AppBar(
+              leading: IconButton(
+                icon: Icon(Icons.settings),
+                onPressed: () => Settings(),
+              ),
+              backgroundColor: Colors.black,
+              centerTitle: true,
+              title: Text(
+                'Profile',
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+              actions: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(right: 20.0),
+                    child: IconButton(
+                        icon: Icon(Icons.edit), onPressed: () => Edit()),
+                  ),
 
-            //leading: Container(),
-          ]),
+                  //leading: Container(),
+                ]),
       body: BackgroundImage(
         child: ListView(
           children: [
@@ -161,7 +163,7 @@ class ProfileUIState extends State<ProfileUI> {
                 //child: GetUserName(userId),
                 child: Text(
                   //'user input',
-                  user.name ?? "Genius",
+                  user.name ?? "Name",
                   //name,
                   style: TextStyle(
                       fontSize: 30,
@@ -388,7 +390,7 @@ class ProfileUIState extends State<ProfileUI> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8, right:8),
+              padding: const EdgeInsets.only(left: 8, right: 8),
               child: Container(
                 height: 80,
                 child: ListView(

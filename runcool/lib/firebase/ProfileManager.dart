@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:runcool/firebase/Service/auth.dart';
 
 import 'authenticationManager.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -15,17 +16,31 @@ class ProfileManager {
   updateProfile(Map profileDetails) {
     Map<String, dynamic> data =
         profileDetails.map((key, value) => MapEntry(key.toString(), value));
-    //data['deleted'] = false;
     users.add(data);
   }
 
-  void updateUser(Map profileDetails) async {
-    Map<String, dynamic> data =
-        profileDetails.map((key, value) => MapEntry(key.toString(), value));
-    String userId = (await FirebaseAuth.instance.currentUser).uid;
-    newuid =
-        FirebaseFirestore.instance.collection('users').doc(userId).toString();
-    users.doc(newuid).set(data);
+  Future<String> createUser(
+      Map profileDetails, String email, String password) async {
+    try {
+      dynamic uid = await AuthenticationManager()
+          .registerWithEmailAndPassword(email, password);
+
+      Map<String, dynamic> data =
+          profileDetails.map((key, value) => MapEntry(key.toString(), value));
+      data['notifications'] = [];
+      data['events'] = [];
+      data['friends'] = [];
+
+      await users.doc(uid).set(data);
+      return "success";
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
+    // String userId = (await FirebaseAuth.instance.currentUser).uid;
+    // newuid =
+    //     FirebaseFirestore.instance.collection('users').doc(userId).toString();
+    // users.doc(newuid).set(data);
   }
 
   Stream<AppUser> getUserFromID(docID) {

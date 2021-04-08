@@ -94,7 +94,7 @@ class NotificationManager {
   // }
 
   // Stream<List<Notification>>
-  Stream<List<AppNotification>> getNotifications() {
+  Stream<List<AppNotification>> getNotifications(List<String> notifications) {
     Stream<QuerySnapshot> path = notifCollection.where(FieldPath.documentId,
         whereIn: [
           "txrFYxedRX5OLeURIIgr",

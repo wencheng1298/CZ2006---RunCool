@@ -22,7 +22,8 @@ class HomePageUIState extends State<HomePageUI> {
       events.forEach((element) {
         eventsForYouWidgets.add(EventCard());
 
-        friendEventsWidgets.add(EventCard()); //Replace this to check if friend is in event
+        friendEventsWidgets
+            .add(EventCard()); //Replace this to check if friend is in event
       });
     });
   }

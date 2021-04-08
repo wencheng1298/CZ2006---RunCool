@@ -3,18 +3,7 @@ import 'package:runcool/models/User.dart';
 import 'package:runcool/firebase/Service/database.dart';
 import 'package:runcool/pages/SignUpUI/SignUpUI2.dart';
 
-class AuthService {
-  //this class will contains the methods for the different sign in methods
-
-  // String name;
-  // int age;
-  // String gender;
-  // String hobbies;
-  // String region;
-  // String occupation;
-  // String insta;
-  // String bio;
-
+class AuthenticationManager {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
   // create user obj based on firebase user
@@ -22,39 +11,10 @@ class AuthService {
     return user != null ? AppUser(uid: user.uid) : null;
   }
 
-  Stream<AppUser> get user {
-    return _auth
-        .authStateChanges()
-        .map((User user) => _userFromFirebaseUser(user));
-
-    //  .map(_userFromFirebaseUser);
-  }
-  //register with email and pw
-
-  Future registerWithEmailAndPassword(String email, String password) async {
-    try {
-      UserCredential result = await _auth.createUserWithEmailAndPassword(
-          email: email, password: password);
-      User user = result.user;
-      // create a new doc for the user with new id
-      await DatabaseService(uid: user.uid).updateUserData(
-        email,
-        password,
-        // name,
-        // age,
-        // gender,
-        // hobbies,
-        // region,
-        // occupation,
-        // insta,
-        // bio,
-      );
-
-      return _userFromFirebaseUser(user);
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
+  Stream<User> get user {
+    return _auth.authStateChanges();
+    // .map((User user) => user.uid);
+    // .map((User user) => _userFromFirebaseUser(user));
   }
 
   // sign in with email and password
@@ -62,10 +22,37 @@ class AuthService {
     try {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-      User user = result.user;
-      return _userFromFirebaseUser(user);
+      // User user = result.user;
+      // return _userFromFirebaseUser(user);
+      return "success";
     } catch (error) {
       print(error.toString());
+      return null;
+    }
+  }
+
+  Future forgetPassword(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+      return "success";
+    } catch (error) {
+      print(error.toString());
+      return null;
+    }
+  }
+
+// register a user with email and password
+  Future<String> registerWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      UserCredential result = await _auth.createUserWithEmailAndPassword(
+          email: email, password: password);
+      User user = result.user;
+      // create a new doc for the user with new id
+      return user.uid;
+      // return _userFromFirebaseUser(user);
+    } catch (e) {
+      print(e.toString());
       return null;
     }
   }

@@ -10,7 +10,7 @@ class SignUpUI1 extends StatefulWidget {
 }
 
 class SignUpUI1State extends State<SignUpUI1> {
-  final AuthService _auth = AuthService();
+  final AuthenticationManager _auth = AuthenticationManager();
   final _formkey = GlobalKey<FormState>();
 
   String email;
@@ -22,7 +22,7 @@ class SignUpUI1State extends State<SignUpUI1> {
         context,
         MaterialPageRoute(
             //builder: (context) => SignUpUI2(credentials: credentials)));
-            builder: (context) => SignUpUI2()));
+            builder: (context) => SignUpUI2(email: email, password: password)));
   }
 
   Map<String, String> credentials = {"email": "", "password": ''};
@@ -48,105 +48,111 @@ class SignUpUI1State extends State<SignUpUI1> {
           child: Form(
             key: _formkey,
             //margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 30),
-            child: Column(
-                // mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(top: 60, bottom: 60),
-                    child: Center(
-                      child: Text(
-                        'Sign Up!',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 36,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.center,
+
+                  children: <Widget>[
+                    Padding(
+                      padding: const EdgeInsets.only(top: 60, bottom: 60),
+                      child: Center(
+                        child: Text(
+                          'Sign Up!',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 36,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  InputTextFormFill(
-                      // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                      obscure: false,
-                      text: 'EMAIL',
+                    InputTextFormFill(
+                        // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                        obscure: false,
+                        text: 'EMAIL',
+                        onChange: (value) {
+                          setState(() {
+                            email = value;
+                          });
+                        }),
+                    SizedBox(height: 20),
+                    InputTextFormFill(
+                      obscure: true,
+                      text: 'PASSWORD',
                       onChange: (value) {
                         setState(() {
-                          email = value;
+                          password = value;
                         });
-                      }),
-                  InputTextFormFill(
-                    obscure: true,
-                    text: 'PASSWORD',
-                    onChange: (value) {
-                      setState(() {
-                        password = value;
-                      });
-                    },
-                  ),
-                  InputTextFormFill(
-                    obscure: true,
-                    text: 'CONFIRM PASSWORD',
-                    onChange: (value) {
-                      setState(() {
-                        password = value;
-                      });
-                    },
-                  ),
-                  SizedBox(height: 20),
-                  ButtonType1(
-                      text: 'Sign up!',
-                      onPress: () async {
-                        // if(_formkey.currentState.validate()){
-                        //   print(email);
-                        //   print(password);
-                        // }
-                        dynamic result = await _auth
-                            .registerWithEmailAndPassword(email, password);
-                        if (result == null) {
-                          setState(() {
-                            error = 'Invalid entry';
-                          });
-                        } else {
-                          goNextPage();
-                          print(result.uid);
-                        }
-                      }),
-                  SizedBox(height: 12.0),
-                  Text(
-                    error,
-                    style: TextStyle(color: Colors.red, fontSize: 14.0),
-                  ),
+                      },
+                    ),
+                    SizedBox(height: 20),
+                    InputTextFormFill(
+                      obscure: true,
+                      text: 'CONFIRM PASSWORD',
+                      onChange: (value) {
+                        setState(() {
+                          password = value;
+                        });
+                      },
+                    ),
+                    SizedBox(height: 20),
+                    ButtonType1(
+                        text: 'Sign up!',
+                        onPress: () async {
+                          // if(_formkey.currentState.validate()){
+                          //   print(email);
+                          //   print(password);
+                          // // }
+                          // dynamic result = await _auth
+                          //     .registerWithEmailAndPassword(email, password);
+                          if (email == null || password == null) {
+                            setState(() {
+                              error = 'Invalid entry';
+                            });
+                          } else {
+                            goNextPage();
+                            // print(result.uid);
+                          }
+                        }),
+                    SizedBox(height: 12.0),
+                    Text(
+                      error,
+                      style: TextStyle(color: Colors.red, fontSize: 14.0),
+                    ),
 
-                  //=> goNextPage(), text: 'Sign up!'
-                ]
+                    //=> goNextPage(), text: 'Sign up!'
+                  ]
 
-                // TextFormField(
-                //   onChanged: (value) {
-                //     setState(() {
-                //       email = value;
-                //     });
-                //   },
-                // ),
-                // TextFormField(
-                //   decoration: InputDecoration(labelText: 'password'),
-                //   obscureText: true,
-                //   onChanged: (value) {
-                //     setState(() {
-                //       password = value;
-                //     });
-                //   },
-                // ),
-                // InputTextField1(
-                //   text: 'EMAIL',
-                //   onChange: (value) => credentials['email'] = value,
-                // ),
-                // SizedBox(height: 20),
-                // InputTextField1(
-                //   text: 'PASSWORD',
-                //   onChange: (value) => credentials['password'] = value,
-                //  ),
-                // SizedBox(height: 20),
-                // InputTextField1(text: 'PASSWORD CONFIRM'),
+                  // TextFormField(
+                  //   onChanged: (value) {
+                  //     setState(() {
+                  //       email = value;
+                  //     });
+                  //   },
+                  // ),
+                  // TextFormField(
+                  //   decoration: InputDecoration(labelText: 'password'),
+                  //   obscureText: true,
+                  //   onChanged: (value) {
+                  //     setState(() {
+                  //       password = value;
+                  //     });
+                  //   },
+                  // ),
+                  // InputTextField1(
+                  //   text: 'EMAIL',
+                  //   onChange: (value) => credentials['email'] = value,
+                  // ),
+                  // SizedBox(height: 20),
+                  // InputTextField1(
+                  //   text: 'PASSWORD',
+                  //   onChange: (value) => credentials['password'] = value,
+                  //  ),
+                  // SizedBox(height: 20),
+                  // InputTextField1(text: 'PASSWORD CONFIRM'),
 
-                ),
+                  ),
+            ),
           ),
         ),
       ),

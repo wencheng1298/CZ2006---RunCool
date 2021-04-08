@@ -37,11 +37,13 @@ class AppUser {
       this.events});
   factory AppUser.fromFirestore(DocumentSnapshot doc) {
     Map data = doc.data();
+    print("HELLO");
+    // print(data['age'].runtimeType);
     return AppUser(
       name: data['name'] ?? "",
       gender: data['gender'] ?? '',
       uid: doc.id,
-      age: data['age'] ?? '',
+      age: int.parse(data['age']) ?? 18,
       bio: data['bio'] ?? '',
       email: data['email'] ?? '',
       hobbies: data['hobbies'] ?? '',

@@ -7,6 +7,7 @@ import '../utils/everythingUtils.dart';
 import './notificationDependancies/screen.dart';
 import '../firebase/EventManagers/EventManager.dart';
 import '../models/Notification.dart';
+import '../models/User.dart';
 import '../models/Event.dart';
 // import '../firebase/ProfileManager.dart';
 
@@ -52,8 +53,9 @@ class NotificationUIState extends State<NotificationUI> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<AppUser>(context);
     return StreamProvider<List<AppNotification>>.value(
-      value: NotificationManager().getNotifications(),
+      value: NotificationManager().getNotifications(user.notifications),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
