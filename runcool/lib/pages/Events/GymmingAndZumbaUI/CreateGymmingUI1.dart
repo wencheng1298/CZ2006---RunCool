@@ -62,11 +62,14 @@ class _CreateGymmingUI1State extends State<CreateGymmingUI1> {
                       ),
                       Padding(
                           padding: const EdgeInsets.only(left: 8.0, right: 8),
-                          child: Container(
-                            height: 50,
-                            color: kTurquoise,
-                            child: const Center(
-                                child: Text('Add Workout Exercise')),
+                          child: GestureDetector(
+                            onTap: () => {print('clicked')},
+                            child: Container(
+                              height: 50,
+                              color: kTurquoise,
+                              child: const Center(
+                                  child: Text('Add Workout Exercise')),
+                            ),
                           )),
                     ],
                   )),

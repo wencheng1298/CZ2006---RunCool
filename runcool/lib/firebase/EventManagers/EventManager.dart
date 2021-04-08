@@ -18,7 +18,10 @@ class EventManager {
     DocumentSnapshot eventSnapshot = await docID.get();
     Event event = Event.fromFirestore(eventSnapshot);
     return event;
+<<<<<<< Updated upstream
     // print(data);
+=======
+>>>>>>> Stashed changes
   }
 
   // getEventById(String docID) async {

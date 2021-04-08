@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:runcool/pages/FilterUI/SelectItemsFIlterUI.dart';
 import '../firebase/authenticationManager.dart';
+import './../firebase/EventManagers/EventManager.dart';
 import 'package:provider/provider.dart';
 import 'package:runcool/firebase/Service/database.dart';
 import './../utils/everythingUtils.dart';
@@ -41,7 +42,7 @@ class HomePageUIState extends State<HomePageUI> {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<QuerySnapshot>.value(
-      value: DatabaseService().userSnapshot,
+      value: EventManager().eventsSnapshots,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,

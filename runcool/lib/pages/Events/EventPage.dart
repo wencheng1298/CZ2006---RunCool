@@ -9,24 +9,16 @@ import './../../utils/everythingUtils.dart';
 import '../../models/Event.dart';
 
 class EventPage extends StatefulWidget {
-  String docID;
+  final Event event;
   String testID = "eZoBIWxnC1Hc2RVrWumE";
-  EventPage({this.docID});
+  EventPage({this.event});
 
   @override
   _EventPageState createState() => _EventPageState();
 }
 
 class _EventPageState extends State<EventPage> {
-  List<String> participants = [
-    'Paula',
-    'Eugene',
-    'Sarah',
-    'Bob',
-    'Ho',
-    'RERE',
-    'BIZ'
-  ];
+  List<String> participants = ['Paula', 'Eugene', 'Sarah','Bob', 'Ho', 'RERE', 'BIZ'];
   List<Widget> participantsWidgets = [];
 
   void _fillParticipants() {
@@ -38,7 +30,6 @@ class _EventPageState extends State<EventPage> {
           color: Colors.green,
         ));
       });
-      print(participantsWidgets);
     });
   }
 

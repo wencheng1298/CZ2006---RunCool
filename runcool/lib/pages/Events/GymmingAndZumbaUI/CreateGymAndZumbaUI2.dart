@@ -4,6 +4,8 @@ import '../EventCreatedSuccessUI.dart';
 import '../../../utils/everythingUtils.dart';
 import '../../../firebase/EventManagers/EventManager.dart';
 
+import './../../../models/Event.dart';
+
 enum EventPrivy { public, friends_only }
 
 class CreateGymAndZumbaUI2 extends StatefulWidget {
@@ -25,12 +27,11 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
   List<String> difficultyLevels = ['Easy', 'Medium', 'Hard'];
 
   void createEvent(Map eventDetails) async {
-    String docID = await EventManager().updateEvent(eventDetails);
+    Event event = await EventManager().updateEvent(eventDetails);
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => EventCreatedSuccessUI(
-            eventName: eventDetails['name'], docID: docID),
+        builder: (context) => EventCreatedSuccessUI(event: event),
       ),
     );
   }

@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import './../../utils/everythingUtils.dart';
+import './../../models/Event.dart';
 import 'EventPage.dart';
 
+
 class EventCreatedSuccessUI extends StatefulWidget {
-  final String eventName;
-  final String docID;
-  EventCreatedSuccessUI({this.eventName, this.docID});
+  final Event event;
+  EventCreatedSuccessUI({this.event});
 
   @override
   EventCreatedSuccessUIState createState() => EventCreatedSuccessUIState();
 }
 
 class EventCreatedSuccessUIState extends State<EventCreatedSuccessUI> {
-  void viewEvent(String docID) {
+  void viewEvent(Event event) {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => EventPage()));
+        context, MaterialPageRoute(builder: (context) => EventPage(event: event,)));
   }
 
   @override
@@ -39,7 +40,7 @@ class EventCreatedSuccessUIState extends State<EventCreatedSuccessUI> {
                   Padding(
                     padding: const EdgeInsets.all(26),
                     child: Text(
-                      "Your Event: ${widget.eventName} - has been created successfully!",
+                      "Your Event: ${widget.event.name} - has been created successfully!",
                       style: TextStyle(
                         fontSize: 50,
                         color: Colors.white,
@@ -55,7 +56,7 @@ class EventCreatedSuccessUIState extends State<EventCreatedSuccessUI> {
                         'See Event Details',
                         style: TextStyle(fontSize: 22),
                       ),
-                      onPressed: () => viewEvent(widget.docID),
+                      onPressed: () => viewEvent(widget.event),
                       style: TextButton.styleFrom(
                           backgroundColor: kTurquoise,
                           primary: Colors.black,

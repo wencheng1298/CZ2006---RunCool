@@ -3,6 +3,7 @@ import './../EventCreatedSuccessUI.dart';
 
 import './../../../utils/everythingUtils.dart';
 import '../../../firebase/EventManagers/EventManager.dart';
+import './../../../models/Event.dart';
 
 enum EventPrivy { public, friends_only }
 
@@ -23,10 +24,13 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
 
   List<String> difficultyLevels = ['Easy', 'Medium', 'Hard'];
 
-  void createEvent(Map eventDetails) {
-    EventManager().updateEvent(eventDetails);
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => EventCreatedSuccessUI(eventName: eventDetails['name'])));
+  void createEvent(Map eventDetails) async {
+    Event event = await EventManager().updateEvent(eventDetails);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => EventCreatedSuccessUI(event: event)),
+    );
   }
 
   @override
@@ -243,7 +247,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                       padding: const EdgeInsets.all(20),
                       width: 80,
                       child: TinyButton(
-                        onPress: () => createEvent(eventDetails), 
+                        onPress: () => createEvent(eventDetails),
                         text: "Create",
                         colour: kTurquoise,
                       ),

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:runcool/pages/Events/GymmingAndZumbaUI/CreateGymAndZumbaUI2.dart';
 import 'package:runcool/utils/GoogleMapPlacement.dart';
 import '../../../utils/everythingUtils.dart';
+import 'package:provider/provider.dart';
+import 'package:runcool/models/User.dart';
 
 class CreateZumbaUI1 extends StatefulWidget {
   @override
@@ -22,6 +24,9 @@ class _CreateZumbaUI1State extends State<CreateZumbaUI1> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<AppUser>(context);
+    eventDetails['creator'] = user.uid;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
