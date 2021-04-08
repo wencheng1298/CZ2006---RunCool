@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'authenticationManager.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../models/User.dart';
 
 class ProfileManager {
   final String uid;
@@ -25,6 +26,13 @@ class ProfileManager {
     newuid =
         FirebaseFirestore.instance.collection('users').doc(userId).toString();
     users.doc(newuid).set(data);
+  }
+
+  Stream<AppUser> getUserFromID(docID) {
+    return users
+        .doc(docID)
+        .snapshots()
+        .map((doc) => AppUser.fromFirestore(doc));
   }
 
   //

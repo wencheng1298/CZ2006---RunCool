@@ -15,7 +15,9 @@ class EventManager {
         eventDetails.map((key, value) => MapEntry(key.toString(), value));
     data['deleted'] = false;
     var docID = await events.add(data);
-    return docID.id;
+    DocumentSnapshot eventSnapshot = await docID.get();
+    Event event = Event.fromFirestore(eventSnapshot);
+    return event;
     // print(data);
   }
 

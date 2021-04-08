@@ -18,7 +18,15 @@ class EventPage extends StatefulWidget {
 }
 
 class _EventPageState extends State<EventPage> {
-  List<String> participants = ['Paula', 'Eugene', 'Sarah','Bob', 'Ho', 'RERE', 'BIZ'];
+  List<String> participants = [
+    'Paula',
+    'Eugene',
+    'Sarah',
+    'Bob',
+    'Ho',
+    'RERE',
+    'BIZ'
+  ];
   List<Widget> participantsWidgets = [];
 
   void _fillParticipants() {

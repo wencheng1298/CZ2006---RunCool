@@ -33,18 +33,20 @@ class NotificationManager {
 
     // add server time and notifier to data
     data["timeStamp"] = FieldValue.serverTimestamp();
-    data["notifier"] = _firestore.doc('users/' + uid); // current logged in user
+    // data["notifier"] = _firestore.doc('users/' + uid); // current logged in user
+    data["notifier"] = uid;
 
     // change the eventid into a doc reference if it exists
-    if (data.containsKey("event")) {
-      data["event"] = _firestore.doc('events/' + data["event"]);
-    }
+    // if (data.containsKey("event")) {
+    //   data["event"] = _firestore.doc('events/' + data["event"]);
+    // }
 
     // create the notification
     final docRef = await notifCollection.add(data);
 
     // append the notification created under the user.
-    final notifRef = _firestore.doc('notifications/' + docRef.id);
+    // final notifRef = _firestore.doc('notifications/' + docRef.id);
+    final notifRef = docRef.id;
 
     _firestore.collection('users').doc(receiverId).update({
       "notifications": FieldValue.arrayUnion([notifRef])
@@ -67,7 +69,7 @@ class NotificationManager {
   // }
 
   //get users notifications
-  Stream<List<AppNotification>> get notifications {
+  Stream<List<AppNotification>> getNotifications() {
     user.snapshots().map((DocumentSnapshot snapshot) {
       return snapshot.data()['notifications'].map((nid) {
         var ref = _firestore.collection('notifications').doc(nid).snapshots();

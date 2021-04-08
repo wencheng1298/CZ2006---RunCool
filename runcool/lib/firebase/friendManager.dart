@@ -3,7 +3,7 @@ import 'notificationManager.dart';
 
 class FriendManager {
   final _firestore = FirebaseFirestore.instance;
-  final notificationManager = NotificationManager();
+  // final notificationManager = NotificationManager();
   void _accept(String friendId, String userId) {
     DocumentReference friendRef = _firestore.doc('users/' + friendId);
 
@@ -18,7 +18,7 @@ class FriendManager {
   }
 
   void sendRequest(String receiverId) {
-    notificationManager
+    NotificationManager()
         .createNotification({"notificationType": "Friend Request"}, receiverId);
   }
 }

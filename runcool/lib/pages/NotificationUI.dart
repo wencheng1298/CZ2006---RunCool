@@ -7,6 +7,7 @@ import '../utils/everythingUtils.dart';
 import './notificationDependancies/screen.dart';
 import '../firebase/EventManagers/EventManager.dart';
 import '../models/Notification.dart';
+import '../models/Event.dart';
 // import '../firebase/ProfileManager.dart';
 
 class NotificationUI extends StatefulWidget {
@@ -43,17 +44,12 @@ class NotificationUIState extends State<NotificationUI> {
   void initState() {
     _fillLists();
     super.initState();
-    // print(EventManager().getEventData("eZoBIWxnC1Hc2RVrWumE"));
-
-    // NotificationManager().getNotifications();
-    // NotificationManager().createNotification(
-    //     {"name": "wec", "iwi": 3, "event": "rSmLBegwwf0v5x3jGHV3"}, "wief");
   }
 
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<AppNotification>>.value(
-      value: NotificationManager().notifications,
+      value: NotificationManager().getNotifications(),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
