@@ -11,7 +11,20 @@ class CreateGymmingUI1 extends StatefulWidget {
 }
 
 class _CreateGymmingUI1State extends State<CreateGymmingUI1> {
-  Map eventDetails = {"eventType": "Gymming"};
+  Map eventDetails = {
+    "eventType": "Gymming",
+    "workout": []
+  };
+  List<Widget> workoutWidgets = [];
+
+  void _fillWorkoutWidgets() {
+    setState(() {
+      workoutWidgets = [];
+      eventDetails['workout'].forEach((workout) {
+        workoutWidgets.add(ActivityContainer());
+      });
+    });
+  }
 
   void goNextPage() {
     Navigator.push(
@@ -20,6 +33,57 @@ class _CreateGymmingUI1State extends State<CreateGymmingUI1> {
         builder: (context) => CreateGymAndZumbaUI2(eventDetails: eventDetails),
       ),
     ); //find out if need to individually create or can use and add on..
+  }
+
+  _getWorkout(BuildContext context) {
+    Map exercise;
+
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: kBackgroundColor,
+            title: Text(
+              "Enter Exercise Details",
+              style: TextStyle(color: kTurquoise),
+            ),
+            content: SingleChildScrollView(
+              child: Column(children: [
+                LineTextField(
+                  onChange: (val) {
+                    exercise['activity'] = val;
+                  },
+                  hintText: "Enter Workout Activity",
+                ),
+                LineTextField(
+                  onChange: (val) {
+                    exercise['repetition'] = val;
+                  },
+                  hintText: "Enter Repetition",
+                )
+              ]),
+            ),
+            actions: [
+              MaterialButton(
+                child: Text('Ok'),
+                color: kTurquoise,
+                onPressed: () {
+                  setState(() {
+                    eventDetails['workout'].add(exercise);
+                  });
+                  _fillWorkoutWidgets();
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        });
+  }
+
+  @override
+  void initState() {
+    _fillWorkoutWidgets();
+    super.initState();
   }
 
   @override
@@ -60,17 +124,22 @@ class _CreateGymmingUI1State extends State<CreateGymmingUI1> {
                         alignment: Alignment.topLeft,
                         child: InputFieldTextTitles('Add Workout Routine'),
                       ),
+                      Column(
+                        children: workoutWidgets,
+                      ),
                       Padding(
-                          padding: const EdgeInsets.only(left: 8.0, right: 8),
-                          child: GestureDetector(
-                            onTap: () => {print('clicked')},
-                            child: Container(
-                              height: 50,
-                              color: kTurquoise,
-                              child: const Center(
-                                  child: Text('Add Workout Exercise')),
-                            ),
-                          )),
+                        padding:
+                            const EdgeInsets.only(left: 8.0, right: 8, top: 1),
+                        child: GestureDetector(
+                          onTap: () => _getWorkout(context),
+                          child: Container(
+                            height: 50,
+                            color: kTurquoise,
+                            child: const Center(
+                                child: Text('Add Workout Exercise')),
+                          ),
+                        ),
+                      ),
                     ],
                   )),
               Row(

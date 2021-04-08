@@ -4,6 +4,32 @@ import 'GoogleMapsAppData.dart';
 import 'constants.dart';
 import '../pages/SignUpUI/LogIn.dart';
 
+class LineTextField extends StatefulWidget {
+  final Function onChange;
+  final String hintText;
+
+  LineTextField({this.onChange, this.hintText});
+
+  @override
+  _LineTextFieldState createState() => _LineTextFieldState();
+}
+
+class _LineTextFieldState extends State<LineTextField> {
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      onChanged: widget.onChange,
+      decoration: InputDecoration(
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: kTurquoise),
+        ),
+        hintText: widget.hintText,
+        hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
+      ),
+    );
+  }
+}
+
 class InputTextField1 extends StatefulWidget {
   final String text;
   final Function onChange;

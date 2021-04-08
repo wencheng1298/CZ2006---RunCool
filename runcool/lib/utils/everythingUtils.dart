@@ -11,3 +11,4 @@ export 'TimePickerWidget.dart';
 export 'configGMaps.dart';
 export 'loading.dart';
 export 'eventCard.dart';
+export 'activityContainer.dart';
