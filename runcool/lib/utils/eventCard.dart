@@ -4,8 +4,9 @@ import './GoogleMapPlacement.dart';
 
 class EventCard extends StatelessWidget {
   final Function fn;
+  final dynamic event;
 
-  EventCard({this.fn});
+  EventCard({this.event, this.fn});
 
   @override
   Widget build(BuildContext context) {
@@ -31,22 +32,30 @@ class EventCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "30/2/20", //date
+                    (event.startTime != null)
+                        ? '${event.startTime.day}/${event.startTime.month}/${event.startTime.year}'
+                        : '', //date
                     style: TextStyle(color: Colors.white),
                   ),
                   Text(
-                    "Run", //Event Type
+                    (event.eventType != null)
+                        ? event.eventType.toString()
+                        : '', //Event Type
                     style: TextStyle(color: kTurquoise),
                   ),
                   Text(
-                    "10am", // Time
+                    (event.startTime != null)
+                        ? (event.startTime.hour.toString().padLeft(2, '0')) +
+                            ":" +
+                            (event.startTime.minute.toString().padLeft(2, '0'))
+                        : "", // Time
                     style: TextStyle(color: Colors.white),
                   ),
                 ],
               ),
             ),
             Text(
-              "Anchorvale Horizon",
+              (event.name != '') ? event.name : '',
               style: TextStyle(fontSize: 24, color: kTurquoise),
             ),
             Padding(
@@ -58,13 +67,28 @@ class EventCard extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 5, left: 15.0, right: 15),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "3.7km", // Time
-                    style: TextStyle(color: Colors.white),
+                  Expanded(
+                    child: Text(
+                      (event.eventType == 'Running')
+                          ? event.estDistance + "km"
+                          : '', // Time
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
-                  Icon(Icons.bolt, size: 20, color: kTurquoise)
+                  (event.difficulty == 'Difficult')
+                  ? Row(children:[
+                    Icon(Icons.bolt, size: 20, color: kTurquoise),
+                    Icon(Icons.bolt, size: 20, color: kTurquoise),
+                    Icon(Icons.bolt, size: 20, color: kTurquoise)
+                    ])
+                  : (event.difficulty == 'Medium') 
+                    ? Row(children: [
+                      Icon(Icons.bolt, size: 20, color: kTurquoise),
+                      Icon(Icons.bolt, size: 20, color: kTurquoise),
+                      ])
+                    :Icon(Icons.bolt, size: 20, color: kTurquoise),
                 ],
               ),
             ),
@@ -73,7 +97,9 @@ class EventCard extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  "8 pax",
+                  (event.noOfParticipants != null)
+                      ? event.noOfParticipants.toString() + " pax"
+                      : '3 pax',
                   style: TextStyle(color: Colors.white),
                 ),
               ),
@@ -84,7 +110,7 @@ class EventCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
-                    "Chakra ABC",
+                    "To fill in creator name",
                     style: TextStyle(color: Colors.white),
                   ),
                   SizedBox(width: 10),

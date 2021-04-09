@@ -38,17 +38,15 @@ class EventManager {
   //   return events.doc(docID).snapshots().map(_eventDataFromSnapshot);
   // }
   //
-  Stream<Event> getEventData(docID) {
+  Stream<dynamic> getEventData(docID) {
     return events.doc(docID).snapshots().map((doc) => Event.fromFirestore(doc));
   }
 
-  Stream<List<Event>> getEvents() {
+  Stream<List<dynamic>> getEvents() {
     return events.snapshots().map((snapshot) {
-      return snapshot.docs.map((doc) => Event.fromFirestore(doc)).toList();
+      return snapshot.docs.map((doc) {
+        return Event.fromFirestore(doc);
+      }).toList();
     });
-  }
-
-  Stream<QuerySnapshot> get eventsSnapshots {
-    return events.snapshots();
   }
 }

@@ -8,7 +8,7 @@ import './../../utils/everythingUtils.dart';
 import '../../models/Event.dart';
 
 class EventPage extends StatefulWidget {
-  final Event event;
+  final dynamic event;
   String testID = "ntD2TlNM43iVTcsDKLbn";
   EventPage({this.event});
 
@@ -87,7 +87,7 @@ class _EventPageState extends State<EventPage> {
           ),
         ),
         body: BackgroundImage(
-          child: StreamBuilder<Event>(
+          child: StreamBuilder<dynamic>(
               stream: EventManager().getEventData(widget.testID),
               builder: (context, snapshot) {
                 if (snapshot.hasData) {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:runcool/firebase/Service/auth.dart';
 import './../utils/everythingUtils.dart';
 
 class MyActivitiesUI extends StatefulWidget {

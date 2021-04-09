@@ -6,6 +6,10 @@ import './../firebase/EventManagers/EventManager.dart';
 import 'package:provider/provider.dart';
 import 'package:runcool/firebase/Service/database.dart';
 import './../utils/everythingUtils.dart';
+import './../models/Event.dart';
+import './homepageDependancies/eventsForYouList.dart';
+import './homepageDependancies/friendEventsList.dart';
+
 
 class HomePageUI extends StatefulWidget {
   @override
@@ -15,22 +19,22 @@ class HomePageUI extends StatefulWidget {
 class HomePageUIState extends State<HomePageUI> {
   List<Widget> eventsForYouWidgets = [];
   List<Widget> friendEventsWidgets = [];
-  List<String> events = ['Event 1', 'Event 2'];
+  // List<String> events = ['Event 1', 'Event 2'];
 
-  void _fillEventsList() {
-    setState(() {
-      events.forEach((element) {
-        eventsForYouWidgets.add(EventCard());
+  // void _fillEventsList() {
+  //   setState(() {
+  //     events.forEach((element) {
+  //       eventsForYouWidgets.add(EventCard());
 
-        friendEventsWidgets
-            .add(EventCard()); //Replace this to check if friend is in event
-      });
-    });
-  }
+  //       friendEventsWidgets
+  //           .add(EventCard()); //Replace this to check if friend is in event
+  //     });
+  //   });
+  // }
 
   @override
   void initState() {
-    _fillEventsList();
+    // _fillEventsList();
     super.initState();
     // print(Authentication().getCurrUser().email);
   }
@@ -42,8 +46,8 @@ class HomePageUIState extends State<HomePageUI> {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot>.value(
-      value: EventManager().eventsSnapshots,
+    return StreamProvider<List<dynamic>>.value(
+      value: EventManager().getEvents(),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -81,13 +85,9 @@ class HomePageUIState extends State<HomePageUI> {
                     ),
                     Container(
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        height: 340,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: eventsForYouWidgets,
-                        ),
-                      ),
+                          width: MediaQuery.of(context).size.width,
+                          height: 340,
+                          child: EventsForYouList()),
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
@@ -105,12 +105,9 @@ class HomePageUIState extends State<HomePageUI> {
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width,
                         height: 340,
-                        child: ListView(
-                          scrollDirection: Axis.horizontal,
-                          children: friendEventsWidgets,
+                        child: FriendEventsList()
                         ),
                       ),
-                    ),
                     SizedBox(height: 10),
                   ],
                 ),

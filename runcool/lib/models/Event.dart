@@ -54,15 +54,18 @@ class Event {
 
   factory Event.fromFirestore(DocumentSnapshot doc) {
     Map data = doc.data();
-    final eventType = data['eventType'] ?? 'Running';
+    final eventType = data['eventType'] ?? null;
     final name = data['name'] ?? '';
     final creator = data['creator'] ?? '';
     final eventID = doc.id;
     final participants = data['participants'] ?? [];
     final announcements = data['announcements'] ?? [];
-    final startTime =
-        data['startTime'].toDate().add(Duration(hours: 8)) ?? null;
-    final endTime = data['endTime'].toDate().add(Duration(hours: 8)) ?? null;
+    final startTime = (data['startTime']!=null)
+        ? data['startTime'].toDate().add(Duration(hours: 8))
+        : null;
+    final endTime = (data['endTime']!=null)
+        ? data['endTime'].toDate().add(Duration(hours: 8))
+        : null;
     final noOfParticipants = data['noOfParticipants'] ?? 8;
     final difficulty = data['difficulty'] ?? '';
     final description = data['description'] ?? '';
@@ -72,7 +75,7 @@ class Event {
     switch (eventType) {
       case 'Gymming':
         final workout = data['workout'] ?? [];
-        final location = data['location'];
+        final location = data['location'].toString();
         return GymmingEvent(
             name: name,
             participants: participants,
@@ -92,7 +95,7 @@ class Event {
       case 'Zumba':
         final danceGenre = data['danceGenre'] ?? '';
         final danceMusic = data['danceMusic'] ?? [];
-        final location = data['location'] ?? '';
+        final location = data['location'].toString() ?? '';
         return ZumbaEvent(
             name: name,
             participants: participants,
@@ -112,8 +115,8 @@ class Event {
             location: location);
       case 'Running':
         final checkpoints = data['checkpoints'] ?? [];
-        final startLocation = data['startLocation'] ?? '';
-        final endLocation = data['endLocation'] ?? '';
+        final startLocation = data['startLocation'].toString() ?? '';
+        final endLocation = data['endLocation'].toString() ?? '';
         final estDistance = data['estDistance'] ?? '';
         final pace = data['pace'] ?? '';
         return RunningEvent(
@@ -133,7 +136,8 @@ class Event {
             endLocation: endLocation,
             estDistance: estDistance,
             pace: pace,
-            startLocation: startLocation);
+            startLocation: startLocation,
+            checkpoints: checkpoints);
       default:
         return Event(
             name: name,
