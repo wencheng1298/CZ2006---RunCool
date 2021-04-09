@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './../../../utils/everythingUtils.dart';
 import 'package:provider/provider.dart';
 import 'package:runcool/models/User.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import './CreateGymAndZumbaUI2.dart';
 
@@ -13,7 +14,9 @@ class CreateGymmingUI1 extends StatefulWidget {
 class _CreateGymmingUI1State extends State<CreateGymmingUI1> {
   Map eventDetails = {
     "eventType": "Gymming",
-    "workout": []
+    "workout": [],
+    "participants": [],
+    "notifications": [],
   };
   List<Widget> workoutWidgets = [];
 
@@ -21,7 +24,8 @@ class _CreateGymmingUI1State extends State<CreateGymmingUI1> {
     setState(() {
       workoutWidgets = [];
       eventDetails['workout'].forEach((workout) {
-        workoutWidgets.add(ActivityContainer());
+        String text = "${workout['activity']} (${workout['repetition']} reps)";
+        workoutWidgets.add(ActivityContainer(text: text));
       });
     });
   }
@@ -36,8 +40,7 @@ class _CreateGymmingUI1State extends State<CreateGymmingUI1> {
   }
 
   _getWorkout(BuildContext context) {
-    Map exercise;
-
+    Map exercise = {"activty": null, "repetition": null};
     return showDialog(
         context: context,
         builder: (context) {
@@ -64,13 +67,12 @@ class _CreateGymmingUI1State extends State<CreateGymmingUI1> {
               ]),
             ),
             actions: [
+              //Check this portion. The popup doesnt seem to pop
               MaterialButton(
                 child: Text('Ok'),
                 color: kTurquoise,
                 onPressed: () {
-                  setState(() {
-                    eventDetails['workout'].add(exercise);
-                  });
+                  eventDetails['workout'].add(exercise);
                   _fillWorkoutWidgets();
                   Navigator.of(context).pop();
                 },
@@ -88,7 +90,7 @@ class _CreateGymmingUI1State extends State<CreateGymmingUI1> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<AppUser>(context);
+    final user = Provider.of<User>(context);
     eventDetails['creator'] = user.uid;
 
     return Scaffold(

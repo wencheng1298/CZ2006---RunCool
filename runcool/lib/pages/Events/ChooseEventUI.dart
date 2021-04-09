@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import './RunningUI/CreateRunningUI1.dart';
 import './GymmingAndZumbaUI/CreateGymmingUI1.dart';
 import 'GymmingAndZumbaUI/CreateZumbaUI1.dart';
-
+import 'package:provider/provider.dart';
+import 'package:runcool/models/User.dart';
 import 'CreateEventUI.dart';
 import './../../utils/everythingUtils.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ChooseEventUI extends StatefulWidget {
   @override
@@ -31,8 +33,11 @@ class ChooseEventUIState extends State<ChooseEventUI> {
     }
   }
 
+
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<User>(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black,

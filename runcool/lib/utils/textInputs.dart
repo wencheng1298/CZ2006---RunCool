@@ -19,6 +19,7 @@ class _LineTextFieldState extends State<LineTextField> {
   Widget build(BuildContext context) {
     return TextField(
       onChanged: widget.onChange,
+      style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
         enabledBorder: UnderlineInputBorder(
           borderSide: BorderSide(color: kTurquoise),

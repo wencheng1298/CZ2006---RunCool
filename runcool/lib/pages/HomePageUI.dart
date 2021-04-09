@@ -63,55 +63,57 @@ class HomePageUIState extends State<HomePageUI> {
         ),
         body: BackgroundImage(
           child: SingleChildScrollView(
-            child: Expanded(
-              child: Column(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'EVENTS FOR YOU',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+            child: Container(
+              child: Expanded(
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'EVENTS FOR YOU',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: 340,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: eventsForYouWidgets,
+                    Container(
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: 340,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: eventsForYouWidgets,
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'See what your friends are up to',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                    Container(
+                      padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        'See what your friends are up to',
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: 340,
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: friendEventsWidgets,
+                    Container(
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: 340,
+                        child: ListView(
+                          scrollDirection: Axis.horizontal,
+                          children: friendEventsWidgets,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: 10),
-                ],
+                    SizedBox(height: 10),
+                  ],
+                ),
               ),
             ),
           ),
