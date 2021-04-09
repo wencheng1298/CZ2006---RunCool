@@ -14,7 +14,6 @@ class ChooseEventUI extends StatefulWidget {
 }
 
 class ChooseEventUIState extends State<ChooseEventUI> {
-
   bool _buttonDisabled = true;
 
   String eventType;
@@ -32,7 +31,6 @@ class ChooseEventUIState extends State<ChooseEventUI> {
           context, MaterialPageRoute(builder: (context) => CreateZumbaUI1()));
     }
   }
-
 
   @override
   Widget build(BuildContext context) {

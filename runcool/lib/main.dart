@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:runcool/firebase/ProfileManager.dart';
 import 'package:runcool/firebase/authenticationManager.dart';
 import 'package:runcool/pages/RuncoolNavBar.dart';
 import 'package:runcool/pages/SignUpUI/LogIn.dart';
@@ -20,6 +21,7 @@ import './pages/NotificationUI.dart';
 import './pages/ProfileUI.dart';
 import './pages/SignUpUI/LogIn.dart';
 import './pages/SignUpUI/SignUpUI1.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 // void main() {
 //   runApp(MyApp());
@@ -28,17 +30,26 @@ void main() async {
   // https://stackoverflow.com/a/63492262
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(Phoenix(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    User currUser = FirebaseAuth.instance.currentUser;
+    // User currUser = AuthenticationManager().getCurrUserFromFirebase();
+    String uid = (currUser == null) ? null : currUser.uid;
+    print("From main page ${uid}");
+
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => GoogleMapsAppData()),
-        StreamProvider<User>.value(value: AuthenticationManager().user)
+        StreamProvider<User>.value(value: AuthenticationManager().user),
+        // StreamProvider<AppUser>.value(
+        //     value: ProfileManager().getCurrentUserObject())
+        StreamProvider<AppUser>.value(
+            value: ProfileManager().getUserFromID(uid))
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

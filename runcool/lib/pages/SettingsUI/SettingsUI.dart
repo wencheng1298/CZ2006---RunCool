@@ -4,6 +4,7 @@ import 'package:runcool/pages/ProfileUI.dart';
 import './../../utils/everythingUtils.dart';
 import '../SignUpUI/LogIn.dart';
 import 'package:runcool/firebase/Service/auth.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 class SettingsUI extends StatefulWidget {
   @override
@@ -82,7 +83,8 @@ class _SettingsUIState extends State<SettingsUI> {
                 colour: Colors.red,
                 onPress: () async {
                   await _auth.signOut();
-                  return LogIn();
+                  Phoenix.rebirth(context);
+                  // return LogIn();
                 },
               )
               //ButtonType1(onPress: () => goNextPage(), text: 'log out')

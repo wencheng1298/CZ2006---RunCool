@@ -177,6 +177,13 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_phoenix">
+          <value>
+            <list>
+              <option value="$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_phoenix-1.0.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_plugin_android_lifecycle">
           <value>
             <list>
@@ -477,6 +484,7 @@
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.0.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.0.2/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_google_places-0.2.8/lib" />
+      <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_phoenix-1.0.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.0/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_polyline_points-0.2.6/lib" />
       <root url="file://$PROJECT_DIR$/../../../../src/flutter_new/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_spinkit-4.1.2+1/lib" />

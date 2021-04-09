@@ -12,6 +12,7 @@ class ProfileManager {
   ProfileManager({this.uid});
 
   CollectionReference users = FirebaseFirestore.instance.collection('users');
+  AuthenticationManager authManager = AuthenticationManager();
 
   updateProfile(Map profileDetails) {
     Map<String, dynamic> data =
@@ -22,16 +23,16 @@ class ProfileManager {
   Future<String> createUser(
       Map profileDetails, String email, String password) async {
     try {
-      dynamic uid = await AuthenticationManager()
-          .registerWithEmailAndPassword(email, password);
-
+      dynamic user =
+          await authManager.registerWithEmailAndPassword(email, password);
       Map<String, dynamic> data =
           profileDetails.map((key, value) => MapEntry(key.toString(), value));
       data['notifications'] = [];
       data['events'] = [];
       data['friends'] = [];
+      data['email'] = user.email;
 
-      await users.doc(uid).set(data);
+      await users.doc(user.uid).set(data);
       return "success";
     } catch (e) {
       print(e.toString());
@@ -48,6 +49,12 @@ class ProfileManager {
         .doc(docID)
         .snapshots()
         .map((doc) => AppUser.fromFirestore(doc));
+  }
+
+  Stream<AppUser> getCurrentUserObject() {
+    User currUser = authManager.getCurrUserFromFirebase();
+
+    return (currUser == null) ? null : getUserFromID(currUser.uid);
   }
 
   //

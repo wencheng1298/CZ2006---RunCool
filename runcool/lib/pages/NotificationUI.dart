@@ -54,7 +54,7 @@ class NotificationUIState extends State<NotificationUI> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<AppUser>(context);
-    return StreamProvider<List<AppNotification>>.value(
+    return StreamProvider<List<dynamic>>.value(
       value: NotificationManager().getNotifications(user.notifications),
       child: Scaffold(
         appBar: AppBar(

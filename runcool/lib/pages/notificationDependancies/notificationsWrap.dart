@@ -12,8 +12,7 @@ class NotificationsWrap extends StatelessWidget {
   NotificationsWrap({@required this.title});
   @override
   Widget build(BuildContext context) {
-    final List<AppNotification> allNotifs =
-        Provider.of<List<AppNotification>>(context) ?? [];
+    final List<dynamic> allNotifs = Provider.of<List<dynamic>>(context) ?? [];
 
     List<Widget> notifications =
         NotificationManager().getNotificationCards(allNotifs, title) ?? [];

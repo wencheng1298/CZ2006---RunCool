@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:runcool/firebase/Service/auth.dart';
 import 'package:runcool/pages/RuncoolNavBar.dart';
 import 'package:runcool/pages/SignUpUI/LogIn.dart';
 import 'package:runcool/models/User.dart';
+import 'firebase/ProfileManager.dart';
 
 import 'pages/HomePageUI.dart';
 import 'pages/SignUpUI/LogIn.dart';
@@ -13,7 +15,8 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<User>(context);
-    print(user);
+    // final user = AuthenticationManager().getCurrUserFromFirebase();
+    // print(user);
     if (user == null) {
       return LogInUI();
     } else {

@@ -8,6 +8,7 @@ import '../RuncoolNavBar.dart';
 import 'package:runcool/firebase/Service/auth.dart';
 import 'package:runcool/utils/loading.dart';
 import 'ForgotPasswordUI.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 const textStyle = TextStyle(color: Colors.white, fontSize: 15);
 
@@ -111,10 +112,11 @@ class _LogInUIState extends State<LogInUI> {
                               loading = false;
                             });
                           } else {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => RuncoolNavBar()));
+                            Phoenix.rebirth(context);
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => RuncoolNavBar()));
                           }
                           // }
                         },

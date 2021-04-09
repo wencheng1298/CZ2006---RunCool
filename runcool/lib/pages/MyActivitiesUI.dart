@@ -25,7 +25,6 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
   @override
   void initState() {
     _fillEventsList();
-    AuthenticationManager().signOut();
     super.initState();
     // print(Authentication().getCurrUser().email);
   }

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../utils/InputFieldTextTitles.dart';
 import '../../utils/everythingUtils.dart';
 import './../RuncoolNavBar.dart';
+import '../../firebase/ProfileManager.dart';
+import '../../models/User.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 class SignUpSuccessUI extends StatefulWidget {
   @override
@@ -10,8 +15,9 @@ class SignUpSuccessUI extends StatefulWidget {
 
 class SignUpSuccessUIState extends State<SignUpSuccessUI> {
   void goToNavPage() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => RuncoolNavBar()));
+    Phoenix.rebirth(context);
+    // Navigator.push(
+    //     context, MaterialPageRoute(builder: (context) => RuncoolNavBar()));
   }
 
   @override

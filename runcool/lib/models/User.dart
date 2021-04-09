@@ -17,9 +17,9 @@ class AppUser {
   final String insta;
   final String occupation;
   final String region;
-  final List<String> friends;
-  final List<String> notifications;
-  final List<Map<String, dynamic>> events;
+  final List<dynamic> friends;
+  final List<dynamic> notifications;
+  final List<dynamic> events;
 
   AppUser(
       {this.uid,

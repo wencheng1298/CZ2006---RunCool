@@ -32,7 +32,7 @@ class NotificationManager {
   // }
 
   List<Widget> getNotificationCards(
-      List<AppNotification> notifications, String notificationType) {
+      List<dynamic> notifications, String notificationType) {
     List<Widget> notifCards = [];
     for (var notification in notifications) {
       if (notification.notificationType == notificationType) {
@@ -42,7 +42,7 @@ class NotificationManager {
     return notifCards;
   }
 
-  Widget _getCard(AppNotification notification) {
+  Widget _getCard(dynamic notification) {
     if (notification.notificationType == "Friend Request") {
       return FriendRequestCard(friendNotification: notification);
     } else if (notification.notificationType == "Event Invite") {
@@ -94,13 +94,14 @@ class NotificationManager {
   // }
 
   // Stream<List<Notification>>
-  Stream<List<AppNotification>> getNotifications(List<String> notifications) {
+  Stream<List<dynamic>> getNotifications(List<dynamic> notifications) {
     Stream<QuerySnapshot> path = notifCollection.where(FieldPath.documentId,
         whereIn: [
           "txrFYxedRX5OLeURIIgr",
           "AmwXRsgUdovXQSGcJREX",
           "16E8tGqNXyaOVj0YwbeB"
         ]).snapshots();
+    print(path.length);
     return path.map((snapshot) {
       return snapshot.docs
           .map((doc) => AppNotification.fromFirestore(doc))
