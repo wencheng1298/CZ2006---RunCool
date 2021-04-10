@@ -48,10 +48,12 @@ class _ProfileListState extends State<ProfileList> {
           Padding(
             padding: const EdgeInsets.all(15.0),
             child: Center(
-              child: CircleAvatar(
-                radius: 80,
-              ),
-            ),
+                child: (user.image == '')
+                    ? Icon(Icons.account_circle, size: 160, color: kTurquoise)
+                    : CircleAvatar(
+                        radius: 80,
+                        backgroundImage: NetworkImage(user.image),
+                      )),
           ),
           // name
           Padding(
@@ -268,7 +270,7 @@ class _ProfileListState extends State<ProfileList> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 8, right: 8),
-                        child: FriendCardStream(friends: friends),
+                        child: ProfileCardStream(friends: friends),
                       ),
                     ],
                   ),
@@ -282,7 +284,7 @@ class _ProfileListState extends State<ProfileList> {
                   child: (!requestSent)
                       ? ButtonType1(
                           onPress: () {
-                            // FriendManager().sendRequest(user.uid);
+                            FriendManager().sendRequest(user.uid);
                             setState(() {
                               requestSent = true;
                             });

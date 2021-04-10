@@ -5,10 +5,10 @@ import '../../models/User.dart';
 import '../../utils/constants.dart';
 import '../../firebase/ProfileManager.dart';
 
-class FriendCardStream extends StatelessWidget {
+class ProfileCardStream extends StatelessWidget {
   final List friends;
   // friends.isEmpty ? ["none"] : friends
-  FriendCardStream({@required this.friends});
+  ProfileCardStream({@required this.friends});
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<Widget>>(

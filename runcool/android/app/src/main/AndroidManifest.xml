@@ -2,7 +2,10 @@
     package="com.example.runcool">
    <application
         android:label="runcool"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:requestLegacyExternalStorage="true">
+
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -41,4 +44,5 @@
        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyBIIdfPyfc9sVM5L9Z4_91c5I_k8XXQIG4"/>
     </application>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
 </manifest>

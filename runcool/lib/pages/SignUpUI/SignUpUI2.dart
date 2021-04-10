@@ -7,6 +7,9 @@ import '../../firebase/authenticationManager.dart';
 import 'package:runcool/firebase/Service/auth.dart';
 import 'package:runcool/firebase/Service/database.dart';
 import 'package:runcool/firebase/ProfileManager.dart';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
+import 'package:http/http.dart';
 
 class SignUpUI2 extends StatefulWidget {
   // //SignUpUI2({this.profileDetails});
@@ -26,14 +29,16 @@ class SignUpUI2State extends State<SignUpUI2> {
   Map<String, dynamic> profileDetails = {};
   //SignUpUI2State({this.profileDetails});
 
-  String name;
-  int age;
-  String gender;
-  String hobbies;
-  String region;
-  String occupation;
-  String insta;
-  String bio;
+  // String name;
+  // int age;
+  // String gender;
+  // String hobbies;
+  // String region;
+  // String occupation;
+  // String insta;
+  // String bio;
+  File _image;
+  String _imageSource;
 
   void goNextPage() async {
     // final user = await Authentication()
@@ -48,6 +53,23 @@ class SignUpUI2State extends State<SignUpUI2> {
     ProfileManager().updateProfile(profileDetails);
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => SignUpSuccessUI()));
+  }
+
+  void getImage() async {
+    PickedFile img = await ImagePicker().getImage(
+        source: _imageSource == 'camera'
+            ? ImageSource.camera
+            : ImageSource.gallery);
+    setState(() {
+      _image = File(img.path);
+      print(_image);
+    });
+  }
+
+  void uploadImage(String path) async {
+    var url = "https://s3.ap-southeast-1.amazonaws.com/runcool";
+
+    // var request = http.MultipartRequest('POST', Url.parse(url));
   }
 
   @override
@@ -213,14 +235,36 @@ class SignUpUI2State extends State<SignUpUI2> {
                           style: TextStyle(color: Colors.white, fontSize: 24),
                         ),
                       ),
-                      Center(
-                        child: CircleAvatar(
-                          radius: 55,
-                          backgroundColor: Colors.grey[800],
-                          child: Icon(
-                            Icons.camera_enhance_rounded,
-                            size: 35,
-                          ),
+                      GestureDetector(
+                        onTap: () {
+                          PopupMenuButton(
+                            itemBuilder: (context) => [
+                              PopupMenuItem(
+                                  child: Text("Take a picture"),
+                                  value: "camera"),
+                              PopupMenuItem(
+                                  child: Text("Upload from gallery"),
+                                  value: "gallery")
+                            ],
+                            onSelected: (result) {
+                              setState(() {
+                                _imageSource = result;
+                              });
+                              getImage();
+                            },
+                          );
+                        },
+                        child: Center(
+                          child: CircleAvatar(
+                              radius: 55,
+                              backgroundColor: Colors.grey[800],
+                              backgroundImage: _image != null
+                                  ? Image.file(_image).image
+                                  : null,
+                              child: Icon(
+                                Icons.camera_enhance_rounded,
+                                size: 35,
+                              )),
                         ),
                       ),
                       Padding(

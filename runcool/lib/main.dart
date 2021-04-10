@@ -43,7 +43,8 @@ class MyApp extends StatelessWidget {
     // User currUser = AuthenticationManager().getCurrUserFromFirebase();
     String uid = (currUser == null) ? null : currUser.uid;
     print("From main page ${uid}");
-    sleep(Duration(seconds: 1));
+    // sleep(Duration(seconds: 10));
+    // print("From main page ${uid}");
 
     return MultiProvider(
       providers: [

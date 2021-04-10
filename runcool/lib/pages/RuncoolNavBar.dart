@@ -38,7 +38,6 @@ class _RuncoolNavBarState extends State<RuncoolNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<User>(context);
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: CurvedNavigationBar(

@@ -14,8 +14,9 @@ import 'firebase/authenticationManager.dart';
 class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<User>(context);
+    // final user = Provider.of<User>(context);
     // final user = AuthenticationManager().getCurrUserFromFirebase();
+    User user = FirebaseAuth.instance.currentUser;
     // print(user);
     if (user == null) {
       return LogInUI();
