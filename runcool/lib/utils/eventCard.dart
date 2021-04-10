@@ -13,6 +13,7 @@ class EventCard extends StatelessWidget {
     return GestureDetector(
       onTap: this.fn,
       child: Container(
+        margin: const EdgeInsets.only(left: 10, right: 10),
         height: 340,
         width: 390,
         decoration: BoxDecoration(

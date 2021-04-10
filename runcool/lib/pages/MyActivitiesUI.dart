@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import './../utils/everythingUtils.dart';
+import './eventDisplayDependancies/upcomingEventsList.dart';
+import './../firebase/EventManagers/EventManager.dart';
+import 'package:provider/provider.dart';
+import './eventDisplayDependancies/pastEventsList.dart';
 
 class MyActivitiesUI extends StatefulWidget {
   @override
@@ -30,67 +34,65 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        centerTitle: true,
-        title: Text(
-          'My Activities',
-          style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.center,
+    return StreamProvider<List<dynamic>>.value(
+      value: EventManager().getEvents(),
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          centerTitle: true,
+          title: Text(
+            'My Activities',
+            style: TextStyle(color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+          leading: Container(),
         ),
-        leading: Container(),
-      ),
-      body: BackgroundImage(
-        child: SingleChildScrollView(
-          child: Expanded(
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'UPCOMING EVENTS',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+        body: BackgroundImage(
+          child: SingleChildScrollView(
+            child: Expanded(
+              child: Column(
+                children: [
+                  Container(
+                    padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'UPCOMING EVENTS',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                ),
-                Container(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: 340,
-                    child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: upcomingEventsWidgets),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'PAST EVENTS',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                  Container(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: 340,
+                      child: UpcomingEventsList(),
                     ),
                   ),
-                ),
-                Container(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    height: 340,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: pastEventsWidgets,
+                  Container(
+                    padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      'PAST EVENTS',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(height: 10),
-              ],
+                  Container(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      height: 340,
+                      child: PastEventsList(),
+                      ),
+                    ),
+                  SizedBox(height: 10),
+                ],
+              ),
             ),
           ),
         ),

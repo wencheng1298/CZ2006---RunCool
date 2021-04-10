@@ -3,28 +3,30 @@ import 'package:provider/provider.dart';
 import './../../models/User.dart';
 import './../../utils/everythingUtils.dart';
 
-class FriendEventsList extends StatefulWidget {
+class UpcomingEventsList extends StatefulWidget {
   @override
-  _FriendEventsListState createState() => _FriendEventsListState();
+  _UpcomingEventsListState createState() => _UpcomingEventsListState();
 }
 
-class _FriendEventsListState extends State<FriendEventsList> {
+class _UpcomingEventsListState extends State<UpcomingEventsList> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<AppUser>(context);
-    final List<dynamic> eventsForYou = Provider.of<List<dynamic>>(context);
+    final List<dynamic> upcomingEvents = Provider.of<List<dynamic>>(context) ?? [];
     List<Widget> eventWidget = [];
 
-    eventsForYou.forEach((event) {
-      if (event.participants.any((person) => user.friends.contains(person))) {
-        eventWidget.add(EventCard(event: event));
+    upcomingEvents.forEach((event) {
+      if (event.participants.contains(user.uid)) {
+        if(DateTime.now().isBefore(event.startTime)){
+          eventWidget.add(EventCard(event: event));
+        }
       }
     });
 
     return (eventWidget.isEmpty)
         ? Align(
             alignment: Alignment.topCenter,
-            child: Text('Your friends have not joined any events / You have no friends',
+            child: Text('Your have no upcoming events',
                 style: TextStyle(color: Colors.white)))
         : ListView(
             scrollDirection: Axis.horizontal,

@@ -162,7 +162,7 @@ class RunningEvent extends Event {
   String startLocation;
   String endLocation;
   int estDistance;
-  Float pace;
+  Double pace;
 
   RunningEvent(
       {this.checkpoints,

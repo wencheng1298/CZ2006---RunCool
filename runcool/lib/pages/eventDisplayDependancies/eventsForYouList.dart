@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './../../models/Event.dart';
 import './../../utils/everythingUtils.dart';
+import './../Events/EventPage.dart';
 
 class EventsForYouList extends StatefulWidget {
   @override
@@ -9,14 +10,24 @@ class EventsForYouList extends StatefulWidget {
 }
 
 class _EventsForYouListState extends State<EventsForYouList> {
+  void goEventPage(event) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => EventPage(
+                  event: event,
+                )));
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Widget> eventWidget = [];
-    final List<dynamic> eventsForYou =
-        Provider.of<List<dynamic>>(context);
+    final List<dynamic> eventsForYou = Provider.of<List<dynamic>>(context) ?? [];
 
     eventsForYou.forEach((element) {
-      eventWidget.add(EventCard(event: element));
+      if(element.startTime != null && element.startTime.isAfter(DateTime.now())){
+        eventWidget.add(EventCard(event: element, fn: () => goEventPage(element)));
+      }
     });
 
     return ListView(

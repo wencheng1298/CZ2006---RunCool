@@ -4,7 +4,7 @@ import 'package:runcool/firebase/ProfileManager.dart';
 
 import 'HomePageUI.dart';
 import 'MyActivitiesUI.dart';
-import 'Events/CreateEventUI.dart';
+import 'Events/ChooseEventUI.dart';
 import 'NotificationUI.dart';
 import 'ProfileUI.dart';
 
@@ -25,7 +25,7 @@ class _RuncoolNavBarState extends State<RuncoolNavBar> {
   final List<Widget> _pages = [
     HomePageUI(),
     MyActivitiesUI(),
-    CreateEventUI(),
+    ChooseEventUI(),
     NotificationUI(),
     ProfileUI(),
   ];

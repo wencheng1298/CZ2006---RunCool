@@ -7,8 +7,8 @@ import 'package:provider/provider.dart';
 import 'package:runcool/firebase/Service/database.dart';
 import './../utils/everythingUtils.dart';
 import './../models/Event.dart';
-import './homepageDependancies/eventsForYouList.dart';
-import './homepageDependancies/friendEventsList.dart';
+import './eventDisplayDependancies/eventsForYouList.dart';
+import './eventDisplayDependancies/friendEventsList.dart';
 
 
 class HomePageUI extends StatefulWidget {

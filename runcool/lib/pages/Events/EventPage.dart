@@ -3,34 +3,35 @@ import 'package:runcool/utils/GoogleMapPlacement.dart';
 import '../../utils/EventTextDetails.dart';
 import './JoinEventPage.dart';
 import './../RuncoolNavBar.dart';
-import '../../firebase/EventManagers/EventManager.dart';
 import './../../utils/everythingUtils.dart';
 import '../../models/Event.dart';
 
 class EventPage extends StatefulWidget {
   final dynamic event;
-  String testID = "ntD2TlNM43iVTcsDKLbn";
   EventPage({this.event});
 
   @override
-  _EventPageState createState() => _EventPageState();
+  _EventPageState createState() => _EventPageState(event);
 }
 
 class _EventPageState extends State<EventPage> {
-  List<String> participants = [
-    'Paula',
-    'Eugene',
-    'Sarah',
-    'Bob',
-    'Ho',
-    'RERE',
-    'BIZ'
-  ];
+  dynamic event;
+  _EventPageState(this.event);
+
+  // List<String> participants = [
+  //   'Paula',
+  //   'Eugene',
+  //   'Sarah',
+  //   'Bob',
+  //   'Ho',
+  //   'RERE',
+  //   'BIZ'
+  // ];
   List<Widget> participantsWidgets = [];
 
   void _fillParticipants() {
     setState(() {
-      participants.forEach((element) {
+      event.participants.forEach((element) {
         participantsWidgets.add(Icon(
           Icons.account_circle_outlined,
           size: 60,
@@ -72,263 +73,238 @@ class _EventPageState extends State<EventPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          backgroundColor: Colors.black,
-          centerTitle: true,
-          title: Text(
-            "Event", //need to make this dynamic
-            style: TextStyle(color: Colors.white),
-            textAlign: TextAlign.center,
-          ),
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: goHomePage,
-          ),
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        centerTitle: true,
+        title: Text(
+          "Event",
+          style: TextStyle(color: Colors.white),
+          textAlign: TextAlign.center,
         ),
-        body: BackgroundImage(
-          child: StreamBuilder<dynamic>(
-              stream: EventManager().getEventData(widget.testID),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  Event event = snapshot.data;
-                  return (Container(
-                    height: MediaQuery.of(context).size.height,
-                    child: Column(children: [
-                      GoogleMapPlacement(),
-                      Container(
-                        height: 490, //changed this to fit pixel 3a..
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: SingleChildScrollView(
-                            padding: EdgeInsets.all(8),
-                            child: Column(
-                              children: [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: EventTextTitle(
-                                    title: event.name ?? "",
-                                    fontSize: 24,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Row(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: goHomePage,
+        ),
+      ),
+      body: BackgroundImage(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          child: Column(children: [
+            GoogleMapPlacement(),
+            Container(
+              height: 490, //changed this to fit pixel 3a..
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.all(8),
+                  child: Column(
+                    children: [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: EventTextTitle(
+                          title: event.name ?? "",
+                          fontSize: 24,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
                                     children: [
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Icon(
-                                                  Icons.calendar_today_rounded,
-                                                  size: 20,
-                                                  color: Colors.blue[100],
-                                                ),
-                                                EventTextDetails(
-                                                  (event.startTime != null)
-                                                      ? '${event.startTime.day}-${event.startTime.month}-${event.startTime.year}'
-                                                      : "",
-                                                ), //insert datetoString fn
-                                              ],
-                                            ),
+                                      Icon(
+                                        Icons.calendar_today_rounded,
+                                        size: 20,
+                                        color: Colors.blue[100],
+                                      ),
+                                      EventTextDetails(
+                                        (event.startTime != null)
+                                            ? '${event.startTime.day}-${event.startTime.month}-${event.startTime.year}'
+                                            : "",
+                                      ), //insert datetoString fn
+                                    ],
+                                  ),
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Icon(
+                                          Icons.access_time_outlined,
+                                          size: 20,
+                                          color: Colors.white,
+                                        ),
+                                        EventTextDetails(
+                                            (event.startTime != null)
+                                                ? (event.startTime.hour
+                                                        .toString()
+                                                        .padLeft(2, '0')) +
+                                                    ":" +
+                                                    (event.startTime.minute
+                                                        .toString()
+                                                        .padLeft(2, '0'))
+                                                : ""),
+                                      ],
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.location_pin,
+                                        size: 20,
+                                        color: Colors.red,
+                                      ),
+                                      EventTextDetails('To be done'),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.topLeft,
+                              child: Container(
+                                height: 100,
+                                width: MediaQuery.of(context).size.width / 2,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Row(
+                                        children: [
+                                          Icon(
+                                            Icons.bolt,
+                                            size: 20,
+                                            color: Colors.cyan,
+                                          ),
+                                          EventTextDetails(
+                                            event.difficulty.toString(),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    (event.eventType == "Running")
+                                        ? Column(children: [
                                             Align(
                                               alignment: Alignment.topLeft,
                                               child: Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
                                                 children: [
                                                   Icon(
-                                                    Icons.access_time_outlined,
+                                                    Icons
+                                                        .directions_run_outlined,
                                                     size: 20,
-                                                    color: Colors.white,
+                                                    color: Colors.amber,
                                                   ),
-                                                  EventTextDetails((event
-                                                              .startTime !=
-                                                          null)
-                                                      ? (event.startTime.hour
-                                                              .toString()
-                                                              .padLeft(
-                                                                  2, '0')) +
-                                                          ":" +
-                                                          (event
-                                                              .startTime.minute
-                                                              .toString()
-                                                              .padLeft(2, '0'))
-                                                      : ""),
+                                                  EventTextDetails('3.7km'),
                                                 ],
                                               ),
                                             ),
                                             Row(
                                               children: [
                                                 Icon(
-                                                  Icons.location_pin,
+                                                  Icons.speed,
                                                   size: 20,
-                                                  color: Colors.red,
+                                                  color: Colors.limeAccent,
                                                 ),
-                                                EventTextDetails('To be done'),
+                                                EventTextDetails('veri fast'),
                                               ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment: Alignment.topLeft,
-                                        child: Container(
-                                          height: 100,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width /
-                                              2,
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.min,
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Align(
-                                                alignment: Alignment.topLeft,
-                                                child: Row(
-                                                  children: [
-                                                    Icon(
-                                                      Icons.bolt,
-                                                      size: 20,
-                                                      color: Colors.cyan,
-                                                    ),
-                                                    EventTextDetails(
-                                                      event.difficulty
-                                                          .toString(),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              (event.eventType == "Running")
-                                                  ? Column(children: [
-                                                      Align(
-                                                        alignment:
-                                                            Alignment.topLeft,
-                                                        child: Row(
-                                                          children: [
-                                                            Icon(
-                                                              Icons
-                                                                  .directions_run_outlined,
-                                                              size: 20,
-                                                              color:
-                                                                  Colors.amber,
-                                                            ),
-                                                            EventTextDetails(
-                                                                '3.7km'),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                      Row(
-                                                        children: [
-                                                          Icon(
-                                                            Icons.speed,
-                                                            size: 20,
-                                                            color: Colors
-                                                                .limeAccent,
-                                                          ),
-                                                          EventTextDetails(
-                                                              'veri fast'),
-                                                        ],
-                                                      ),
-                                                    ])
-                                                  : Container(),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                          ])
+                                        : Container(),
+                                  ],
                                 ),
-                                Align(
-                                    alignment: Alignment.topLeft,
-                                    child: (event.eventType == 'Gymming')
-                                        ? EventTextTitle(
-                                            title: "Workout Routine",
-                                            fontSize: 16,
-                                          )
-                                        : (event.eventType == 'Zumba')
-                                            ? EventTextTitle(
-                                                title: "Songs",
-                                                fontSize: 16,
-                                              )
-                                            : Container()),
-                                // Fill in workout/song exercises
-
-                                // Description
-                                Align(
-                                    alignment: Alignment.topLeft,
-                                    child: EventTextTitle(
-                                      title: "Description",
-                                      fontSize: 16,
-                                    )),
-                                Container(
-                                  child: Align(
-                                    alignment: Alignment.topLeft,
-                                    child: EventTextDetails(
-                                        (event.description == '')
-                                            ? "-No decription from creator-"
-                                            : event.description),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: EventTextTitle(
-                                    title: 'Organiser',
-                                    fontSize: 24,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Row(
-                                    children: [
-                                      Icon(
-                                        Icons.account_circle_outlined,
-                                        size: 50,
-                                        color: Colors.deepOrangeAccent,
-                                      ),
-                                      EventTextDetails('Hi my name is Jeff.')
-                                    ],
-                                  ),
-                                ),
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: EventTextTitle(
-                                    title: 'Participants',
-                                    fontSize: 24,
-                                  ), //should maybe put row for the 5/8 thing?
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 8.0),
-                                  child: Container(
-                                    height: 60,
-                                    child: ListView(
-                                      scrollDirection: Axis.horizontal,
-                                      children: participantsWidgets,
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: ButtonType1(
-                                      onPress: joinPage, text: "Join"),
-                                ),
-                              ],
+                              ),
                             ),
+                          ],
+                        ),
+                      ),
+                      Align(
+                          alignment: Alignment.topLeft,
+                          child: (event.eventType == 'Gymming')
+                              ? EventTextTitle(
+                                  title: "Workout Routine",
+                                  fontSize: 16,
+                                )
+                              : (event.eventType == 'Zumba')
+                                  ? EventTextTitle(
+                                      title: "Songs",
+                                      fontSize: 16,
+                                    )
+                                  : Container()),
+                      // Fill in workout/song exercises
+
+                      // Description
+                      Align(
+                          alignment: Alignment.topLeft,
+                          child: EventTextTitle(
+                            title: "Description",
+                            fontSize: 16,
+                          )),
+                      Container(
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: EventTextDetails((event.description == '')
+                              ? "-No decription from creator-"
+                              : event.description),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: EventTextTitle(
+                          title: 'Organiser',
+                          fontSize: 24,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Row(
+                          children: [
+                            Icon(
+                              Icons.account_circle_outlined,
+                              size: 50,
+                              color: Colors.deepOrangeAccent,
+                            ),
+                            EventTextDetails('Hi my name is Jeff.')
+                          ],
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: EventTextTitle(
+                          title: 'Participants',
+                          fontSize: 24,
+                        ), //should maybe put row for the 5/8 thing?
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: Container(
+                          height: 60,
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            children: participantsWidgets,
                           ),
                         ),
-                      )
-                    ]),
-                  ));
-                } else {
-                  return Loading();
-                }
-              }),
-        ));
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: ButtonType1(onPress: joinPage, text: "Join"),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ]),
+        ),
+      ),
+    );
   }
 }

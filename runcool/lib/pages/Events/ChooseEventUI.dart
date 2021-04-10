@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import './RunningUI/CreateRunningUI1.dart';
-import './GymmingAndZumbaUI/CreateGymmingUI1.dart';
-import 'GymmingAndZumbaUI/CreateZumbaUI1.dart';
+import 'GymmingAndZumbaUI/CreateGymmingAndZumbaUI1.dart';
 import 'package:provider/provider.dart';
 import 'package:runcool/models/User.dart';
 import 'CreateEventUI.dart';
@@ -19,39 +18,36 @@ class ChooseEventUIState extends State<ChooseEventUI> {
   String eventType;
   List<String> eventTypes = ['Running', 'Gymming', 'Zumba'];
 
-  void goNextPage(String eventChoice) {
-    if (eventChoice == 'Running') {
+  void goNextPage(String eventType) {
+    final user = Provider.of<User>(context, listen: false);
+
+    Map eventDetails = {"eventType": eventType, "creator": user.uid};
+    if (eventDetails['eventType'] == 'Running') {
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => CreateRunningUI1()));
-    } else if (eventChoice == 'Gymming') {
+    } else if (eventDetails['eventType'] == 'Gymming' ||
+        eventDetails['eventType'] == 'Zumba') {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => CreateGymmingUI1()));
-    } else if (eventChoice == "Zumba") {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => CreateZumbaUI1()));
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  CreateGymmingAndZumbaUI1(eventDetails: eventDetails)));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<User>(context);
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
-        centerTitle: true,
-        title: Text(
-          'New Event',
-          style: TextStyle(color: Colors.white),
-          textAlign: TextAlign.center,
-        ),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
+          backgroundColor: Colors.black,
+          centerTitle: true,
+          title: Text(
+            'Create New Event',
+            style: TextStyle(color: Colors.white),
+            textAlign: TextAlign.center,
+          ),
+          leading: Container()),
       body: BackgroundImage(
         child: Container(
           height: MediaQuery.of(context).size.height,
