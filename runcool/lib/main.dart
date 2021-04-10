@@ -52,8 +52,7 @@ class MyApp extends StatelessWidget {
         StreamProvider<User>.value(value: AuthenticationManager().user),
         // StreamProvider<AppUser>.value(
         //     value: ProfileManager().getCurrentUserObject())
-        StreamProvider<AppUser>.value(
-            value: ProfileManager().getUserFromID(uid))
+        StreamProvider<AppUser>.value(value: AppUser.getUserFromID(uid))
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

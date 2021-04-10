@@ -7,6 +7,9 @@ import 'package:runcool/pages/profile/profileList.dart';
 import 'authenticationManager.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../models/User.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'dart:io';
+import 'package:path/path.dart';
 
 class ProfileManager {
   final String uid;
@@ -41,71 +44,30 @@ class ProfileManager {
       print(e.toString());
       return null;
     }
-    // String userId = (await FirebaseAuth.instance.currentUser).uid;
-    // newuid =
-    //     FirebaseFirestore.instance.collection('users').doc(userId).toString();
-    // users.doc(newuid).set(data);
   }
 
-  Stream<AppUser> getUserFromID(docID) {
-    return users
-        .doc(docID)
-        .snapshots()
-        .map((doc) => AppUser.fromFirestore(doc));
-  }
+  // Stream<AppUser> getUserFromID(docID) {
+  //   return users
+  //       .doc(docID)
+  //       .snapshots()
+  //       .map((doc) => AppUser.fromFirestore(doc));
+  // }
 
-  Stream<AppUser> getCurrentUserObject() {
-    User currUser = authManager.getCurrUserFromFirebase();
-
-    return (currUser == null) ? null : getUserFromID(currUser.uid);
-  }
-
-  Stream<List<Widget>> getFriendCards(List friends) {
-    Stream<QuerySnapshot> path =
-        users.where(FieldPath.documentId, whereIn: friends).snapshots();
-    return path.map((snapshot) {
-      return snapshot.docs.map((doc) {
-        AppUser user = AppUser.fromFirestore(doc);
-
-        return FriendCard(user: user);
-      }).toList();
-    });
-  }
-
+  // Stream<AppUser> getCurrentUserObject() {
+  //   User currUser = authManager.getCurrUserFromFirebase();
   //
-  //
-  // updateEvent(Map eventDetails) {
-  //   //Convert to Map<String, dynamic>
-  //   Map<String, dynamic> data =
-  //       eventDetails.map((key, value) => MapEntry(key.toString(), value));
-  //   data['deleted'] = false;
-  //   events.add(data);
-  // print(data);
+  //   return (currUser == null) ? null : getUserFromID(currUser.uid);
+  // }
+
+  Future uploadPic(File image) async {
+    String fileName = basename(image.path);
+    Reference ref = FirebaseStorage.instance.ref().child(fileName);
+    UploadTask uploadTask = ref.putFile(image);
+    // TaskSnapshot taskSnapshot = uploadTask.snapshot;
+    await Future.value(uploadTask);
+    final link = await ref.getDownloadURL();
+    return link;
+  }
+  // https://www.youtube.com/watch?v=7uqmY6le4xk
+
 }
-// final _firestore = FirebaseFirestore.instance;
-//
-// void getUser() async {
-//   // String user_email = AuthenticationManager.loggedInUser.email;
-//   String userEmail = 'test@gmail.com';
-//
-//   final users = await _firestore
-//       .collection('users')
-//       .where('email', isEqualTo: userEmail)
-//       .get();
-//   // print(messages);
-//   for (var user in users.docs) {
-//     print("helllo");
-//     print(user.data());
-//   }
-
-// await for (var snapshot in _firestore
-//     .collection("users")
-//     .where('email', isEqualTo: user_email)
-//     .snapshots()) {
-//   for (var message in snapshot.docs) {
-//     print(message.data());
-//   }
-// }
-//}
-// }
-//

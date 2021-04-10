@@ -10,7 +10,7 @@ final double fontMainSize = 20;
 class ProfileList extends StatefulWidget {
   final AppUser user;
   final String currUserID;
-  ProfileList({@required this.user, this.currUserID});
+  ProfileList({@required this.user, @required this.currUserID});
   @override
   _ProfileListState createState() => _ProfileListState();
 }
@@ -67,28 +67,33 @@ class _ProfileListState extends State<ProfileList> {
                 textAlign: TextAlign.center,
               )),
           // age
-          Container(
-            child: Row(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: Icon(Icons.face, size: 18, color: Colors.grey[300]),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Age",
-                    style: TextStyle(fontSize: fontMainSize, color: kTurquoise),
+          (user.age == null)
+              ? Container()
+              : Container(
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15.0),
+                        child:
+                            Icon(Icons.face, size: 18, color: Colors.grey[300]),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          "Age",
+                          style: TextStyle(
+                              fontSize: fontMainSize, color: kTurquoise),
+                        ),
+                      ),
+                      Text(
+                        user.age.toString() + " years old",
+                        //age.toString(),
+                        style: TextStyle(
+                            fontSize: fontMainSize, color: Colors.white),
+                      )
+                    ],
                   ),
                 ),
-                Text(
-                  user.age.toString() + " years old",
-                  //age.toString(),
-                  style: TextStyle(fontSize: fontMainSize, color: Colors.white),
-                )
-              ],
-            ),
-          ),
           //Gender
           Container(
             child: Row(
@@ -283,11 +288,14 @@ class _ProfileListState extends State<ProfileList> {
                   padding: const EdgeInsets.symmetric(horizontal: 50),
                   child: (!requestSent)
                       ? ButtonType1(
-                          onPress: () {
-                            FriendManager().sendRequest(user.uid);
-                            setState(() {
-                              requestSent = true;
-                            });
+                          onPress: () async {
+                            var res = await FriendManager()
+                                .sendRequest(user.uid, widget.currUserID);
+                            if (res != null) {
+                              setState(() {
+                                requestSent = true;
+                              });
+                            }
                           },
                           text: "Request")
                       : ButtonType1(

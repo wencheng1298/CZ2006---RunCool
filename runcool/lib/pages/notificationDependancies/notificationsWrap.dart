@@ -14,6 +14,7 @@ class NotificationsWrap extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<dynamic> allNotifs = Provider.of<List<dynamic>>(context) ?? [];
 
+    allNotifs.sort((a, b) => b.timeStamp.compareTo(a.timeStamp));
     List<Widget> notifications =
         NotificationManager().getNotificationCards(allNotifs, title) ?? [];
 
@@ -27,9 +28,15 @@ class NotificationsWrap extends StatelessWidget {
             style: TextStyle(
                 fontSize: 25, fontWeight: FontWeight.bold, color: kTurquoise),
           ),
-          Column(
-            children: notifications,
-          ),
+          notifications.isEmpty
+              ? Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Text("No ${title}s to show",
+                      style: TextStyle(color: Colors.white)),
+                )
+              : Column(
+                  children: notifications,
+                ),
         ],
       ),
     );

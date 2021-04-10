@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-
-// class AppUser {
-//   final String uid;
-//
-//   AppUser({this.uid});
-// }
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:runcool/firebase/Service/auth.dart';
+import 'package:runcool/pages/profile/FriendCard.dart';
 
 class AppUser {
   final String uid;
@@ -21,6 +19,8 @@ class AppUser {
   final List<dynamic> friends;
   final List<dynamic> notifications;
   final List<dynamic> events;
+  static CollectionReference _users =
+      FirebaseFirestore.instance.collection('users');
 
   AppUser(
       {this.uid,
@@ -41,11 +41,7 @@ class AppUser {
     Map data = doc.data();
     int age;
     try {
-      if (data['age'] != null) {
-        age = data['age'];
-      } else {
-        age = null;
-      }
+      age = int.parse(data['age']);
     } catch (e) {
       age = null;
     }
@@ -66,5 +62,29 @@ class AppUser {
         friends: data['friends'] ?? [],
         image: data['image'] ?? '');
     return x;
+  }
+
+  static Stream<AppUser> getUserFromID(docID) {
+    return _users
+        .doc(docID)
+        .snapshots()
+        .map((doc) => AppUser.fromFirestore(doc));
+  }
+
+  static Stream<AppUser> getCurrentUserObject() {
+    User currUser = AuthenticationManager().getCurrUserFromFirebase();
+    return (currUser == null) ? null : getUserFromID(currUser.uid);
+  }
+
+  static Stream<List<Widget>> getFriendCards(List friends) {
+    Stream<QuerySnapshot> path =
+        _users.where(FieldPath.documentId, whereIn: friends).snapshots();
+    return path.map((snapshot) {
+      return snapshot.docs.map((doc) {
+        AppUser user = AppUser.fromFirestore(doc);
+
+        return FriendCard(user: user);
+      }).toList();
+    });
   }
 }

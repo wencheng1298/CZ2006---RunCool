@@ -22,7 +22,7 @@ class AuthenticationManager {
     try {
       return _auth.currentUser;
     } catch (e) {
-      print(e);
+      print(e.toString());
       return null;
     }
   }
