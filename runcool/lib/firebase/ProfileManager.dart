@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:runcool/firebase/Service/auth.dart';
+import 'package:runcool/pages/profile/FriendCard.dart';
+import 'package:runcool/pages/profile/profileList.dart';
 
 import 'authenticationManager.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -55,6 +58,18 @@ class ProfileManager {
     User currUser = authManager.getCurrUserFromFirebase();
 
     return (currUser == null) ? null : getUserFromID(currUser.uid);
+  }
+
+  Stream<List<Widget>> getFriendCards(List friends) {
+    Stream<QuerySnapshot> path =
+        users.where(FieldPath.documentId, whereIn: friends).snapshots();
+    return path.map((snapshot) {
+      return snapshot.docs.map((doc) {
+        AppUser user = AppUser.fromFirestore(doc);
+
+        return FriendCard(user: user);
+      }).toList();
+    });
   }
 
   //

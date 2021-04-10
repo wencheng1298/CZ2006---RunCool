@@ -60,10 +60,10 @@ class Event {
     final eventID = doc.id;
     final participants = data['participants'] ?? [];
     final announcements = data['announcements'] ?? [];
-    final startTime = (data['startTime']!=null)
+    final startTime = (data['startTime'] != null)
         ? data['startTime'].toDate().add(Duration(hours: 8))
         : null;
-    final endTime = (data['endTime']!=null)
+    final endTime = (data['endTime'] != null)
         ? data['endTime'].toDate().add(Duration(hours: 8))
         : null;
     final noOfParticipants = data['noOfParticipants'] ?? 8;

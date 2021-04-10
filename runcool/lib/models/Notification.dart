@@ -6,11 +6,13 @@ class AppNotification {
   final String notificationType;
   final String notifier;
   final DateTime time;
+  final String notificationID;
   // final Event event;
   // final bool eventUpdated;
   // final int noOfMessages;
 
-  AppNotification({this.notificationType, this.notifier, this.time});
+  AppNotification(
+      {this.notificationType, this.notifier, this.time, this.notificationID});
   // factory AppNotification.fromFirestore(DocumentSnapshot doc) {
   //   Map data = doc.data();
   //   return AppNotification(
@@ -23,6 +25,7 @@ class AppNotification {
     final notificationType = data['notificationType'] ?? '';
     final notifier = data['notifier'] ?? '';
     final time = data['time'] == null ? null : data['time'].toDate();
+    final notificationID = doc.id;
     switch (notificationType) {
       case 'Event Invite':
         final event = data['event'] ?? '';

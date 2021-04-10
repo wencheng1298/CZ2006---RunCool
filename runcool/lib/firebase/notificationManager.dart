@@ -101,7 +101,6 @@ class NotificationManager {
           "AmwXRsgUdovXQSGcJREX",
           "16E8tGqNXyaOVj0YwbeB"
         ]).snapshots();
-    print(path.length);
     return path.map((snapshot) {
       return snapshot.docs
           .map((doc) => AppNotification.fromFirestore(doc))

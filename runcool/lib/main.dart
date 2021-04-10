@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:runcool/firebase/ProfileManager.dart';
@@ -41,6 +43,7 @@ class MyApp extends StatelessWidget {
     // User currUser = AuthenticationManager().getCurrUserFromFirebase();
     String uid = (currUser == null) ? null : currUser.uid;
     print("From main page ${uid}");
+    sleep(Duration(seconds: 1));
 
     return MultiProvider(
       providers: [

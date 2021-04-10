@@ -15,69 +15,34 @@ import 'package:provider/provider.dart';
 
 class ProfileUI1 extends StatefulWidget {
   @override
-  final String userID;
-  ProfileUI1({this.userID});
+  final AppUser user;
+  ProfileUI1({this.user});
   ProfileUI1State createState() => ProfileUI1State();
 }
 
 class ProfileUI1State extends State<ProfileUI1> {
   @override
-  void initState() {
-    // _fillFriends();
-    super.initState();
-  }
-
-  double fontMainSize = 15;
-  void Settings() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => SettingsUI()));
-  }
-
-  void Edit() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => EditProfileUI()));
-  }
-
-  @override
   Widget build(BuildContext context) {
-    // final AppUser user = Provider.of<AppUser>(context);
+    final AppUser currUser = Provider.of<AppUser>(context);
     // print(user.name);
     // String userId = FirebaseAuth.instance.currentUser.uid;
     // CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     return Scaffold(
       appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.settings),
-            onPressed: () => Settings(),
-          ),
-          backgroundColor: Colors.black,
-          centerTitle: true,
-          title: Text(
-            'Profile',
-            style: TextStyle(color: Colors.white),
-            textAlign: TextAlign.center,
-          ),
-          actions: <Widget>[
-            Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child:
-                  IconButton(icon: Icon(Icons.edit), onPressed: () => Edit()),
-            ),
-
-            //leading: Container(),
-          ]),
+        backgroundColor: Colors.black,
+        centerTitle: true,
+        title: Text(
+          'Profile',
+          style: TextStyle(color: Colors.white),
+          textAlign: TextAlign.center,
+        ),
+      ),
       body: BackgroundImage(
-        child: StreamBuilder<AppUser>(
-            stream: ProfileManager().getUserFromID(widget.userID),
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                AppUser user = snapshot.data;
-                return ProfileList(user: user);
-              } else {
-                return Loading();
-              }
-            }),
+        child: ProfileList(
+          user: widget.user,
+          currUserID: currUser.uid,
+        ),
       ),
     );
   }

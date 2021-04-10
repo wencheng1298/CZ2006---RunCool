@@ -20,7 +20,7 @@ class GetUserName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //final user = Provider.of<User>(context);
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    // CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     // return FutureBuilder<DocumentSnapshot>(
     //   future: users.doc(documentId).get(),
@@ -80,49 +80,19 @@ class ProfileUIState extends State<ProfileUI> {
   }
 
   double fontMainSize = 15;
-  void Settings() {
+  void settings() {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => SettingsUI()));
   }
 
-  void Edit() {
+  void edit() {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => EditProfileUI()));
   }
 
   @override
   Widget build(BuildContext context) {
-    String uid;
-    // String name;
-    // int age;
-    // String gender;
-    // String hobbies;
-    // String region;
-    // String occupation;
-    // String insta;
-    // String bio;
-
-    String email;
-
-    // var user = _auth.currentUser;
-    // if (user != null) {
-    //   //TODO create a static var for UID. This should be in authentication pg. use dot set
-
-    //   uid = user.uid;
-    //   // name = user.name;
-    //   // age = user.age;
-    //   // gender = user.gender;
-    //   // hobbies = user.hobbies;
-    //   // region = user.region;
-    //   // occupation = user.occupation;
-    //   // insta = user.insta;
-    //   // bio = user.bio;
-    //   email = user.email;
-    // }
     final AppUser user = Provider.of<AppUser>(context);
-    // print(user.name);
-    // String userId = FirebaseAuth.instance.currentUser.uid;
-    // CollectionReference users = FirebaseFirestore.instance.collection('users');
 
     return (user == null)
         ? Loading()
@@ -130,7 +100,7 @@ class ProfileUIState extends State<ProfileUI> {
             appBar: AppBar(
                 leading: IconButton(
                   icon: Icon(Icons.settings),
-                  onPressed: () => Settings(),
+                  onPressed: () => settings(),
                 ),
                 backgroundColor: Colors.black,
                 centerTitle: true,
@@ -143,13 +113,16 @@ class ProfileUIState extends State<ProfileUI> {
                   Padding(
                     padding: EdgeInsets.only(right: 20.0),
                     child: IconButton(
-                        icon: Icon(Icons.edit), onPressed: () => Edit()),
+                        icon: Icon(Icons.edit), onPressed: () => edit()),
                   ),
 
                   //leading: Container(),
                 ]),
             body: BackgroundImage(
-              child: ProfileList(user: user),
+              child: ProfileList(
+                user: user,
+                currUserID: user.uid,
+              ),
             ),
           );
   }

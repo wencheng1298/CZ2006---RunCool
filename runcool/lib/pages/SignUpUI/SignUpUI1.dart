@@ -97,7 +97,7 @@ class SignUpUI1State extends State<SignUpUI1> {
                     ),
                     SizedBox(height: 20),
                     ButtonType1(
-                        text: 'Sign up!',
+                        text: 'Continue',
                         onPress: () async {
                           // if(_formkey.currentState.validate()){
                           //   print(email);

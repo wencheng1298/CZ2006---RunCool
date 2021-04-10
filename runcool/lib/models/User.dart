@@ -8,6 +8,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class AppUser {
   final String uid;
+  final String image;
   final String name;
   final String gender;
   final int age;
@@ -34,25 +35,36 @@ class AppUser {
       this.region,
       this.notifications,
       this.friends,
-      this.events});
+      this.events,
+      this.image});
   factory AppUser.fromFirestore(DocumentSnapshot doc) {
     Map data = doc.data();
-    print("HELLO");
-    // print(data['age'].runtimeType);
-    return AppUser(
-      name: data['name'] ?? "",
-      gender: data['gender'] ?? '',
-      uid: doc.id,
-      age: int.parse(data['age']) ?? 18,
-      bio: data['bio'] ?? '',
-      email: data['email'] ?? '',
-      hobbies: data['hobbies'] ?? '',
-      insta: data['insta'] ?? '',
-      occupation: data['occupation'] ?? '',
-      region: data['region'] ?? '',
-      events: data['events'] ?? [],
-      notifications: data['notifications'] ?? [],
-      friends: data['friends'] ?? [],
-    );
+    int age;
+    try {
+      if (data['age'] != null) {
+        age = data['age'];
+      } else {
+        age = null;
+      }
+    } catch (e) {
+      age = null;
+    }
+
+    AppUser x = AppUser(
+        name: data['name'] ?? "",
+        gender: data['gender'] ?? '',
+        uid: doc.id,
+        age: age,
+        bio: data['bio'] ?? '',
+        email: data['email'] ?? '',
+        hobbies: data['hobbies'] ?? '',
+        insta: data['insta'] ?? '',
+        occupation: data['occupation'] ?? '',
+        region: data['region'] ?? '',
+        events: data['events'] ?? [],
+        notifications: data['notifications'] ?? [],
+        friends: data['friends'] ?? [],
+        image: data['image'] ?? '');
+    return x;
   }
 }
