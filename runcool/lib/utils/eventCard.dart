@@ -59,12 +59,13 @@ class EventCard extends StatelessWidget {
               (event.name != '') ? event.name : '',
               style: TextStyle(fontSize: 24, color: kTurquoise),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-              child: Container(
-                child: GoogleMapPlacement(),
-              ),
-            ),
+            //The lag is killing me so imma gotto comment this out
+            // Padding(
+            //   padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+            //   child: Container(
+            //     child: GoogleMapPlacement(),
+            //   ),
+            // ),
             Padding(
               padding: const EdgeInsets.only(top: 5, left: 15.0, right: 15),
               child: Row(
@@ -78,7 +79,7 @@ class EventCard extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
-                  (event.difficulty == 'Difficult')
+                  (event.difficulty == 'Hard')
                   ? Row(children:[
                     Icon(Icons.bolt, size: 20, color: kTurquoise),
                     Icon(Icons.bolt, size: 20, color: kTurquoise),

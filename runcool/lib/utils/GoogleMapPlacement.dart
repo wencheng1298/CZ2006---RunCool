@@ -49,7 +49,7 @@ class _GoogleMapState extends State<GoogleMapPlacement> {
 
     var jsonText = await rootBundle.loadString(file);
     setState(() => data = json.decode(jsonText));
-    print(data);
+    // print(data);
     return 'success';
   }
 

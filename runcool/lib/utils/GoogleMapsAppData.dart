@@ -66,8 +66,8 @@ class GoogleMapsAppData with ChangeNotifier{
     newplace = await placesService.getPlace(placeId);
 
     newplace.name = newplace.name;
-    print('this is drop off address');
-    print(newplace.name);
+    // print('this is drop off address');
+    // print(newplace.name);
     notifyListeners();
 
     //Navigator.pop(context,"obtained directions");

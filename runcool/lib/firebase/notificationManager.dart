@@ -136,7 +136,7 @@ class NotificationManager {
       await notifCollection.doc(notifId).delete();
       return null;
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return e.toString();
     }
   }

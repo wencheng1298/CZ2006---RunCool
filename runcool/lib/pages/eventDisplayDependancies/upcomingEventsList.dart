@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './../../models/User.dart';
 import './../../utils/everythingUtils.dart';
+import './../Events/EventPage.dart';
+
 
 class UpcomingEventsList extends StatefulWidget {
   @override
@@ -12,13 +14,24 @@ class _UpcomingEventsListState extends State<UpcomingEventsList> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<AppUser>(context);
-    final List<dynamic> upcomingEvents = Provider.of<List<dynamic>>(context) ?? [];
+    final List<dynamic> upcomingEvents =
+        Provider.of<List<dynamic>>(context) ?? [];
     List<Widget> eventWidget = [];
+
+    void goEventPage(event) {
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => EventPage(
+                    event: event,
+                  )));
+    }
 
     upcomingEvents.forEach((event) {
       if (event.participants.contains(user.uid)) {
-        if(DateTime.now().isBefore(event.startTime)){
-          eventWidget.add(EventCard(event: event));
+        if (DateTime.now().isBefore(event.startTime)) {
+          eventWidget
+              .add(EventCard(event: event, fn: () => goEventPage(event)));
         }
       }
     });

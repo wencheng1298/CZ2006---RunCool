@@ -8,7 +8,6 @@ class TinyButton extends StatelessWidget {
   final String text;
   @override
   Widget build(BuildContext context) {
-    print(colour);
     return RawMaterialButton(
       onPressed: onPress,
       fillColor: colour ?? Colors.white,
@@ -31,7 +30,6 @@ class ButtonType1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(colour);
     return RawMaterialButton(
       elevation: 4.0,
       onPressed: onPress,

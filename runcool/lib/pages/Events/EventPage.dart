@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:runcool/utils/GoogleMapPlacement.dart';
 import '../../utils/EventTextDetails.dart';
 import './JoinEventPage.dart';
 import './../RuncoolNavBar.dart';
 import './../../utils/everythingUtils.dart';
 import '../../models/Event.dart';
+import './../profile/FriendCard.dart';
+import 'package:runcool/models/User.dart';
+import 'package:provider/provider.dart';
+import './../../firebase/EventManagers/EventManager.dart';
 
 class EventPage extends StatefulWidget {
   final dynamic event;
@@ -18,16 +23,19 @@ class _EventPageState extends State<EventPage> {
   dynamic event;
   _EventPageState(this.event);
 
-  // List<String> participants = [
-  //   'Paula',
-  //   'Eugene',
-  //   'Sarah',
-  //   'Bob',
-  //   'Ho',
-  //   'RERE',
-  //   'BIZ'
-  // ];
   List<Widget> participantsWidgets = [];
+  String viewStatus;
+
+  void _initStatus() {
+    final AppUser user = Provider.of<AppUser>(context, listen: false);
+    if (event.creator == user.uid) {
+      viewStatus = 'creator';
+    } else if (event.participants.contains(user.uid)) {
+      viewStatus = 'participant';
+    } else {
+      viewStatus = 'viewer';
+    }
+  }
 
   void _fillParticipants() {
     setState(() {
@@ -49,6 +57,25 @@ class _EventPageState extends State<EventPage> {
   }
 
   void joinPage() {
+    final AppUser user = Provider.of<AppUser>(context, listen: false);
+    setState(() {
+      viewStatus = 'participant';
+      EventManager().joinEvent(event.eventID, user.uid);
+    });
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) =>
+                JoinEventPage())); //find out if need to individually create or can use and add on..
+  }
+
+  void quitPage() {
+    final AppUser user = Provider.of<AppUser>(context, listen: false);
+
+    setState(() {
+      viewStatus = 'viewer';
+      EventManager().quitEvent(event.eventID, user.uid);
+    });
     Navigator.push(
         context,
         MaterialPageRoute(
@@ -66,7 +93,8 @@ class _EventPageState extends State<EventPage> {
 
   @override
   void initState() {
-    _fillParticipants();
+    _initStatus();
+    // _fillParticipants();
     super.initState();
   }
 
@@ -272,7 +300,8 @@ class _EventPageState extends State<EventPage> {
                               size: 50,
                               color: Colors.deepOrangeAccent,
                             ),
-                            EventTextDetails('Hi my name is Jeff.')
+                            EventTextDetails(
+                                'Need get the description for user.')
                           ],
                         ),
                       ),
@@ -283,19 +312,33 @@ class _EventPageState extends State<EventPage> {
                           fontSize: 24,
                         ), //should maybe put row for the 5/8 thing?
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Container(
-                          height: 60,
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: participantsWidgets,
-                          ),
-                        ),
-                      ),
+                      (event.participants.isEmpty)
+                          ? Container()
+                          : Padding(
+                              padding: const EdgeInsets.only(left: 8.0),
+                              child: ProfileCardStream(
+                                  friends: event.participants),
+                            ),
                       Padding(
                         padding: const EdgeInsets.all(10.0),
-                        child: ButtonType1(onPress: joinPage, text: "Join"),
+                        child: (viewStatus == 'creator')
+                            ? ButtonType1(
+                                onPress: () {},
+                                text: "Delete Event",
+                              )
+                            : (viewStatus == 'participant')
+                                ? ButtonType1(
+                                    onPress: quitPage,
+                                    text: "Quit",
+                                    colour: Colors.red)
+                                : (event.participants.length <
+                                        event.noOfParticipants)
+                                    ? ButtonType1(
+                                        onPress: joinPage, text: "Join")
+                                    : ButtonType1(
+                                        onPress: () {},
+                                        text: "Event Full",
+                                        colour: Colors.grey),
                       ),
                     ],
                   ),

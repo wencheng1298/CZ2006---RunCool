@@ -181,9 +181,8 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
                         height: 35,
                         onChange: (val) {
                           try {
-                            val = double.parse(val);
-                            eventDetails['noOfParticipants'] =
-                                double.parse(val);
+                            val = int.parse(val);
+                            eventDetails['noOfParticipants'] = val;
                           } catch (error) {
                             // Need find out how to catch and show error
                             eventDetails['noOfParticipants'] = 0;

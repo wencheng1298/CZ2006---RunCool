@@ -38,7 +38,7 @@ class ProfileManager {
       await users.doc(user.uid).set(data);
       return "success";
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       return null;
     }
     // String userId = (await FirebaseAuth.instance.currentUser).uid;

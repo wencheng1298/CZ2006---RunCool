@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'User.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../firebase/ProfileManager.dart';
@@ -162,7 +160,7 @@ class RunningEvent extends Event {
   String startLocation;
   String endLocation;
   int estDistance;
-  Double pace;
+  double pace;
 
   RunningEvent(
       {this.checkpoints,
