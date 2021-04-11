@@ -27,7 +27,7 @@ class _UpcomingEventsListState extends State<UpcomingEventsList> {
     }
 
     upcomingEvents.forEach((event) {
-      if (event.participants.contains(user.uid)) {
+      if (event.participants.contains(user.uid) || event.creator == user.uid) {
         if (DateTime.now().isBefore(event.startTime)) {
           eventWidget
               .add(EventCard(event: event, fn: () => goEventPage(event)));

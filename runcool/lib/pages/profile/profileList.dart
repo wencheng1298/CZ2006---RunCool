@@ -237,19 +237,23 @@ class _ProfileListState extends State<ProfileList> {
               ? Container()
               : Container(
                   child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.only(left: 15.0),
+                        padding: const EdgeInsets.only(left: 15.0, top: 10),
                         child: Icon(Icons.assignment_ind,
                             size: 18, color: Colors.grey[300]),
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          user.bio,
-                          //bio,
-                          style: TextStyle(
-                              fontSize: fontMainSize, color: Colors.white),
+                        child: Container(
+                          width: 350,
+                          child: Text(
+                            user.bio,
+                            //bio,
+                            style: TextStyle(
+                                fontSize: fontMainSize, color: Colors.white),
+                          ),
                         ),
                       ),
                     ],

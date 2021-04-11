@@ -14,6 +14,7 @@ import './../profile/FriendCard.dart';
 import 'package:runcool/models/User.dart';
 import 'package:provider/provider.dart';
 import './../../firebase/EventManagers/EventManager.dart';
+import './../eventDisplayDependancies/inviteFriendList.dart';
 
 class EventPage extends StatefulWidget {
   // final dynamic event;
@@ -130,17 +131,12 @@ class _EventPageState extends State<EventPage> {
               "Choose from friend list",
               style: TextStyle(color: kTurquoise),
             ),
-            content: SingleChildScrollView(
-              child: Column(
-                //Put list of friends here
-                children: [],
-              ),
-            ),
+            content: InviteFriendList(event: event),
             actions: [
               MaterialButton(
                 child: Text('Ok'),
                 color: kTurquoise,
-                onPressed: () {},
+                onPressed: () {Navigator.of(context).pop();},
               )
             ],
           );
@@ -412,7 +408,8 @@ class _EventPageState extends State<EventPage> {
                                   fontSize: 20,
                                 ),
                               ),
-                              (viewStatus != 'creator')
+                              (viewStatus !=
+                                      'creator') // Change to == when ready
                                   ? IconButton(
                                       icon: Icon(
                                         Icons.add_sharp,
