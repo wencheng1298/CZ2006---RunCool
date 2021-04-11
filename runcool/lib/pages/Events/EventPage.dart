@@ -134,7 +134,7 @@ class _EventPageState extends State<EventPage> {
             ),
             actions: [
               MaterialButton(
-                child: Text('Add'),
+                child: Text('Ok'),
                 color: kTurquoise,
                 onPressed: () {},
               )
@@ -430,38 +430,40 @@ class _EventPageState extends State<EventPage> {
                                 ),
                           (viewStatus == 'creator' ||
                                   viewStatus == 'participant')
-                              ? Column(
-                                  children: [
-                                    Align(
-                                      alignment: Alignment.topLeft,
-                                      child: EventTextTitle(
-                                        title: 'Announcements',
-                                        fontSize: 20,
-                                      ),
-                                    ),
-                                    Container(
-                                      height: 150,
-                                      color: Colors.white30,
-                                    ),
-                                    //Replace below container with text box
-                                    Row(children: [
-                                      Container(
-                                        height: 30,
-                                        width:
-                                            MediaQuery.of(context).size.width -
-                                                76,
-                                        child: DescriptionTextField(
-                                          color: Colors.white12,
-                                          minLine: 1,
+                              ? Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    children: [
+                                      Align(
+                                        alignment: Alignment.topLeft,
+                                        child: EventTextTitle(
+                                          title: 'Announcements',
+                                          fontSize: 20,
                                         ),
                                       ),
-                                      MinuteButton(
-                                          onPress: () {
-                                            print('Post!');
-                                          },
-                                          text: "Post")
-                                    ]),
-                                  ],
+                                      Container(
+                                        height: 150,
+                                        color: Colors.white30,
+                                      ),
+                                      //Replace below container with text box
+                                      Row(children: [
+                                        Expanded(
+                                          child: Container(
+                                            height: 30,
+                                            child: DescriptionTextField(
+                                              color: Colors.white12,
+                                              minLine: 1,
+                                            ),
+                                          ),
+                                        ),
+                                        MinuteButton(
+                                            onPress: () {
+                                              print('Post!');
+                                            },
+                                            text: "Post")
+                                      ]),
+                                    ],
+                                  ),
                                 )
                               : Container(),
                           Padding(
