@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:runcool/firebase/ProfileManager.dart';
 import 'package:runcool/utils/GoogleMapPlacement.dart';
 import '../../utils/EventTextDetails.dart';
 import './JoinEventPage.dart';
@@ -293,17 +294,25 @@ class _EventPageState extends State<EventPage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.account_circle_outlined,
-                              size: 50,
-                              color: Colors.deepOrangeAccent,
-                            ),
-                            EventTextDetails(
-                                'Need get the description for user.')
-                          ],
-                        ),
+                        child: StreamBuilder<AppUser>(
+                            stream: AppUser.getUserFromID(event.creator),
+                            builder: (context, snapshot) {
+                              if (!snapshot.hasData) {
+                                return Loading();
+                              } else {
+                                AppUser creator = snapshot.data;
+                                return Row(
+                                  children: [
+                                    Icon(
+                                      Icons.account_circle_outlined,
+                                      size: 50,
+                                      color: Colors.deepOrangeAccent,
+                                    ),
+                                    EventTextDetails(creator.bio),
+                                  ],
+                                );
+                              }
+                            }),
                       ),
                       Align(
                         alignment: Alignment.topLeft,
