@@ -165,8 +165,10 @@ class DescriptionTextField extends StatefulWidget {
   final Function onChange;
   final Color color;
   final int minLine;
+  final TextEditingController controller;
 
-  DescriptionTextField({this.text, this.onChange, this.color, this.minLine});
+  DescriptionTextField(
+      {this.text, this.onChange, this.color, this.minLine, this.controller});
   @override
   _DescriptionTextFieldState createState() => _DescriptionTextFieldState();
 }
@@ -175,15 +177,16 @@ class _DescriptionTextFieldState extends State<DescriptionTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      controller: widget.controller,
       onChanged: widget.onChange,
       autofocus: false,
       keyboardType: TextInputType.multiline,
-      minLines: widget.minLine?? 6,
+      minLines: widget.minLine ?? 6,
       maxLines: 10,
       style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
         filled: true,
-        fillColor: widget.color?? Colors.grey[800],
+        fillColor: widget.color ?? Colors.grey[800],
         contentPadding: EdgeInsets.only(left: 14, bottom: 8, top: 8),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: kTurquoise, width: 2),

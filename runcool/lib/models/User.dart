@@ -17,7 +17,7 @@ class AppUser {
   final String occupation;
   final String region;
   final List<dynamic> friends;
-  List<dynamic> notifications = [];
+  final List<dynamic> notifications;
   final List<dynamic> events;
   static CollectionReference _users =
       FirebaseFirestore.instance.collection('users');

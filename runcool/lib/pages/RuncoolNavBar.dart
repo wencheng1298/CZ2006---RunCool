@@ -40,7 +40,10 @@ class _RuncoolNavBarState extends State<RuncoolNavBar> {
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<AppUser>(context) ?? AppUser();
+    final user = Provider.of<AppUser>(context);
+    if (user != null) {
+      (print(user.notifications));
+    }
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: CurvedNavigationBar(
@@ -53,11 +56,11 @@ class _RuncoolNavBarState extends State<RuncoolNavBar> {
           Icon(Icons.home_outlined, size: iconSize, color: iconColor),
           Icon(Icons.explore_outlined, size: iconSize, color: iconColor),
           Icon(Icons.add_circle_outline, size: iconSize, color: iconColor),
-          user.notifications.isEmpty
-              ? Icon(Icons.notifications_none_outlined,
-                  size: iconSize, color: iconColor)
-              : Icon(Icons.notification_important_outlined,
-                  size: iconSize, color: Colors.red),
+          (user != null && user.notifications.isNotEmpty)
+              ? Icon(Icons.notification_important_outlined,
+                  size: iconSize, color: Colors.red)
+              : Icon(Icons.notifications_none_outlined,
+                  size: iconSize, color: iconColor),
           Icon(Icons.person_outline, size: iconSize, color: iconColor),
         ],
         animationDuration: Duration(

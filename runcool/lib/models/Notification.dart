@@ -47,17 +47,17 @@ class AppNotification {
             notificationID: notificationID);
       case 'Event Update':
         final event = data['event'] ?? '';
-        final eventUpdated = data['eventUpdated'] ?? false;
+        final eventUpdated = data['eventUpdated'] ?? "none";
         final noOfMessages = data['noOfMessages'] ?? null;
         return EventUpdate(
-            event: event,
-            eventUpdated: eventUpdated,
-            notificationType: notificationType,
-            noOfMessages: noOfMessages,
-            timeStamp: timeStamp,
-            receiver: receiver,
-            notificationID: notificationID,
-            notifier: notifier);
+          event: event,
+          eventUpdated: eventUpdated,
+          notificationType: notificationType,
+          noOfMessages: noOfMessages,
+          timeStamp: timeStamp,
+          receiver: receiver,
+          notificationID: notificationID,
+        );
       default:
         return AppNotification(
             notifier: notifier,
@@ -101,19 +101,17 @@ class EventInvite extends AppNotification {
 class EventUpdate extends AppNotification {
   final String event;
   final int noOfMessages;
-  final bool eventUpdated;
+  final String eventUpdated;
   EventUpdate(
       {this.event,
       this.eventUpdated,
       this.noOfMessages,
-      String notifier,
       String notificationType,
       DateTime timeStamp,
       String notificationID,
       String receiver})
       : super(
             notificationType: notificationType,
-            notifier: notifier,
             timeStamp: timeStamp,
             notificationID: notificationID,
             receiver: receiver);

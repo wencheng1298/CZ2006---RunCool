@@ -58,8 +58,9 @@ class MinuteButton extends StatelessWidget {
         text,
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
-      constraints: BoxConstraints(minWidth: 60.0, minHeight: 30.0),
-      shape: RoundedRectangleBorder(side: BorderSide(color: Colors.white12, width: 2)),
+      constraints: BoxConstraints(minWidth: 60.0, minHeight: 32.0),
+      shape: RoundedRectangleBorder(
+          side: BorderSide(color: Colors.white12, width: 2)),
     );
   }
 }

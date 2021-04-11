@@ -222,7 +222,7 @@ class EventUpdateCard extends StatelessWidget {
                           text: 'View',
                           colour: Colors.white,
                           onPress: () {
-                            // notifManager.reject();
+                            notifManager.deleteNotification(eventNotification);
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -240,10 +240,10 @@ class EventUpdateCard extends StatelessWidget {
                           style: TextStyle(color: Colors.redAccent),
                         ),
                   SizedBox(height: 5),
-                  !eventNotification.eventUpdated
+                  eventNotification.eventUpdated == "none"
                       ? Container()
                       : Text(
-                          "Event updated by creator!",
+                          "Event ${eventNotification.eventUpdated} by creator!",
                           textAlign: TextAlign.left,
                           style: TextStyle(color: Colors.green),
                         ),

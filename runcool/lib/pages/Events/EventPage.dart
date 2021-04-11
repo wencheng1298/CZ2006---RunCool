@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:intl/intl.dart';
 import 'package:runcool/firebase/ProfileManager.dart';
 import 'package:runcool/utils/GoogleMapPlacement.dart';
 import '../../utils/EventTextDetails.dart';
@@ -31,6 +32,8 @@ class _EventPageState extends State<EventPage> {
 
   List<Widget> participantsWidgets = [];
   String viewStatus;
+  String message = '';
+  final TextEditingController _controller = TextEditingController();
 
   void _initStatus() {
     final AppUser user = Provider.of<AppUser>(context, listen: false);
@@ -54,6 +57,7 @@ class _EventPageState extends State<EventPage> {
   @override
   void dispose() {
     // TODO: implement dispose
+    _controller.dispose();
     super.dispose();
   }
 
@@ -152,6 +156,7 @@ class _EventPageState extends State<EventPage> {
 
   @override
   Widget build(BuildContext context) {
+    final AppUser currUser = Provider.of<AppUser>(context);
     return (event == null || viewStatus == null)
         ? Loading()
         : Scaffold(
@@ -442,23 +447,65 @@ class _EventPageState extends State<EventPage> {
                                         ),
                                       ),
                                       Container(
-                                        height: 150,
-                                        color: Colors.white30,
+                                        width:
+                                            MediaQuery.of(context).size.width,
+                                        child: Row(
+                                          children: [
+                                            Expanded(
+                                              child: Container(
+                                                  alignment: Alignment.topLeft,
+                                                  height: 200,
+                                                  color: Colors.white30,
+                                                  child: Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 10,
+                                                        vertical: 8),
+                                                    child: ListView(
+                                                        reverse: true,
+                                                        children: EventManager()
+                                                            .getAnnouncements(event
+                                                                .announcements)),
+                                                  )),
+                                            ),
+                                          ],
+                                        ),
                                       ),
                                       //Replace below container with text box
                                       Row(children: [
                                         Expanded(
                                           child: Container(
-                                            height: 30,
+                                            height: 32,
                                             child: DescriptionTextField(
+                                              text: message,
+                                              controller: _controller,
+                                              onChange: (value) {
+                                                setState(() {
+                                                  message = value;
+                                                });
+                                              },
                                               color: Colors.white12,
                                               minLine: 1,
                                             ),
                                           ),
                                         ),
                                         MinuteButton(
-                                            onPress: () {
-                                              print('Post!');
+                                            onPress: () async {
+                                              if (message != '') {
+                                                await EventManager()
+                                                    .addAnnouncement(
+                                                        message: message,
+                                                        announcer:
+                                                            currUser.name,
+                                                        eventID: eventID,
+                                                        announcerID:
+                                                            currUser.uid);
+                                              }
+                                              print(message);
+                                              setState(() {
+                                                message = '';
+                                                _controller.clear();
+                                              });
                                             },
                                             text: "Post")
                                       ]),
@@ -495,5 +542,48 @@ class _EventPageState extends State<EventPage> {
               ),
             ),
           );
+  }
+}
+
+class Announcement extends StatelessWidget {
+  final Map announcement;
+  Announcement(this.announcement);
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          announcement['announcer'],
+          style: TextStyle(color: Colors.white),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(bottom: 2),
+          child: Material(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(30),
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30)),
+            elevation: 5,
+            color: kTurquoise,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+              child: Text(
+                announcement['message'],
+                style: TextStyle(color: Colors.black, fontSize: 18),
+              ),
+            ),
+          ),
+        ),
+        Text(
+            DateFormat.yMd()
+                .add_jm()
+                .format(
+                    announcement['timeStamp'].toDate().add(Duration(hours: 8)))
+                .toString(),
+            style: TextStyle(fontSize: 12)),
+        SizedBox(height: 5)
+      ],
+    );
   }
 }

@@ -66,8 +66,38 @@ class NotificationManager {
     }
   }
 
-  Future<String> announcement(DocumentReference eventRef) async {
-    await eventRef.get();
+  Future<String> notifyAnnouncement(
+      DocumentReference eventRef, String announcer, String announcerID) async {
+    DocumentSnapshot eventSnapshot = await eventRef.get();
+    final event = eventSnapshot.data();
+    var participants = List.from(event["participants"] ?? []);
+    participants.add(event["creator"]);
+    participants.remove(announcerID);
+
+    for (var participant in participants) {
+      // if (participant != announcer) {
+      //   createNotification({"notificationType": "Event Update"}, participant);
+      // }
+      QuerySnapshot docs = await notifCollection
+          .where("notificationType", isEqualTo: "Event Update")
+          .where("event", isEqualTo: eventSnapshot.id)
+          .where("receiver", isEqualTo: participant)
+          .get();
+      if (docs.size == 0) {
+        createNotification({
+          "notificationType": "Event Update",
+          "event": eventSnapshot.id,
+          "noOfMessages": 1,
+          "eventUpdated": "none"
+        }, participant);
+      } else {
+        docs.docs.forEach((element) {
+          notifCollection
+              .doc(element.id)
+              .update({"noOfMessages": FieldValue.increment(1)});
+        });
+      }
+    }
     return 'Success';
 
     // add announcement map (time, participant name, message) to the array of announcements

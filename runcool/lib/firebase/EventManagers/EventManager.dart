@@ -1,5 +1,8 @@
 // Still in testing
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:runcool/firebase/notificationManager.dart';
+import 'package:runcool/pages/Events/EventPage.dart';
 import '../../models/Event.dart';
 
 class EventManager {
@@ -32,24 +35,30 @@ class EventManager {
     });
   }
 
-  // getEventById(String docID) async {
-  //   var details = await events.doc(docID).get();
-  //
-  //   // print(details.runtimeType);
-  //   // return details;
-  // }
-  // Event _eventDataFromSnapshot(DocumentSnapshot snapshot) {
-  //   dynamic event = snapshot.data();
-  //   return Event(
-  //     eventType: event['eventType'],
-  //     name: event['name'],
-  //   );
-  // }
-  //
-  // Stream<Event> getEventData(docID) {
-  //   return events.doc(docID).snapshots().map(_eventDataFromSnapshot);
-  // }
-  //
+  List<Widget> getAnnouncements(List announcements) {
+    // if announcements.isEmpty
+    announcements.sort(
+        (a, b) => b["timeStamp"].toDate().compareTo(a["timeStamp"].toDate()));
+    return announcements.map((a) => Announcement(a)).toList();
+  }
+
+  Future addAnnouncement(
+      {@required String message,
+      @required String announcer,
+      @required String eventID,
+      @required String announcerID}) async {
+    Map<String, dynamic> announcement = {};
+    announcement["announcer"] = announcer;
+    announcement["message"] = message;
+    announcement["timeStamp"] = Timestamp.now();
+    DocumentReference eventRef = events.doc(eventID);
+    await eventRef.update({
+      "announcements": FieldValue.arrayUnion([announcement]),
+    });
+    await NotificationManager()
+        .notifyAnnouncement(eventRef, announcer, announcerID);
+  }
+
   Stream<dynamic> getEventData(docID) {
     return events.doc(docID).snapshots().map((doc) => Event.fromFirestore(doc));
   }
