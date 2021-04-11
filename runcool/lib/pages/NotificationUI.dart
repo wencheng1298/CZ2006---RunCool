@@ -17,45 +17,17 @@ class NotificationUI extends StatefulWidget {
 }
 
 class NotificationUIState extends State<NotificationUI> {
-  List<Widget> requestWidgets = [];
-  List<Widget> inviteWidgets = [];
-  List<Widget> updateWidgets = [];
-  List<String> requests = ['Paula', 'Eugene', 'Sarah'];
-  List<String> invites = ['North Horizon'];
-  List<String> updates = ['Event 1', 'Event 2'];
-  // TODO: replace with actual lists of notification class from database/ entities
-
-  // void _fillLists() {
-  //   setState(() {
-  //     requests.forEach((element) {
-  //       requestWidgets.add(FriendRequestCard(friendNotification: element));
-  //     });
-  //     invites.forEach((element) {
-  //       inviteWidgets.add(EventInviteCard(
-  //         eventNotification: element,
-  //       ));
-  //     });
-  //     updates.forEach((element) {
-  //       updateWidgets.add(EventUpdateCard(eventNotification: element));
-  //     });
-  //   });
-  // }
-
   @override
   void initState() {
-    // _fillLists();
     super.initState();
-    // var x = NotificationManager().getNotifications();
-    // print(x.runtimeType);
-    // NotificationManager()
-    //     .createNotification({"event": "sshdhd"}, "XLx1W21TqGoExTabn8LN");
   }
 
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<AppUser>(context);
     return StreamProvider<List<dynamic>>.value(
-      value: AppNotification.getNotifications(user.notifications),
+      value: AppNotification.getNotifications(
+          user.notifications.isEmpty ? ["none"] : user.notifications),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -64,15 +36,17 @@ class NotificationUIState extends State<NotificationUI> {
           ),
           leading: Container(),
         ),
-        body: BackgroundImage(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                NotificationsWrap(title: "Friend Request"),
-                NotificationsWrap(title: "Event Invite"),
-                NotificationsWrap(title: "Event Update")
-              ],
+        body: Builder(
+          builder: (context) => BackgroundImage(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  NotificationsWrap(title: "Friend Request"),
+                  NotificationsWrap(title: "Event Invite"),
+                  NotificationsWrap(title: "Event Update")
+                ],
+              ),
             ),
           ),
         ),

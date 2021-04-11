@@ -53,22 +53,34 @@ class NotificationManager {
     });
   }
 
-  Future<String> reject(notification) async {
+  Future<String> deleteNotification(notification) async {
     try {
       await _firestore.collection('users').doc(notification.receiver).update({
         "notifications": FieldValue.arrayRemove([notification.notificationID])
       });
       await notifCollection.doc(notification.notificationID).delete();
-      return null;
+      return "success";
     } catch (e) {
       // print(e.toString());
-      return e.toString();
+      return null;
     }
+  }
+
+  Future<String> announcement(DocumentReference eventRef) async {
+    await eventRef.get();
+    return 'Success';
+
+    // add announcement map (time, participant name, message) to the array of announcements
+
+    // for each of the participant in the event (except for the person who made the announcement):
+    // see if they have a notification with the event id and type =  event update
+    // if have --> increment no Of messages
+    // else --> create notification
   }
 
   Future<String> acceptFriendRequest(notification) async {
     await friendManager.acceptRequest(
         notification.notifier, notification.receiver);
-    return this.reject(notification);
+    return this.deleteNotification(notification);
   }
 }

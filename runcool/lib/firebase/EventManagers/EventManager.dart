@@ -20,17 +20,18 @@ class EventManager {
     return event;
   }
 
-  joinEvent(String eventId, String uid) async {
+  Future joinEvent(String eventId, String uid) async {
     await events.doc(eventId).update({
       "participants": FieldValue.arrayUnion([uid]),
     });
   }
 
-  quitEvent(String eventId, String uid) async{
+  Future quitEvent(String eventId, String uid) async {
     events.doc(eventId).update({
       "participants": FieldValue.arrayRemove([uid]),
     });
   }
+
   // getEventById(String docID) async {
   //   var details = await events.doc(docID).get();
   //

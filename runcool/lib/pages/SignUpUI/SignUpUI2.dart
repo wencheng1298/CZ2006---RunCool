@@ -66,24 +66,6 @@ class SignUpUI2State extends State<SignUpUI2> {
     });
   }
 
-  // void uploadImage(String path) async {
-  //   var url = "https://s3.ap-southeast-1.amazonaws.com/runcool";
-  //
-  //   var request = http.MultipartRequest('POST', Uri.parse(url));
-  //   request.files.add(await MultipartFile.fromPath('file', path));
-  //
-  //   request.fields.addAll({'acl': 'public-read'});
-  //   var response = await request.send();
-  //   print(response);
-  //   if (response.statusCode == 200) {
-  //     String data = response.stream.toString();
-  //     print(data);
-  //     // print(jsonDecode(data));
-  //   } else {
-  //     print(response.statusCode);
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     String error = '';

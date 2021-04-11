@@ -20,6 +20,8 @@ class RuncoolNavBar extends StatefulWidget {
 class _RuncoolNavBarState extends State<RuncoolNavBar> {
   Color _turqoise = Color(0xff58C5CC);
   Color _background = Color(0xff1f1b24);
+  final Color iconColor = Colors.black;
+  final double iconSize = 30;
 
   int _currentIndex = 0;
   final List<Widget> _pages = [
@@ -38,6 +40,7 @@ class _RuncoolNavBarState extends State<RuncoolNavBar> {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<AppUser>(context) ?? AppUser();
     return Scaffold(
       body: _pages[_currentIndex],
       bottomNavigationBar: CurvedNavigationBar(
@@ -47,12 +50,15 @@ class _RuncoolNavBarState extends State<RuncoolNavBar> {
         buttonBackgroundColor: _turqoise,
         height: 50,
         items: <Widget>[
-          Icon(Icons.home_outlined, size: 30, color: Colors.black),
-          Icon(Icons.explore_outlined, size: 30, color: Colors.black),
-          Icon(Icons.add_circle_outline, size: 30, color: Colors.black),
-          Icon(Icons.notification_important_outlined,
-              size: 30, color: Colors.black),
-          Icon(Icons.person_outline, size: 30, color: Colors.black),
+          Icon(Icons.home_outlined, size: iconSize, color: iconColor),
+          Icon(Icons.explore_outlined, size: iconSize, color: iconColor),
+          Icon(Icons.add_circle_outline, size: iconSize, color: iconColor),
+          user.notifications.isEmpty
+              ? Icon(Icons.notifications_none_outlined,
+                  size: iconSize, color: iconColor)
+              : Icon(Icons.notification_important_outlined,
+                  size: iconSize, color: Colors.red),
+          Icon(Icons.person_outline, size: iconSize, color: iconColor),
         ],
         animationDuration: Duration(
           milliseconds: 100,

@@ -15,18 +15,21 @@ class _EventsForYouListState extends State<EventsForYouList> {
         context,
         MaterialPageRoute(
             builder: (context) => EventPage(
-                  event: event,
+                  eventID: event.eventID,
                 )));
   }
 
   @override
   Widget build(BuildContext context) {
     List<Widget> eventWidget = [];
-    final List<dynamic> eventsForYou = Provider.of<List<dynamic>>(context) ?? [];
+    final List<dynamic> eventsForYou =
+        Provider.of<List<dynamic>>(context) ?? [];
 
     eventsForYou.forEach((element) {
-      if(element.startTime != null && element.startTime.isAfter(DateTime.now())){
-        eventWidget.add(EventCard(event: element, fn: () => goEventPage(element)));
+      if (element.startTime != null &&
+          element.startTime.isAfter(DateTime.now())) {
+        eventWidget
+            .add(EventCard(event: element, fn: () => goEventPage(element)));
       }
     });
 

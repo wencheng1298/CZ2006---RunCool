@@ -16,14 +16,15 @@ class _PastEventsListState extends State<PastEventsList> {
         context,
         MaterialPageRoute(
             builder: (context) => EventPage(
-                  event: event,
+                  eventID: event.eventID,
                 )));
   }
 
   @override
   Widget build(BuildContext context) {
     List<Widget> eventWidget = [];
-    final List<dynamic> pastEventsList = Provider.of<List<dynamic>>(context) ?? [];
+    final List<dynamic> pastEventsList =
+        Provider.of<List<dynamic>>(context) ?? [];
     final user = Provider.of<AppUser>(context);
 
     pastEventsList.forEach((element) {

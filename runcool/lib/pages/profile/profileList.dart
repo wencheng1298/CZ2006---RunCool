@@ -10,7 +10,8 @@ final double fontMainSize = 20;
 class ProfileList extends StatefulWidget {
   final AppUser user;
   final String currUserID;
-  ProfileList({@required this.user, @required this.currUserID});
+  bool requested = false;
+  ProfileList({@required this.user, @required this.currUserID, this.requested});
   @override
   _ProfileListState createState() => _ProfileListState();
 }
@@ -282,7 +283,7 @@ class _ProfileListState extends State<ProfileList> {
                 ),
           SizedBox(height: 20),
           //Request button
-          friend
+          friend || widget.requested
               ? Container()
               : (Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50),

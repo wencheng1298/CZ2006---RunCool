@@ -8,6 +8,7 @@ import 'package:runcool/models/Event.dart';
 import 'package:runcool/pages/Events/EventPage.dart';
 import '../../utils/everythingUtils.dart';
 import '../../models/Notification.dart';
+import '../ProfileUI1.dart';
 
 final double mainFontSize = 20;
 final notifManager = NotificationManager();
@@ -44,7 +45,11 @@ class FriendRequestCard extends StatelessWidget {
                       SizedBox(width: 5),
                       GestureDetector(
                         onTap: () {
-                          print("friend somee clicked");
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => ProfileUI1(
+                                      user: friend, requested: true)));
                         },
                         child: Text(
                           friend.name,
@@ -64,14 +69,21 @@ class FriendRequestCard extends StatelessWidget {
               TinyButton(
                 text: "Accept",
                 colour: kTurquoise,
-                onPress: () {
-                  NotificationManager().acceptFriendRequest(friendNotification);
+                onPress: () async {
+                  var res = await notifManager
+                      .acceptFriendRequest(friendNotification);
+                  if (res != null) {
+                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content:
+                          Text('You have successfully added a new friend!'),
+                    ));
+                  }
                 },
               ),
               SizedBox(width: 5),
               TinyButton(
                   onPress: () {
-                    print('delete event Invite');
+                    notifManager.deleteNotification(friendNotification);
                   },
                   text: 'Delete'),
             ],
@@ -132,7 +144,7 @@ class EventInviteCard extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      EventPage(event: event)));
+                                      EventPage(eventID: event.eventID)));
                         },
                         child: Text(
                           event.name,
@@ -146,6 +158,13 @@ class EventInviteCard extends StatelessWidget {
                           colour: kTurquoise,
                           onPress: () {
                             // "Accept "
+                            // EventManager().joinEvent(event);
+                            // notifManager.reject(eventNotification);
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(const SnackBar(
+                              content:
+                                  Text('You have successfully joined a event'),
+                            ));
                           },
                         ),
                         SizedBox(width: 5),
@@ -208,7 +227,7 @@ class EventUpdateCard extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        EventPage(event: event)));
+                                        EventPage(eventID: event.eventID)));
                           })
                     ],
                   ),

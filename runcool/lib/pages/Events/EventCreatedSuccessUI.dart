@@ -3,9 +3,8 @@ import './../../utils/everythingUtils.dart';
 import './../../models/Event.dart';
 import 'EventPage.dart';
 
-
 class EventCreatedSuccessUI extends StatefulWidget {
-  final Event event;
+  final dynamic event;
   EventCreatedSuccessUI({this.event});
 
   @override
@@ -13,9 +12,13 @@ class EventCreatedSuccessUI extends StatefulWidget {
 }
 
 class EventCreatedSuccessUIState extends State<EventCreatedSuccessUI> {
-  void viewEvent(Event event) {
+  void viewEvent(event) {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => EventPage(event: event,)));
+        context,
+        MaterialPageRoute(
+            builder: (context) => EventPage(
+                  eventID: event.eventID,
+                )));
   }
 
   @override

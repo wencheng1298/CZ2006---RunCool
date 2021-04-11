@@ -4,7 +4,6 @@ import './../../models/User.dart';
 import './../../utils/everythingUtils.dart';
 import './../Events/EventPage.dart';
 
-
 class UpcomingEventsList extends StatefulWidget {
   @override
   _UpcomingEventsListState createState() => _UpcomingEventsListState();
@@ -23,7 +22,7 @@ class _UpcomingEventsListState extends State<UpcomingEventsList> {
           context,
           MaterialPageRoute(
               builder: (context) => EventPage(
-                    event: event,
+                    eventID: event.eventID,
                   )));
     }
 

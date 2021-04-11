@@ -16,7 +16,8 @@ import 'package:provider/provider.dart';
 class ProfileUI1 extends StatefulWidget {
   @override
   final AppUser user;
-  ProfileUI1({this.user});
+  bool requested = false;
+  ProfileUI1({@required this.user, this.requested});
   ProfileUI1State createState() => ProfileUI1State();
 }
 
@@ -42,6 +43,7 @@ class ProfileUI1State extends State<ProfileUI1> {
         child: ProfileList(
           user: widget.user,
           currUserID: currUser.uid,
+          requested: widget.requested,
         ),
       ),
     );
