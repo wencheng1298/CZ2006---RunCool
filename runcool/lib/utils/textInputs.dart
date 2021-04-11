@@ -163,8 +163,10 @@ class _NumberTextFieldState extends State<NumberTextField> {
 class DescriptionTextField extends StatefulWidget {
   final String text;
   final Function onChange;
+  final Color color;
+  final int minLine;
 
-  DescriptionTextField({this.text, this.onChange});
+  DescriptionTextField({this.text, this.onChange, this.color, this.minLine});
   @override
   _DescriptionTextFieldState createState() => _DescriptionTextFieldState();
 }
@@ -176,12 +178,12 @@ class _DescriptionTextFieldState extends State<DescriptionTextField> {
       onChanged: widget.onChange,
       autofocus: false,
       keyboardType: TextInputType.multiline,
-      minLines: 6,
+      minLines: widget.minLine?? 6,
       maxLines: 10,
       style: TextStyle(color: Colors.white),
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.grey[800],
+        fillColor: widget.color?? Colors.grey[800],
         contentPadding: EdgeInsets.only(left: 14, bottom: 8, top: 8),
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: kTurquoise, width: 2),

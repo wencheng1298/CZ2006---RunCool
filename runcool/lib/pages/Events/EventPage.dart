@@ -49,8 +49,6 @@ class _EventPageState extends State<EventPage> {
         }
       });
     });
-
-    print(viewStatus);
   }
 
   @override
@@ -87,8 +85,10 @@ class _EventPageState extends State<EventPage> {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) =>
-                JoinEventPage())); //find out if need to individually create or can use and add on..
+            builder: (context) => JoinEventPage(
+                joinQuit: "joined",
+                event:
+                    event))); //find out if need to individually create or can use and add on..
   }
 
   void quitPage() {
@@ -102,8 +102,10 @@ class _EventPageState extends State<EventPage> {
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) =>
-                JoinEventPage())); //find out if need to individually create or can use and add on..
+            builder: (context) => JoinEventPage(
+                  joinQuit: "quit",
+                  event: event,
+                ))); //find out if need to individually create or can use and add on..
   }
 
   void goHomePage() {
@@ -112,6 +114,33 @@ class _EventPageState extends State<EventPage> {
         MaterialPageRoute(
             builder: (context) =>
                 RuncoolNavBar())); //find out if need to individually create or can use and add on..
+  }
+
+  addFriends(BuildContext context) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: kBackgroundColor,
+            title: Text(
+              "Choose from friend list",
+              style: TextStyle(color: kTurquoise),
+            ),
+            content: SingleChildScrollView(
+              child: Column(
+                //Put list of friends here
+                children: [],
+              ),
+            ),
+            actions: [
+              MaterialButton(
+                child: Text('Add'),
+                color: kTurquoise,
+                onPressed: () {},
+              )
+            ],
+          );
+        });
   }
 
   @override
@@ -123,7 +152,7 @@ class _EventPageState extends State<EventPage> {
 
   @override
   Widget build(BuildContext context) {
-    return event == null && viewStatus != null
+    return (event == null || viewStatus == null)
         ? Loading()
         : Scaffold(
             resizeToAvoidBottomInset: false,
@@ -151,266 +180,312 @@ class _EventPageState extends State<EventPage> {
                       alignment: Alignment.topLeft,
                       child: SingleChildScrollView(
                         padding: EdgeInsets.all(8),
-                        child: Column(
-                          children: [
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: EventTextTitle(
-                                title: event.name ?? "",
-                                fontSize: 24,
-                              ),
+                        child: Column(children: [
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: EventTextTitle(
+                              title: event.name ?? "",
+                              fontSize: 24,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Row(
-                                children: [
-                                  Expanded(
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            Icons.calendar_today_rounded,
+                                            size: 20,
+                                            color: Colors.blue[100],
+                                          ),
+                                          EventTextDetails(
+                                            (event.startTime != null)
+                                                ? '${event.startTime.day}-${event.startTime.month}-${event.startTime.year}'
+                                                : "",
+                                          ), //insert datetoString fn
+                                        ],
+                                      ),
+                                      Align(
+                                        alignment: Alignment.topLeft,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Icon(
+                                              Icons.access_time_outlined,
+                                              size: 20,
+                                              color: Colors.white,
+                                            ),
+                                            EventTextDetails(
+                                                (event.startTime != null)
+                                                    ? (event.startTime.hour
+                                                            .toString()
+                                                            .padLeft(2, '0')) +
+                                                        ":" +
+                                                        (event.startTime.minute
+                                                            .toString()
+                                                            .padLeft(2, '0'))
+                                                    : ""),
+                                          ],
+                                        ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Icon(
+                                            Icons.location_pin,
+                                            size: 20,
+                                            color: Colors.red,
+                                          ),
+                                          EventTextDetails('To be done'),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: Container(
+                                    height: 100,
+                                    width:
+                                        MediaQuery.of(context).size.width / 2,
                                     child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.calendar_today_rounded,
-                                              size: 20,
-                                              color: Colors.blue[100],
-                                            ),
-                                            EventTextDetails(
-                                              (event.startTime != null)
-                                                  ? '${event.startTime.day}-${event.startTime.month}-${event.startTime.year}'
-                                                  : "",
-                                            ), //insert datetoString fn
-                                          ],
-                                        ),
                                         Align(
                                           alignment: Alignment.topLeft,
                                           child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
                                             children: [
                                               Icon(
-                                                Icons.access_time_outlined,
+                                                Icons.bolt,
                                                 size: 20,
-                                                color: Colors.white,
+                                                color: Colors.cyan,
                                               ),
-                                              EventTextDetails((event
-                                                          .startTime !=
-                                                      null)
-                                                  ? (event.startTime.hour
-                                                          .toString()
-                                                          .padLeft(2, '0')) +
-                                                      ":" +
-                                                      (event.startTime.minute
-                                                          .toString()
-                                                          .padLeft(2, '0'))
-                                                  : ""),
+                                              EventTextDetails(
+                                                event.difficulty.toString(),
+                                              ),
                                             ],
                                           ),
                                         ),
-                                        Row(
-                                          children: [
-                                            Icon(
-                                              Icons.location_pin,
-                                              size: 20,
-                                              color: Colors.red,
-                                            ),
-                                            EventTextDetails('To be done'),
-                                          ],
-                                        ),
+                                        (event.eventType == "Running")
+                                            ? Column(children: [
+                                                Align(
+                                                  alignment: Alignment.topLeft,
+                                                  child: Row(
+                                                    children: [
+                                                      Icon(
+                                                        Icons
+                                                            .directions_run_outlined,
+                                                        size: 20,
+                                                        color: Colors.amber,
+                                                      ),
+                                                      EventTextDetails('3.7km'),
+                                                    ],
+                                                  ),
+                                                ),
+                                                Row(
+                                                  children: [
+                                                    Icon(
+                                                      Icons.speed,
+                                                      size: 20,
+                                                      color: Colors.limeAccent,
+                                                    ),
+                                                    EventTextDetails(
+                                                        'veri fast'),
+                                                  ],
+                                                ),
+                                              ])
+                                            : Container(),
                                       ],
                                     ),
                                   ),
-                                  Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Container(
-                                      height: 100,
-                                      width:
-                                          MediaQuery.of(context).size.width / 2,
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Align(
-                                            alignment: Alignment.topLeft,
-                                            child: Row(
-                                              children: [
-                                                Icon(
-                                                  Icons.bolt,
-                                                  size: 20,
-                                                  color: Colors.cyan,
-                                                ),
-                                                EventTextDetails(
-                                                  event.difficulty.toString(),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          (event.eventType == "Running")
-                                              ? Column(children: [
-                                                  Align(
-                                                    alignment:
-                                                        Alignment.topLeft,
-                                                    child: Row(
-                                                      children: [
-                                                        Icon(
-                                                          Icons
-                                                              .directions_run_outlined,
-                                                          size: 20,
-                                                          color: Colors.amber,
-                                                        ),
-                                                        EventTextDetails(
-                                                            '3.7km'),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                  Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.speed,
-                                                        size: 20,
-                                                        color:
-                                                            Colors.limeAccent,
-                                                      ),
-                                                      EventTextDetails(
-                                                          'veri fast'),
-                                                    ],
-                                                  ),
-                                                ])
-                                              : Container(),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                            Align(
-                                alignment: Alignment.topLeft,
-                                child: (event.eventType == 'Gymming')
-                                    ? EventTextTitle(
-                                        title: "Workout Routine",
-                                        fontSize: 16,
-                                      )
-                                    : (event.eventType == 'Zumba')
-                                        ? EventTextTitle(
-                                            title: "Songs",
-                                            fontSize: 16,
-                                          )
-                                        : Container()),
-                            // Fill in workout/song exercises
+                          ),
+                          Align(
+                              alignment: Alignment.topLeft,
+                              child: (event.eventType == 'Gymming')
+                                  ? EventTextTitle(
+                                      title: "Workout Routine",
+                                      fontSize: 16,
+                                    )
+                                  : (event.eventType == 'Zumba')
+                                      ? EventTextTitle(
+                                          title: "Songs",
+                                          fontSize: 16,
+                                        )
+                                      : Container()),
+                          // Fill in workout/song exercises
 
-                            // Description
-                            Align(
+                          // Description
+                          Align(
+                              alignment: Alignment.topLeft,
+                              child: EventTextTitle(
+                                title: "Description",
+                                fontSize: 16,
+                              )),
+                          Container(
+                            child: Align(
+                              alignment: Alignment.topLeft,
+                              child: EventTextDetails((event.description == '')
+                                  ? "-No decription from creator-"
+                                  : event.description),
+                            ),
+                          ),
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: EventTextTitle(
+                              title: 'Organiser',
+                              fontSize: 24,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 8.0),
+                            child: StreamBuilder<AppUser>(
+                                stream: AppUser.getUserFromID(event.creator),
+                                builder: (context, snapshot) {
+                                  if (!snapshot.hasData) {
+                                    return Loading();
+                                  } else {
+                                    AppUser creator = snapshot.data;
+                                    return Row(
+                                      children: [
+                                        creator.image != ''
+                                            ? CircleAvatar(
+                                                radius: 25,
+                                                backgroundImage:
+                                                    NetworkImage(creator.image),
+                                              )
+                                            : Icon(
+                                                Icons.account_circle_outlined,
+                                                size: 50,
+                                                color: Colors.deepOrangeAccent,
+                                              ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            EventTextDetails(creator.name == ''
+                                                ? "name"
+                                                : creator.name),
+                                            Container(
+                                              width: 300,
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 8),
+                                              child: Text(
+                                                creator.bio,
+                                                style: TextStyle(
+                                                    color: Colors.white),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    );
+                                  }
+                                }),
+                          ),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Align(
                                 alignment: Alignment.topLeft,
                                 child: EventTextTitle(
-                                  title: "Description",
-                                  fontSize: 16,
-                                )),
-                            Container(
-                              child: Align(
-                                alignment: Alignment.topLeft,
-                                child: EventTextDetails(
-                                    (event.description == '')
-                                        ? "-No decription from creator-"
-                                        : event.description),
+                                  title:
+                                      'Participants - ${event.participants.length}/${event.noOfParticipants}',
+                                  fontSize: 20,
+                                ),
                               ),
-                            ),
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: EventTextTitle(
-                                title: 'Organiser',
-                                fontSize: 24,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: StreamBuilder<AppUser>(
-                                  stream: AppUser.getUserFromID(event.creator),
-                                  builder: (context, snapshot) {
-                                    if (!snapshot.hasData) {
-                                      return Loading();
-                                    } else {
-                                      AppUser creator = snapshot.data;
-                                      return Row(
-                                        children: [
-                                          creator.image != ''
-                                              ? CircleAvatar(
-                                                  radius: 25,
-                                                  backgroundImage: NetworkImage(
-                                                      creator.image),
-                                                )
-                                              : Icon(
-                                                  Icons.account_circle_outlined,
-                                                  size: 50,
-                                                  color:
-                                                      Colors.deepOrangeAccent,
-                                                ),
-                                          Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              EventTextDetails(
-                                                  creator.name == ''
-                                                      ? "name"
-                                                      : creator.name),
-                                              Container(
-                                                width: 300,
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 8),
-                                                child: Text(
-                                                  creator.bio,
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      );
-                                    }
-                                  }),
-                            ),
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: EventTextTitle(
-                                title: 'Participants',
-                                fontSize: 24,
-                              ), //should maybe put row for the 5/8 thing?
-                            ),
-                            (event.participants.isEmpty)
-                                ? Container()
-                                : Padding(
-                                    padding: const EdgeInsets.only(left: 8.0),
-                                    child: ProfileCardStream(
-                                        friends: event.participants),
-                                  ),
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: (viewStatus == 'creator')
-                                  ? ButtonType1(
-                                      onPress: () {},
-                                      text: "Delete Event",
+                              (viewStatus != 'creator')
+                                  ? IconButton(
+                                      icon: Icon(
+                                        Icons.add_sharp,
+                                        size: 20,
+                                        color: kTurquoise,
+                                      ),
+                                      onPressed: () {
+                                        addFriends(context);
+                                      },
                                     )
-                                  : (viewStatus == 'participant')
-                                      ? ButtonType1(
-                                          onPress: quitPage,
-                                          text: "Quit",
-                                          colour: Colors.red)
-                                      : (event.participants.length <
-                                              event.noOfParticipants)
-                                          ? ButtonType1(
-                                              onPress: joinPage, text: "Join")
-                                          : ButtonType1(
-                                              onPress: () {},
-                                              text: "Event Full",
-                                              colour: Colors.grey),
-                            ),
-                          ],
-                        ),
+                                  : Container(),
+                            ],
+                          ),
+                          (event.participants.isEmpty)
+                              ? Container()
+                              : Padding(
+                                  padding: const EdgeInsets.only(left: 8.0),
+                                  child: ProfileCardStream(
+                                      friends: event.participants),
+                                ),
+                          (viewStatus == 'creator' ||
+                                  viewStatus == 'participant')
+                              ? Column(
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.topLeft,
+                                      child: EventTextTitle(
+                                        title: 'Announcements',
+                                        fontSize: 20,
+                                      ),
+                                    ),
+                                    Container(
+                                      height: 150,
+                                      color: Colors.white30,
+                                    ),
+                                    //Replace below container with text box
+                                    Row(children: [
+                                      Container(
+                                        height: 30,
+                                        width:
+                                            MediaQuery.of(context).size.width -
+                                                76,
+                                        child: DescriptionTextField(
+                                          color: Colors.white12,
+                                          minLine: 1,
+                                        ),
+                                      ),
+                                      MinuteButton(
+                                          onPress: () {
+                                            print('Post!');
+                                          },
+                                          text: "Post")
+                                    ]),
+                                  ],
+                                )
+                              : Container(),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: (viewStatus == 'creator')
+                                ? ButtonType1(
+                                    onPress: () {},
+                                    text: "Delete Event",
+                                  )
+                                : (viewStatus == 'participant')
+                                    ? ButtonType1(
+                                        onPress: quitPage,
+                                        text: "Quit",
+                                        colour: Colors.red)
+                                    : (event.participants.length <
+                                            event.noOfParticipants)
+                                        ? ButtonType1(
+                                            onPress: joinPage, text: "Join")
+                                        : ButtonType1(
+                                            onPress: () {},
+                                            text: "Event Full",
+                                            colour: Colors.grey),
+                          ),
+                        ]),
                       ),
                     ),
                   )

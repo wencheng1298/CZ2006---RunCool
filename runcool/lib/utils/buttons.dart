@@ -43,3 +43,23 @@ class ButtonType1 extends StatelessWidget {
     );
   }
 }
+
+class MinuteButton extends StatelessWidget {
+  MinuteButton({@required this.onPress, @required this.text, this.colour});
+  final Function onPress;
+  final Color colour;
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onPress,
+      fillColor: colour ?? Colors.white,
+      child: Text(
+        text,
+        style: TextStyle(fontWeight: FontWeight.bold),
+      ),
+      constraints: BoxConstraints(minWidth: 60.0, minHeight: 30.0),
+      shape: RoundedRectangleBorder(side: BorderSide(color: Colors.white12, width: 2)),
+    );
+  }
+}

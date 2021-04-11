@@ -3,6 +3,10 @@ import '../../utils/EventTextTitle.dart';
 import '../../utils/everythingUtils.dart';
 
 class JoinEventPage extends StatefulWidget {
+  dynamic event;
+  String joinQuit;
+
+  JoinEventPage({this.joinQuit, this.event});
   @override
   _JoinEventPageState createState() => _JoinEventPageState();
 }
@@ -29,7 +33,7 @@ class _JoinEventPageState extends State<JoinEventPage> {
             Padding(
               padding: EdgeInsets.all(26),
               child: Text(
-                'You have successfully joined- The Event Name',
+                'You have successfully ${widget.joinQuit}- ${widget.event.name}',
                 style: TextStyle(fontSize: 50, color: Colors.white),
               ),
             ),
