@@ -19,7 +19,7 @@ class ChooseEventUIState extends State<ChooseEventUI> {
   List<String> eventTypes = ['Running', 'Gymming', 'Zumba'];
 
   void goNextPage(String eventType) {
-    final user = Provider.of<User>(context, listen: false);
+    final user = Provider.of<AppUser>(context, listen: false);
 
     Map eventDetails = {"eventType": eventType, "creator": user.uid};
     if (eventDetails['eventType'] == 'Running') {
