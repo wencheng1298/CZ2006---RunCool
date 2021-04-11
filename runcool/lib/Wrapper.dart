@@ -4,6 +4,7 @@ import 'package:runcool/firebase/Service/auth.dart';
 import 'package:runcool/pages/RuncoolNavBar.dart';
 import 'package:runcool/pages/SignUpUI/LogIn.dart';
 import 'package:runcool/models/User.dart';
+import 'package:runcool/pages/SignUpUI/Verification.dart';
 import 'firebase/ProfileManager.dart';
 
 import 'pages/HomePageUI.dart';
@@ -20,7 +21,10 @@ class Wrapper extends StatelessWidget {
     // print(user);
     if (user == null) {
       return LogInUI();
+      // } else if (!user.emailVerified) {
+      //   return Verification();
     } else {
+      // return Verification();
       return RuncoolNavBar();
     }
 

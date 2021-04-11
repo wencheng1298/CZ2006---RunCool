@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:runcool/firebase/ProfileManager.dart';
 import 'package:runcool/utils/GoogleMapPlacement.dart';
 import '../../utils/EventTextDetails.dart';
+import '../ProfileUI1.dart';
 import './JoinEventPage.dart';
 import './../RuncoolNavBar.dart';
 import './../../utils/everythingUtils.dart';
@@ -136,7 +137,9 @@ class _EventPageState extends State<EventPage> {
               MaterialButton(
                 child: Text('Ok'),
                 color: kTurquoise,
-                onPressed: () {Navigator.of(context).pop();},
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
               )
             ],
           );
@@ -359,39 +362,48 @@ class _EventPageState extends State<EventPage> {
                                     return Loading();
                                   } else {
                                     AppUser creator = snapshot.data;
-                                    return Row(
-                                      children: [
-                                        creator.image != ''
-                                            ? CircleAvatar(
-                                                radius: 25,
-                                                backgroundImage:
-                                                    NetworkImage(creator.image),
-                                              )
-                                            : Icon(
-                                                Icons.account_circle_outlined,
-                                                size: 50,
-                                                color: Colors.deepOrangeAccent,
+                                    return GestureDetector(
+                                      onTap: () => Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  ProfileUI1(user: creator))),
+                                      child: Row(
+                                        children: [
+                                          creator.image != ''
+                                              ? CircleAvatar(
+                                                  radius: 25,
+                                                  backgroundImage: NetworkImage(
+                                                      creator.image),
+                                                )
+                                              : Icon(
+                                                  Icons.account_circle_outlined,
+                                                  size: 50,
+                                                  color:
+                                                      Colors.deepOrangeAccent,
+                                                ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              EventTextDetails(
+                                                  creator.name == ''
+                                                      ? "name"
+                                                      : creator.name),
+                                              Container(
+                                                width: 300,
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 8),
+                                                child: Text(
+                                                  creator.bio,
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
                                               ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            EventTextDetails(creator.name == ''
-                                                ? "name"
-                                                : creator.name),
-                                            Container(
-                                              width: 300,
-                                              padding: EdgeInsets.symmetric(
-                                                  horizontal: 8),
-                                              child: Text(
-                                                creator.bio,
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     );
                                   }
                                 }),
@@ -408,8 +420,9 @@ class _EventPageState extends State<EventPage> {
                                   fontSize: 20,
                                 ),
                               ),
-                              (viewStatus !=
-                                      'creator') // Change to == when ready
+                              (viewStatus == 'creator' ||
+                                      viewStatus ==
+                                          'participant') // Change to == when ready
                                   ? IconButton(
                                       icon: Icon(
                                         Icons.add_sharp,

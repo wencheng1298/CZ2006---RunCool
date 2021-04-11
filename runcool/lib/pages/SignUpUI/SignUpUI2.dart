@@ -23,16 +23,8 @@ class SignUpUI2State extends State<SignUpUI2> {
   final profileManager = ProfileManager();
   final _formkey = GlobalKey<FormState>();
   Map<String, dynamic> profileDetails = {};
-  //SignUpUI2State({this.profileDetails});
+  String error = '';
 
-  // String name;
-  // int age;
-  // String gender;
-  // String hobbies;
-  // String region;
-  // String occupation;
-  // String insta;
-  // String bio;
   File _image;
   String _imageSource;
 
@@ -66,11 +58,10 @@ class SignUpUI2State extends State<SignUpUI2> {
     });
   }
 
+  bool loading = false;
+
   @override
   Widget build(BuildContext context) {
-    String error = '';
-    bool loading = false;
-
     return loading
         ? Loading()
         : Scaffold(
@@ -268,18 +259,21 @@ class SignUpUI2State extends State<SignUpUI2> {
                         child: ButtonType1(
                             text: 'Create!',
                             onPress: () async {
-                              setState(() {
-                                loading = true;
-                              });
+                              // setState(() {
+                              //   loading = true;
+                              // });
                               dynamic result = await profileManager.createUser(
                                   profileDetails,
                                   widget.email,
                                   widget.password);
-                              if (result == null) {
+                              print(result);
+                              if (result != "success") {
+                                if (result != null) {}
                                 setState(() {
-                                  error =
-                                      "Something went wrong. Could not create account. Check all the details and try again.";
-                                  loading = false;
+                                  error = result == null
+                                      ? "Something went wrong. Could not create account. Check all the details and try again."
+                                      : result;
+                                  // loading = false;
                                 });
                               } else {
                                 goNextPage();
@@ -298,9 +292,12 @@ class SignUpUI2State extends State<SignUpUI2> {
                         //     colour: kTurquoise),
                       ),
                       SizedBox(height: 12.0),
-                      Text(
-                        error,
-                        style: TextStyle(color: Colors.red, fontSize: 14.0),
+                      Container(
+                        width: 300,
+                        child: Text(
+                          error,
+                          style: TextStyle(color: Colors.red, fontSize: 14.0),
+                        ),
                       ),
                     ],
                   ),

@@ -55,8 +55,7 @@ class EventManager {
     await eventRef.update({
       "announcements": FieldValue.arrayUnion([announcement]),
     });
-    await NotificationManager()
-        .notifyAnnouncement(eventRef, announcer, announcerID);
+    await NotificationManager().notifyAnnouncement(eventRef, announcerID);
   }
 
   Stream<dynamic> getEventData(docID) {

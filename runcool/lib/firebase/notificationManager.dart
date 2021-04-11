@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:runcool/firebase/EventManagers/EventManager.dart';
 import 'package:runcool/models/Notification.dart';
 import 'package:runcool/models/User.dart';
 import 'friendManager.dart';
@@ -67,7 +68,7 @@ class NotificationManager {
   }
 
   Future<String> notifyAnnouncement(
-      DocumentReference eventRef, String announcer, String announcerID) async {
+      DocumentReference eventRef, String announcerID) async {
     DocumentSnapshot eventSnapshot = await eventRef.get();
     final event = eventSnapshot.data();
     var participants = List.from(event["participants"] ?? []);
@@ -99,18 +100,54 @@ class NotificationManager {
       }
     }
     return 'Success';
+  }
 
-    // add announcement map (time, participant name, message) to the array of announcements
+  Future notifyEventInvite(
+      String eventID, String notifier, String friend) async {
+    createNotification({
+      "notificationType": "Event Invite",
+      "notifier": notifier,
+      "event": eventID
+    }, friend);
+  }
 
-    // for each of the participant in the event (except for the person who made the announcement):
-    // see if they have a notification with the event id and type =  event update
-    // if have --> increment no Of messages
-    // else --> create notification
+  Future<String> notifyEventUpdate(event, bool deleted) async {
+    // DocumentSnapshot eventSnapshot = await eventRef.get();
+    // final event = eventSnapshot.data();
+    var participants = List.from(event["participants"] ?? []);
+
+    for (var participant in participants) {
+      QuerySnapshot docs = await notifCollection
+          .where("notificationType", isEqualTo: "Event Update")
+          .where("event", isEqualTo: event.eventID)
+          .where("receiver", isEqualTo: participant)
+          .get();
+      if (docs.size == 0) {
+        createNotification({
+          "notificationType": "Event Update",
+          "event": event.eventID,
+          "noOfMessages": 0,
+          "eventUpdated": deleted ? "deleted" : "updated"
+        }, participant);
+      } else {
+        docs.docs.forEach((element) {
+          notifCollection
+              .doc(element.id)
+              .update({"eventUpdated": deleted ? "deleted" : "updated"});
+        });
+      }
+    }
+    return 'Success';
   }
 
   Future<String> acceptFriendRequest(notification) async {
     await friendManager.acceptRequest(
         notification.notifier, notification.receiver);
-    return this.deleteNotification(notification);
+    return await this.deleteNotification(notification);
+  }
+
+  Future acceptInvite(notification) async {
+    await EventManager().joinEvent(notification.event, notification.receiver);
+    return await this.deleteNotification(notification);
   }
 }

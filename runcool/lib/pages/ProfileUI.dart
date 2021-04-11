@@ -31,17 +31,6 @@ class GetUserName extends StatelessWidget {
     //     }
     //
     //     if (snapshot.connectionState == ConnectionState.done) {
-    //       Map<String, dynamic> data = snapshot.data.data();
-    //       return Text(
-    //         " ${data['name']}",
-    //         style: TextStyle(
-    //             fontSize: 30, color: kTurquoise, fontWeight: FontWeight.bold),
-    //       );
-    //     }
-    //
-    //     return Text("loading");
-    //   },
-    // );
   }
 }
 

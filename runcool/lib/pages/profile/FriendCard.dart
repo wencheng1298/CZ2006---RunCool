@@ -37,25 +37,31 @@ class FriendCard extends StatelessWidget {
   FriendCard({@required this.user});
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => Navigator.push(context,
-          MaterialPageRoute(builder: (context) => ProfileUI1(user: user))),
-      child: Column(children: [
-        user.image == ''
-            ? Icon(Icons.account_circle, size: 60, color: kTurquoise)
-            : CircleAvatar(
-                radius: 30,
-                backgroundImage: NetworkImage(user.image),
-              ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 2),
-          child: Text(
-            user.name,
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 12, color: Colors.white),
-          ),
-        )
-      ]),
+    return Padding(
+      padding: const EdgeInsets.only(right: 8),
+      child: GestureDetector(
+        onTap: () => Navigator.push(context,
+            MaterialPageRoute(builder: (context) => ProfileUI1(user: user))),
+        child: Column(children: [
+          user.image == ''
+              ? Icon(Icons.account_circle, size: 60, color: kTurquoise)
+              : Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: CircleAvatar(
+                    radius: 28,
+                    backgroundImage: NetworkImage(user.image),
+                  ),
+                ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 2),
+            child: Text(
+              user.name,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 12, color: Colors.white),
+            ),
+          )
+        ]),
+      ),
     );
   }
 }

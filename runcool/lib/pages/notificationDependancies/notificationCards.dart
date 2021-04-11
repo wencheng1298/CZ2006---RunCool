@@ -157,9 +157,7 @@ class EventInviteCard extends StatelessWidget {
                           text: "Join",
                           colour: kTurquoise,
                           onPress: () {
-                            // "Accept "
-                            // EventManager().joinEvent(event);
-                            // notifManager.reject(eventNotification);
+                            notifManager.acceptInvite(eventNotification);
                             ScaffoldMessenger.of(context)
                                 .showSnackBar(const SnackBar(
                               content:
@@ -170,7 +168,8 @@ class EventInviteCard extends StatelessWidget {
                         SizedBox(width: 5),
                         TinyButton(
                             onPress: () {
-                              print('delete event Invite');
+                              notifManager
+                                  .deleteNotification(eventNotification);
                             },
                             text: 'Delete',
                             colour: Colors.white),

@@ -53,20 +53,25 @@ class AuthenticationManager {
   }
 
 // register a user with email and password
-  Future<User> registerWithEmailAndPassword(
+  Future<dynamic> registerWithEmailAndPassword(
       String email, String password) async {
     try {
       UserCredential result = await _auth.createUserWithEmailAndPassword(
           email: email, password: password);
       User user = result.user;
-
+      await user.sendEmailVerification();
       // create a new doc for the user with new id
       return user;
       // return _userFromFirebaseUser(user);
     } catch (e) {
-      print(e.toString());
-      return null;
+      // print(e.toString());
+      return e.toString();
     }
+  }
+
+  Future sendVerificationEmail() async {
+    User firebaseUser = FirebaseAuth.instance.currentUser;
+    print(firebaseUser);
   }
 
   //sign in using email and pw
