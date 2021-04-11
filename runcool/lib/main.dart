@@ -40,9 +40,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     User currUser = FirebaseAuth.instance.currentUser;
-    // User currUser = AuthenticationManager().getCurrUserFromFirebase();
     String uid = (currUser == null) ? null : currUser.uid;
-    print("From main page ${uid}");
+    // print("From main page ${uid}");
     // sleep(Duration(seconds: 10));
     // print("From main page ${uid}");
 

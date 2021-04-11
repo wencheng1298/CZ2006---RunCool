@@ -49,48 +49,57 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
         ),
         body: BackgroundImage(
           child: SingleChildScrollView(
-            child: Expanded(
-              child: Column(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
                 children: [
-                  Container(
-                    padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'UPCOMING EVENTS',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Container(
+                          padding:
+                              EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'UPCOMING EVENTS',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            height: 340,
+                            child: UpcomingEventsList(),
+                          ),
+                        ),
+                        Container(
+                          padding:
+                              EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'PAST EVENTS',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width,
+                            height: 340,
+                            child: PastEventsList(),
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                      ],
                     ),
                   ),
-                  Container(
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: 340,
-                      child: UpcomingEventsList(),
-                    ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'PAST EVENTS',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      height: 340,
-                      child: PastEventsList(),
-                      ),
-                    ),
-                  SizedBox(height: 10),
                 ],
               ),
             ),

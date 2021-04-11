@@ -3,8 +3,8 @@ import '../../utils/EventTextTitle.dart';
 import '../../utils/everythingUtils.dart';
 
 class JoinEventPage extends StatefulWidget {
-  dynamic event;
-  String joinQuit;
+  final dynamic event;
+  final String joinQuit;
 
   JoinEventPage({this.joinQuit, this.event});
   @override
@@ -38,7 +38,11 @@ class _JoinEventPageState extends State<JoinEventPage> {
               ),
             ),
             SizedBox(height: 50),
-            ButtonType1(onPress: (){ Navigator.pop(context);}, text: "Back to Event Page")
+            ButtonType1(
+                onPress: () {
+                  Navigator.pop(context);
+                },
+                text: "Back to Event Page")
           ]),
         ),
       ),

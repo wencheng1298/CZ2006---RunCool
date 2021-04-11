@@ -16,7 +16,6 @@ class ProfileCardStream extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             var friendsWidgets = snapshot.data;
-            print(friendsWidgets);
             return SizedBox(
                 height: 80,
                 width: MediaQuery.of(context).size.width,

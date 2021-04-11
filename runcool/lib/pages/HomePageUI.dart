@@ -10,7 +10,6 @@ import './../models/Event.dart';
 import './eventDisplayDependancies/eventsForYouList.dart';
 import './eventDisplayDependancies/friendEventsList.dart';
 
-
 class HomePageUI extends StatefulWidget {
   @override
   HomePageUIState createState() => HomePageUIState();
@@ -68,49 +67,56 @@ class HomePageUIState extends State<HomePageUI> {
         body: BackgroundImage(
           child: SingleChildScrollView(
             child: Container(
-              child: Expanded(
-                child: Column(
-                  children: [
-                    Container(
-                      padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'EVENTS FOR YOU',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      children: [
+                        Container(
+                          padding:
+                              EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'EVENTS FOR YOU',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
-                    Container(
-                      child: SizedBox(
-                          width: MediaQuery.of(context).size.width,
-                          height: 340,
-                          child: EventsForYouList()),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 10, bottom: 20, left: 10),
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'See what your friends are up to',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                        Container(
+                          child: SizedBox(
+                              width: MediaQuery.of(context).size.width,
+                              height: 340,
+                              child: EventsForYouList()),
                         ),
-                      ),
-                    ),
-                    Container(
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width,
-                        height: 340,
-                        child: FriendEventsList()
+                        Container(
+                          padding:
+                              EdgeInsets.only(top: 10, bottom: 20, left: 10),
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'See what your friends are up to',
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
                         ),
-                      ),
-                    SizedBox(height: 10),
-                  ],
-                ),
+                        Container(
+                          child: SizedBox(
+                              width: MediaQuery.of(context).size.width,
+                              height: 340,
+                              child: FriendEventsList()),
+                        ),
+                        SizedBox(height: 10),
+                      ],
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
