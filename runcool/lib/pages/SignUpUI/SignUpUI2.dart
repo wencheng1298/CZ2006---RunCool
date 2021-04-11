@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../../models/User.dart';
 import './SignUpSuccessUI.dart';
 import './../../utils/everythingUtils.dart';
-import '../../firebase/authenticationManager.dart';
 import 'package:runcool/firebase/Service/auth.dart';
-import 'package:runcool/firebase/Service/database.dart';
 import 'package:runcool/firebase/ProfileManager.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
-import 'package:http/http.dart';
 
 class SignUpUI2 extends StatefulWidget {
   // //SignUpUI2({this.profileDetails});
@@ -25,6 +20,7 @@ class SignUpUI2 extends StatefulWidget {
 
 class SignUpUI2State extends State<SignUpUI2> {
   final AuthenticationManager _auth = AuthenticationManager();
+  final profileManager = ProfileManager();
   final _formkey = GlobalKey<FormState>();
   Map<String, dynamic> profileDetails = {};
   //SignUpUI2State({this.profileDetails});
@@ -62,15 +58,31 @@ class SignUpUI2State extends State<SignUpUI2> {
             : ImageSource.gallery);
     setState(() {
       _image = File(img.path);
-      print(_image);
+    });
+
+    String link = await profileManager.uploadPic(_image);
+    setState(() {
+      profileDetails["image"] = link;
     });
   }
 
-  void uploadImage(String path) async {
-    var url = "https://s3.ap-southeast-1.amazonaws.com/runcool";
-
-    // var request = http.MultipartRequest('POST', Url.parse(url));
-  }
+  // void uploadImage(String path) async {
+  //   var url = "https://s3.ap-southeast-1.amazonaws.com/runcool";
+  //
+  //   var request = http.MultipartRequest('POST', Uri.parse(url));
+  //   request.files.add(await MultipartFile.fromPath('file', path));
+  //
+  //   request.fields.addAll({'acl': 'public-read'});
+  //   var response = await request.send();
+  //   print(response);
+  //   if (response.statusCode == 200) {
+  //     String data = response.stream.toString();
+  //     print(data);
+  //     // print(jsonDecode(data));
+  //   } else {
+  //     print(response.statusCode);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -237,22 +249,7 @@ class SignUpUI2State extends State<SignUpUI2> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          PopupMenuButton(
-                            itemBuilder: (context) => [
-                              PopupMenuItem(
-                                  child: Text("Take a picture"),
-                                  value: "camera"),
-                              PopupMenuItem(
-                                  child: Text("Upload from gallery"),
-                                  value: "gallery")
-                            ],
-                            onSelected: (result) {
-                              setState(() {
-                                _imageSource = result;
-                              });
-                              getImage();
-                            },
-                          );
+                          getImage();
                         },
                         child: Center(
                           child: CircleAvatar(
@@ -261,9 +258,25 @@ class SignUpUI2State extends State<SignUpUI2> {
                               backgroundImage: _image != null
                                   ? Image.file(_image).image
                                   : null,
-                              child: Icon(
-                                Icons.camera_enhance_rounded,
-                                size: 35,
+                              child: PopupMenuButton(
+                                itemBuilder: (context) => [
+                                  PopupMenuItem(
+                                      child: Text("Take a picture"),
+                                      value: "camera"),
+                                  PopupMenuItem(
+                                      child: Text("Upload from gallery"),
+                                      value: "gallery")
+                                ],
+                                child: Icon(
+                                  Icons.camera_enhance_rounded,
+                                  size: 35,
+                                ),
+                                onSelected: (result) {
+                                  setState(() {
+                                    _imageSource = result;
+                                  });
+                                  getImage();
+                                },
                               )),
                         ),
                       ),
@@ -276,9 +289,10 @@ class SignUpUI2State extends State<SignUpUI2> {
                               setState(() {
                                 loading = true;
                               });
-                              dynamic result = await ProfileManager()
-                                  .createUser(profileDetails, widget.email,
-                                      widget.password);
+                              dynamic result = await profileManager.createUser(
+                                  profileDetails,
+                                  widget.email,
+                                  widget.password);
                               if (result == null) {
                                 setState(() {
                                   error =

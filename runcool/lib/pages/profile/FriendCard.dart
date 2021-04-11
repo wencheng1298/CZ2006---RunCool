@@ -12,11 +12,11 @@ class ProfileCardStream extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<Widget>>(
-        stream: ProfileManager()
-            .getFriendCards(friends.isEmpty ? ["none"] : friends),
+        stream: AppUser.getFriendCards(friends.isEmpty ? ["none"] : friends),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             var friendsWidgets = snapshot.data;
+            print(friendsWidgets);
             return SizedBox(
                 height: 80,
                 width: MediaQuery.of(context).size.width,

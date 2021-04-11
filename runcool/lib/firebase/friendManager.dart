@@ -4,21 +4,32 @@ import 'notificationManager.dart';
 class FriendManager {
   final _firestore = FirebaseFirestore.instance;
   // final notificationManager = NotificationManager();
-  void _accept(String friendId, String userId) {
-    DocumentReference friendRef = _firestore.doc('users/' + friendId);
 
-    _firestore.collection('users').doc(userId).update({
-      "friends": FieldValue.arrayUnion([friendRef])
+  Future _accept(String friendId, String userId) async {
+    await _firestore.collection('users').doc(userId).update({
+      "friends": FieldValue.arrayUnion([friendId])
     });
   }
 
-  void acceptRequest(String friendId, String userId) {
-    this._accept(friendId, userId);
-    this._accept(userId, friendId);
+  Future<String> acceptRequest(String friendId, String userId) async {
+    try {
+      await this._accept(friendId, userId);
+      await this._accept(userId, friendId);
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
   }
 
-  void sendRequest(String receiverId) {
-    NotificationManager()
-        .createNotification({"notificationType": "Friend Request"}, receiverId);
+  Future<String> sendRequest(String receiverId, String senderId) async {
+    try {
+      await NotificationManager().createNotification(
+          {"notificationType": "Friend Request", "notifier": senderId},
+          receiverId);
+      return "success";
+    } catch (e) {
+      print(e.toString());
+      return null;
+    }
   }
 }

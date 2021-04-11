@@ -55,7 +55,7 @@ class NotificationUIState extends State<NotificationUI> {
   Widget build(BuildContext context) {
     final user = Provider.of<AppUser>(context);
     return StreamProvider<List<dynamic>>.value(
-      value: NotificationManager().getNotifications(user.notifications),
+      value: AppNotification.getNotifications(user.notifications),
       child: Scaffold(
         appBar: AppBar(
           title: Text(
@@ -67,6 +67,7 @@ class NotificationUIState extends State<NotificationUI> {
         body: BackgroundImage(
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 NotificationsWrap(title: "Friend Request"),
                 NotificationsWrap(title: "Event Invite"),

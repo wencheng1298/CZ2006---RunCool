@@ -5,14 +5,21 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class AppNotification {
   final String notificationType;
   final String notifier;
-  final DateTime time;
+  final DateTime timeStamp;
   final String notificationID;
+  final String receiver;
   // final Event event;
   // final bool eventUpdated;
   // final int noOfMessages;
+  static final CollectionReference notifCollection =
+      FirebaseFirestore.instance.collection('notifications');
 
   AppNotification(
-      {this.notificationType, this.notifier, this.time, this.notificationID});
+      {this.notificationType,
+      this.notifier,
+      this.timeStamp,
+      this.notificationID,
+      this.receiver});
   // factory AppNotification.fromFirestore(DocumentSnapshot doc) {
   //   Map data = doc.data();
   //   return AppNotification(
@@ -24,7 +31,9 @@ class AppNotification {
     Map data = doc.data();
     final notificationType = data['notificationType'] ?? '';
     final notifier = data['notifier'] ?? '';
-    final time = data['time'] == null ? null : data['time'].toDate();
+    final receiver = data['receiver'] ?? '';
+    final timeStamp =
+        data['timeStamp'] == null ? null : data['timeStamp'].toDate();
     final notificationID = doc.id;
     switch (notificationType) {
       case 'Event Invite':
@@ -33,30 +42,60 @@ class AppNotification {
             event: event,
             notifier: notifier,
             notificationType: notificationType,
-            time: time);
+            timeStamp: timeStamp,
+            receiver: receiver,
+            notificationID: notificationID);
       case 'Event Update':
         final event = data['event'] ?? '';
         final eventUpdated = data['eventUpdated'] ?? false;
-        final noOfMessages = int.parse(data['noOfMessages'] ?? "0");
+        final noOfMessages = data['noOfMessages'] ?? null;
         return EventUpdate(
             event: event,
             eventUpdated: eventUpdated,
             notificationType: notificationType,
             noOfMessages: noOfMessages,
-            time: time);
+            timeStamp: timeStamp,
+            receiver: receiver,
+            notificationID: notificationID,
+            notifier: notifier);
       default:
         return AppNotification(
-            notifier: notifier, notificationType: notificationType, time: time);
+            notifier: notifier,
+            notificationType: notificationType,
+            timeStamp: timeStamp,
+            receiver: receiver,
+            notificationID: notificationID);
     }
+  }
+
+  static Stream<List<dynamic>> getNotifications(List<dynamic> notifications) {
+    Stream<QuerySnapshot> path = notifCollection
+        .where(FieldPath.documentId, whereIn: notifications)
+        // .orderBy("timeStamp", descending: true)
+        .snapshots();
+    return path.map((snapshot) {
+      return snapshot.docs
+          .map((doc) => AppNotification.fromFirestore(doc))
+          .toList();
+    });
   }
 }
 
 class EventInvite extends AppNotification {
   final String event;
   EventInvite(
-      {this.event, String notifier, String notificationType, DateTime time})
+      {this.event,
+      String notifier,
+      String notificationType,
+      DateTime timeStamp,
+      String receiver,
+      String notificationID})
       : super(
-            notificationType: notificationType, notifier: notifier, time: time);
+            notificationType: notificationType,
+            notifier: notifier,
+            timeStamp: timeStamp,
+            receiver: receiver,
+            notificationID: notificationID);
 }
 
 class EventUpdate extends AppNotification {
@@ -69,7 +108,13 @@ class EventUpdate extends AppNotification {
       this.noOfMessages,
       String notifier,
       String notificationType,
-      DateTime time})
+      DateTime timeStamp,
+      String notificationID,
+      String receiver})
       : super(
-            notificationType: notificationType, notifier: notifier, time: time);
+            notificationType: notificationType,
+            notifier: notifier,
+            timeStamp: timeStamp,
+            notificationID: notificationID,
+            receiver: receiver);
 }
