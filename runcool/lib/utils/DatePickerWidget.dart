@@ -3,22 +3,30 @@ import './../utils/everythingUtils.dart';
 
 class DatePickerWidget extends StatefulWidget {
   final Function updateDate;
+  final DateTime date;
 
-  DatePickerWidget({@required this.updateDate});
+  DatePickerWidget({@required this.updateDate, this.date});
   @override
-  _DatePickerWidgetState createState() => _DatePickerWidgetState();
+  _DatePickerWidgetState createState() => _DatePickerWidgetState(date);
 }
 
 class _DatePickerWidgetState extends State<DatePickerWidget> {
   DateTime date;
+  _DatePickerWidgetState(this.date);
+
+  bool error = false;
 
   String getText() {
     if (date == null) {
       return "Select Date";
+    } else if  (date.isBefore(DateTime.now())){
+      error = true;
+      return 'Date must be in the future';
     } else {
       final day = date.day.toString();
       final month = date.month.toString();
       final year = date.year.toString();
+      error = false;
       return '$day/$month/$year';
     }
   }
@@ -39,7 +47,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         );
       },
     );
-    if (newDate == null || newDate.isBefore(initialDate)) {
+    if (newDate == null) {
       date = null;
       return;
     }
@@ -56,7 +64,9 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         widget.updateDate(date.year, date.month, date.day)
       },
       text: getText(),
-      colour: kTurquoise,
+      colour: (error)
+      ? Colors.redAccent
+      : kTurquoise,
     );
   }
 }

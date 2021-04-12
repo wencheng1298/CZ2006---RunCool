@@ -78,7 +78,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     //startTextEditingController.text = startingAddress;
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         backgroundColor: Colors.black,
         centerTitle: true,

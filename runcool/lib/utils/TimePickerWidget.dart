@@ -3,16 +3,20 @@ import './../utils/everythingUtils.dart';
 
 class TimePickerWidget extends StatefulWidget {
   final Function updateTime;
+  final TimeOfDay time;
 
-  TimePickerWidget({@required this.updateTime});
+  TimePickerWidget({@required this.updateTime, this.time});
 
   @override
-  _TimePickerWidgetState createState() => _TimePickerWidgetState();
+  _TimePickerWidgetState createState() => _TimePickerWidgetState(time);
 }
 
 class _TimePickerWidgetState extends State<TimePickerWidget> {
   TimeOfDay time;
 
+  _TimePickerWidgetState(this.time);
+
+  
   String getText() {
     if (time == null) {
       return "Select Time";

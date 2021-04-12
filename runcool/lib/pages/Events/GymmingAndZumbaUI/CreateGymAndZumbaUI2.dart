@@ -19,12 +19,14 @@ class CreateGymAndZumbaUI2 extends StatefulWidget {
 
 class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
     with SingleTickerProviderStateMixin {
-  EventPrivy openTo;
+  final _formkey = GlobalKey<FormState>();
 
   Map eventDetails;
   _CreateGymAndZumbaUI2State(this.eventDetails);
 
   List<String> difficultyLevels = ['Easy', 'Medium', 'Hard'];
+  bool difficultyError = false;
+  bool timeError = false;
 
   void createEvent(Map eventDetails) async {
     Event event = await EventManager().updateEvent(eventDetails);
@@ -39,7 +41,7 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         backgroundColor: Colors.black,
         centerTitle: true,
@@ -49,261 +51,254 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
           textAlign: TextAlign.center,
         ),
       ),
-      body: BackgroundImage(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          child: Column(
-            children: [
-              GoogleMapPlacement(),
-              SizedBox(height: 10),
-              Container(
-                height: 470,
-                child: ListView(
-                  padding: EdgeInsets.all(8),
-                  children: [
-                    Align(
+      body: Form(
+        key: _formkey,
+        child: BackgroundImage(
+          child: Container(
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              children: [
+                GoogleMapPlacement(),
+                SizedBox(height: 10),
+                Container(
+                  height: 470,
+                  child: ListView(
+                    padding: EdgeInsets.all(8),
+                    children: [
+                      Align(
                         alignment: Alignment.topLeft,
-                        child: (eventDetails['eventType'] == "Gymming")
-                            ? InputFieldTextTitles(
-                                'Enter the name of your routine')
-                            : InputFieldTextTitles(
-                                'Enter the name of your dance event')),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8, right: 8),
-                      child: InputTextField1(
-                        height: 35,
-                        onChange: (val) {
-                          eventDetails['name'] = val;
-                        },
+                        child: InputFieldTextTitles('Date of the session'),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: InputFieldTextTitles('Date of the session'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0, right: 8),
-                      child: DatePickerWidget(
-                        updateDate: (year, month, day) {
-                          int startHour = 0, startMinute = 0;
-                          int endHour = 0, endMinute = 0;
-                          if (eventDetails.containsKey('startTime')) {
-                            startHour = eventDetails['startTime'].hour;
-                            startMinute = eventDetails['startTime'].minute;
-                          }
-                          if (eventDetails.containsKey('endTime')) {
-                            endHour = eventDetails['endTime'].hour;
-                            endMinute = eventDetails['endTime'].minute;
-                          }
-                          eventDetails['startTime'] = new DateTime(
-                              year, month, day, startHour, startMinute);
-                          eventDetails['endTime'] = new DateTime(
-                              year, month, day, endHour, endMinute);
-                        },
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        Container(
-                          child: Expanded(
-                            child: Center(
-                              child: InputFieldTextTitles('Start Time'),
-                            ),
-                          ),
-                        ),
-                        Container(
-                          child: Expanded(
-                            child: Center(
-                              child: InputFieldTextTitles('End Time'),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        //Start Time
-                        Container(
-                          child: Expanded(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(left: 16, right: 8),
-                              child: Container(
-                                child: TimePickerWidget(
-                                  updateTime: (hour, minute) {
-                                    int year = 0, month = 0, day = 0;
-                                    if (eventDetails.containsKey('startTime')) {
-                                      year = eventDetails['startTime'].year;
-                                      month = eventDetails['startTime'].month;
-                                      day = eventDetails['startTime'].day;
-                                    }
-                                    eventDetails['startTime'] = new DateTime(
-                                        year, month, day, hour, minute);
-                                  },
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        //End Time
-                        Container(
-                          child: Expanded(
-                            child: Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 16, left: 8),
-                              child: Container(
-                                child: TimePickerWidget(
-                                  updateTime: (hour, minute) {
-                                    int year = 0, month = 0, day = 0;
-                                    if (eventDetails.containsKey('startTime')) {
-                                      year = eventDetails['startTime'].year;
-                                      month = eventDetails['startTime'].month;
-                                      day = eventDetails['startTime'].day;
-                                    }
-                                    eventDetails['endTime'] = new DateTime(
-                                        year, month, day, hour, minute);
-                                  },
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child:
-                          InputFieldTextTitles('Enter number of participants'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0, right: 8),
-                      child: NumberTextField(
-                        height: 35,
-                        onChange: (val) {
-                          try {
-                            val = int.parse(val);
-                            eventDetails['noOfParticipants'] = val;
-                          } catch (error) {
-                            // Need find out how to catch and show error
-                            eventDetails['noOfParticipants'] = 0;
-                          }
-                        },
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: InputFieldTextTitles('Difficulty'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                      child: Container(
-                        height: 35,
-                        padding: const EdgeInsets.only(left: 16, right: 16),
-                        decoration: BoxDecoration(
-                          border: Border.all(color: kTurquoise, width: 2),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        child: DropdownButton(
-                          dropdownColor: Colors.grey[800].withOpacity(0.9),
-                          icon: Icon(
-                            Icons.arrow_drop_down_circle_outlined,
-                            color: kTurquoise,
-                          ),
-                          iconSize: 26,
-                          isExpanded: true,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 17,
-                          ),
-                          value: eventDetails['difficulty'],
-                          hint: Text(
-                            '--None--',
-                            style: TextStyle(color: Colors.white),
-                          ),
-                          onChanged: (newChoice) {
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0, right: 8),
+                        child: DatePickerWidget(
+                          date: eventDetails['startTime'],
+                          updateDate: (year, month, day) {
                             setState(() {
-                              eventDetails['difficulty'] = newChoice;
+                              int startHour = 0, startMinute = 0;
+                              if (eventDetails.containsKey('startTime')) {
+                                startHour = eventDetails['startTime'].hour;
+                                startMinute = eventDetails['startTime'].minute;
+                              }
+                              eventDetails['startTime'] = new DateTime(
+                                  year, month, day, startHour, startMinute);
                             });
                           },
-                          items: difficultyLevels.map((choice) {
-                            return DropdownMenuItem(
-                                value: choice,
-                                child: Text(
-                                  choice,
-                                ));
-                          }).toList(),
                         ),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: InputFieldTextTitles('Event Open to:'),
-                    ),
-                    Theme(
-                      data: ThemeData(unselectedWidgetColor: Colors.white24),
-                      child: Column(
-                        children: [
-                          ListTile(
-                            title: const Text(
-                              "Public",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            leading: Radio(
-                              value: EventPrivy.public,
-                              groupValue: openTo,
-                              activeColor: kTurquoise,
-                              onChanged: (EventPrivy value) {
-                                eventDetails['openToPublic'] = true;
-                                setState(() {
-                                  openTo = value;
-                                });
-                              },
-                            ),
-                          ),
-                          ListTile(
-                            title: const Text(
-                              "Friends Only",
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            leading: Radio(
-                              value: EventPrivy.friends_only,
-                              groupValue: openTo,
-                              activeColor: kTurquoise,
-                              onChanged: (EventPrivy value) {
-                                eventDetails['openToPublic'] = false;
-                                setState(() {
-                                  openTo = value;
-                                });
-                              },
-                            ),
-                          ),
-                        ],
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: InputFieldTextTitles('Event Start Time'),
                       ),
-                    ),
-                    Align(
-                      alignment: Alignment.topLeft,
-                      child: InputFieldTextTitles('Description'),
-                    ),
-                    DescriptionTextField(
-                      onChange: (val) {
-                        eventDetails['description'] = val;
-                      },
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(20),
-                      width: 80,
-                      child: TinyButton(
-                        onPress: () => {
-                          createEvent(eventDetails),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8, right: 8),
+                        child: Container(
+                          child: TimePickerWidget(
+                            time: eventDetails.containsKey('startTime')
+                                ? TimeOfDay(
+                                    hour: eventDetails['startTime'].hour,
+                                    minute: eventDetails['startTime'].minute)
+                                : null,
+                            updateTime: (hour, minute) {
+                              int year = 0, month = 0, day = 0;
+                              setState(() {
+                                if (eventDetails.containsKey('startTime')) {
+                                  year = eventDetails['startTime'].year;
+                                  month = eventDetails['startTime'].month;
+                                  day = eventDetails['startTime'].day;
+                                }
+                                eventDetails['startTime'] = new DateTime(
+                                    year, month, day, hour, minute);
+                              });
+                            },
+                          ),
+                        ),
+                      ),
+                      Align(
+                          alignment: Alignment.topLeft,
+                          child: (eventDetails['eventType'] == "Gymming")
+                              ? InputFieldTextTitles(
+                                  'Enter the name of your routine')
+                              : InputFieldTextTitles(
+                                  'Enter the name of your dance event')),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                        child: InputTextFormFill(
+                          // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                          obscure: false,
+                          text: 'eg: Happy Hoo Hoo',
+                          onChange: (val) {
+                            try {
+                              eventDetails['name'] = val;
+                            } catch (error) {
+                              eventDetails['duration'] = null;
+                            }
+                          },
+                          validate: (val) {
+                            if (val.isEmpty) {
+                              return 'Enter a name';
+                            }
+                            if (val.length < 8) {
+                              return 'Name must have at least 8 characters';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child:
+                            InputFieldTextTitles('Duration of Event (minutes)'),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                        child: InputTextFormFill(
+                          // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                          obscure: false,
+                          text: 'minimum: 30',
+                          onChange: (val) {
+                            try {
+                              val = double.parse(val);
+                              eventDetails['duration'] = val;
+                            } catch (error) {
+                              eventDetails['duration'] = 0;
+                            }
+                          },
+                          validate: (val) {
+                            if (val.isEmpty) {
+                              return 'Enter a duration';
+                            }
+                            val = double.parse(val);
+                            if (val < 30) {
+                              return 'Duration must be >30';
+                            }
+
+                            return null;
+                          },
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: InputFieldTextTitles(
+                            'Enter number of participants'),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0, right: 8),
+                        child: InputTextFormFill(
+                          obscure: false,
+                          text: 'minimum: 1, maximum: 8',
+                          onChange: (val) {
+                            try {
+                              val = int.parse(val);
+                              eventDetails['noOfParticipants'] = val;
+                            } catch (error) {
+                              // Need find out how to catch and show error
+                              eventDetails['noOfParticipants'] = 0;
+                            }
+                          },
+                          validate: (val) {
+                            if (val.isEmpty) {
+                              return 'Enter number of participants';
+                            }
+                            val = int.parse(val);
+                            if (val < 1 || val > 8) {
+                              return "There must be between 1-8 participants";
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: InputFieldTextTitles('Difficulty'),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                        child: Container(
+                          height: 35,
+                          padding: const EdgeInsets.only(left: 16, right: 16),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: kTurquoise, width: 2),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: DropdownButton(
+                            dropdownColor: Colors.grey[800].withOpacity(0.9),
+                            icon: Icon(
+                              Icons.arrow_drop_down_circle_outlined,
+                              color: kTurquoise,
+                            ),
+                            iconSize: 26,
+                            isExpanded: true,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 17,
+                            ),
+                            value: eventDetails['difficulty'],
+                            hint: Text(
+                              '--None--',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            onChanged: (newChoice) {
+                              setState(() {
+                                eventDetails['difficulty'] = newChoice;
+                                difficultyError = false;
+                              });
+                            },
+                            items: difficultyLevels.map((choice) {
+                              return DropdownMenuItem(
+                                  value: choice,
+                                  child: Text(
+                                    choice,
+                                  ));
+                            }).toList(),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 23, top: 4),
+                        child: Text(
+                          (difficultyError) ? 'Choose a difficulty' : '',
+                          style: TextStyle(
+                            color: Colors.redAccent,
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: InputFieldTextTitles('Description'),
+                      ),
+                      DescriptionTextField(
+                        onChange: (val) {
+                          eventDetails['description'] = val;
                         },
-                        text: "Create",
-                        colour: kTurquoise,
                       ),
-                    ),
-                  ],
+                      Container(
+                        padding: const EdgeInsets.all(20),
+                        width: 80,
+                        child: TinyButton(
+                          onPress: () => {
+                            print(eventDetails['difficulty']),
+                            if (eventDetails['difficulty'] == null)
+                              {
+                                difficultyError = true,
+                              },
+                            if (_formkey.currentState.validate())
+                              {
+                                if (!difficultyError)
+                                  {
+                                    createEvent(eventDetails),
+                                  }
+                              }
+                          },
+                          text: "Create",
+                          colour: kTurquoise,
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
