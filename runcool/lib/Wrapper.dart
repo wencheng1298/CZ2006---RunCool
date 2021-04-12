@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:runcool/firebase/Service/auth.dart';
+import 'package:runcool/firebase/AuthenticationManager.dart';
 import 'package:runcool/pages/RuncoolNavBar.dart';
-import 'package:runcool/pages/SignUpUI/LogIn.dart';
+import 'package:runcool/pages/authentication/LogIn.dart';
 import 'package:runcool/models/User.dart';
-import 'package:runcool/pages/SignUpUI/Verification.dart';
+import 'package:runcool/pages/authentication/Verification.dart';
 import 'firebase/ProfileManager.dart';
 
 import 'pages/HomePageUI.dart';
-import 'pages/SignUpUI/LogIn.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'firebase/authenticationManager.dart';
 
 class Wrapper extends StatelessWidget {
   @override
@@ -21,8 +19,8 @@ class Wrapper extends StatelessWidget {
     // print(user);
     if (user == null) {
       return LogInUI();
-      // } else if (!user.emailVerified) {
-      //   return Verification();
+    } else if (!user.emailVerified) {
+      return Verification();
     } else {
       // return Verification();
       return RuncoolNavBar();

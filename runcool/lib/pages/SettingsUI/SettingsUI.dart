@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:runcool/pages/ProfileUI.dart';
 import './../../utils/everythingUtils.dart';
-import '../SignUpUI/LogIn.dart';
-import 'package:runcool/firebase/Service/auth.dart';
+import '../authentication/LogIn.dart';
+import 'package:runcool/firebase/AuthenticationManager.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
 class SettingsUI extends StatefulWidget {

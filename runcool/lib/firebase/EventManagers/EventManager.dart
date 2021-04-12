@@ -1,7 +1,7 @@
 // Still in testing
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:runcool/firebase/notificationManager.dart';
+import 'package:runcool/firebase/NotificationManager.dart';
 import 'package:runcool/pages/Events/EventPage.dart';
 import '../../models/Event.dart';
 

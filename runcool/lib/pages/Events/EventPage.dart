@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:runcool/firebase/ProfileManager.dart';
 import 'package:runcool/utils/GoogleMapPlacement.dart';
 import '../../utils/EventTextDetails.dart';
-import '../ProfileUI1.dart';
+import '../profile/ProfileUI1.dart';
 import './JoinEventPage.dart';
 import './../RuncoolNavBar.dart';
 import './../../utils/everythingUtils.dart';

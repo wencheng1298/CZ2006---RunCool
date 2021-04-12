@@ -5,10 +5,8 @@ import './SettingsUI/EditProfileUI.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:runcool/models/User.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:runcool/firebase/Service/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:runcool/models/User.dart';
-import 'package:runcool/firebase/Service/database.dart';
 import 'package:provider/provider.dart';
 import 'profile/profileList.dart';
 

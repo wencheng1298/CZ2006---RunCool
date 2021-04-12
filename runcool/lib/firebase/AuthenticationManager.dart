@@ -1,8 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:runcool/models/User.dart';
-import 'package:runcool/firebase/Service/database.dart';
-import 'package:runcool/pages/SignUpUI/SignUpUI2.dart';
-import '../ProfileManager.dart';
+import 'package:runcool/pages/authentication/SignUpUI2.dart';
+import 'ProfileManager.dart';
 
 class AuthenticationManager {
   final FirebaseAuth _auth = FirebaseAuth.instance;

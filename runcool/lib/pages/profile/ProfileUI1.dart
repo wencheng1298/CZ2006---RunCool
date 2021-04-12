@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:runcool/firebase/ProfileManager.dart';
 import 'package:runcool/pages/profile/profileList.dart';
-import './../utils/everythingUtils.dart';
-import './SettingsUI/SettingsUI.dart';
-import './SettingsUI/EditProfileUI.dart';
+import '../../utils/everythingUtils.dart';
+import '../SettingsUI/SettingsUI.dart';
+import '../SettingsUI/EditProfileUI.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:runcool/models/User.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:runcool/firebase/Service/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:runcool/models/User.dart';
-import 'package:runcool/firebase/Service/database.dart';
 import 'package:provider/provider.dart';
 
 class ProfileUI1 extends StatefulWidget {
@@ -22,21 +20,21 @@ class ProfileUI1 extends StatefulWidget {
 }
 
 class ProfileUI1State extends State<ProfileUI1> {
-  
   bool requested;
-  
+
   ProfileUI1State({this.requested});
-  
-  _initReq(){
+
+  _initReq() {
     requested = false;
   }
-  
+
   @override
   void initState() {
     // TODO: implement initState
-    (requested)??_initReq();
+    (requested) ?? _initReq();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     final AppUser currUser = Provider.of<AppUser>(context);

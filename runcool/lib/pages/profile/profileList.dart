@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:runcool/firebase/ProfileManager.dart';
-import 'package:runcool/firebase/friendManager.dart';
+import 'package:runcool/firebase/FriendManager.dart';
 import 'package:runcool/models/User.dart';
 import 'package:runcool/pages/profile/FriendCard.dart';
 import 'package:runcool/utils/everythingUtils.dart';

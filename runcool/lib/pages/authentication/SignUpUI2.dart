@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './SignUpSuccessUI.dart';
 import './../../utils/everythingUtils.dart';
-import 'package:runcool/firebase/Service/auth.dart';
+import 'package:runcool/firebase/AuthenticationManager.dart';
 import 'package:runcool/firebase/ProfileManager.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';

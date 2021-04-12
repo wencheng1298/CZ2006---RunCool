@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:runcool/pages/ProfileUI1.dart';
+import 'ProfileUI1.dart';
 import 'package:runcool/utils/loading.dart';
 import '../../models/User.dart';
 import '../../utils/constants.dart';

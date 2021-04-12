@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:runcool/firebase/EventManagers/EventManager.dart';
 import 'package:runcool/models/Notification.dart';
 import 'package:runcool/models/User.dart';
-import 'friendManager.dart';
+import 'FriendManager.dart';
 import '../pages/notificationDependancies/notificationCards.dart';
 
 class NotificationManager {

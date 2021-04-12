@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:runcool/utils/everythingUtils.dart';
 import 'SignUpUI1.dart';
 import './../SettingsUI/SettingsUI.dart';
-import '../../firebase/authenticationManager.dart';
 import '../RuncoolNavBar.dart';
 
-import 'package:runcool/firebase/Service/auth.dart';
+import 'package:runcool/firebase/AuthenticationManager.dart';
 import 'package:runcool/utils/loading.dart';
 import 'ForgotPasswordUI.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
@@ -17,11 +16,8 @@ class LogInUI extends StatefulWidget {
   _LogInUIState createState() => _LogInUIState();
 }
 
-// final Function toggleView;
-// Register({this.toggleView});
-
 class _LogInUIState extends State<LogInUI> {
-  final _formKey = GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>(); // VALIDATE
   final AuthenticationManager _auth = AuthenticationManager();
 
   String email;
@@ -38,87 +34,54 @@ class _LogInUIState extends State<LogInUI> {
               child: Container(
                 margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 30),
                 child: Form(
-                  key: _formKey,
+                  // VALIDATE
+                  key: _formKey, // VALIDATE
                   child: Column(children: <Widget>[
                     SizedBox(height: 100),
                     Image(
                       image: AssetImage('images/logo.png'),
                       height: 300,
                     ),
-
                     InputTextFormFill(
-                        obscure: false,
-                        text: 'EMAIL',
-                        onChange: (value) {
-                          setState(() {
-                            email = value;
-                          });
-                        }),
-
-                    SizedBox(height: 20),
-
-                    InputTextFormFill(
-                      obscure: true,
-                      text: 'PASSWORD',
+                      obscure: false,
+                      text: 'EMAIL',
                       onChange: (value) {
                         setState(() {
-                          password = value;
+                          email = value;
                         });
                       },
+                      validate: (val) =>
+                          val.isEmpty ? 'Enter an email' : null, // VALIDATE
                     ),
-
-                    // TextFormField(
-                    //   decoration: InputDecoration(hintText: 'email'),
-                    //   onChanged: (value) {
-                    //     setState(() {
-                    //       email = value;
-                    //     });
-                    //   },
-                    // ),
-                    // TextFormField(
-                    //   obscureText: true,
-                    //   onChanged: (value) {
-                    //     setState(() {
-                    //       password = value;
-                    //     });
-                    //   },
-                    // ),
-
-                    // InputTextField1(
-                    //   text: 'EMAIL',
-                    //   onChange: (value) {
-                    //     email = value;
-                    //   },
-                    // ),
-                    // SizedBox(height: 20),
-                    // InputTextField1(
-                    //   text: 'PASSWORD',
-                    //   onChange: (value) {
-                    //     password = value;
-                    //   },
-                    // ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 5),
+                    InputTextFormFill(
+                        obscure: true,
+                        text: 'PASSWORD',
+                        onChange: (value) {
+                          setState(() {
+                            password = value;
+                          });
+                        },
+                        validate: (val) =>
+                            val.isEmpty ? 'Enter a password' : null),
+                    SizedBox(height: 5),
                     ButtonType1(
                         onPress: () async {
                           setState(() {
-                            loading = true;
+                            error = '';
                           });
-                          dynamic result = await _auth
-                              .signInWithEmailAndPassword(email, password);
-                          if (result == null) {
-                            setState(() {
-                              error =
-                                  'Could not sign in with those credentials';
-                              loading = false;
-                            });
-                          } else {
-                            Phoenix.rebirth(context);
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => RuncoolNavBar()));
+                          if (_formKey.currentState.validate()) {
+                            dynamic result = await _auth
+                                .signInWithEmailAndPassword(email, password);
+                            if (result == null) {
+                              setState(() {
+                                error =
+                                    'Could not sign in with those credentials';
+                              });
+                            } else {
+                              Phoenix.rebirth(context);
+                            }
                           }
-                          // }
                         },
                         text: 'Login'),
                     Container(

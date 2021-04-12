@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:runcool/firebase/EventManagers/EventManager.dart';
 import 'package:runcool/firebase/ProfileManager.dart';
-import 'package:runcool/firebase/notificationManager.dart';
+import 'package:runcool/firebase/NotificationManager.dart';
 import 'package:runcool/main.dart';
 import 'package:runcool/models/User.dart';
 import 'package:runcool/models/Event.dart';
 import 'package:runcool/pages/Events/EventPage.dart';
 import '../../utils/everythingUtils.dart';
 import '../../models/Notification.dart';
-import '../ProfileUI1.dart';
+import '../profile/ProfileUI1.dart';
 
 final double mainFontSize = 20;
 final notifManager = NotificationManager();

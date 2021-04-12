@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'GoogleMapsAppData.dart';
 import 'constants.dart';
-import '../pages/SignUpUI/LogIn.dart';
 
 class LineTextField extends StatefulWidget {
   final Function onChange;
@@ -78,39 +77,45 @@ class InputTextFormFill extends StatefulWidget {
   final Function onChange;
   final double height;
   final bool obscure;
+  final Function validate;
 
-  InputTextFormFill({this.text, this.onChange, this.height, this.obscure});
+  InputTextFormFill(
+      {this.text, this.onChange, this.height, this.obscure, this.validate});
 
   @override
   InputTextFormFillState createState() => InputTextFormFillState();
 }
 
 class InputTextFormFillState extends State<InputTextFormFill> {
+  final border = OutlineInputBorder(
+    borderSide: BorderSide(color: kTurquoise, width: 2),
+    borderRadius: BorderRadius.circular(15),
+  );
   @override
   Widget build(BuildContext context) {
     return Theme(
       data: Theme.of(context).copyWith(splashColor: Colors.transparent),
       child: Container(
-        height: widget.height ?? 45,
+        height: widget.height ?? 70,
         child: TextFormField(
+          validator: widget.validate,
           onChanged: widget.onChange,
           keyboardType: TextInputType.streetAddress,
           style: TextStyle(color: Colors.white),
           obscureText: widget.obscure,
           decoration: InputDecoration(
+            helperText: '',
+            helperStyle: TextStyle(fontSize: 13, height: 0.1),
             filled: true,
             fillColor: Colors.grey[800].withOpacity(0.5),
             contentPadding: EdgeInsets.only(left: 14, bottom: 8, top: 8),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: kTurquoise, width: 2),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: kTurquoise, width: 2),
-              borderRadius: BorderRadius.circular(15),
-            ),
+            focusedBorder: border,
+            enabledBorder: border,
+            errorBorder: border,
+            focusedErrorBorder: border,
             hintText: widget.text ?? '',
             hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
+            errorStyle: TextStyle(fontSize: 13.0, height: 0.6),
           ),
         ),
       ),

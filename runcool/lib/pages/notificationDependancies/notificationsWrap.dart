@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:runcool/firebase/notificationManager.dart';
+import 'package:runcool/firebase/NotificationManager.dart';
 import '../../utils/everythingUtils.dart';
 import 'package:provider/provider.dart';
 import '../../models/Notification.dart';

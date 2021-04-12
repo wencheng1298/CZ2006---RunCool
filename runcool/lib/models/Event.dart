@@ -8,7 +8,6 @@ class Event {
   final String name;
   final String eventID;
   final bool deleted;
-  final DateTime endTime;
   final DateTime startTime;
   final List<dynamic> announcements;
   final List<dynamic> participants;
@@ -26,7 +25,6 @@ class Event {
       this.deleted,
       this.description,
       this.difficulty,
-      this.endTime,
       this.noOfParticipants,
       this.openToPublic,
       this.participants,
@@ -61,9 +59,9 @@ class Event {
     final startTime = (data['startTime'] != null)
         ? data['startTime'].toDate().add(Duration(hours: 8))
         : null;
-    final endTime = (data['endTime'] != null)
-        ? data['endTime'].toDate().add(Duration(hours: 8))
-        : null;
+    // final endTime = (data['endTime'] != null)
+    //     ? data['endTime'].toDate().add(Duration(hours: 8))
+    //     : null;
     final noOfParticipants = data['noOfParticipants'] ?? 8;
     final difficulty = data['difficulty'] ?? '';
     final description = data['description'] ?? '';
@@ -74,11 +72,12 @@ class Event {
       case 'Gymming':
         final workout = data['workout'] ?? [];
         final location = data['location'].toString();
+        final duration = data['duration'] ?? 0;
         return GymmingEvent(
             name: name,
             participants: participants,
             noOfParticipants: noOfParticipants,
-            endTime: endTime,
+            duration: duration,
             eventID: eventID,
             eventType: eventType,
             openToPublic: openToPublic,
@@ -94,11 +93,12 @@ class Event {
         final danceGenre = data['danceGenre'] ?? '';
         final danceMusic = data['danceMusic'] ?? [];
         final location = data['location'].toString() ?? '';
+        final duration = data['duration'] ?? 0;
         return ZumbaEvent(
             name: name,
             participants: participants,
             noOfParticipants: noOfParticipants,
-            endTime: endTime,
+            duration: duration,
             eventID: eventID,
             eventType: eventType,
             openToPublic: openToPublic,
@@ -121,7 +121,6 @@ class Event {
             name: name,
             participants: participants,
             noOfParticipants: noOfParticipants,
-            endTime: endTime,
             eventID: eventID,
             eventType: eventType,
             openToPublic: openToPublic,
@@ -141,7 +140,6 @@ class Event {
             name: name,
             participants: participants,
             noOfParticipants: noOfParticipants,
-            endTime: endTime,
             eventID: eventID,
             eventType: eventType,
             openToPublic: openToPublic,
@@ -173,7 +171,6 @@ class RunningEvent extends Event {
       String eventType,
       List participants,
       int noOfParticipants,
-      DateTime endTime,
       DateTime startTime,
       String eventID,
       bool openToPublic,
@@ -185,7 +182,6 @@ class RunningEvent extends Event {
             name: name,
             participants: participants,
             noOfParticipants: noOfParticipants,
-            endTime: endTime,
             eventID: eventID,
             eventType: eventType,
             openToPublic: openToPublic,
@@ -200,16 +196,17 @@ class RunningEvent extends Event {
 class GymmingEvent extends Event {
   List workout;
   String location;
+  double duration;
 
   GymmingEvent(
       {this.workout,
       this.location,
+      this.duration,
       String name,
       String creator,
       String eventType,
       List participants,
       int noOfParticipants,
-      DateTime endTime,
       DateTime startTime,
       String eventID,
       bool openToPublic,
@@ -221,7 +218,6 @@ class GymmingEvent extends Event {
             name: name,
             participants: participants,
             noOfParticipants: noOfParticipants,
-            endTime: endTime,
             eventID: eventID,
             eventType: eventType,
             openToPublic: openToPublic,
@@ -237,11 +233,13 @@ class ZumbaEvent extends Event {
   List danceMusic;
   String danceGenre;
   String location;
+  double duration;
 
   ZumbaEvent(
       {this.danceGenre,
       this.danceMusic,
       this.location,
+      this.duration,
       String name,
       String creator,
       String eventType,
@@ -259,7 +257,6 @@ class ZumbaEvent extends Event {
             name: name,
             participants: participants,
             noOfParticipants: noOfParticipants,
-            endTime: endTime,
             eventID: eventID,
             eventType: eventType,
             openToPublic: openToPublic,
