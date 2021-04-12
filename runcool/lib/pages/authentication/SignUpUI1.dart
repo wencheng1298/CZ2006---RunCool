@@ -47,81 +47,95 @@ class SignUpUI1State extends State<SignUpUI1> {
         child: BackgroundImage(
           child: Form(
             key: _formkey,
-            //margin: EdgeInsets.symmetric(vertical: 0.0, horizontal: 30),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.center,
-
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(top: 60, bottom: 60),
-                      child: Center(
-                        child: Text(
-                          'Sign Up!',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 36,
-                          ),
-                        ),
+              child: Column(children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(top: 60, bottom: 60),
+                  child: Center(
+                    child: Text(
+                      'Sign Up!',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 36,
                       ),
                     ),
-                    InputTextFormFill(
-                        // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                        obscure: false,
-                        text: 'EMAIL',
-                        onChange: (value) {
-                          setState(() {
-                            email = value;
-                          });
-                        }),
-                    SizedBox(height: 20),
-                    InputTextFormFill(
-                      obscure: true,
-                      text: 'PASSWORD',
-                      onChange: (value) {
-                        setState(() {
-                          password = value;
-                        });
-                      },
-                    ),
-                    SizedBox(height: 20),
-                    InputTextFormFill(
-                      obscure: true,
-                      text: 'CONFIRM PASSWORD',
-                      onChange: (value) {
-                        setState(() {
-                          password = value;
-                        });
-                      },
-                    ),
-                    SizedBox(height: 20),
-                    ButtonType1(
-                        text: 'Continue',
-                        onPress: () async {
-                          // if(_formkey.currentState.validate()){
-                          //   print(email);
-                          //   print(password);
-                          // // }
-                          // dynamic result = await _auth
-                          //     .registerWithEmailAndPassword(email, password);
-                          if (email == null || password == null) {
-                            setState(() {
-                              error = 'Invalid entry';
-                            });
-                          } else {
-                            goNextPage();
-                            // print(result.uid);
-                          }
-                        }),
-                    SizedBox(height: 12.0),
-                    Text(
-                      error,
-                      style: TextStyle(color: Colors.red, fontSize: 14.0),
-                    ),
+                  ),
+                ),
+                InputTextFormFill(
+                    validate: (value) {
+                      Pattern pattern =
+                          r"^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+                          r"{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]"
+                          r"{0,253}[a-zA-Z0-9])?)*$";
+                      RegExp regex = new RegExp(pattern);
+                      if (!regex.hasMatch(value) || value == null)
+                        return 'Enter a valid email address';
+                      else
+                        return null;
+                    },
+                    obscure: false,
+                    text: 'EMAIL',
+                    onChange: (value) {
+                      setState(() {
+                        email = value;
+                      });
+                    }),
+                SizedBox(height: 5),
+                InputTextFormFill(
+                    obscure: true,
+                    text: 'PASSWORD',
+                    onChange: (value) {
+                      setState(() {
+                        password = value;
+                      });
+                    },
+                    validate: (val) {
+                      if (val.isEmpty) {
+                        return "Enter a password";
+                      } else if (val.length < 8) {
+                        return 'Enter a password with at least 8 characters';
+                      } else {
+                        return null;
+                      }
+                    }),
 
-                    //=> goNextPage(), text: 'Sign up!'
-                  ]
+                SizedBox(height: 5),
+                InputTextFormFill(
+                    obscure: true,
+                    text: 'CONFIRM PASSWORD',
+                    validate: (val) => val == password
+                        ? null
+                        : 'This does not match with the password you entered.'
+                    // onChange: (value) {
+                    //   setState(() {
+                    //     password = value;
+                    //   });
+                    // },
+                    ),
+                SizedBox(height: 20),
+                ButtonType1(
+                    text: 'Continue',
+                    onPress: () async {
+                      if (_formkey.currentState.validate()) {
+                        goNextPage();
+                      }
+                      // setState(() {
+                      //   error = 'Invalid entry';
+                      // });
+                      // } else {
+                      //   goNextPage();
+                      //   // print(result.uid);
+                      // }
+                    }),
+                SizedBox(height: 12.0),
+                Text(
+                  error,
+                  style: TextStyle(color: Colors.red, fontSize: 14.0),
+                ),
+
+                //=> goNextPage(), text: 'Sign up!'
+              ]
 
                   // TextFormField(
                   //   onChanged: (value) {

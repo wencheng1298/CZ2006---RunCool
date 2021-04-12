@@ -30,9 +30,6 @@ class ProfileManager {
     try {
       dynamic user =
           await authManager.registerWithEmailAndPassword(email, password);
-      if (user.runtimeType == String) {
-        return user;
-      }
 
       Map<String, dynamic> data =
           profileDetails.map((key, value) => MapEntry(key.toString(), value));

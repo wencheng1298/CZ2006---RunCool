@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../utils/everythingUtils.dart';
 import 'package:runcool/firebase/AuthenticationManager.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ResetScreen extends StatefulWidget {
   @override
@@ -42,7 +41,8 @@ class _ResetScreenState extends State<ResetScreen> {
                   // mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     InputTextFormFill(
-                        // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                        validate: (value) =>
+                            value.isEmpty ? 'Enter an email' : null,
                         obscure: false,
                         text: 'EMAIL',
                         onChange: (value) {
@@ -50,69 +50,36 @@ class _ResetScreenState extends State<ResetScreen> {
                             email = value;
                           });
                         }),
-
                     SizedBox(height: 20),
                     ButtonType1(
                         text: 'Reset now',
                         onPress: () async {
-                          // if(_formkey.currentState.validate()){
-                          //   print(email);
-                          //   print(password);
-                          // }
-                          dynamic result = await AuthenticationManager()
-                              .forgetPassword(email);
-                          String err;
-                          if (result == null) {
-                            err =
-                                "Could not send reset email. Ensure the email provided corresponds to a valid user.";
-                          } else {
-                            err = "email sent to ${email} to reset password.";
-                            color = Colors.green;
-                          }
                           setState(() {
-                            error = err;
+                            error = '';
                           });
-                          // await _auth.sendPasswordResetEmail(email: email);
-                          // Navigator.of(context).pop();
+                          if (_formkey.currentState.validate()) {
+                            dynamic result = await AuthenticationManager()
+                                .forgetPassword(email);
+                            String err;
+                            if (result == null) {
+                              err =
+                                  "Could not send reset email. Ensure the email provided corresponds to a valid user.";
+                            } else {
+                              err = "email sent to ${email} to reset password.";
+                              color = Colors.green;
+                            }
+                            setState(() {
+                              error = err;
+                            });
+                          }
                         }),
                     SizedBox(height: 12.0),
                     Text(
                       error,
+                      textAlign: TextAlign.center,
                       style: TextStyle(color: color, fontSize: 14.0),
                     ),
-
-                    //=> goNextPage(), text: 'Sign up!'
-                  ]
-
-                  // TextFormField(
-                  //   onChanged: (value) {
-                  //     setState(() {
-                  //       email = value;
-                  //     });
-                  //   },
-                  // ),
-                  // TextFormField(
-                  //   decoration: InputDecoration(labelText: 'password'),
-                  //   obscureText: true,
-                  //   onChanged: (value) {
-                  //     setState(() {
-                  //       password = value;
-                  //     });
-                  //   },
-                  // ),
-                  // InputTextField1(
-                  //   text: 'EMAIL',
-                  //   onChange: (value) => credentials['email'] = value,
-                  // ),
-                  // SizedBox(height: 20),
-                  // InputTextField1(
-                  //   text: 'PASSWORD',
-                  //   onChange: (value) => credentials['password'] = value,
-                  //  ),
-                  // SizedBox(height: 20),
-                  // InputTextField1(text: 'PASSWORD CONFIRM'),
-
-                  ),
+                  ]),
             ),
           ),
         ),

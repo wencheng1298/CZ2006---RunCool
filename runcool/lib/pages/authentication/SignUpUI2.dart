@@ -29,12 +29,8 @@ class SignUpUI2State extends State<SignUpUI2> {
   String _imageSource;
 
   void goNextPage() async {
-    // final user = await Authentication()
-    //     .signUp(widget.credentials['email'], widget.credentials['password']);
-    // if (user != null) {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => SignUpSuccessUI()));
-    // }
   }
 
   void createProfile(Map profileDetails) {
@@ -58,252 +54,265 @@ class SignUpUI2State extends State<SignUpUI2> {
     });
   }
 
-  bool loading = false;
+  List<String> genderLevels = ["Others", 'Male', 'Female'];
+  List<String> regionLevels = [
+    "Central",
+    "East",
+    "North",
+    "North-East",
+    "West"
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return loading
-        ? Loading()
-        : Scaffold(
-            resizeToAvoidBottomInset: false,
-            appBar: AppBar(
-              backgroundColor: Colors.black,
-              centerTitle: true,
-              title: Text(
-                'Sign Up',
-                style: TextStyle(color: Colors.white),
-                textAlign: TextAlign.center,
-              ),
-              leading: IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ),
-            body: BackgroundImage(
-              child: Container(
-                height: MediaQuery.of(context).size.height,
-                child: Form(
-                  key: _formkey,
-                  child: ListView(
-                    children: <Widget>[
-                      SizedBox(height: 30),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
-                        child: Container(
-                          child: Text(
-                            'Help us create your chase profile before we successfully sign you up!',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 20,
-                            ),
-                          ),
-                        ),
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      appBar: AppBar(
+        backgroundColor: Colors.black,
+        centerTitle: true,
+        title: Text(
+          'Sign Up',
+          style: TextStyle(color: Colors.white),
+          textAlign: TextAlign.center,
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+      ),
+      body: BackgroundImage(
+        child: Container(
+          height: MediaQuery.of(context).size.height,
+          child: Form(
+            key: _formkey,
+            child: ListView(
+              children: <Widget>[
+                SizedBox(height: 30),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, right: 20),
+                  child: Container(
+                    child: Text(
+                      'Help us create your chase profile before we successfully sign you up!',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
                       ),
-                      SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: InputTextFormFill(
-                          // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                          obscure: false,
-                          text: 'Name',
-
-                          onChange: (val) {
-                            profileDetails['name'] = val;
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: InputTextFormFill(
-                          // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                          obscure: false,
-                          text: 'age',
-                          onChange: (val) {
-                            profileDetails['age'] = val;
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: InputTextFormFill(
-                          // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                          obscure: false,
-                          text: 'Gender',
-
-                          onChange: (val) {
-                            profileDetails['gender'] = val;
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: InputTextFormFill(
-                          // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                          obscure: false,
-                          text: 'Hobbies',
-                          onChange: (val) {
-                            profileDetails['hobbies'] = val;
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: InputTextFormFill(
-                          // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                          obscure: false,
-                          text: 'Region',
-                          onChange: (val) {
-                            profileDetails['region'] = val;
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: InputTextFormFill(
-                          // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                          obscure: false,
-                          text: 'Occupation',
-                          onChange: (val) {
-                            profileDetails['occupation'] = val;
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: InputTextFormFill(
-                          //validator: (value) =>
-                          //   value.isEmpty ? 'Enter an email' : null,
-                          obscure: false,
-                          text: 'Instagram Handle',
-                          onChange: (val) {
-                            profileDetails['instagram'] = val;
-                          },
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 10, left: 10, right: 10),
-                        child: InputTextFormFill(
-                            // validator:(value)=> value.isEmpty?'Enter an email' :null,
-                            obscure: false,
-                            text: 'Bio',
-                            onChange: (value) {
-                              profileDetails['bio'] = value;
-                            }),
-                        //autofocus: false,
-                        //keyboardType: TextInputType.multiline,
-                        //minLines: 3,
-                        //maxLines: 10,
-                        //style: TextStyle(color: Colors.white),
-                        //decoration: InputDecoration(
-                        // filled: true,
-                        // fillColor: Colors.grey[800].withOpacity(0.5),
-                        //contentPadding:
-                        //   EdgeInsets.only(left: 14, bottom: 8, top: 8),
-                        //focusedBorder: OutlineInputBorder(
-                        // borderSide: BorderSide(color: kTurquoise, width: 2),
-                        // borderRadius: BorderRadius.circular(20),
-                        // ),
-                        //enabledBorder: OutlineInputBorder(
-                        // borderSide: BorderSide(color: kTurquoise, width: 2),
-                        //borderRadius: BorderRadius.circular(20),
-                        // ),
-                        //  hintText: "Bio",
-                        // hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(14),
-                        child: Text(
-                          "Upload Profile Pic",
-                          style: TextStyle(color: Colors.white, fontSize: 24),
-                        ),
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          getImage();
-                        },
-                        child: Center(
-                          child: CircleAvatar(
-                              radius: 55,
-                              backgroundColor: Colors.grey[800],
-                              backgroundImage: _image != null
-                                  ? Image.file(_image).image
-                                  : null,
-                              child: PopupMenuButton(
-                                itemBuilder: (context) => [
-                                  PopupMenuItem(
-                                      child: Text("Take a picture"),
-                                      value: "camera"),
-                                  PopupMenuItem(
-                                      child: Text("Upload from gallery"),
-                                      value: "gallery")
-                                ],
-                                child: Icon(
-                                  Icons.camera_enhance_rounded,
-                                  size: 35,
-                                ),
-                                onSelected: (result) {
-                                  setState(() {
-                                    _imageSource = result;
-                                  });
-                                  getImage();
-                                },
-                              )),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 30, left: 10, right: 10, bottom: 20),
-                        child: ButtonType1(
-                            text: 'Create!',
-                            onPress: () async {
-                              // setState(() {
-                              //   loading = true;
-                              // });
-                              dynamic result = await profileManager.createUser(
-                                  profileDetails,
-                                  widget.email,
-                                  widget.password);
-                              print(result);
-                              if (result != "success") {
-                                if (result != null) {}
-                                setState(() {
-                                  error = result == null
-                                      ? "Something went wrong. Could not create account. Check all the details and try again."
-                                      : result;
-                                  // loading = false;
-                                });
-                              } else {
-                                goNextPage();
-                              }
-
-                              // if(_formkey.currentState.validate()){
-                              //   print(email);
-                              //   print(password);
-                              // }
-                              //
-                            }),
-
-                        // TinyButton(
-                        //     onPress: signUpAndGoNextPage,
-                        //     text: "Create",
-                        //     colour: kTurquoise),
-                      ),
-                      SizedBox(height: 12.0),
-                      Container(
-                        width: 300,
-                        child: Text(
-                          error,
-                          style: TextStyle(color: Colors.red, fontSize: 14.0),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
-              ),
+                SizedBox(height: 20),
+
+                // NAME
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  child: InputTextFormFill(
+                    validate: (val) {
+                      if (val.isEmpty) {
+                        return 'Your profile must have a name!';
+                      } else if (val.length < 5) {
+                        return 'your name must be at lease 5 characters long.';
+                      } else {
+                        return null;
+                      }
+                    },
+                    text: 'Name',
+                    onChange: (val) {
+                      profileDetails['name'] = val;
+                    },
+                  ),
+                ),
+
+                // AGE
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  child: InputTextFormFill(
+                    // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                    obscure: false,
+                    text: 'age',
+                    onChange: (val) {
+                      try {
+                        val = int.parse(val);
+                        profileDetails['age'] = val;
+                      } catch (error) {
+                        profileDetails['age'] = 0;
+                      }
+                    },
+                    validate: (val) {
+                      if (val.isEmpty) {
+                        return 'Your profile must have an age!';
+                      } else {
+                        try {
+                          val = int.parse(val);
+                          if (val > 100 || val < 10) {
+                            return "age must be within 10 and 100";
+                          } else {
+                            return null;
+                          }
+                        } catch (e) {
+                          return "Enter a valid number.";
+                        }
+                      }
+                    },
+                  ),
+                ),
+
+                //GENDER
+                Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    child: DropdownFormFill(
+                      value: profileDetails['gender'],
+                      onChange: (newChoice) {
+                        setState(() {
+                          profileDetails['gender'] = newChoice;
+                        });
+                      },
+                      items: genderLevels,
+                      text: "Gender",
+                      validate: (val) =>
+                          val == null ? 'Choose your gender' : null,
+                    )),
+
+                // HOBBIES
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  child: InputTextFormFill(
+                    obscure: false,
+                    text: 'Hobbies',
+                    onChange: (val) {
+                      profileDetails['hobbies'] = val;
+                    },
+                  ),
+                ),
+
+                // REGION
+                Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                    child: DropdownFormFill(
+                      value: profileDetails['region'],
+                      onChange: (newChoice) {
+                        setState(() {
+                          profileDetails['region'] = newChoice;
+                        });
+                      },
+                      items: regionLevels,
+                      text: "Region",
+                    )),
+
+                // OCCUPATION
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  child: InputTextFormFill(
+                    obscure: false,
+                    text: 'Occupation',
+                    onChange: (val) {
+                      profileDetails['occupation'] = val;
+                    },
+                  ),
+                ),
+
+                // INSTA
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  child: InputTextFormFill(
+                    //validator: (value) =>
+                    //   value.isEmpty ? 'Enter an email' : null,
+                    obscure: false,
+                    text: 'Instagram Handle',
+                    onChange: (val) {
+                      profileDetails['instagram'] = val;
+                    },
+                  ),
+                ),
+
+                // BIO
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  child: InputTextFormFill(
+                      // validator:(value)=> value.isEmpty?'Enter an email' :null,
+                      obscure: false,
+                      text: 'Bio',
+                      onChange: (value) {
+                        profileDetails['bio'] = value;
+                      }),
+                ),
+
+                // PICTURE
+                Padding(
+                  padding: const EdgeInsets.all(14),
+                  child: Text(
+                    "Upload Profile Pic",
+                    style: TextStyle(color: Colors.white, fontSize: 24),
+                  ),
+                ),
+                Center(
+                  child: CircleAvatar(
+                      radius: 55,
+                      backgroundColor: Colors.grey[800],
+                      backgroundImage:
+                          _image != null ? Image.file(_image).image : null,
+                      child: PopupMenuButton(
+                        itemBuilder: (context) => [
+                          PopupMenuItem(
+                              child: Text("Take a picture"), value: "camera"),
+                          PopupMenuItem(
+                              child: Text("Upload from gallery"),
+                              value: "gallery")
+                        ],
+                        child: Icon(
+                          Icons.camera_enhance_rounded,
+                          size: 35,
+                        ),
+                        onSelected: (result) {
+                          setState(() {
+                            _imageSource = result;
+                          });
+                          getImage();
+                        },
+                      )),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 30, left: 10, right: 10, bottom: 0),
+                  child: ButtonType1(
+                      text: 'Create!',
+                      onPress: () async {
+                        setState(() {
+                          error = '';
+                        });
+                        if (_formkey.currentState.validate()) {
+                          dynamic result = await profileManager.createUser(
+                              profileDetails, widget.email, widget.password);
+                          print("result is");
+                          print(result);
+                          if (result == null) {
+                            setState(() {
+                              error =
+                                  "Something went wrong. Could not create account. Check all the details and try again.";
+                            });
+                          } else {
+                            goNextPage();
+                          }
+                        }
+                      }),
+                ),
+                // SizedBox(height: 12.0),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  child: Text(
+                    error,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.red, fontSize: 14.0),
+                  ),
+                ),
+              ],
             ),
-          );
+          ),
+        ),
+      ),
+    );
   }
 }

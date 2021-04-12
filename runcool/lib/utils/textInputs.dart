@@ -91,34 +91,110 @@ class InputTextFormFillState extends State<InputTextFormFill> {
     borderSide: BorderSide(color: kTurquoise, width: 2),
     borderRadius: BorderRadius.circular(15),
   );
+  final errBorder = OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.red, width: 2),
+    borderRadius: BorderRadius.circular(15),
+  );
   @override
   Widget build(BuildContext context) {
     return Theme(
       data: Theme.of(context).copyWith(splashColor: Colors.transparent),
       child: Container(
-        height: widget.height ?? 70,
+        height: widget.height ?? 65,
         child: TextFormField(
-          validator: widget.validate,
+          validator: widget.validate ?? (val) => null,
           onChanged: widget.onChange,
           keyboardType: TextInputType.streetAddress,
           style: TextStyle(color: Colors.white),
-          obscureText: widget.obscure,
+          obscureText: widget.obscure ?? false,
           decoration: InputDecoration(
             helperText: '',
-            helperStyle: TextStyle(fontSize: 13, height: 0.1),
+            helperStyle: TextStyle(fontSize: 13, height: 0.6),
             filled: true,
             fillColor: Colors.grey[800].withOpacity(0.5),
             contentPadding: EdgeInsets.only(left: 14, bottom: 8, top: 8),
             focusedBorder: border,
             enabledBorder: border,
-            errorBorder: border,
-            focusedErrorBorder: border,
+            errorBorder: errBorder,
+            focusedErrorBorder: errBorder,
             hintText: widget.text ?? '',
             hintStyle: TextStyle(color: Colors.grey, fontSize: 15),
             errorStyle: TextStyle(fontSize: 13.0, height: 0.6),
           ),
         ),
       ),
+    );
+  }
+}
+
+class DropdownFormFill extends StatefulWidget {
+  final String value;
+  final Function onChange;
+  final double height;
+  final Function validate;
+  final List items;
+  final String text;
+
+  DropdownFormFill(
+      {this.value,
+      this.onChange,
+      this.height,
+      this.validate,
+      this.items,
+      this.text});
+  @override
+  _DropdownFormFillState createState() => _DropdownFormFillState();
+}
+
+class _DropdownFormFillState extends State<DropdownFormFill> {
+  final border = OutlineInputBorder(
+    borderSide: BorderSide(color: kTurquoise, width: 2),
+    borderRadius: BorderRadius.circular(15),
+  );
+  final errBorder = OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.red, width: 2),
+    borderRadius: BorderRadius.circular(15),
+  );
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButtonFormField(
+      validator: widget.validate ?? (val) => null,
+      decoration: InputDecoration(
+        helperText: '',
+        helperStyle: TextStyle(fontSize: 13, height: 0.6),
+        filled: true,
+        fillColor: Colors.grey[800].withOpacity(0.5),
+        contentPadding: EdgeInsets.only(left: 16, bottom: 8, top: 8, right: 16),
+        focusedBorder: border,
+        enabledBorder: border,
+        errorBorder: errBorder,
+        focusedErrorBorder: errBorder,
+        errorStyle: TextStyle(fontSize: 13.0, height: 0.6),
+      ),
+      dropdownColor: Colors.grey[800].withOpacity(0.9),
+      icon: Icon(
+        Icons.arrow_drop_down_circle_outlined, color: Colors.white38,
+        // color: Colors.white,
+      ),
+      iconSize: 26,
+      isExpanded: true,
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 17,
+      ),
+      value: widget.value,
+      hint: Text(
+        widget.text ?? '--none--',
+        style: TextStyle(color: Colors.grey, fontSize: 15),
+      ),
+      onChanged: widget.onChange,
+      items: widget.items.map((choice) {
+        return DropdownMenuItem(
+            value: choice,
+            child: Text(
+              choice,
+            ));
+      }).toList(),
     );
   }
 }

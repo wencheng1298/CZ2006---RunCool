@@ -31,8 +31,6 @@ class AuthenticationManager {
     try {
       UserCredential result = await _auth.signInWithEmailAndPassword(
           email: email, password: password);
-      // User user = result.user;
-      // return _userFromFirebaseUser(user);
 
       return "success";
     } catch (error) {
