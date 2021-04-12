@@ -29,24 +29,6 @@ class Event {
       this.openToPublic,
       this.participants,
       this.startTime});
-  // factory Event.fromFirestore(DocumentSnapshot doc) {
-  //   Map data = doc.data();
-  //   // AppUser creator = ProfileManager().getUserFromID(data['creator']);
-  //   return Event(
-  //       eventType: data['eventType'] ?? 'Running',
-  //       name: data['name'] ?? '',
-  //       creator: data['creator'] ?? '',
-  //       eventID: doc.id,
-  //       participants: data['participants'] ?? [],
-  //       announcements: data['announcements'] ?? [],
-  //       startTime: data['startTime'] ?? null,
-  //       endTime: data['endTime'] ?? null,
-  //       noOfParticipants: data['noOfParticipants'] ?? 8,
-  //       difficulty: data['difficulty'] ?? '',
-  //       description: data['description'] ?? '',
-  //       deleted: data['deleted'] ?? false,
-  //       openToPublic: data['openToPublic'] ?? true);
-  // }
 
   factory Event.fromFirestore(DocumentSnapshot doc) {
     Map data = doc.data();
@@ -59,9 +41,6 @@ class Event {
     final startTime = (data['startTime'] != null)
         ? data['startTime'].toDate().add(Duration(hours: 8))
         : null;
-    // final endTime = (data['endTime'] != null)
-    //     ? data['endTime'].toDate().add(Duration(hours: 8))
-    //     : null;
     final noOfParticipants = data['noOfParticipants'] ?? 8;
     final difficulty = data['difficulty'] ?? '';
     final description = data['description'] ?? '';

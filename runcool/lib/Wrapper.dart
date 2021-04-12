@@ -19,8 +19,8 @@ class Wrapper extends StatelessWidget {
     // print(user);
     if (user == null) {
       return LogInUI();
-    } else if (!user.emailVerified) {
-      return Verification();
+      // } else if (!user.emailVerified) {
+      //   return Verification();
     } else {
       // return Verification();
       return RuncoolNavBar();

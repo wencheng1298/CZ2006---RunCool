@@ -29,37 +29,10 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="added email Verification">
+    <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="added validation for login page">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/Wrapper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/Wrapper.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/EventManagers/EventManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/firebase/EventManagers/EventManager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/ProfileManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/firebase/ProfileManager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/Service/auth.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/firebase/AuthenticationManager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/Service/database.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/authenticationManager.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/friendManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/firebase/FriendManager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/notificationManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/firebase/NotificationManager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/models/Event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/models/Event.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/models/User.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/models/User.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/Events/EventPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/Events/EventPage.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/HomePageUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/HomePageUI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/NotificationUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/NotificationUI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/ProfileUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/ProfileUI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/ProfileUI1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/profile/ProfileUI1.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SettingsUI/SettingsUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/SettingsUI/SettingsUI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/ForgotPasswordUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/authentication/ForgotPasswordUI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/LogIn.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/authentication/LogIn.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/SignUpSuccessUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/authentication/SignUpSuccessUI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/SignUpUI1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/authentication/SignUpUI1.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/SignUpUI2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/authentication/SignUpUI2.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SignUpUI/Verification.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/authentication/Verification.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/inviteFriendList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/inviteFriendList.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/notificationDependancies/notificationCards.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/notificationDependancies/notificationCards.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/notificationDependancies/notificationsWrap.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/notificationDependancies/notificationsWrap.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/profile/FriendCard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/profile/FriendCard.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/profile/profileList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/profile/profileList.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/utils/textInputs.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/textInputs.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +250,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618161608024</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="added validation for login page">
+      <created>1618207024399</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1618207024399</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -323,7 +303,8 @@
     <MESSAGE value="removed parent widget error" />
     <MESSAGE value="announcements" />
     <MESSAGE value="added email Verification" />
-    <option name="LAST_COMMIT_MESSAGE" value="added email Verification" />
+    <MESSAGE value="added validation for login page" />
+    <option name="LAST_COMMIT_MESSAGE" value="added validation for login page" />
   </component>
   <component name="WindowStateProjectService">
     <state x="121" y="0" key="#Project_Structure" timestamp="1616753566681">
@@ -403,18 +384,18 @@
     <state x="0" y="0" key="SettingsEditor/0.0.1094.690@0.0.1094.690" timestamp="1615797736072" />
     <state x="277" y="85" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617991706623" />
     <state x="0" y="0" key="SettingsEditor/0.0.912.568@0.0.912.568" timestamp="1615391298134" />
-    <state x="207" y="129" key="Vcs.Push.Dialog.v2" timestamp="1618161611917">
+    <state x="207" y="129" key="Vcs.Push.Dialog.v2" timestamp="1618207033651">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-7" y="52" key="Vcs.Push.Dialog.v2/0.0.1094.690@0.0.1094.690" timestamp="1615899868818" />
     <state x="184" y="136" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1616408594636" />
-    <state x="207" y="129" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1618161611917" />
-    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618161585438">
+    <state x="207" y="129" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1618207033651" />
+    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618207646123">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="412" y="296" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1094.690@0.0.1094.690" timestamp="1615899967894" />
     <state x="515" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1368.872@0.0.1368.872" timestamp="1616578754004" />
-    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1618161585438" />
+    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1618207646123" />
     <state x="198" y="-2" width="1133" height="984" key="search.everywhere.popup" timestamp="1617871833343">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
