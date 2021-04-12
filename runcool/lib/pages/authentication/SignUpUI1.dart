@@ -30,7 +30,7 @@ class SignUpUI1State extends State<SignUpUI1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         backgroundColor: Colors.black,
         title: Text('Sign Up'),

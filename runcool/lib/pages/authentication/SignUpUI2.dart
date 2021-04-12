@@ -66,7 +66,7 @@ class SignUpUI2State extends State<SignUpUI2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         backgroundColor: Colors.black,
         centerTitle: true,
