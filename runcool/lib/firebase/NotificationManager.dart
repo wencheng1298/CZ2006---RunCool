@@ -114,7 +114,7 @@ class NotificationManager {
   Future<String> notifyEventUpdate(event, bool deleted) async {
     // DocumentSnapshot eventSnapshot = await eventRef.get();
     // final event = eventSnapshot.data();
-    var participants = List.from(event["participants"] ?? []);
+    var participants = List.from(event.participants ?? []);
 
     for (var participant in participants) {
       QuerySnapshot docs = await notifCollection
@@ -125,7 +125,7 @@ class NotificationManager {
       if (docs.size == 0) {
         createNotification({
           "notificationType": "Event Update",
-          "event": event.eventID,
+          "event": event.name,
           "noOfMessages": 0,
           "eventUpdated": deleted ? "deleted" : "updated"
         }, participant);

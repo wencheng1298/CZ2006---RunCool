@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
-import 'package:runcool/firebase/ProfileManager.dart';
+import 'package:runcool/firebase/NotificationManager.dart';
 import 'package:runcool/utils/GoogleMapPlacement.dart';
 import '../../utils/EventTextDetails.dart';
 import '../profile/ProfileUI1.dart';
@@ -16,6 +16,7 @@ import 'package:runcool/models/User.dart';
 import 'package:provider/provider.dart';
 import './../../firebase/EventManagers/EventManager.dart';
 import './../eventDisplayDependancies/inviteFriendList.dart';
+import 'EventDeletedSuccessUI.dart';
 
 class EventPage extends StatefulWidget {
   // final dynamic event;
@@ -527,7 +528,18 @@ class _EventPageState extends State<EventPage> {
                             padding: const EdgeInsets.all(10.0),
                             child: (viewStatus == 'creator')
                                 ? ButtonType1(
-                                    onPress: () {},
+                                    onPress: () async {
+                                      setState() {
+                                        viewStatus = null;
+                                      }
+
+                                      await EventManager().deleteEvent(event);
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  (EventDeletedSuccessUI())));
+                                    },
                                     text: "Delete Event",
                                   )
                                 : (viewStatus == 'participant')

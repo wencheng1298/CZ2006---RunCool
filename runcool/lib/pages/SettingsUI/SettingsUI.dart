@@ -46,17 +46,17 @@ class _SettingsUIState extends State<SettingsUI> {
             children: [
               SizedBox(height: 60),
               InputTextField1(text: 'Current password'),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               InputTextFormFill(
                 obscure: true,
-                text: 'New PASSWORD',
+                text: 'New password',
                 onChange: (value) {
                   setState(() {
                     password = value;
                   });
                 },
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 5),
               InputTextFormFill(
                 obscure: true,
                 text: 'Reconfirm new password',
@@ -66,18 +66,16 @@ class _SettingsUIState extends State<SettingsUI> {
                   });
                 },
               ),
-              SizedBox(height: 15),
+              SizedBox(height: 20),
               ButtonType1(
                   text: 'Update password',
                   onPress: () async {
                     await user.updatePassword(password);
-                    // setState(() {
-                    //   response= 'password changed';
-                    // });
-                    LogIn();
+                    Phoenix.rebirth(context);
+                    // LogIn();
                   }),
 
-              SizedBox(height: 30),
+              SizedBox(height: 20),
               ButtonType1(
                 text: 'Log Out',
                 colour: Colors.red,

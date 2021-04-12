@@ -32,6 +32,7 @@ class Event {
 
   factory Event.fromFirestore(DocumentSnapshot doc) {
     Map data = doc.data();
+    if (data == null) return null;
     final eventType = data['eventType'] ?? null;
     final name = data['name'] ?? '';
     final creator = data['creator'] ?? '';
@@ -51,7 +52,7 @@ class Event {
       case 'Gymming':
         final workout = data['workout'] ?? [];
         final location = data['location'].toString();
-        final duration = data['duration'] ?? 0;
+        final duration = data['duration'] ?? 0.0;
         return GymmingEvent(
             name: name,
             participants: participants,
@@ -72,7 +73,7 @@ class Event {
         final danceGenre = data['danceGenre'] ?? '';
         final danceMusic = data['danceMusic'] ?? [];
         final location = data['location'].toString() ?? '';
-        final duration = data['duration'] ?? 0;
+        final duration = data['duration'] ?? 0.0;
         return ZumbaEvent(
             name: name,
             participants: participants,
@@ -95,7 +96,7 @@ class Event {
         final startLocation = data['startLocation'].toString() ?? '';
         final endLocation = data['endLocation'].toString() ?? '';
         final estDistance = data['estDistance'] ?? '';
-        final pace = data['pace'] ?? '';
+        final pace = data['pace'] ?? 0.0;
         return RunningEvent(
             name: name,
             participants: participants,

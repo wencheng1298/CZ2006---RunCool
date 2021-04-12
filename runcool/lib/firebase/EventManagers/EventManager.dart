@@ -35,6 +35,11 @@ class EventManager {
     });
   }
 
+  Future deleteEvent(event) async {
+    await events.doc(event.eventID).delete();
+    await NotificationManager().notifyEventUpdate(event, true);
+  }
+
   List<Widget> getAnnouncements(List announcements) {
     // if announcements.isEmpty
     announcements.sort(

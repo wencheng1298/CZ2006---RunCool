@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
 import './../utils/everythingUtils.dart';
 import './SettingsUI/SettingsUI.dart';
-import './SettingsUI/EditProfileUI.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:runcool/models/User.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:runcool/models/User.dart';
 import 'package:provider/provider.dart';
 import 'profile/profileList.dart';
 
@@ -16,20 +12,7 @@ class GetUserName extends StatelessWidget {
   GetUserName(this.documentId);
 
   @override
-  Widget build(BuildContext context) {
-    //final user = Provider.of<User>(context);
-    // CollectionReference users = FirebaseFirestore.instance.collection('users');
-
-    // return FutureBuilder<DocumentSnapshot>(
-    //   future: users.doc(documentId).get(),
-    //   builder:
-    //       (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
-    //     if (snapshot.hasError) {
-    //       return Text("Something went wrong");
-    //     }
-    //
-    //     if (snapshot.connectionState == ConnectionState.done) {
-  }
+  Widget build(BuildContext context) {}
 }
 
 class ProfileUI extends StatefulWidget {
@@ -72,10 +55,10 @@ class ProfileUIState extends State<ProfileUI> {
         context, MaterialPageRoute(builder: (context) => SettingsUI()));
   }
 
-  void edit() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => EditProfileUI()));
-  }
+  // void edit() {
+  //   Navigator.push(
+  //       context, MaterialPageRoute(builder: (context) => EditProfileUI()));
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -85,26 +68,25 @@ class ProfileUIState extends State<ProfileUI> {
         ? Loading()
         : Scaffold(
             appBar: AppBar(
-                leading: IconButton(
-                  icon: Icon(Icons.settings),
-                  onPressed: () => settings(),
-                ),
-                backgroundColor: Colors.black,
-                centerTitle: true,
-                title: Text(
-                  'Profile',
-                  style: TextStyle(color: Colors.white),
-                  textAlign: TextAlign.center,
-                ),
-                actions: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(right: 20.0),
-                    child: IconButton(
-                        icon: Icon(Icons.edit), onPressed: () => edit()),
-                  ),
-
-                  //leading: Container(),
-                ]),
+              leading: IconButton(
+                icon: Icon(Icons.settings),
+                onPressed: () => settings(),
+              ),
+              backgroundColor: Colors.black,
+              centerTitle: true,
+              title: Text(
+                'Profile',
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+              // actions: <Widget>[
+              //   Padding(
+              //     padding: EdgeInsets.only(right: 20.0),
+              //     child: IconButton(
+              //         icon: Icon(Icons.edit), onPressed: () => edit()),
+              //   ),
+              // ],
+            ),
             body: BackgroundImage(
               child: ProfileList(
                 user: user,

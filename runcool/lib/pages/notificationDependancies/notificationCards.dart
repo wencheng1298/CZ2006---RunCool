@@ -190,68 +190,90 @@ class EventUpdateCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: MediaQuery.of(context).size.width,
       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
       margin: EdgeInsets.only(top: 10),
       decoration: BoxDecoration(
         color: Colors.black,
         borderRadius: BorderRadius.all(Radius.circular(5)),
       ),
-      child: StreamBuilder<dynamic>(
-          stream: EventManager().getEventData(eventNotification.event),
-          builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              var event = snapshot.data;
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      GestureDetector(
-                        child: Text(
-                          event.name,
-                          style: TextStyle(
-                              color: Colors.white, fontSize: mainFontSize),
-                        ),
-                        onTap: () {
-                          print('event name in update pressed!');
-                        },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          eventNotification.eventUpdated == "deleted"
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8),
+                      child: Text(
+                        eventNotification.event,
+                        style: TextStyle(
+                            color: Colors.white, fontSize: mainFontSize),
                       ),
-                      TinyButton(
-                          text: 'View',
-                          colour: Colors.white,
-                          onPress: () {
-                            notifManager.deleteNotification(eventNotification);
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        EventPage(eventID: event.eventID)));
-                          })
-                    ],
-                  ),
-                  eventNotification.noOfMessages == null
-                      ? Container()
-                      : Text(
-                          eventNotification.noOfMessages.toString() +
-                              " new messages!",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(color: Colors.redAccent),
-                        ),
-                  SizedBox(height: 5),
-                  eventNotification.eventUpdated == "none"
-                      ? Container()
-                      : Text(
-                          "Event ${eventNotification.eventUpdated} by creator!",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(color: Colors.green),
-                        ),
-                ],
-              );
-            } else {
-              return Loading();
-            }
-          }),
+                    ),
+                    TinyButton(
+                        text: 'Delete',
+                        colour: Colors.white,
+                        onPress: () {
+                          notifManager.deleteNotification(eventNotification);
+                        }),
+                    // Container(),
+                  ],
+                )
+              : StreamBuilder<dynamic>(
+                  stream: EventManager().getEventData(eventNotification.event),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      var event = snapshot.data;
+                      return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GestureDetector(
+                            child: Text(
+                              event.name,
+                              style: TextStyle(
+                                  color: Colors.white, fontSize: mainFontSize),
+                            ),
+                            onTap: () {
+                              print('event name in update pressed!');
+                            },
+                          ),
+                          TinyButton(
+                              text: 'View',
+                              colour: Colors.white,
+                              onPress: () {
+                                notifManager
+                                    .deleteNotification(eventNotification);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            EventPage(eventID: event.eventID)));
+                              })
+                        ],
+                      );
+                    } else {
+                      return Loading();
+                    }
+                  }),
+          eventNotification.noOfMessages == 0
+              ? Container()
+              : Text(
+                  eventNotification.noOfMessages.toString() + " new messages!",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(color: Colors.redAccent),
+                ),
+          SizedBox(height: 5),
+          eventNotification.eventUpdated == "none"
+              ? Container()
+              : Text(
+                  "Event ${eventNotification.eventUpdated} by creator!",
+                  textAlign: TextAlign.left,
+                  style: TextStyle(color: Colors.green),
+                ),
+        ],
+      ),
     );
   }
 }
