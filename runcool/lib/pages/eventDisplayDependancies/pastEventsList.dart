@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import './../../models/Event.dart';
 import './../../utils/everythingUtils.dart';
-import './../Events/EventPage.dart';
+import '../EventPage.dart';
 import './../../models/User.dart';
 
 class PastEventsList extends StatefulWidget {

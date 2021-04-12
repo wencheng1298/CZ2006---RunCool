@@ -1,18 +1,14 @@
 // Still in testing
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:runcool/firebase/NotificationManager.dart';
-import 'package:runcool/pages/Events/EventPage.dart';
-import '../../models/Event.dart';
+import 'package:runcool/controllers/NotificationManager.dart';
+import 'package:runcool/pages/EventPage.dart';
+import '../models/Event.dart';
 
 class EventManager {
-  final String uid;
-
-  EventManager({this.uid});
-
   CollectionReference events = FirebaseFirestore.instance.collection('events');
 
-  updateEvent(Map eventDetails) async {
+  createEvent(Map eventDetails) async {
     //Convert to Map<String, dynamic>
     Map<String, dynamic> data =
         eventDetails.map((key, value) => MapEntry(key.toString(), value));
@@ -61,17 +57,5 @@ class EventManager {
       "announcements": FieldValue.arrayUnion([announcement]),
     });
     await NotificationManager().notifyAnnouncement(eventRef, announcerID);
-  }
-
-  Stream<dynamic> getEventData(docID) {
-    return events.doc(docID).snapshots().map((doc) => Event.fromFirestore(doc));
-  }
-
-  Stream<List<dynamic>> getEvents() {
-    return events.snapshots().map((snapshot) {
-      return snapshot.docs.map((doc) {
-        return Event.fromFirestore(doc);
-      }).toList();
-    });
   }
 }

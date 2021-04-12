@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 import '../../utils/everythingUtils.dart';
 import './../../utils/everythingUtils.dart';
-import './SignUpUI2.dart';
-import 'package:runcool/firebase/AuthenticationManager.dart';
+import 'package:runcool/controllers/AuthenticationManager.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Verification extends StatelessWidget {

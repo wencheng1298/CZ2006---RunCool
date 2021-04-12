@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../../utils/everythingUtils.dart';
 import './../../utils/everythingUtils.dart';
 import './SignUpUI2.dart';
-import 'package:runcool/firebase/AuthenticationManager.dart';
+import 'package:runcool/controllers/AuthenticationManager.dart';
 
 class SignUpUI1 extends StatefulWidget {
   @override

@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:runcool/firebase/ProfileManager.dart';
 
 import 'HomePageUI.dart';
 import 'MyActivitiesUI.dart';
-import 'Events/ChooseEventUI.dart';
+import 'eventCreateDependancies/ChooseEventUI.dart';
 import 'NotificationUI.dart';
 import 'ProfileUI.dart';
 
 import 'package:provider/provider.dart';
 import '../models/User.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class RuncoolNavBar extends StatefulWidget {
   @override

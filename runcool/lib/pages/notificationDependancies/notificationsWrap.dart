@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:runcool/firebase/NotificationManager.dart';
+import 'package:runcool/controllers/NotificationManager.dart';
 import '../../utils/everythingUtils.dart';
 import 'package:provider/provider.dart';
-import '../../models/Notification.dart';
-import 'notificationCards.dart';
 
 class NotificationsWrap extends StatelessWidget {
   // final List<Widget> notifications;

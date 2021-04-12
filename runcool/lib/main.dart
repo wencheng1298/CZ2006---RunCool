@@ -1,32 +1,13 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:runcool/firebase/ProfileManager.dart';
-import 'package:runcool/pages/RuncoolNavBar.dart';
-import 'package:runcool/pages/authentication/LogIn.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:runcool/utils/GoogleMapsAppData.dart';
-import 'package:runcool/utils/GoogleMapsAppData.dart';
 import 'package:runcool/Wrapper.dart';
-import 'package:runcool/firebase/AuthenticationManager.dart';
+import 'package:runcool/controllers/AuthenticationManager.dart';
 import 'package:runcool/models/User.dart';
-
-//Required for routing to different UIs
-import './pages/HomePageUI.dart';
-import './pages/MyActivitiesUI.dart';
-import 'pages/Events/CreateEventUI.dart';
-import 'pages/Events/ChooseEventUI.dart'; //Temporary
-import './pages/NotificationUI.dart';
-import './pages/ProfileUI.dart';
-import './pages/authentication/LogIn.dart';
-import './pages/authentication/SignUpUI1.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
-// void main() {
-//   runApp(MyApp());
-// }
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -39,16 +20,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     User currUser = FirebaseAuth.instance.currentUser;
     String uid = (currUser == null) ? null : currUser.uid;
-    // print("From main page ${uid}");
-    // sleep(Duration(seconds: 10));
-    // print("From main page ${uid}");
 
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => GoogleMapsAppData()),
         StreamProvider<User>.value(value: AuthenticationManager().user),
-        // StreamProvider<AppUser>.value(
-        //     value: ProfileManager().getCurrentUserObject())
         StreamProvider<AppUser>.value(value: AppUser.getUserFromID(uid))
       ],
       child: MaterialApp(

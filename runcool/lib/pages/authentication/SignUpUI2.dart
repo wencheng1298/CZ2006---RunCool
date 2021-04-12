@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import './SignUpSuccessUI.dart';
 import './../../utils/everythingUtils.dart';
-import 'package:runcool/firebase/AuthenticationManager.dart';
-import 'package:runcool/firebase/ProfileManager.dart';
+import 'package:runcool/controllers/AuthenticationManager.dart';
+import 'package:runcool/controllers/ProfileManager.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
 class SignUpUI2 extends StatefulWidget {
-  // //SignUpUI2({this.profileDetails});
   final String email;
   final String password;
   SignUpUI2({@required this.email, @required this.password});
 
-  // final Map<String, String> credentials;
-  //
   @override
   SignUpUI2State createState() => SignUpUI2State();
 }

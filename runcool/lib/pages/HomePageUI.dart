@@ -1,12 +1,10 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:runcool/pages/FilterUI/SelectItemsFIlterUI.dart';
-import './../firebase/EventManagers/EventManager.dart';
+import './../controllers/EventManager.dart';
 import 'package:provider/provider.dart';
 import './../utils/everythingUtils.dart';
-import './../models/Event.dart';
 import './eventDisplayDependancies/eventsForYouList.dart';
 import './eventDisplayDependancies/friendEventsList.dart';
+import 'package:runcool/models/Event.dart';
 
 class HomePageUI extends StatefulWidget {
   @override
@@ -16,35 +14,11 @@ class HomePageUI extends StatefulWidget {
 class HomePageUIState extends State<HomePageUI> {
   List<Widget> eventsForYouWidgets = [];
   List<Widget> friendEventsWidgets = [];
-  // List<String> events = ['Event 1', 'Event 2'];
-
-  // void _fillEventsList() {
-  //   setState(() {
-  //     events.forEach((element) {
-  //       eventsForYouWidgets.add(EventCard());
-
-  //       friendEventsWidgets
-  //           .add(EventCard()); //Replace this to check if friend is in event
-  //     });
-  //   });
-  // }
-
-  @override
-  void initState() {
-    // _fillEventsList();
-    super.initState();
-    // print(Authentication().getCurrUser().email);
-  }
-
-  void FilterItem() {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => SelectItemsFIlterUI()));
-  }
 
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<dynamic>>.value(
-      value: EventManager().getEvents(),
+      value: Event.getEvents(),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,
@@ -55,12 +29,12 @@ class HomePageUIState extends State<HomePageUI> {
             textAlign: TextAlign.center,
           ),
           leading: Container(),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.menu),
-              onPressed: () => FilterItem(),
-            )
-          ],
+          // actions: <Widget>[
+          //   IconButton(
+          //     icon: Icon(Icons.menu),
+          //     onPressed: () => FilterItem(),
+          //   )
+          // ],
         ),
         body: BackgroundImage(
           child: SingleChildScrollView(

@@ -1,11 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 import 'AuthenticationManager.dart';
-import 'package:runcool/pages/profile/FriendCard.dart';
-import 'package:runcool/pages/profile/profileList.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../models/User.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:io';
 import 'package:path/path.dart';

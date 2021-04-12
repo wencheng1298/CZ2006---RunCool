@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../utils/everythingUtils.dart';
-import 'package:runcool/firebase/AuthenticationManager.dart';
+import 'package:runcool/controllers/AuthenticationManager.dart';
 
 class ResetScreen extends StatefulWidget {
   @override

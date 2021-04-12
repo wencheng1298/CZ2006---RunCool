@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './../EventCreatedSuccessUI.dart';
 
 import './../../../utils/everythingUtils.dart';
-import '../../../firebase/EventManagers/EventManager.dart';
+import '../../../controllers/EventManager.dart';
 import './../../../models/Event.dart';
 
 enum EventPrivy { public, friends_only }
@@ -28,7 +28,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
   List<String> difficultyLevels = ['Easy', 'Medium', 'Hard'];
 
   void createEvent(Map eventDetails) async {
-    Event event = await EventManager().updateEvent(eventDetails);
+    Event event = await EventManager().createEvent(eventDetails);
     Navigator.push(
       context,
       MaterialPageRoute(

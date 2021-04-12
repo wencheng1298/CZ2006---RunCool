@@ -3,7 +3,6 @@ import 'ProfileUI1.dart';
 import 'package:runcool/utils/loading.dart';
 import '../../models/User.dart';
 import '../../utils/constants.dart';
-import '../../firebase/ProfileManager.dart';
 
 class ProfileCardStream extends StatelessWidget {
   final List friends;

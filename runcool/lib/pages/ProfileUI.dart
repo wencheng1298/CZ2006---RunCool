@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
 import './../utils/everythingUtils.dart';
-import './SettingsUI/SettingsUI.dart';
+import 'profileDependancies/SettingsUI.dart';
 import 'package:runcool/models/User.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
-import 'profile/profileList.dart';
-
-class GetUserName extends StatelessWidget {
-  final String documentId;
-
-  GetUserName(this.documentId);
-
-  @override
-  Widget build(BuildContext context) {}
-}
+import 'package:runcool/pages/profileDependancies/profileList.dart';
 
 class ProfileUI extends StatefulWidget {
   @override
@@ -23,42 +14,11 @@ class ProfileUI extends StatefulWidget {
 class ProfileUIState extends State<ProfileUI> {
   final _auth = FirebaseAuth.instance;
 
-  List<String> friends = [
-    'Paula',
-    'Eugene',
-    'Sarah',
-    'Bob',
-    'Ho',
-    'RERE',
-    'BIZ'
-  ];
-  List<Widget> friendsWidgets = [];
-
-  void _fillFriends() {
-    setState(() {
-      friends.forEach((element) {
-        friendsWidgets
-            .add(Icon(Icons.account_circle, size: 70, color: kTurquoise));
-      });
-    });
-  }
-
-  @override
-  void initState() {
-    _fillFriends();
-    super.initState();
-  }
-
   double fontMainSize = 15;
   void settings() {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => SettingsUI()));
   }
-
-  // void edit() {
-  //   Navigator.push(
-  //       context, MaterialPageRoute(builder: (context) => EditProfileUI()));
-  // }
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:runcool/firebase/ProfileManager.dart';
-import 'package:runcool/firebase/FriendManager.dart';
+import 'package:runcool/controllers/FriendManager.dart';
 import 'package:runcool/models/User.dart';
-import 'package:runcool/pages/profile/FriendCard.dart';
+import 'package:runcool/pages/profileDependancies/FriendCard.dart';
 import 'package:runcool/utils/everythingUtils.dart';
 
 final double fontMainSize = 20;
@@ -10,7 +9,7 @@ final double fontMainSize = 20;
 class ProfileList extends StatefulWidget {
   final AppUser user;
   final String currUserID;
-  bool requested = false;
+  final bool requested;
   ProfileList({@required this.user, @required this.currUserID, this.requested});
   @override
   _ProfileListState createState() => _ProfileListState();
@@ -20,8 +19,12 @@ class _ProfileListState extends State<ProfileList> {
   bool friend = false;
   bool requestSent = false;
   List friends = [];
+  bool requested;
 
   void _processFriend() {
+    setState(() {
+      requested = widget.requested ?? false;
+    });
     if (widget.user.friends.contains(widget.currUserID) ||
         widget.user.uid == widget.currUserID) {
       setState(() {
@@ -287,7 +290,7 @@ class _ProfileListState extends State<ProfileList> {
                 ),
           SizedBox(height: 20),
           //Request button
-          friend || widget.requested
+          friend || requested
               ? Container()
               : (Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50),

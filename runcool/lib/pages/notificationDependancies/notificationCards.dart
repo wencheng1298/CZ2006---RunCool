@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:runcool/firebase/EventManagers/EventManager.dart';
-import 'package:runcool/firebase/ProfileManager.dart';
-import 'package:runcool/firebase/NotificationManager.dart';
-import 'package:runcool/main.dart';
-import 'package:runcool/models/User.dart';
+import 'package:runcool/controllers/EventManager.dart';
+import 'package:runcool/controllers/NotificationManager.dart';
 import 'package:runcool/models/Event.dart';
-import 'package:runcool/pages/Events/EventPage.dart';
+import 'package:runcool/models/User.dart';
+import 'package:runcool/pages/EventPage.dart';
 import '../../utils/everythingUtils.dart';
 import '../../models/Notification.dart';
-import '../profile/ProfileUI1.dart';
+import '../profileDependancies/ProfileUI1.dart';
 
 final double mainFontSize = 20;
 final notifManager = NotificationManager();
@@ -109,7 +107,7 @@ class EventInviteCard extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(5)),
         ),
         child: StreamBuilder<dynamic>(
-            stream: EventManager().getEventData(eventNotification.event),
+            stream: Event.getEventData(eventNotification.event),
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 var event = snapshot.data;
@@ -222,7 +220,7 @@ class EventUpdateCard extends StatelessWidget {
                   ],
                 )
               : StreamBuilder<dynamic>(
-                  stream: EventManager().getEventData(eventNotification.event),
+                  stream: Event.getEventData(eventNotification.event),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       var event = snapshot.data;

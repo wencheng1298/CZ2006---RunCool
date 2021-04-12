@@ -1,6 +1,6 @@
 import 'User.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import '../firebase/ProfileManager.dart';
+import '../controllers/ProfileManager.dart';
 
 class Event {
   final String creator;
@@ -15,6 +15,8 @@ class Event {
   final int noOfParticipants;
   final String description;
   final String difficulty;
+  static CollectionReference events =
+      FirebaseFirestore.instance.collection('events');
 
   Event(
       {this.creator,
@@ -130,6 +132,18 @@ class Event {
             description: description,
             difficulty: difficulty);
     }
+  }
+
+  static Stream<dynamic> getEventData(docID) {
+    return events.doc(docID).snapshots().map((doc) => Event.fromFirestore(doc));
+  }
+
+  static Stream<List<dynamic>> getEvents() {
+    return events.snapshots().map((snapshot) {
+      return snapshot.docs.map((doc) {
+        return Event.fromFirestore(doc);
+      }).toList();
+    });
   }
 }
 

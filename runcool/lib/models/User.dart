@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:runcool/firebase/AuthenticationManager.dart';
-import 'package:runcool/pages/profile/FriendCard.dart';
+import 'package:runcool/controllers/AuthenticationManager.dart';
+import 'package:runcool/pages/profileDependancies/FriendCard.dart';
 
 class AppUser {
   final String uid;

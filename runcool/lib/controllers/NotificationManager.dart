@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:runcool/firebase/EventManagers/EventManager.dart';
+import 'package:runcool/controllers/EventManager.dart';
 import 'package:runcool/models/Notification.dart';
 import 'package:runcool/models/User.dart';
 import 'FriendManager.dart';

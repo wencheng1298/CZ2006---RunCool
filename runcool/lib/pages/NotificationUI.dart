@@ -1,15 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-// import '../utils/constants.dart';
-import '../firebase/NotificationManager.dart';
 import '../utils/everythingUtils.dart';
 import './notificationDependancies/screen.dart';
-import '../firebase/EventManagers/EventManager.dart';
 import '../models/Notification.dart';
 import '../models/User.dart';
-import '../models/Event.dart';
-// import '../firebase/ProfileManager.dart';
 
 class NotificationUI extends StatefulWidget {
   @override

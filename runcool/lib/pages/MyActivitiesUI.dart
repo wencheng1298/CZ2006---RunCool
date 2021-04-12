@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:runcool/models/Event.dart';
 import './../utils/everythingUtils.dart';
 import './eventDisplayDependancies/upcomingEventsList.dart';
-import './../firebase/EventManagers/EventManager.dart';
+import './../controllers/EventManager.dart';
 import 'package:provider/provider.dart';
 import './eventDisplayDependancies/pastEventsList.dart';
 
@@ -35,7 +36,7 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
   @override
   Widget build(BuildContext context) {
     return StreamProvider<List<dynamic>>.value(
-      value: EventManager().getEvents(),
+      value: Event.getEvents(),
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.black,

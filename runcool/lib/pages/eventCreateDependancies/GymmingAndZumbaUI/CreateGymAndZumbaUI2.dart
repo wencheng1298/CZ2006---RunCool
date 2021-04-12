@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../EventCreatedSuccessUI.dart';
 
 import '../../../utils/everythingUtils.dart';
-import '../../../firebase/EventManagers/EventManager.dart';
+import '../../../controllers/EventManager.dart';
 
 import './../../../models/Event.dart';
 
@@ -29,7 +29,7 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
   bool timeError = false;
 
   void createEvent(Map eventDetails) async {
-    Event event = await EventManager().updateEvent(eventDetails);
+    Event event = await EventManager().createEvent(eventDetails);
     Navigator.push(
       context,
       MaterialPageRoute(

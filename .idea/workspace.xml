@@ -29,17 +29,51 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="fixed the textfield going up issue">
-      <change afterPath="$PROJECT_DIR$/runcool/lib/pages/Events/EventDeletedSuccessUI.dart" afterDir="false" />
+    <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="updated delete event">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/EventManagers/EventManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/firebase/EventManagers/EventManager.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/NotificationManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/firebase/NotificationManager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/Wrapper.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/Wrapper.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/AuthenticationManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/controllers/AuthenticationManager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/EventManagers/EventManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/controllers/EventManager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/FriendManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/controllers/FriendManager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/HomePageManager/filterManager.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/NotificationManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/controllers/NotificationManager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/firebase/ProfileManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/controllers/ProfileManager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/main.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/models/Event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/models/Event.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/Events/EventPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/Events/EventPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/models/User.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/models/User.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/Events/ChooseEventUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/ChooseEventUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/Events/CreateEventUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/CreateEventUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/Events/EventCreatedSuccessUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/EventCreatedSuccessUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/Events/EventDeletedSuccessUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/EventDeletedSuccessUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/Events/EventPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/EventPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/Events/GymmingAndZumbaUI/CreateGymAndZumbaUI2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/GymmingAndZumbaUI/CreateGymAndZumbaUI2.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/Events/GymmingAndZumbaUI/CreateGymmingAndZumbaUI1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/GymmingAndZumbaUI/CreateGymmingAndZumbaUI1.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/Events/RunningUI/CreateRunningUI1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/RunningUI/CreateRunningUI1.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/Events/RunningUI/CreateRunningUI2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/RunningUI/CreateRunningUI2.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/Events/joinEventPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/joinEventPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/FilterUI/SelectItemsFIlterUI.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/HomePageUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/HomePageUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/MyActivitiesUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/MyActivitiesUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/NotificationUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/NotificationUI.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/pages/ProfileUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/ProfileUI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SettingsUI/EditProfileUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/SettingsUI/EditProfileUI.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SettingsUI/SettingsUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/SettingsUI/SettingsUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/RuncoolNavBar.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/RuncoolNavBar.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SettingsUI/EditProfileUI.dart" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/SettingsUI/SettingsUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/profileDependancies/SettingsUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/authentication/ForgotPasswordUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/authentication/ForgotPasswordUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/authentication/LogIn.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/authentication/LogIn.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/authentication/SignUpSuccessUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/authentication/SignUpSuccessUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/authentication/SignUpUI1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/authentication/SignUpUI1.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/authentication/SignUpUI2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/authentication/SignUpUI2.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/authentication/Verification.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/authentication/Verification.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/eventsForYouList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/eventsForYouList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/inviteFriendList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/inviteFriendList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/pastEventsList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/pastEventsList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/upcomingEventsList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/upcomingEventsList.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/pages/notificationDependancies/notificationCards.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/notificationDependancies/notificationCards.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/notificationDependancies/notificationsWrap.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/notificationDependancies/notificationsWrap.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/profile/FriendCard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/profileDependancies/FriendCard.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/profile/ProfileUI1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/profileDependancies/ProfileUI1.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/profile/profileList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/profileDependancies/profileList.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,10 +114,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\lib\pages\profile" />
+      <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\lib\pages" />
+      <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\lib\pages\profileDependancies" />
       <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\lib\firebase" />
+      <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\lib\pages\profile" />
       <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\lib" />
-      <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\assets" />
     </key>
   </component>
   <component name="RunManager">
@@ -285,7 +320,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618223458085</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="updated delete event">
+      <created>1618232374646</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1618232374646</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -335,7 +377,8 @@
     <MESSAGE value="commented email verification" />
     <MESSAGE value="added validation for login, forget password and sign up" />
     <MESSAGE value="fixed the textfield going up issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed the textfield going up issue" />
+    <MESSAGE value="updated delete event" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated delete event" />
   </component>
   <component name="WindowStateProjectService">
     <state x="121" y="0" key="#Project_Structure" timestamp="1616753566681">
@@ -358,47 +401,51 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="22" y="219" width="1200" height="584" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1618229811910" />
+    <state x="349" y="167" key="AndroidCreateResourceFileDialog" timestamp="1618237645336">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="349" y="167" key="AndroidCreateResourceFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1618237645336" />
     <state x="549" y="195" key="FileChooserDialogImpl" timestamp="1618225397021">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="391" y="163" key="FileChooserDialogImpl/0.0.1094.690@0.0.1094.690" timestamp="1615440083241" />
     <state x="489" y="206" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1616398725787" />
     <state x="549" y="195" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1618225397021" />
-    <state width="1491" height="215" key="GridCell.Tab.0.bottom" timestamp="1618229666714">
+    <state width="1491" height="181" key="GridCell.Tab.0.bottom" timestamp="1618237033856">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.bottom/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
     <state width="609" height="141" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616758938916" />
     <state width="551" height="104" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
     <state width="1491" height="197" key="GridCell.Tab.0.bottom/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1616749797560" />
-    <state width="1491" height="215" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1618229666714" />
+    <state width="1491" height="181" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1618237033856" />
     <state width="841" height="101" key="GridCell.Tab.0.bottom/0.0.912.568@0.0.912.568" timestamp="1615393853484" />
-    <state width="1491" height="215" key="GridCell.Tab.0.center" timestamp="1618229666714">
+    <state width="1491" height="181" key="GridCell.Tab.0.center" timestamp="1618237033856">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.center/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
     <state width="609" height="141" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616758938916" />
     <state width="551" height="104" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
     <state width="1491" height="197" key="GridCell.Tab.0.center/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1616749797559" />
-    <state width="1491" height="215" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1618229666714" />
+    <state width="1491" height="181" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1618237033856" />
     <state width="841" height="101" key="GridCell.Tab.0.center/0.0.912.568@0.0.912.568" timestamp="1615393853483" />
-    <state width="1491" height="215" key="GridCell.Tab.0.left" timestamp="1618229666714">
+    <state width="1491" height="181" key="GridCell.Tab.0.left" timestamp="1618237033856">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.left/0.0.1094.690@0.0.1094.690" timestamp="1615798491907" />
     <state width="609" height="141" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616758938916" />
     <state width="551" height="104" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
     <state width="1491" height="197" key="GridCell.Tab.0.left/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1616749797559" />
-    <state width="1491" height="215" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1618229666714" />
+    <state width="1491" height="181" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1618237033856" />
     <state width="841" height="101" key="GridCell.Tab.0.left/0.0.912.568@0.0.912.568" timestamp="1615393853483" />
-    <state width="1491" height="215" key="GridCell.Tab.0.right" timestamp="1618229666714">
+    <state width="1491" height="181" key="GridCell.Tab.0.right" timestamp="1618237033856">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.right/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
     <state width="609" height="141" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616758938916" />
     <state width="551" height="104" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
     <state width="1491" height="197" key="GridCell.Tab.0.right/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1616749797560" />
-    <state width="1491" height="215" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1618229666714" />
+    <state width="1491" height="181" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1618237033856" />
     <state width="841" height="101" key="GridCell.Tab.0.right/0.0.912.568@0.0.912.568" timestamp="1615393853483" />
     <state x="113" y="62" key="MergeDialog" timestamp="1618042473428">
       <screen x="0" y="0" width="1536" height="824" />
@@ -415,18 +462,18 @@
     <state x="0" y="0" key="SettingsEditor/0.0.1094.690@0.0.1094.690" timestamp="1615797736072" />
     <state x="277" y="85" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617991706623" />
     <state x="0" y="0" key="SettingsEditor/0.0.912.568@0.0.912.568" timestamp="1615391298134" />
-    <state x="207" y="129" key="Vcs.Push.Dialog.v2" timestamp="1618223464407">
+    <state x="207" y="129" key="Vcs.Push.Dialog.v2" timestamp="1618232379266">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-7" y="52" key="Vcs.Push.Dialog.v2/0.0.1094.690@0.0.1094.690" timestamp="1615899868818" />
     <state x="184" y="136" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1616408594636" />
-    <state x="207" y="129" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1618223464407" />
-    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618223433304">
+    <state x="207" y="129" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1618232379266" />
+    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618233596867">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="412" y="296" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1094.690@0.0.1094.690" timestamp="1615899967894" />
     <state x="515" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1368.872@0.0.1368.872" timestamp="1616578754004" />
-    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1618223433304" />
+    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1618233596867" />
     <state x="198" y="-2" width="1133" height="984" key="search.everywhere.popup" timestamp="1617871833343">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

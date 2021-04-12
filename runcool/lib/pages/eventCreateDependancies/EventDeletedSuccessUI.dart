@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:runcool/pages/HomePageUI.dart';
-import 'package:runcool/pages/RuncoolNavBar.dart';
+import 'package:runcool/pages/NavBar.dart';
 import './../../utils/everythingUtils.dart';
-import './../../models/Event.dart';
-import 'EventPage.dart';
 
 class EventDeletedSuccessUI extends StatefulWidget {
   @override

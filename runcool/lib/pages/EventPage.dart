@@ -3,20 +3,19 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
-import 'package:runcool/firebase/NotificationManager.dart';
 import 'package:runcool/utils/GoogleMapPlacement.dart';
-import '../../utils/EventTextDetails.dart';
-import '../profile/ProfileUI1.dart';
-import './JoinEventPage.dart';
-import './../RuncoolNavBar.dart';
-import './../../utils/everythingUtils.dart';
-import '../../models/Event.dart';
-import './../profile/FriendCard.dart';
+import '../utils/EventTextDetails.dart';
+import 'profileDependancies/ProfileUI1.dart';
+import 'eventCreateDependancies/JoinEventPage.dart';
+import 'NavBar.dart';
+import '../utils/everythingUtils.dart';
+import '../models/Event.dart';
+import 'profileDependancies/FriendCard.dart';
 import 'package:runcool/models/User.dart';
 import 'package:provider/provider.dart';
-import './../../firebase/EventManagers/EventManager.dart';
-import './../eventDisplayDependancies/inviteFriendList.dart';
-import 'EventDeletedSuccessUI.dart';
+import '../controllers/EventManager.dart';
+import 'eventDisplayDependancies/inviteFriendList.dart';
+import 'eventCreateDependancies/EventDeletedSuccessUI.dart';
 
 class EventPage extends StatefulWidget {
   // final dynamic event;
@@ -31,17 +30,18 @@ class _EventPageState extends State<EventPage> {
   String eventID;
   _EventPageState(this.eventID);
   dynamic event;
-  StreamSubscription eventStream;
 
   List<Widget> participantsWidgets = [];
   String viewStatus;
   String message = '';
   final TextEditingController _controller = TextEditingController();
 
+  StreamSubscription eventStream;
+
   void _initStatus() {
     final AppUser user = Provider.of<AppUser>(context, listen: false);
 
-    EventManager().getEventData(eventID).listen((eve) {
+    eventStream = Event.getEventData(eventID).listen((eve) {
       setState(() {
         event = eve;
         if (event != null) {
@@ -59,7 +59,7 @@ class _EventPageState extends State<EventPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    eventStream.cancel();
     _controller.dispose();
     super.dispose();
   }
@@ -169,10 +169,10 @@ class _EventPageState extends State<EventPage> {
                 style: TextStyle(color: Colors.white),
                 textAlign: TextAlign.center,
               ),
-              leading: IconButton(
-                icon: Icon(Icons.arrow_back),
-                onPressed: goHomePage,
-              ),
+              // leading: IconButton(
+              //   icon: Icon(Icons.arrow_back),
+              //   onPressed: goHomePage,
+              // ),
             ),
             body: BackgroundImage(
               child: Container(

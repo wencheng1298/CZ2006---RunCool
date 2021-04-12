@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:runcool/utils/everythingUtils.dart';
 import 'SignUpUI1.dart';
-import './../SettingsUI/SettingsUI.dart';
-import '../RuncoolNavBar.dart';
-
-import 'package:runcool/firebase/AuthenticationManager.dart';
-import 'package:runcool/utils/loading.dart';
+import 'package:runcool/controllers/AuthenticationManager.dart';
 import 'ForgotPasswordUI.dart';
 import 'package:flutter_phoenix/flutter_phoenix.dart';
 
