@@ -20,11 +20,14 @@ import 'dart:math' show cos, sqrt, asin;
 class GoogleMapPlacement extends StatefulWidget {
   final Function onMapCreated;
   final String eventType;
+  final Set<Polyline> polylineset;
+  final Set<Marker> markersset;
+  final Set<Circle> circlesset;
 
   /*void getStartAddress(startAddress) {
     _GoogleMapState().getStartingAddress(startAddress);
   }*/
-  GoogleMapPlacement({this.onMapCreated, this.eventType});
+  GoogleMapPlacement({this.onMapCreated, this.eventType, this.polylineset, this.circlesset,this.markersset});
 
   @override
   _GoogleMapState createState() => _GoogleMapState();
@@ -49,14 +52,15 @@ class _GoogleMapState extends State<GoogleMapPlacement> {
 
     var jsonText = await rootBundle.loadString(file);
     setState(() => data = json.decode(jsonText));
-    // print(data);
+    print(data);
+
     return 'success';
   }
 
   @override
   void initState() {
     super.initState();
-    this.loadJsonData();
+    //this.loadJsonData();
   }
 
   final Geolocator _geolocator = Geolocator();
@@ -72,6 +76,8 @@ class _GoogleMapState extends State<GoogleMapPlacement> {
   PolylinePoints polylinePoints;
   Map<PolylineId, Polyline> polylines = {};
   List<LatLng> polylineCoordinates = [];
+
+
 
   @override
   /*void initState() {
@@ -95,11 +101,9 @@ class _GoogleMapState extends State<GoogleMapPlacement> {
         width: MediaQuery.of(context).size.width,
         child: Stack(
           children: [
-            googleMapsAppData.currentLocation == null
-                ? Center(
+            if (googleMapsAppData.currentLocation == null) Center(
                     child: CircularProgressIndicator(),
-                  )
-                : GoogleMap(
+                  ) else GoogleMap(
                     mapType: MapType.normal,
                     //initialCameraPosition: _initialLocation,
                     initialCameraPosition: CameraPosition(
@@ -112,11 +116,14 @@ class _GoogleMapState extends State<GoogleMapPlacement> {
                     scrollGesturesEnabled: true,
                     zoomGesturesEnabled: true,
                     zoomControlsEnabled: true,
-                    markers: markers != null ? Set<Marker>.from(markers) : null,
+                    markers: Set.of((widget.markersset != null) ? widget.markersset : [])
+              /*markers != null ? Set<Marker>.from(markers) : null*/,
                     // markers: data != null
                     //     ? getMarkers(data, widget.eventType)
                     //     : null,
-                    polylines: Set<Polyline>.of(polylines.values),
+                    polylines: Set.of((widget.polylineset != null) ? widget.polylineset : [])
+              /*Set<Polyline>.of(polylines.values)*/,
+                    circles: Set.of((widget.circlesset != null) ? widget.circlesset : []),
                     onMapCreated: widget.onMapCreated,
                   ),
           ],

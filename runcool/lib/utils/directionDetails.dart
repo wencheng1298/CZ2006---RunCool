@@ -7,7 +7,7 @@ class DirectionDetails {
 
   DirectionDetails({this.distanceValue,this.durationValue,this.distanceText,this.durationText, this.encodedPoints});
 
-  factory DirectionDetails.fromJson(Map<String, dynamic> parsedJson) {
+  factory DirectionDetails.fromJson(Map<dynamic, dynamic> parsedJson) {
     return DirectionDetails(
       distanceValue: parsedJson[0]['legs'][0]['distance']['value'],
       durationValue: parsedJson[0]['legs'][0]['duration']['value'],

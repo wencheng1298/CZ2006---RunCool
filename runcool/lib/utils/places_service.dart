@@ -109,7 +109,8 @@ class PlacesService {
     // origin=Toronto&destination=Montreal
     // &key=YOUR_API_KEY
 
-    String directionsUrl = 'https://maps.googleapis.com/maps/api/directions/json?origin=${initialPosition.latitude},${initialPosition.longitude}&destination=${finalPosition.latitude},${finalPosition.longitude}&key=$GoogleAPIKey' ;
+
+    String directionsUrl = 'https://maps.googleapis.com/maps/api/directions/json?origin=${initialPosition.latitude},${initialPosition.longitude}&destination=${finalPosition.latitude},${finalPosition.longitude}&mode=walking&key=$GoogleAPIKey' ;
 
     var url = Uri.parse(directionsUrl);
     var response = await http.get(url);
@@ -122,17 +123,66 @@ class PlacesService {
     //var jsonResult = json['routes'] as Map<String,dynamic>;
     //return DirectionDetails.fromJson(jsonResult);
     //need to see if implementing correctly....
-    var jsonResults =json['routes'];
+    /*var jsonResults =json['routes'];
+    DirectionDetails newdirection = DirectionDetails.fromJson(jsonResults);*/
 
+    //var jsonResults = json['predictions'] as List;
+    //return jsonResults.map((place) => PlaceSearch.fromJson(place)).toList();
+
+    var jsonResults =json["routes"];
     DirectionDetails directionDetails = DirectionDetails();
 
-    directionDetails.distanceValue = jsonResults[0]['legs'][0]['distance']['value'];
-    directionDetails.distanceText = jsonResults[0]['legs'][0]['distance']['text'];
+    directionDetails.distanceValue = jsonResults[0]["legs"][0]["distance"]["value"];
+    directionDetails.distanceText = jsonResults[0]["legs"][0]["distance"]["text"];
 
-    directionDetails.durationValue = jsonResults[0]['legs'][0]['duration']['value'];
-    directionDetails.durationText = jsonResults[0]['legs'][0]['duration']['text'];
+    directionDetails.durationValue = jsonResults[0]["legs"][0]["duration"]["value"];
+    directionDetails.durationText = jsonResults[0]["legs"][0]["duration"]["text"];
 
-    directionDetails.encodedPoints = jsonResults[0]['overview_polyline']['points'];
+    directionDetails.encodedPoints = jsonResults[0]["overview_polyline"]["points"];
+    return directionDetails;
+
+    /*var jsonResult = json['result'] as Map<String,dynamic>;
+    return DirectionDetails.fromJson(jsonResult);*/
+
+  }
+
+  static Future<DirectionDetails> addingWaypoint(LatLng initialPosition, LatLng finalPosition, LatLng waypoint) async {
+
+    //example https://maps.googleapis.com/maps/api/directions/json?
+    // origin=Toronto&destination=Montreal
+    // &key=YOUR_API_KEY
+
+
+
+    String directionsUrl = 'https://maps.googleapis.com/maps/api/directions/json?origin=${initialPosition.latitude},${initialPosition.longitude}&destination=${finalPosition.latitude},${finalPosition.longitude}&waypoints=${waypoint.latitude}%2C${waypoint.longitude}&mode=walking&key=$GoogleAPIKey' ;
+
+    var url = Uri.parse(directionsUrl);
+    var response = await http.get(url);
+
+    var json = convert.jsonDecode(response.body);
+
+
+    //var jsonResults = json['routes'] as List;
+    //return jsonResults.map((direction) => DirectionDetails.fromJson(direction)).toList();
+    //var jsonResult = json['routes'] as Map<String,dynamic>;
+    //return DirectionDetails.fromJson(jsonResult);
+    //need to see if implementing correctly....
+    /*var jsonResults =json['routes'];
+    DirectionDetails newdirection = DirectionDetails.fromJson(jsonResults);*/
+
+    //var jsonResults = json['predictions'] as List;
+    //return jsonResults.map((place) => PlaceSearch.fromJson(place)).toList();
+
+    var jsonResults =json["routes"];
+    DirectionDetails directionDetails = DirectionDetails();
+
+    directionDetails.distanceValue = jsonResults[0]["legs"][0]["distance"]["value"];
+    directionDetails.distanceText = jsonResults[0]["legs"][0]["distance"]["text"];
+
+    directionDetails.durationValue = jsonResults[0]["legs"][0]["duration"]["value"];
+    directionDetails.durationText = jsonResults[0]["legs"][0]["duration"]["text"];
+
+    directionDetails.encodedPoints = jsonResults[0]["overview_polyline"]["points"];
     return directionDetails;
 
     /*var jsonResult = json['result'] as Map<String,dynamic>;

@@ -18,16 +18,9 @@ class GoogleMapsAppData with ChangeNotifier{
   final geoLocatorService = GeolocatorService();
   final placesService = PlacesService();
 
-  Place startingPlace, destPlace;
 
-  void updateStartLocationAddress(Place startAddress) {
-    startingPlace = startAddress;
-    notifyListeners(); //handle the changes
-  }
-  void updateDestLocationAddress(Place destAddress) {
-    destPlace = destAddress;
-    notifyListeners(); //handle the changes
-  }
+
+
 
 
   //Variables
@@ -36,11 +29,21 @@ class GoogleMapsAppData with ChangeNotifier{
   BehaviorSubject<Place> selectedLocation = BehaviorSubject<Place>(); //changed from streamcontroller to behavioursubject cause when press back wont have error.
   double start_lat, start_lng, des_lat, des_lng;
   Position selectedplace;
+  Place startingPlace, destPlace;
 
   BehaviorSubject<DirectionDetails> LocationDetails = BehaviorSubject<DirectionDetails>(); //changed from streamcontroller to behavioursubject cause when press back wont have error.
 
   GoogleMapsAppData() {
     setCurrentLocation();
+  }
+
+  void updateStartLocationAddress(Place startAddress) {
+    startingPlace = startAddress;
+    notifyListeners(); //handle the changes
+  }
+  void updateDestLocationAddress(Place destAddress) {
+    destPlace = destAddress;
+    notifyListeners(); //handle the changes
   }
 
 
