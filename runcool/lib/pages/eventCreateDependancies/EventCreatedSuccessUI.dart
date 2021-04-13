@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../NavBar.dart';
 import './../../utils/everythingUtils.dart';
 import '../EventPageUI.dart';
 
@@ -18,6 +19,11 @@ class EventCreatedSuccessUIState extends State<EventCreatedSuccessUI> {
             builder: (context) => EventPage(
                   eventID: event.eventID,
                 )));
+  }
+
+  void goHome() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => RuncoolNavBar()));
   }
 
   @override
@@ -59,6 +65,24 @@ class EventCreatedSuccessUIState extends State<EventCreatedSuccessUI> {
                         style: TextStyle(fontSize: 22),
                       ),
                       onPressed: () => viewEvent(widget.event),
+                      style: TextButton.styleFrom(
+                          backgroundColor: kTurquoise,
+                          primary: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          )),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.all(20),
+                    width: MediaQuery.of(context).size.width,
+                    height: 80,
+                    child: OutlinedButton(
+                      child: Text(
+                        'Go To Home Page',
+                        style: TextStyle(fontSize: 22),
+                      ),
+                      onPressed: goHome,
                       style: TextButton.styleFrom(
                           backgroundColor: kTurquoise,
                           primary: Colors.black,

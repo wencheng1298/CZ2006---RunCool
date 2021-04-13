@@ -46,7 +46,7 @@ class _ProfileListState extends State<ProfileList> {
     final user = widget.user;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5),
-      child: ListView(
+      child: Column(
         children: [
           // profile picture
           Padding(

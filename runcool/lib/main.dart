@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    precacheImage(AssetImage("images/gym.jpg"), context);
     User currUser = FirebaseAuth.instance.currentUser;
     String uid = (currUser == null) ? null : currUser.uid;
 

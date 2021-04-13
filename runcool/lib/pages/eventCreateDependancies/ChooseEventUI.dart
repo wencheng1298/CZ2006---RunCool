@@ -24,7 +24,10 @@ class ChooseEventUIState extends State<ChooseEventUI> {
     Map eventDetails = {"eventType": eventType, "creator": user.uid};
     if (eventDetails['eventType'] == 'Running') {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => CreateRunningUI1(eventDetails: eventDetails)));
+          context,
+          MaterialPageRoute(
+              builder: (context) =>
+                  CreateRunningUI1(eventDetails: eventDetails)));
     } else if (eventDetails['eventType'] == 'Gymming' ||
         eventDetails['eventType'] == 'Zumba') {
       Navigator.push(
@@ -37,7 +40,6 @@ class ChooseEventUIState extends State<ChooseEventUI> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.black,
@@ -68,35 +70,37 @@ class ChooseEventUIState extends State<ChooseEventUI> {
                     border: Border.all(color: Colors.white60, width: 1),
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  child: DropdownButton(
-                    dropdownColor: Colors.grey.shade700,
-                    icon: Icon(Icons.arrow_drop_down_circle_outlined),
-                    iconSize: 36,
-                    isExpanded: true,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
+                  child: DropdownButtonHideUnderline(
+                    child: DropdownButton(
+                      dropdownColor: Colors.grey.shade700,
+                      icon: Icon(Icons.arrow_drop_down_circle_outlined),
+                      iconSize: 36,
+                      isExpanded: true,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 17,
+                      ),
+                      value: eventType,
+                      hint: Text(
+                        '--None--',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onChanged: (newChoice) {
+                        setState(() {
+                          eventType = newChoice;
+                          if (_buttonDisabled) {
+                            _buttonDisabled = false;
+                          }
+                        });
+                      },
+                      items: eventTypes.map((choice) {
+                        return DropdownMenuItem(
+                            value: choice,
+                            child: Text(
+                              choice,
+                            ));
+                      }).toList(),
                     ),
-                    value: eventType,
-                    hint: Text(
-                      '--None--',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    onChanged: (newChoice) {
-                      setState(() {
-                        eventType = newChoice;
-                        if (_buttonDisabled) {
-                          _buttonDisabled = false;
-                        }
-                      });
-                    },
-                    items: eventTypes.map((choice) {
-                      return DropdownMenuItem(
-                          value: choice,
-                          child: Text(
-                            choice,
-                          ));
-                    }).toList(),
                   ),
                 ),
               ),

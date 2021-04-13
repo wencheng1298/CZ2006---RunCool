@@ -9,22 +9,26 @@ class BackgroundImage extends StatelessWidget {
     return SingleChildScrollView(
         child: ConstrainedBox(
       constraints: BoxConstraints(
-          minHeight: MediaQuery.of(context).size.height,
-          maxHeight: MediaQuery.of(context).size.height),
+        maxHeight: MediaQuery.of(context).size.height,
+      ),
       child: Stack(
         fit: StackFit.expand,
         children: [
           Positioned.fill(
-            child: Container(
-              decoration: BoxDecoration(
-                color: kBackgroundColor,
-                image: DecorationImage(
-                    image: AssetImage('images/gym.jpg'),
-                    fit: BoxFit.fitWidth,
-                    colorFilter: new ColorFilter.mode(
-                        kBackgroundColor.withOpacity(0.2), BlendMode.dstATop)),
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: kBackgroundColor,
+                  image: DecorationImage(
+                      image: AssetImage('images/gym.jpg'),
+                      fit: BoxFit.fitHeight,
+                      colorFilter: new ColorFilter.mode(
+                          kBackgroundColor.withOpacity(0.2),
+                          BlendMode.dstATop)),
+                ),
+                constraints: BoxConstraints.expand(),
               ),
-              constraints: BoxConstraints.expand(),
             ),
           ),
           child,
