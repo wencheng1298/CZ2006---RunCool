@@ -76,11 +76,22 @@ class _EventPageState extends State<EventPage> {
     });
   }
 
-  void _workoutsAndSongs(Event event) {
-    String s;
+  _workoutsAndSongsList() {
+    String s = '';
     if (event.eventType == 'Gymming') {
-      // event.workout.forEach()
+      event.workout.forEach((workout) {
+        s = s +
+            workout['activity'] +
+            " x" +
+            workout['repetition'].toString() +
+            '\n';
+      });
+    } else {
+      event.danceMusic.forEach((music) {
+        s = s + music['songTitle'] + ' by ' + music['songArtist'] + '\n';
+      });
     }
+    return EventTextDetails(s);
   }
 
   void joinPage() {
@@ -331,7 +342,10 @@ class _EventPageState extends State<EventPage> {
                                         )
                                       : Container()),
                           // Fill in workout/song exercises
-
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: _workoutsAndSongsList(),
+                          ),
                           // Description
                           Align(
                               alignment: Alignment.topLeft,

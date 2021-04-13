@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'constants.dart';
 import './GoogleMapPlacement.dart';
-
+import 'package:runcool/models/User.dart';
+import './../../utils/everythingUtils.dart';
+import './../pages/profileDependancies/ProfileUI1.dart';
 class EventCard extends StatelessWidget {
   final Function fn;
   final dynamic event;
@@ -80,17 +82,17 @@ class EventCard extends StatelessWidget {
                     ),
                   ),
                   (event.difficulty == 'Hard')
-                  ? Row(children:[
-                    Icon(Icons.bolt, size: 20, color: kTurquoise),
-                    Icon(Icons.bolt, size: 20, color: kTurquoise),
-                    Icon(Icons.bolt, size: 20, color: kTurquoise)
-                    ])
-                  : (event.difficulty == 'Medium') 
-                    ? Row(children: [
-                      Icon(Icons.bolt, size: 20, color: kTurquoise),
-                      Icon(Icons.bolt, size: 20, color: kTurquoise),
-                      ])
-                    :Icon(Icons.bolt, size: 20, color: kTurquoise),
+                      ? Row(children: [
+                          Icon(Icons.bolt, size: 20, color: kTurquoise),
+                          Icon(Icons.bolt, size: 20, color: kTurquoise),
+                          Icon(Icons.bolt, size: 20, color: kTurquoise)
+                        ])
+                      : (event.difficulty == 'Medium')
+                          ? Row(children: [
+                              Icon(Icons.bolt, size: 20, color: kTurquoise),
+                              Icon(Icons.bolt, size: 20, color: kTurquoise),
+                            ])
+                          : Icon(Icons.bolt, size: 20, color: kTurquoise),
                 ],
               ),
             ),
@@ -108,17 +110,44 @@ class EventCard extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 5, left: 15, right: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "To fill in creator name",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  SizedBox(width: 10),
-                  Icon(Icons.account_circle, size: 20, color: kTurquoise)
-                ],
-              ),
+              child: StreamBuilder<AppUser>(
+                  stream: AppUser.getUserFromID(event.creator),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) {
+                      return Loading();
+                    } else {
+                      AppUser creator = snapshot.data;
+
+                      return GestureDetector(
+                        onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    ProfileUI1(user: creator))),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              creator.name == '' ? "No name provided" : creator.name,
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            SizedBox(width: 10),
+                            creator.image != ''
+                                ? CircleAvatar(
+                                    radius: 25,
+                                    backgroundImage:
+                                        NetworkImage(creator.image),
+                                  )
+                                : Icon(
+                                    Icons.account_circle_outlined,
+                                    size: 25,
+                                    color: kTurquoise,
+                                  ),
+                          ],
+                        ),
+                      );
+                    }
+                  }),
             )
           ],
         ),

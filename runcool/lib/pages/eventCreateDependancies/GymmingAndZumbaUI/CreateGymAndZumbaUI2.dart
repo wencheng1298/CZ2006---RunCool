@@ -25,8 +25,8 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
   _CreateGymAndZumbaUI2State(this.eventDetails);
 
   List<String> difficultyLevels = ['Easy', 'Medium', 'Hard'];
-  bool difficultyError = false;
   bool timeError = false;
+  bool dateError = false;
 
   void createEvent(Map eventDetails) async {
     Event event = await EventManager().createEvent(eventDetails);
@@ -36,6 +36,15 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
         builder: (context) => EventCreatedSuccessUI(event: event),
       ),
     );
+  }
+
+  _checkDateAndTimeError() {
+    setState(() {
+      if (eventDetails['startTime'] == null) {
+        timeError = true;
+        dateError = true;
+      }
+    });
   }
 
   @override
@@ -82,8 +91,19 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
                               }
                               eventDetails['startTime'] = new DateTime(
                                   year, month, day, startHour, startMinute);
+                              dateError = false;
                             });
                           },
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 23),
+                        child: Text(
+                          (dateError) ? 'Select a date' : '',
+                          style: TextStyle(
+                            color: Colors.redAccent,
+                            height: 0.6
+                          ),
                         ),
                       ),
                       Align(
@@ -213,56 +233,31 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
                         child: InputFieldTextTitles('Difficulty'),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                        child: Container(
-                          height: 35,
-                          padding: const EdgeInsets.only(left: 16, right: 16),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: kTurquoise, width: 2),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: DropdownButton(
-                            dropdownColor: Colors.grey[800].withOpacity(0.9),
-                            icon: Icon(
-                              Icons.arrow_drop_down_circle_outlined,
-                              color: kTurquoise,
-                            ),
-                            iconSize: 26,
-                            isExpanded: true,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 17,
-                            ),
-                            value: eventDetails['difficulty'],
-                            hint: Text(
-                              '--None--',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            onChanged: (newChoice) {
-                              setState(() {
-                                eventDetails['difficulty'] = newChoice;
-                                difficultyError = false;
-                              });
-                            },
-                            items: difficultyLevels.map((choice) {
-                              return DropdownMenuItem(
-                                  value: choice,
-                                  child: Text(
-                                    choice,
-                                  ));
-                            }).toList(),
-                          ),
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                        child: DropdownFormFill(
+                          value: eventDetails['difficulty'],
+                          onChange: (newChoice) {
+                            setState(() {
+                              eventDetails['difficulty'] = newChoice;
+                            });
+                          },
+                          items: difficultyLevels,
+                          text: "--None--",
+                          validate: (val) =>
+                              val == null ? 'Choose your difficulty' : null,
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 23, top: 4),
-                        child: Text(
-                          (difficultyError) ? 'Choose a difficulty' : '',
-                          style: TextStyle(
-                            color: Colors.redAccent,
-                          ),
-                        ),
-                      ),
+
+                      // Padding(
+                      //   padding: EdgeInsets.only(left: 23, top: 4),
+                      //   child: Text(
+                      //     (difficultyError) ? 'Choose a difficulty' : '',
+                      //     style: TextStyle(
+                      //       color: Colors.redAccent,
+                      //     ),
+                      //   ),
+                      // ),
                       Align(
                         alignment: Alignment.topLeft,
                         child: InputFieldTextTitles('Description'),
@@ -277,17 +272,10 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
                         width: 80,
                         child: TinyButton(
                           onPress: () => {
-                            print(eventDetails['difficulty']),
-                            if (eventDetails['difficulty'] == null)
-                              {
-                                difficultyError = true,
-                              },
+                            _checkDateAndTimeError(),
                             if (_formkey.currentState.validate())
                               {
-                                if (!difficultyError)
-                                  {
-                                    createEvent(eventDetails),
-                                  }
+                                createEvent(eventDetails),
                               }
                           },
                           text: "Create",
