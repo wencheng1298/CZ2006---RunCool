@@ -39,22 +39,16 @@ class AppUser {
       this.image});
   factory AppUser.fromFirestore(DocumentSnapshot doc) {
     Map data = doc.data();
-    int age;
-    try {
-      age = int.parse(data['age']);
-    } catch (e) {
-      age = null;
-    }
 
     AppUser x = AppUser(
         name: data['name'] ?? "",
         gender: data['gender'] ?? '',
         uid: doc.id,
-        age: age,
+        age: data['age'] ?? 0,
         bio: data['bio'] ?? '',
         email: data['email'] ?? '',
         hobbies: data['hobbies'] ?? '',
-        insta: data['insta'] ?? '',
+        insta: data['instagram'] ?? '',
         occupation: data['occupation'] ?? '',
         region: data['region'] ?? '',
         events: data['events'] ?? [],

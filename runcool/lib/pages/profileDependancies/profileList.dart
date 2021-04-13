@@ -225,13 +225,10 @@ class _ProfileListState extends State<ProfileList> {
                               fontSize: fontMainSize, color: kTurquoise),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          user.insta,
-                          style: TextStyle(
-                              fontSize: fontMainSize, color: Colors.white),
-                        ),
+                      Text(
+                        user.insta,
+                        style: TextStyle(
+                            fontSize: fontMainSize, color: Colors.white),
                       ),
                     ],
                   ),
