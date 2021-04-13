@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './../../models/User.dart';
 import './../../utils/everythingUtils.dart';
-import './../EventPage.dart';
+import './../EventPageUI.dart';
 
 class UpcomingEventsList extends StatefulWidget {
   @override

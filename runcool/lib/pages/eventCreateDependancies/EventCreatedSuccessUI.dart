@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './../../utils/everythingUtils.dart';
-import '../EventPage.dart';
+import '../EventPageUI.dart';
 
 class EventCreatedSuccessUI extends StatefulWidget {
   final dynamic event;

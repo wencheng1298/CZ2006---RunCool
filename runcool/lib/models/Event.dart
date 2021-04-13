@@ -9,11 +9,9 @@ class Event {
   final String eventType;
   final String name;
   final String eventID;
-  final bool deleted;
   final DateTime startTime;
   final List<dynamic> announcements;
   final List<dynamic> participants;
-  final bool openToPublic;
   final int noOfParticipants;
   final String description;
   final String difficulty;
@@ -26,15 +24,13 @@ class Event {
       this.name,
       this.eventID,
       this.announcements,
-      this.deleted,
       this.description,
       this.difficulty,
       this.noOfParticipants,
-      this.openToPublic,
       this.participants,
       this.startTime});
 
-  factory Event.fromFirestore(DocumentSnapshot doc) {
+  factory Event.createEventFromFirestore(DocumentSnapshot doc) {
     Map data = doc.data();
     if (data == null) return null;
     final eventType = data['eventType'] ?? null;
@@ -49,8 +45,6 @@ class Event {
     final noOfParticipants = data['noOfParticipants'] ?? 8;
     final difficulty = data['difficulty'] ?? '';
     final description = data['description'] ?? '';
-    final deleted = data['deleted'] ?? false;
-    final openToPublic = data['openToPublic'] ?? true;
 
     switch (eventType) {
       case 'Gymming':
@@ -64,12 +58,10 @@ class Event {
             duration: duration,
             eventID: eventID,
             eventType: eventType,
-            openToPublic: openToPublic,
             startTime: startTime,
             announcements: announcements,
             creator: creator,
             description: description,
-            deleted: deleted,
             difficulty: difficulty,
             location: location,
             workout: workout);
@@ -85,11 +77,9 @@ class Event {
             duration: duration,
             eventID: eventID,
             eventType: eventType,
-            openToPublic: openToPublic,
             startTime: startTime,
             announcements: announcements,
             creator: creator,
-            deleted: deleted,
             description: description,
             difficulty: difficulty,
             danceGenre: danceGenre,
@@ -110,11 +100,9 @@ class Event {
             noOfParticipants: noOfParticipants,
             eventID: eventID,
             eventType: eventType,
-            openToPublic: openToPublic,
             startTime: startTime,
             announcements: announcements,
             creator: creator,
-            deleted: deleted,
             description: description,
             difficulty: difficulty,
             endLocation: endLocation,
@@ -132,24 +120,25 @@ class Event {
             noOfParticipants: noOfParticipants,
             eventID: eventID,
             eventType: eventType,
-            openToPublic: openToPublic,
             startTime: startTime,
             announcements: announcements,
             creator: creator,
-            deleted: deleted,
             description: description,
             difficulty: difficulty);
     }
   }
 
   static Stream<dynamic> getEventData(docID) {
-    return events.doc(docID).snapshots().map((doc) => Event.fromFirestore(doc));
+    return events
+        .doc(docID)
+        .snapshots()
+        .map((doc) => Event.createEventFromFirestore(doc));
   }
 
   static Stream<List<dynamic>> getEvents() {
     return events.snapshots().map((snapshot) {
       return snapshot.docs.map((doc) {
-        return Event.fromFirestore(doc);
+        return Event.createEventFromFirestore(doc);
       }).toList();
     });
   }
@@ -180,9 +169,7 @@ class RunningEvent extends Event {
       int noOfParticipants,
       DateTime startTime,
       String eventID,
-      bool openToPublic,
       List announcements,
-      bool deleted,
       String description,
       String difficulty})
       : super(
@@ -191,12 +178,10 @@ class RunningEvent extends Event {
             noOfParticipants: noOfParticipants,
             eventID: eventID,
             eventType: eventType,
-            openToPublic: openToPublic,
             startTime: startTime,
             announcements: announcements,
             creator: creator,
             description: description,
-            deleted: deleted,
             difficulty: difficulty);
 }
 
@@ -216,9 +201,7 @@ class GymmingEvent extends Event {
       int noOfParticipants,
       DateTime startTime,
       String eventID,
-      bool openToPublic,
       List announcements,
-      bool deleted,
       String description,
       String difficulty})
       : super(
@@ -227,11 +210,9 @@ class GymmingEvent extends Event {
             noOfParticipants: noOfParticipants,
             eventID: eventID,
             eventType: eventType,
-            openToPublic: openToPublic,
             startTime: startTime,
             announcements: announcements,
             creator: creator,
-            deleted: deleted,
             description: description,
             difficulty: difficulty);
 }
@@ -255,9 +236,7 @@ class ZumbaEvent extends Event {
       DateTime endTime,
       DateTime startTime,
       String eventID,
-      bool openToPublic,
       List announcements,
-      bool deleted,
       String description,
       String difficulty})
       : super(
@@ -266,11 +245,9 @@ class ZumbaEvent extends Event {
             noOfParticipants: noOfParticipants,
             eventID: eventID,
             eventType: eventType,
-            openToPublic: openToPublic,
             startTime: startTime,
             announcements: announcements,
             creator: creator,
-            deleted: deleted,
             description: description,
             difficulty: difficulty);
 }
