@@ -29,7 +29,8 @@ import 'eventCreateDependancies/EventDeletedSuccessUI.dart';
 class EventPage extends StatefulWidget {
   // final dynamic event;
   final String eventID;
-  EventPage({@required this.eventID});
+  final invited;
+  EventPage({@required this.eventID,this.invited});
 
   @override
   _EventPageState createState() => _EventPageState(eventID);
@@ -37,6 +38,7 @@ class EventPage extends StatefulWidget {
 
 class _EventPageState extends State<EventPage> {
   String eventID;
+
   _EventPageState(this.eventID);
   dynamic event;
 
@@ -80,6 +82,8 @@ class _EventPageState extends State<EventPage> {
             viewStatus = 'creator';
           } else if (event.participants.contains(user.uid)) {
             viewStatus = 'participant';
+          } else if (widget.invited != null && widget.invited) {
+            viewStatus = 'invitedViewer';
           } else {
             viewStatus = 'viewer';
           }
@@ -597,12 +601,14 @@ class _EventPageState extends State<EventPage> {
                               : Container(),
                           Padding(
                             padding: const EdgeInsets.all(10.0),
-                            child: (viewStatus == 'creator')
+                            child: (viewStatus == 'invitedViewer')
+                                ? Container()
+                                : (viewStatus == 'creator')
                                 ? ButtonType1(
-                                    onPress: () async {
-                                      setState() {
-                                        viewStatus = null;
-                                      }
+                              onPress: () async {
+                                setState() {
+                                  viewStatus = null;
+                                }
 
                                       await EventManager().deleteEvent(event);
                                       Navigator.push(
