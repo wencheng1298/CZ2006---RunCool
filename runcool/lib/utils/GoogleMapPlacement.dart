@@ -98,7 +98,7 @@ class _GoogleMapState extends State<GoogleMapPlacement> {
     final googleMapsAppData = Provider.of<GoogleMapsAppData>(context);
     //body: (googleMapsAppData.currentLocation == null)
     return Container(
-        height: 200,
+        height: 180,
         width: MediaQuery.of(context).size.width,
         child: Stack(
           children: [

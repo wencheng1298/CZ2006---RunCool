@@ -30,7 +30,7 @@ class EventPage extends StatefulWidget {
   // final dynamic event;
   final String eventID;
   final invited;
-  EventPage({@required this.eventID,this.invited});
+  EventPage({@required this.eventID, this.invited});
 
   @override
   _EventPageState createState() => _EventPageState(eventID);
@@ -64,9 +64,12 @@ class _EventPageState extends State<EventPage> {
 
   static Future<Uint8List> getBytesFromAsset(String path, int width) async {
     ByteData data = await rootBundle.load(path);
-    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(), targetWidth: width);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
+        targetWidth: width);
     ui.FrameInfo fi = await codec.getNextFrame();
-    return (await fi.image.toByteData(format: ui.ImageByteFormat.png)).buffer.asUint8List();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))
+        .buffer
+        .asUint8List();
   }
 
   //End of GoogleMaps stuff
@@ -91,7 +94,6 @@ class _EventPageState extends State<EventPage> {
         }
       });
     });
-
   }
 
   @override
@@ -123,8 +125,7 @@ class _EventPageState extends State<EventPage> {
             workout['repetition'].toString() +
             '\n';
       });
-    } else  if (event.eventType == 'Zumba'){
-
+    } else if (event.eventType == 'Zumba') {
       event.danceMusic.forEach((music) {
         s = s + music['songTitle'] + ' by ' + music['songArtist'] + '\n';
       });
@@ -199,13 +200,11 @@ class _EventPageState extends State<EventPage> {
   @override
   void initState() {
     getBytesFromAsset('images/nparkscoast-to-coast.png', 64).then((onValue) {
-      nparklocationicon =BitmapDescriptor.fromBytes(onValue);
-
+      nparklocationicon = BitmapDescriptor.fromBytes(onValue);
     });
     _initStatus();
     // _fillParticipants();
     updateCamera();
-
 
     super.initState();
   }
@@ -238,13 +237,14 @@ class _EventPageState extends State<EventPage> {
                     onMapCreated: (GoogleMapController controller) {
                       _mapController.complete(controller);
                       //controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
-
-
                     },
-                    polylineset: Set.of((polylineSet != null)? Set<Polyline>.of(polylineSet) : []), //set polyline
-                    markersset: Set.of((markersSet != null)? Set<Marker>.of(markersSet) : []),
-                    circlesset: Set.of((circlesSet != null)? Set<Circle>.of(circlesSet) : []),
-
+                    polylineset: Set.of((polylineSet != null)
+                        ? Set<Polyline>.of(polylineSet)
+                        : []), //set polyline
+                    markersset: Set.of(
+                        (markersSet != null) ? Set<Marker>.of(markersSet) : []),
+                    circlesset: Set.of(
+                        (circlesSet != null) ? Set<Circle>.of(circlesSet) : []),
                   ),
                   Container(
                     height: 490, //changed this to fit pixel 3a..
@@ -315,11 +315,12 @@ class _EventPageState extends State<EventPage> {
                                               size: 20,
                                               color: Colors.red,
                                             ),
-                                            EventTextDetails(
-                                                (event.eventType == "Running"&& initialPos != null && finalPos != null)
-                                                    ? ("${initialPos} to ${finalPos}")
-                                                    : ("to be done")
-                                            ),
+                                            EventTextDetails((event.eventType ==
+                                                        "Running" &&
+                                                    initialPos != null &&
+                                                    finalPos != null)
+                                                ? ("${initialPos} to ${finalPos}")
+                                                : ("to be done")),
                                           ],
                                         ),
                                       ),
@@ -329,7 +330,7 @@ class _EventPageState extends State<EventPage> {
                                 Align(
                                   alignment: Alignment.topLeft,
                                   child: Container(
-                                    height: 100,
+                                    height: 120,
                                     width:
                                         MediaQuery.of(context).size.width / 2,
                                     child: Column(
@@ -366,7 +367,8 @@ class _EventPageState extends State<EventPage> {
                                                         size: 20,
                                                         color: Colors.amber,
                                                       ),
-                                                      EventTextDetails(event.estDistance),
+                                                      EventTextDetails(
+                                                          event.estDistance),
                                                     ],
                                                   ),
                                                 ),
@@ -377,7 +379,8 @@ class _EventPageState extends State<EventPage> {
                                                       size: 20,
                                                       color: Colors.limeAccent,
                                                     ),
-                                                    EventTextDetails(event.pace.toString()),
+                                                    EventTextDetails(
+                                                        event.pace.toString()),
                                                   ],
                                                 ),
                                               ])
@@ -604,34 +607,36 @@ class _EventPageState extends State<EventPage> {
                             child: (viewStatus == 'invitedViewer')
                                 ? Container()
                                 : (viewStatus == 'creator')
-                                ? ButtonType1(
-                              onPress: () async {
-                                setState() {
-                                  viewStatus = null;
-                                }
-
-                                      await EventManager().deleteEvent(event);
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  (EventDeletedSuccessUI())));
-                                    },
-                                    text: "Delete Event",
-                                  )
-                                : (viewStatus == 'participant')
                                     ? ButtonType1(
-                                        onPress: quitPage,
-                                        text: "Quit",
-                                        colour: Colors.red)
-                                    : (event.participants.length <
-                                            event.noOfParticipants)
+                                        colour: Colors.red,
+                                        onPress: () async {
+                                          setState() {
+                                            viewStatus = null;
+                                          }
+
+                                          await EventManager()
+                                              .deleteEvent(event);
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      (EventDeletedSuccessUI())));
+                                        },
+                                        text: "Delete Event",
+                                      )
+                                    : (viewStatus == 'participant')
                                         ? ButtonType1(
-                                            onPress: joinPage, text: "Join")
-                                        : ButtonType1(
-                                            onPress: () {},
-                                            text: "Event Full",
-                                            colour: Colors.grey),
+                                            onPress: quitPage,
+                                            text: "Quit",
+                                            colour: Colors.red)
+                                        : (event.participants.length <
+                                                event.noOfParticipants)
+                                            ? ButtonType1(
+                                                onPress: joinPage, text: "Join")
+                                            : ButtonType1(
+                                                onPress: () {},
+                                                text: "Event Full",
+                                                colour: Colors.grey),
                           ),
                         ]),
                       ),
@@ -647,7 +652,7 @@ class _EventPageState extends State<EventPage> {
     final GoogleMapController controller = await _mapController.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
         target:
-        LatLng(place.geometry.location.lat, place.geometry.location.lng),
+            LatLng(place.geometry.location.lat, place.geometry.location.lng),
         zoom: 20)));
   }
 
@@ -666,7 +671,6 @@ class _EventPageState extends State<EventPage> {
     LatLng desLatLng = LatLng(endLoc.latitude, endLoc.longitude);
 
     //event.endLocation;
-
 
     initialPos = await PlacesService.searchCoordinateAddress(startLatLng);
     finalPos = await PlacesService.searchCoordinateAddress(desLatLng);
@@ -708,19 +712,17 @@ class _EventPageState extends State<EventPage> {
 
     });*/
 
-
     PolylinePoints polylinePoints = PolylinePoints();
-    List<PointLatLng> decodePolyLinePointsResult = polylinePoints.decodePolyline(event.encPoints);
+    List<PointLatLng> decodePolyLinePointsResult =
+        polylinePoints.decodePolyline(event.encPoints);
 
     pLineCoordinates.clear();
-    if(decodePolyLinePointsResult.isNotEmpty)
-    {
+    if (decodePolyLinePointsResult.isNotEmpty) {
       decodePolyLinePointsResult.forEach((PointLatLng pointLatLng) {
-        pLineCoordinates.add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
-
+        pLineCoordinates
+            .add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
       });
     }
-
 
     polylineSet.clear();
     setState(() {
@@ -738,38 +740,36 @@ class _EventPageState extends State<EventPage> {
       polylineSet.add(polyline);
     });
 
-
-    if(startLatLng.latitude > desLatLng.latitude && startLatLng.longitude > desLatLng.longitude)
-    {
+    if (startLatLng.latitude > desLatLng.latitude &&
+        startLatLng.longitude > desLatLng.longitude) {
       latLngBounds = LatLngBounds(southwest: desLatLng, northeast: startLatLng);
-    }
-    else if (startLatLng.longitude > desLatLng.longitude)
-    {
-      latLngBounds = LatLngBounds(southwest: LatLng(startLatLng.latitude, desLatLng.longitude), northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
-    }
-    else if (startLatLng.latitude > desLatLng.latitude)
-    {
-      latLngBounds = LatLngBounds(southwest: LatLng(desLatLng.latitude, startLatLng.longitude), northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
-    }
-    else
-    {
+    } else if (startLatLng.longitude > desLatLng.longitude) {
+      latLngBounds = LatLngBounds(
+          southwest: LatLng(startLatLng.latitude, desLatLng.longitude),
+          northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
+    } else if (startLatLng.latitude > desLatLng.latitude) {
+      latLngBounds = LatLngBounds(
+          southwest: LatLng(desLatLng.latitude, startLatLng.longitude),
+          northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
+    } else {
       latLngBounds = LatLngBounds(southwest: startLatLng, northeast: desLatLng);
     }
 
     final GoogleMapController controller = await _mapController.future;
     controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
 
-
     Marker startLocMarker = Marker(
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-      infoWindow: InfoWindow(title: startLatLng.toString(), snippet: "Starting Address"),
+      infoWindow: InfoWindow(
+          title: startLatLng.toString(), snippet: "Starting Address"),
       position: startLatLng,
       markerId: MarkerId("startId"),
     );
 
     Marker destLocMarker = Marker(
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
-      infoWindow: InfoWindow(title: desLatLng.toString(), snippet: "Destination Address"),
+      infoWindow: InfoWindow(
+          title: desLatLng.toString(), snippet: "Destination Address"),
       position: desLatLng,
       markerId: MarkerId("destId"),
     );
@@ -778,19 +778,18 @@ class _EventPageState extends State<EventPage> {
 
     LatLng waypoint1 = LatLng(waypoint[0].latitude, waypoint[0].longitude);
 
-    if(waypoint.isNotEmpty) {
+    if (waypoint.isNotEmpty) {
       Marker wayptLocMarker = Marker(
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
-        infoWindow: InfoWindow(title: waypoint1.toString(), snippet: "Checkpoint"),
+        infoWindow:
+            InfoWindow(title: waypoint1.toString(), snippet: "Checkpoint"),
         position: waypoint1,
         markerId: MarkerId("wayptId"),
-
       );
       setState(() {
         markersSet.add(wayptLocMarker);
       });
     }
-
 
     setState(() {
       markersSet.add(startLocMarker);
@@ -818,10 +817,8 @@ class _EventPageState extends State<EventPage> {
     setState(() {
       circlesSet.add(startLocCircle);
       circlesSet.add(destLocCircle);
-
     });
   }
-
 }
 
 class Announcement extends StatelessWidget {
