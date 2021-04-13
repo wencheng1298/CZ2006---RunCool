@@ -24,7 +24,7 @@ class ChooseEventUIState extends State<ChooseEventUI> {
     Map eventDetails = {"eventType": eventType, "creator": user.uid};
     if (eventDetails['eventType'] == 'Running') {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => CreateRunningUI1()));
+          context, MaterialPageRoute(builder: (context) => CreateRunningUI1(eventDetails: eventDetails)));
     } else if (eventDetails['eventType'] == 'Gymming' ||
         eventDetails['eventType'] == 'Zumba') {
       Navigator.push(

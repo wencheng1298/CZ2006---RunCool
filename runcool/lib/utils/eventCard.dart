@@ -62,12 +62,12 @@ class EventCard extends StatelessWidget {
               style: TextStyle(fontSize: 24, color: kTurquoise),
             ),
             //The lag is killing me so imma gotto comment this out
-            // Padding(
-            //   padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-            //   child: Container(
-            //     child: GoogleMapPlacement(),
-            //   ),
-            // ),
+             Padding(
+               padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+               child: Container(
+                 child: GoogleMapPlacement(),
+               ),
+             ),
             Padding(
               padding: const EdgeInsets.only(top: 5, left: 15.0, right: 15),
               child: Row(
@@ -76,7 +76,7 @@ class EventCard extends StatelessWidget {
                   Expanded(
                     child: Text(
                       (event.eventType == 'Running')
-                          ? event.estDistance + "km"
+                          ? event.estDistance //+ "km" - removed this cause it is in km
                           : '', // Time
                       style: TextStyle(color: Colors.white),
                     ),

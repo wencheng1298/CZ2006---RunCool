@@ -79,24 +79,30 @@ class PlacesService {
     //return Place.fromJson(jsonResult);
   }*/
 
-  Future<String> searchCoordinateAddress(Position position, context) async { //geolocator search position //assistant method
+  static Future<String> searchCoordinateAddress(LatLng position/*, context*/) async { //geolocator search position //assistant method
 
     String placeAddress = '';
-    var url = Uri.parse('https://maps.googleapis.com/maps/api/geolocator/json?latlng=${position.latitude},${position.longitude}key=$API_KEY');
+    var url = Uri.parse('https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.latitude},${position.longitude}&key=$GoogleAPIKey');
     var response = await http.get(url);
-    if(response.statusCode == 200)
-    {
-      var json = convert.jsonDecode(response.body);
-      placeAddress = json['results'][0]['formatted_address'];
 
-    }
+    var json = convert.jsonDecode(response.body);
 
-    Place newplace = new Place();
+
+
+    /*var jsonResult = json['result'] as Map<String,dynamic>;
+    return Place.fromJson(jsonResult);*/
+
+    var jsonResult = json['result'];
+
+    placeAddress = json['results'][0]['address_components'][2]['short_name'];
+    /*Place newplace = new Place();
     newplace.geometry.location.lat = position.latitude;
     newplace.geometry.location.lng = position.longitude;
-    newplace.name = placeAddress;
+    newplace.name = jsonResult[0]['formatted_address'];
+    newplace.placeId = jsonResult[0]['place_id'];*/
 
-    Provider.of<GoogleMapsAppData>(context, listen: false).updateStartLocationAddress(newplace);
+
+    //Provider.of<GoogleMapsAppData>(context, listen: false).updateStartLocationAddress(newplace);
 
     return placeAddress;
   }

@@ -1,3 +1,5 @@
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 import 'User.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../controllers/ProfileManager.dart';
@@ -42,7 +44,7 @@ class Event {
     final participants = data['participants'] ?? [];
     final announcements = data['announcements'] ?? [];
     final startTime = (data['startTime'] != null)
-        ? data['startTime'].toDate().add(Duration(hours: 8))
+        ? data['startTime'].toDate()
         : null;
     final noOfParticipants = data['noOfParticipants'] ?? 8;
     final difficulty = data['difficulty'] ?? '';
@@ -53,7 +55,7 @@ class Event {
     switch (eventType) {
       case 'Gymming':
         final workout = data['workout'] ?? [];
-        final location = data['location'].toString();
+        final location = data['location'].toString(); //todo remove the to string
         final duration = data['duration'] ?? 0.0;
         return GymmingEvent(
             name: name,
@@ -74,7 +76,7 @@ class Event {
       case 'Zumba':
         final danceGenre = data['danceGenre'] ?? '';
         final danceMusic = data['danceMusic'] ?? [];
-        final location = data['location'].toString() ?? '';
+        final location = data['location'].toString() ?? ''; //todo remove the to string
         final duration = data['duration'] ?? 0.0;
         return ZumbaEvent(
             name: name,
@@ -95,10 +97,13 @@ class Event {
             location: location);
       case 'Running':
         final checkpoints = data['checkpoints'] ?? [];
-        final startLocation = data['startLocation'].toString() ?? '';
-        final endLocation = data['endLocation'].toString() ?? '';
+        final startLocation = data['startLocation'];
+        final endLocation = data['endLocation'];
+        //GeoPoint startpos = data['startLocation'];
+        //LatLng startlatlng = new LatLng(startpos.latitude, startpos.longitude);
         final estDistance = data['estDistance'] ?? '';
         final pace = data['pace'] ?? 0.0;
+        final encPoints = data['encPoints'] ?? '';
         return RunningEvent(
             name: name,
             participants: participants,
@@ -116,7 +121,10 @@ class Event {
             estDistance: estDistance,
             pace: pace,
             startLocation: startLocation,
-            checkpoints: checkpoints);
+            checkpoints: checkpoints,
+          //added these
+          encPoints: encPoints,
+        );
       default:
         return Event(
             name: name,
@@ -148,11 +156,14 @@ class Event {
 }
 
 class RunningEvent extends Event {
-  List checkpoints;
-  String startLocation;
-  String endLocation;
-  int estDistance;
+  List<dynamic> checkpoints; //todo check if the change is correct.
+  GeoPoint startLocation;
+  GeoPoint endLocation;
+  //changed to string.
+  String estDistance;
   double pace;
+  //added these
+  String encPoints;
 
   RunningEvent(
       {this.checkpoints,
@@ -160,6 +171,8 @@ class RunningEvent extends Event {
       this.endLocation,
       this.estDistance,
       this.pace,
+        //added these
+        this.encPoints,
       String name,
       String creator,
       String eventType,

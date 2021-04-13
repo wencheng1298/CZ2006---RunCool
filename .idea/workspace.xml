@@ -22,31 +22,26 @@
     <select>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="BRANCH:origin/main" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:main" type="e8cecc67:BranchNodeDescriptor" />
       </path>
     </select>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="Working Google Maps and API search handling.">
-      <change afterPath="$PROJECT_DIR$/runcool/assets/PCN_Access_Points_googlemaps.geojson" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/images/nparkscoast-to-coast.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/utils/custom_rect_tween.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/utils/datagovapi/features.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/utils/datagovapi_service.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/utils/hero_dialog_route.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/utils/searchScreen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/controllers/EventManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/controllers/EventManager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/models/Event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/models/Event.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/EventPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/EventPage.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/ChooseEventUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/ChooseEventUI.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/RunningUI/CreateRunningUI1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/RunningUI/CreateRunningUI1.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/RunningUI/CreateRunningUI2.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/RunningUI/CreateRunningUI2.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/utils/EventTextDetails.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/EventTextDetails.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/utils/GoogleMapPlacement.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/GoogleMapPlacement.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/utils/GoogleMapsAppData.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/GoogleMapsAppData.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/utils/directionDetails.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/directionDetails.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/utils/eventCard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/eventCard.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/lib/utils/places_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/places_service.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,8 +159,25 @@
       <option name="project" value="LOCAL" />
       <updated>1617777617374</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Working Google Maps and API search handling.">
+      <created>1618259124587</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1618259124587</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ORDER">
+      <list>
+        <option value="0" />
+        <option value="2" />
+        <option value="3" />
+        <option value="1" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -178,7 +190,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/main" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -243,40 +255,40 @@
     <state x="489" y="206" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1616398725787" />
     <state x="549" y="195" key="FileChooserDialogImpl/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618257513406" />
     <state x="549" y="195" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1617111002997" />
-    <state width="1491" height="163" key="GridCell.Tab.0.bottom" timestamp="1618258910460">
+    <state width="1491" height="242" key="GridCell.Tab.0.bottom" timestamp="1618299458352">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.bottom/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
     <state width="609" height="141" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616758938916" />
     <state width="551" height="104" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
-    <state width="1491" height="163" key="GridCell.Tab.0.bottom/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618258910460" />
+    <state width="1491" height="242" key="GridCell.Tab.0.bottom/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618299458352" />
     <state width="1491" height="247" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1617776617391" />
     <state width="841" height="101" key="GridCell.Tab.0.bottom/0.0.912.568@0.0.912.568" timestamp="1615393853484" />
-    <state width="1491" height="163" key="GridCell.Tab.0.center" timestamp="1618258910460">
+    <state width="1491" height="242" key="GridCell.Tab.0.center" timestamp="1618299458352">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.center/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
     <state width="609" height="141" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616758938916" />
     <state width="551" height="104" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
-    <state width="1491" height="163" key="GridCell.Tab.0.center/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618258910460" />
+    <state width="1491" height="242" key="GridCell.Tab.0.center/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618299458352" />
     <state width="1491" height="247" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1617776617391" />
     <state width="841" height="101" key="GridCell.Tab.0.center/0.0.912.568@0.0.912.568" timestamp="1615393853483" />
-    <state width="1491" height="163" key="GridCell.Tab.0.left" timestamp="1618258910460">
+    <state width="1491" height="242" key="GridCell.Tab.0.left" timestamp="1618299458352">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.left/0.0.1094.690@0.0.1094.690" timestamp="1615798491907" />
     <state width="609" height="141" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616758938916" />
     <state width="551" height="104" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
-    <state width="1491" height="163" key="GridCell.Tab.0.left/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618258910460" />
+    <state width="1491" height="242" key="GridCell.Tab.0.left/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618299458352" />
     <state width="1491" height="247" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1617776617390" />
     <state width="841" height="101" key="GridCell.Tab.0.left/0.0.912.568@0.0.912.568" timestamp="1615393853483" />
-    <state width="1491" height="163" key="GridCell.Tab.0.right" timestamp="1618258910460">
+    <state width="1491" height="242" key="GridCell.Tab.0.right" timestamp="1618299458352">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.right/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
     <state width="609" height="141" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616758938916" />
     <state width="551" height="104" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
-    <state width="1491" height="163" key="GridCell.Tab.0.right/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618258910460" />
+    <state width="1491" height="242" key="GridCell.Tab.0.right/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618299458352" />
     <state width="1491" height="247" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1617776617391" />
     <state width="841" height="101" key="GridCell.Tab.0.right/0.0.912.568@0.0.912.568" timestamp="1615393853483" />
     <state x="169" y="24" key="MergeDialog" timestamp="1618257671727">
@@ -300,29 +312,30 @@
     <state x="277" y="0" key="SettingsEditor/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618075062144" />
     <state x="277" y="85" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617111004480" />
     <state x="0" y="0" key="SettingsEditor/0.0.912.568@0.0.912.568" timestamp="1615391298134" />
-    <state x="207" y="129" key="Vcs.Push.Dialog.v2" timestamp="1617777622453">
+    <state x="207" y="129" key="Vcs.Push.Dialog.v2" timestamp="1618259137780">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-7" y="52" key="Vcs.Push.Dialog.v2/0.0.1094.690@0.0.1094.690" timestamp="1615899868818" />
     <state x="184" y="136" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1616408594636" />
+    <state x="207" y="129" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618259137780" />
     <state x="207" y="129" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1617777622453" />
-    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618257842481">
+    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618298025331">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="412" y="296" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1094.690@0.0.1094.690" timestamp="1615899967894" />
     <state x="515" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1368.872@0.0.1368.872" timestamp="1616578754004" />
-    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618257842481" />
+    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618298025331" />
     <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1617777592477" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1618201638660">
+    <state x="425" y="187" key="run.anything.popup" timestamp="1618303875094">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618201638660" />
-    <state x="198" y="-2" width="1133" height="984" key="search.everywhere.popup" timestamp="1618253343394">
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618303875094" />
+    <state x="198" y="-2" width="1133" height="984" key="search.everywhere.popup" timestamp="1618309087737">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="165" y="-2" width="944" height="812" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1616757142402" />
     <state x="176" y="-2" width="1008" height="1041" key="search.everywhere.popup/0.0.1368.872@0.0.1368.872" timestamp="1616579666421" />
-    <state x="198" y="-2" width="1133" height="984" key="search.everywhere.popup/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618253343394" />
+    <state x="198" y="-2" width="1133" height="984" key="search.everywhere.popup/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618309087737" />
     <state x="117" y="-1" width="672" height="678" key="search.everywhere.popup/0.0.912.568@0.0.912.568" timestamp="1615389681639" />
   </component>
 </project>

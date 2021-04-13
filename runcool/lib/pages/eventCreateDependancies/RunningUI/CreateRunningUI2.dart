@@ -23,9 +23,10 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
   _CreateRunningUI2State(this.eventDetails);
 
   final _formKey = GlobalKey<FormState>(); // VALIDATE
-  bool difficultyError = false;
 
   List<String> difficultyLevels = ['Easy', 'Medium', 'Hard'];
+  bool timeError = false;
+  bool dateError = false;
 
   void createEvent(Map eventDetails) async {
     Event event = await EventManager().createEvent(eventDetails);
@@ -36,6 +37,15 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
     );
   }
 
+  _checkDateAndTimeError() {
+    setState(() {
+      if (eventDetails['startTime'] == null) {
+        timeError = true;
+        dateError = true;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +54,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
         backgroundColor: Colors.black,
         centerTitle: true,
         title: Text(
-          'Create Running UI 2',
+          'Create ${widget.eventDetails['eventType']} UI 2',
           style: TextStyle(color: Colors.white),
           textAlign: TextAlign.center,
         ),
@@ -80,8 +90,19 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                               }
                               eventDetails['startTime'] = new DateTime(
                                   year, month, day, startHour, startMinute);
+                              dateError = false;
                             });
                           },
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 23),
+                        child: Text(
+                          (dateError) ? 'Select a date' : '',
+                          style: TextStyle(
+                              color: Colors.redAccent,
+                              height: 0.6
+                          ),
                         ),
                       ),
                       Align(
@@ -172,9 +193,8 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                           text: 'minimum: 1, maximum: 8',
                           onChange: (val) {
                             try {
-                              val = double.parse(val);
-                              eventDetails['noOfParticipants'] =
-                                  double.parse(val);
+                              val = int.parse(val);
+                              eventDetails['noOfParticipants'] = val;
                             } catch (error) {
                               // Need find out how to catch and show error
                               eventDetails['noOfParticipants'] = 0;
@@ -184,11 +204,17 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                             if (val.isEmpty) {
                               return 'Enter number of participants';
                             }
-                            val = int.parse(val);
-                            if (val < 1 || val > 8) {
-                              return "There must be between 1-8 participants";
+                            try{
+                              val = int.parse(val);
+                              if (val < 1 || val > 8) {
+                                return "There must be between 1-8 participants";
+                              }
+                              return null;
+                            }catch(error){
+                              return 'Must be a number';
                             }
-                            return null;
+
+                            //return null;
                           },
                         ),
                       ),
@@ -197,54 +223,19 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                         child: InputFieldTextTitles('Difficulty'),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                        child: Container(
-                          height: 35,
-                          padding: const EdgeInsets.only(left: 16, right: 16),
-                          decoration: BoxDecoration(
-                            border: Border.all(color: kTurquoise, width: 2),
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: DropdownButton(
-                            dropdownColor: Colors.grey[800].withOpacity(0.9),
-                            icon: Icon(
-                              Icons.arrow_drop_down_circle_outlined,
-                              color: kTurquoise,
-                            ),
-                            iconSize: 26,
-                            isExpanded: true,
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 17,
-                            ),
-                            value: eventDetails['difficulty'],
-                            hint: Text(
-                              '--None--',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            onChanged: (newChoice) {
-                              setState(() {
-                                eventDetails['difficulty'] = newChoice;
-                                difficultyError = false;
-                              });
-                            },
-                            items: difficultyLevels.map((choice) {
-                              return DropdownMenuItem(
-                                  value: choice,
-                                  child: Text(
-                                    choice,
-                                  ));
-                            }).toList(),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 23, top: 4),
-                        child: Text(
-                          (difficultyError) ? 'Choose a difficulty' : '',
-                          style: TextStyle(
-                            color: Colors.redAccent,
-                          ),
+                        padding:
+                        EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                        child: DropdownFormFill(
+                          value: eventDetails['difficulty'],
+                          onChange: (newChoice) {
+                            setState(() {
+                              eventDetails['difficulty'] = newChoice;
+                            });
+                          },
+                          items: difficultyLevels,
+                          text: "--None--",
+                          validate: (val) =>
+                          val == null ? 'Choose your difficulty' : null,
                         ),
                       ),
                       Align(
@@ -261,17 +252,12 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                         width: 80,
                         child: TinyButton(
                           onPress: () => {
-                            print(eventDetails['difficult']),
-                            if (eventDetails['difficulty'] == null)
-                              {
-                                difficultyError = true,
-                              },
+                            _checkDateAndTimeError(),
                             if (_formKey.currentState.validate())
                               {
-                                if (!difficultyError)
-                                  {
-                                    createEvent(eventDetails),
-                                  }
+                                print("this works"),
+                                createEvent(eventDetails),
+
                               }
                           },
                           text: "Create",

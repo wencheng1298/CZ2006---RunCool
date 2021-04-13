@@ -23,11 +23,12 @@ class GoogleMapPlacement extends StatefulWidget {
   final Set<Polyline> polylineset;
   final Set<Marker> markersset;
   final Set<Circle> circlesset;
+  final CameraPosition CameraPositionset;
 
   /*void getStartAddress(startAddress) {
     _GoogleMapState().getStartingAddress(startAddress);
   }*/
-  GoogleMapPlacement({this.onMapCreated, this.eventType, this.polylineset, this.circlesset,this.markersset});
+  GoogleMapPlacement({this.onMapCreated, this.eventType, this.polylineset, this.circlesset,this.markersset, this.CameraPositionset});
 
   @override
   _GoogleMapState createState() => _GoogleMapState();

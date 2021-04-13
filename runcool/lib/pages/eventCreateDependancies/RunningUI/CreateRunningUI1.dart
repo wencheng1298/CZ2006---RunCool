@@ -18,6 +18,8 @@ import 'package:runcool/utils/searchScreen.dart';
 import './CreateRunningUI2.dart';
 import './../../../utils/everythingUtils.dart';
 
+//for geopoint saving...
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 //import 'package:flutter_google_places/flutter_google_places.dart';
 //import 'package:google_api_headers/google_api_headers.dart';
@@ -37,29 +39,52 @@ String API_KEY = GoogleAPIKey;
 Uri PLACES_API_KEY = Uri.parse(API_KEY);
 
 class CreateRunningUI1 extends StatefulWidget {
-  final String title;
-  CreateRunningUI1({Key key, this.title}) : super(key: key);
+  //final Map title;
+  //CreateRunningUI1({Key key, this.title}) : super(key: key);
+  final Map eventDetails;
+  CreateRunningUI1({this.eventDetails});
+
 
   @override
-  _CreateRunningUI1State createState() => _CreateRunningUI1State();
+  _CreateRunningUI1State createState() => _CreateRunningUI1State(eventDetails);
 }
 /// Tag-value used for the add todo popup button.
 const String _heroSearch = 'add-search-hero';
 
 class _CreateRunningUI1State extends State<CreateRunningUI1> {
+  //Trial with Mapping
+  Map eventDetails;
+  _CreateRunningUI1State(this.eventDetails);
+
+  final _formKey = GlobalKey<FormState>(); //validate
+
+  void _initVariables() {
+    eventDetails["checkpoints"] = [];
+
+
+    eventDetails["participants"] = [];
+    eventDetails["notifications"] = [];
+
+  }
+
+  void _fillRunDetailsWidget() {
+    setState(() {
+
+    });
+  }
+
+
   Completer<GoogleMapController> _mapController = Completer();
   StreamSubscription locationSubscription;
-  //TextEditingController startTextEditingController = TextEditingController();
-  //TextEditingController destTextEditingController = TextEditingController();
 
   //Trial with polylines
-
   List<LatLng> pLineCoordinates = [];
   Set<Polyline> polylineSet = {};
 
   Set<Marker> markersSet = Set();
   Set<Circle> circlesSet = {};
 
+  //Estimated distance text
   var EstimatedDistance = "";
 
   //trial with geojson
@@ -75,7 +100,8 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
   //trial with searching function
   TextEditingController destTextEditingController = TextEditingController();
   List<PlaceSearch> placeSearchList = [];
-  String whichdata;
+
+
 
 
 
@@ -119,6 +145,8 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
 
     });
 
+    _initVariables(); //to initialise as empty list first.
+
 
 
     super.initState();
@@ -143,7 +171,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     super.dispose();
   }
 
-  Map eventDetails = {"eventType": "Running"};
+  //Map eventDetails = {"eventType": "Running"};
 
 
   static Future<Uint8List> getBytesFromAsset(String path, int width) async {
@@ -156,11 +184,12 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
 
 
 
-  void goNextPage(details) {
+  void goNextPage() {
+    //todo should i be adding the must to add a checkpoint??
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => CreateRunningUI2(eventDetails: details)));
+            builder: (context) => CreateRunningUI2(eventDetails: eventDetails)));
   }
 
   @override
@@ -225,6 +254,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                             {
                               var res = await Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen("Start")));
 
+
                               if(Provider.of<GoogleMapsAppData>(context,listen: false).destPlace != null && res== "obtainDirection")
                               {
                                 await getPlaceDirection();
@@ -253,6 +283,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                             {
                               var res = await Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen("End")));
 
+
                               if(Provider.of<GoogleMapsAppData>(context,listen: false).startingPlace != null && res== "obtainDirection")
                               {
                                 await getPlaceDirection();
@@ -274,12 +305,14 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                         {
                           var res = await Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen("addwaypt")));
 
-                          if(Provider.of<GoogleMapsAppData>(context,listen: false).destPlace != null && Provider.of<GoogleMapsAppData>(context,listen: false).startingPlace != null)
+                          if(Provider.of<GoogleMapsAppData>(context,listen: false).destPlace != null && Provider.of<GoogleMapsAppData>(context,listen: false).startingPlace != null && res!="obtainDirection")
                           {
                             var latlong = res.split(",");
                             print(latlong);
                             var lat = double.tryParse(latlong[0]);
                             var lng = double.tryParse(latlong[1]);
+                            GeoPoint checkpoint = GeoPoint(lat, lng);
+                            eventDetails['checkpoints'].add(checkpoint);
                             await addwaypointDirection(LatLng(lat, lng));
                           }
                         },
@@ -323,7 +356,13 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                       alignment: Alignment.bottomRight,
                       child: OutlinedButton(
                         child: Text('Next'),
-                        onPressed: () => goNextPage(eventDetails),
+                        onPressed: () => {
+                          goNextPage(),
+                        print(eventDetails['encPoints']),
+                        print(eventDetails['estDistance']),
+                          print(eventDetails['startLocation']),
+                          print(eventDetails['endLocation']),
+                          },
                         style: TextButton.styleFrom(
                           backgroundColor: Colors.white,
                           primary: Colors.black,
@@ -343,41 +382,6 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     );
   }
 
-  void getPlaceAddressDetails(String placeId, context) async
-  {
-    showDialog(context: context,
-        builder: (BuildContext context) => Loading()
-    );
-    var url = Uri.parse(
-        'https://maps.googleapis.com/maps/api/place/details/json?key=$GoogleAPIKey&place_id=$placeId');
-    var response = await http.get(url);
-
-    var json = convert.jsonDecode(response.body);
-
-    Navigator.pop(context); //pop out the loading thing.
-
-    if (json['status'] == 'OK') {
-
-      var jsonResult = json['result'] as Map<dynamic,dynamic>;
-      Place newplace = Place.fromJson(jsonResult);
-
-      //print("this is drop off location");
-      //print(newplace.geometry.location.lat);
-      //print(newplace.geometry.location.lng);
-
-      if(whichdata == "Start")
-      {
-        Provider.of<GoogleMapsAppData>(context, listen: false).updateStartLocationAddress(newplace);
-        Navigator.pop(context, "obtainDirection");
-      }
-      if(whichdata == "End")
-      {
-        Provider.of<GoogleMapsAppData>(context, listen: false).updateDestLocationAddress(newplace);
-        Navigator.pop(context, whichdata ="obtainDirection");
-      }
-
-    }
-  }
 
   Future<void> _goToPlace(Place place) async {
     final GoogleMapController controller = await _mapController.future;
@@ -413,7 +417,19 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     print("this is encoded points: ");
     print(details.encodedPoints);
     setState(() {
+      //todo check if this is correct
+      GeoPoint  start = GeoPoint(startLatLng.latitude, startLatLng.longitude);
+      eventDetails['startLocation'] = start;
+
+      GeoPoint  end = GeoPoint(desLatLng.latitude, desLatLng.longitude);
+      eventDetails['endLocation'] = end;
+
+      eventDetails['encPoints'] = details.encodedPoints;
+
       EstimatedDistance = details.distanceText;
+      eventDetails['estDistance'] = EstimatedDistance;
+
+
     });
 
 
@@ -559,10 +575,24 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
 
 
 
+
     print("this is encoded points: ");
     print(details.encodedPoints);
+
     setState(() {
+      //todo check if this is correct
+      GeoPoint  start = GeoPoint(startLatLng.latitude, startLatLng.longitude);
+      eventDetails['startLocation'] = start;
+
+      GeoPoint  end = GeoPoint(desLatLng.latitude, desLatLng.longitude);
+      eventDetails['endLocation'] = end;
+
+      eventDetails['encPoints'] = details.encodedPoints;
+
       EstimatedDistance = details.distanceText;
+      eventDetails['estDistance'] = EstimatedDistance;
+
+
     });
 
     PolylinePoints polylinePoints = PolylinePoints();

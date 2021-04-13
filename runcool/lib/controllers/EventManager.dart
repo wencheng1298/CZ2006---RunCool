@@ -13,9 +13,13 @@ class EventManager {
     Map<String, dynamic> data =
         eventDetails.map((key, value) => MapEntry(key.toString(), value));
     data['deleted'] = false;
+    print(data['checkpoints']);
+    print(data['checkpoints'].runtimeType);
     var docID = await events.add(data);
     DocumentSnapshot eventSnapshot = await docID.get();
+
     Event event = Event.fromFirestore(eventSnapshot);
+
     return event;
   }
 

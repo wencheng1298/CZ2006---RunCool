@@ -9,10 +9,14 @@ class EventTextDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8),
-      child: Text(
-        _title,
-        textAlign: TextAlign.left,
-        style: TextStyle(fontSize: 16, color: Colors.white),
+      child: Container(
+        width: 100,
+        child: Text(
+          _title,
+          textAlign: TextAlign.left,
+          //overflow: TextOverflow.ellipsis,
+          style: TextStyle(fontSize: 16, color: Colors.white),
+        ),
       ),
     );
   }
