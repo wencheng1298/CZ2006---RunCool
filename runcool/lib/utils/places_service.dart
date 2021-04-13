@@ -92,12 +92,16 @@ class PlacesService {
     /*var jsonResult = json['result'] as Map<String,dynamic>;
     return Place.fromJson(jsonResult);*/
 
-    var jsonResult = json['result'];
+    //var jsonResult = json['result'];
+    var short1 = json['results'][0]['address_components'][0]['short_name'];
+    var short2 = json['results'][0]['address_components'][1]['short_name'];
+    var short3 = json['results'][0]['address_components'][2]['short_name'];
 
-    placeAddress = json['results'][0]['address_components'][2]['short_name'];
-    /*Place newplace = new Place();
-    newplace.geometry.location.lat = position.latitude;
-    newplace.geometry.location.lng = position.longitude;
+
+    placeAddress = /*short1 + ", " + */short2 + ", "+ short3;
+    //Place newplace = new Place();
+    /*newplace.geometry.location.lat = jsonResult[0]['geometry']['location']['lat'];
+    newplace.geometry.location.lng = jsonResult[0]['geometry']['location']['lat'];
     newplace.name = jsonResult[0]['formatted_address'];
     newplace.placeId = jsonResult[0]['place_id'];*/
 
@@ -105,6 +109,8 @@ class PlacesService {
     //Provider.of<GoogleMapsAppData>(context, listen: false).updateStartLocationAddress(newplace);
 
     return placeAddress;
+    /*var jsonResult = json['result'] as Map<String,dynamic>;
+    return Place.fromJson(jsonResult);*/
   }
 
 

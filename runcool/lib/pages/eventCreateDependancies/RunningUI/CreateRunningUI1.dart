@@ -115,7 +115,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
             _goToPlace(place);
           }
         });
-    getBytesFromAsset('images/nparkscoast-to-coast.png', 64).then((onValue) {
+    /*getBytesFromAsset('images/nparkscoast-to-coast.png', 64).then((onValue) {
 
       setState(() {
         nparklocationicon =BitmapDescriptor.fromBytes(onValue);
@@ -123,13 +123,13 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
       print('icon loaded');
 
 
-    });
+    });*/
     getCoordinates('running').then((_) {
 
       for(int i =0; i< apicall.length; i ++)
       {
         _geomarkers.add(Marker(
-          icon: nparklocationicon,
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
           //infoWindow: InfoWindow(title: point.name, snippet: "Starting Address"),
           infoWindow: InfoWindow(title: apicall[i].name),
           position: LatLng(apicall[i].lat, apicall[i].lng),
@@ -253,6 +253,8 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                             onTap: () async
                             {
                               var res = await Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen("Start")));
+                              if(Provider.of<GoogleMapsAppData>(context,listen: false).startingPlace != null)
+                                await _goToPlace(Provider.of<GoogleMapsAppData>(context,listen: false).startingPlace);
 
 
                               if(Provider.of<GoogleMapsAppData>(context,listen: false).destPlace != null && res== "obtainDirection")
@@ -358,10 +360,6 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                         child: Text('Next'),
                         onPressed: () => {
                           goNextPage(),
-                        print(eventDetails['encPoints']),
-                        print(eventDetails['estDistance']),
-                          print(eventDetails['startLocation']),
-                          print(eventDetails['endLocation']),
                           },
                         style: TextButton.styleFrom(
                           backgroundColor: Colors.white,
@@ -388,7 +386,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
         target:
         LatLng(place.geometry.location.lat, place.geometry.location.lng),
-        zoom: 20)));
+        zoom: 15)));
   }
 
   Future<void> getPlaceDirection() async {
@@ -663,13 +661,14 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
 
 
     Marker wayptLocMarker = Marker(
-      icon: nparklocationicon,
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
       infoWindow: InfoWindow(title: waypoint.toString(), snippet: "Waypoint"),
       position: waypoint,
       markerId: MarkerId("wayptId"),
     );
 
     setState(() {
+      markersSet.clear();
       markersSet.add(startLocMarker);
       markersSet.add(destLocMarker);
       markersSet.add(wayptLocMarker);

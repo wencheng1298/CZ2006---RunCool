@@ -62,14 +62,14 @@ class _EventPageState extends State<EventPage> {
 
   BitmapDescriptor nparklocationicon;
 
+  //gym and zumba
+  String locationPos;
+
   static Future<Uint8List> getBytesFromAsset(String path, int width) async {
     ByteData data = await rootBundle.load(path);
-    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
-        targetWidth: width);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(), targetWidth: width);
     ui.FrameInfo fi = await codec.getNextFrame();
-    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))
-        .buffer
-        .asUint8List();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png)).buffer.asUint8List();
   }
 
   //End of GoogleMaps stuff
@@ -90,10 +90,22 @@ class _EventPageState extends State<EventPage> {
           } else {
             viewStatus = 'viewer';
           }
-          setRoute();
+          if(event.eventType == 'Running')
+            {
+              setRoute();
+            }
+          else {
+            setMarkers().then((_) {
+              _goToPlace(event.location);
+
+            });
+
+          }
+
         }
       });
     });
+
   }
 
   @override
@@ -238,13 +250,10 @@ class _EventPageState extends State<EventPage> {
                       _mapController.complete(controller);
                       //controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
                     },
-                    polylineset: Set.of((polylineSet != null)
-                        ? Set<Polyline>.of(polylineSet)
-                        : []), //set polyline
-                    markersset: Set.of(
-                        (markersSet != null) ? Set<Marker>.of(markersSet) : []),
-                    circlesset: Set.of(
-                        (circlesSet != null) ? Set<Circle>.of(circlesSet) : []),
+                    polylineset: Set.of((polylineSet != null)? Set<Polyline>.of(polylineSet) : []), //set polyline
+                    markersset: Set.of((markersSet != null)? Set<Marker>.of(markersSet) : []),
+                    circlesset: Set.of((circlesSet != null)? Set<Circle>.of(circlesSet) : []),
+
                   ),
                   Container(
                     height: 490, //changed this to fit pixel 3a..
@@ -315,12 +324,11 @@ class _EventPageState extends State<EventPage> {
                                               size: 20,
                                               color: Colors.red,
                                             ),
-                                            EventTextDetails((event.eventType ==
-                                                        "Running" &&
-                                                    initialPos != null &&
-                                                    finalPos != null)
-                                                ? ("${initialPos} to ${finalPos}")
-                                                : ("to be done")),
+                                            EventTextDetails(
+                                                (event.eventType == "Running"&& initialPos != null && finalPos != null)
+                                                    ? ("${initialPos} to ${finalPos}")
+                                                    : (locationPos)
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -367,8 +375,7 @@ class _EventPageState extends State<EventPage> {
                                                         size: 20,
                                                         color: Colors.amber,
                                                       ),
-                                                      EventTextDetails(
-                                                          event.estDistance),
+                                                      EventTextDetails(event.estDistance),
                                                     ],
                                                   ),
                                                 ),
@@ -379,8 +386,7 @@ class _EventPageState extends State<EventPage> {
                                                       size: 20,
                                                       color: Colors.limeAccent,
                                                     ),
-                                                    EventTextDetails(
-                                                        event.pace.toString()),
+                                                    EventTextDetails(event.pace.toString()),
                                                   ],
                                                 ),
                                               ])
@@ -648,13 +654,6 @@ class _EventPageState extends State<EventPage> {
           );
   }
 
-  Future<void> _goToPlace(Place place) async {
-    final GoogleMapController controller = await _mapController.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target:
-            LatLng(place.geometry.location.lat, place.geometry.location.lng),
-        zoom: 20)));
-  }
 
   Future<void> updateCamera() async {
     final GoogleMapController controller = await _mapController.future;
@@ -713,16 +712,17 @@ class _EventPageState extends State<EventPage> {
     });*/
 
     PolylinePoints polylinePoints = PolylinePoints();
-    List<PointLatLng> decodePolyLinePointsResult =
-        polylinePoints.decodePolyline(event.encPoints);
+    List<PointLatLng> decodePolyLinePointsResult = polylinePoints.decodePolyline(event.encPoints);
 
     pLineCoordinates.clear();
-    if (decodePolyLinePointsResult.isNotEmpty) {
+    if(decodePolyLinePointsResult.isNotEmpty)
+    {
       decodePolyLinePointsResult.forEach((PointLatLng pointLatLng) {
-        pLineCoordinates
-            .add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
+        pLineCoordinates.add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
+
       });
     }
+
 
     polylineSet.clear();
     setState(() {
@@ -740,18 +740,21 @@ class _EventPageState extends State<EventPage> {
       polylineSet.add(polyline);
     });
 
-    if (startLatLng.latitude > desLatLng.latitude &&
-        startLatLng.longitude > desLatLng.longitude) {
+
+    if(startLatLng.latitude > desLatLng.latitude && startLatLng.longitude > desLatLng.longitude)
+    {
       latLngBounds = LatLngBounds(southwest: desLatLng, northeast: startLatLng);
-    } else if (startLatLng.longitude > desLatLng.longitude) {
-      latLngBounds = LatLngBounds(
-          southwest: LatLng(startLatLng.latitude, desLatLng.longitude),
-          northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
-    } else if (startLatLng.latitude > desLatLng.latitude) {
-      latLngBounds = LatLngBounds(
-          southwest: LatLng(desLatLng.latitude, startLatLng.longitude),
-          northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
-    } else {
+    }
+    else if (startLatLng.longitude > desLatLng.longitude)
+    {
+      latLngBounds = LatLngBounds(southwest: LatLng(startLatLng.latitude, desLatLng.longitude), northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
+    }
+    else if (startLatLng.latitude > desLatLng.latitude)
+    {
+      latLngBounds = LatLngBounds(southwest: LatLng(desLatLng.latitude, startLatLng.longitude), northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
+    }
+    else
+    {
       latLngBounds = LatLngBounds(southwest: startLatLng, northeast: desLatLng);
     }
 
@@ -760,16 +763,14 @@ class _EventPageState extends State<EventPage> {
 
     Marker startLocMarker = Marker(
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-      infoWindow: InfoWindow(
-          title: startLatLng.toString(), snippet: "Starting Address"),
+      infoWindow: InfoWindow(title: initialPos, snippet: "Starting Address"),
       position: startLatLng,
       markerId: MarkerId("startId"),
     );
 
     Marker destLocMarker = Marker(
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
-      infoWindow: InfoWindow(
-          title: desLatLng.toString(), snippet: "Destination Address"),
+      infoWindow: InfoWindow(title: finalPos, snippet: "Destination Address"),
       position: desLatLng,
       markerId: MarkerId("destId"),
     );
@@ -778,11 +779,10 @@ class _EventPageState extends State<EventPage> {
 
     LatLng waypoint1 = LatLng(waypoint[0].latitude, waypoint[0].longitude);
 
-    if (waypoint.isNotEmpty) {
+    if(waypoint.isNotEmpty) {
       Marker wayptLocMarker = Marker(
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
-        infoWindow:
-            InfoWindow(title: waypoint1.toString(), snippet: "Checkpoint"),
+        infoWindow: InfoWindow(title: waypoint1.toString(), snippet: "Checkpoint"),
         position: waypoint1,
         markerId: MarkerId("wayptId"),
       );
@@ -819,6 +819,51 @@ class _EventPageState extends State<EventPage> {
       circlesSet.add(destLocCircle);
     });
   }
+  Future<void> _goToPlace(GeoPoint position) async {
+    final GoogleMapController controller = await _mapController.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+        target:
+        LatLng(position.latitude, position.longitude),
+        zoom: 15)));
+  }
+
+  Future<void> setMarkers() async {
+
+    GeoPoint locationGeo = event.location;
+    LatLng startLatLng = LatLng(locationGeo.latitude, locationGeo.longitude);
+
+    locationPos = await PlacesService.searchCoordinateAddress(startLatLng);
+
+    markersSet.clear();
+    Marker locationMarker = Marker(
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+      infoWindow: InfoWindow(title: locationPos, snippet: "Selected Location"),
+      position: startLatLng,
+      markerId: MarkerId("${locationPos}Id"),
+    );
+
+    setState(() {
+      markersSet.add(locationMarker);
+
+    });
+
+    Circle locationCircle = Circle(
+      fillColor: Colors.blueAccent,
+      center: startLatLng,
+      radius: 12,
+      strokeWidth: 4,
+      strokeColor: Colors.blueAccent,
+      circleId: CircleId("${locationPos}Id"),
+    );
+
+    setState(() {
+      circlesSet.add(locationCircle);
+
+    });
+
+
+  }
+
 }
 
 class Announcement extends StatelessWidget {

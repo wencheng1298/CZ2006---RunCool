@@ -1,9 +1,20 @@
+import 'dart:async';
+import 'dart:ui' as ui;
+import 'dart:typed_data';
+import 'dart:convert' as convert;
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:runcool/utils/places_service.dart';
+import 'package:runcool/utils/searchScreen.dart';
 import '../../../utils/everythingUtils.dart';
 import 'package:provider/provider.dart';
 import 'package:runcool/models/User.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:runcool/utils/datagovapi/facilities.dart';
+import 'package:runcool/utils/datagovapi/features.dart';
 
 import 'CreateGymAndZumbaUI2.dart';
 
@@ -22,6 +33,20 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
   List<Widget> workoutandSongWidgets = [];
   final _formKey = GlobalKey<FormState>(); // VALIDATE
   bool workoutEmptyError = false;
+
+  //googleMapstuff
+  Completer<GoogleMapController> _mapController = Completer();
+
+  List<LatLng> pLineCoordinates = [];
+  Set<Polyline> polylineSet = {};
+
+  Set<Marker> markersSet = Set();
+  Set<Circle> circlesSet = {};
+
+  String locationPos;
+
+  List<Facilities> facilcall;
+
 
   void _initVariables() {
     (eventDetails['eventType'] == 'Gymming')
@@ -158,6 +183,7 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
   void initState() {
     _initVariables();
     _fillWorkoutandSongWidgets();
+    //getFacilFeatures('zumba');
     super.initState();
   }
 
@@ -180,7 +206,18 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
           child: Container(
             child: Column(
               children: [
-                GoogleMapPlacement(),
+                GoogleMapPlacement(
+                  onMapCreated: (GoogleMapController controller) {
+                    _mapController.complete(controller);
+
+
+                  },
+                  polylineset: Set.of((polylineSet != null)? Set<Polyline>.of(polylineSet) : []), //set polyline
+                  markersset: Set.of((markersSet != null)? Set<Marker>.of(markersSet) : []),
+                  circlesset: Set.of((circlesSet != null)? Set<Circle>.of(circlesSet) : []),
+                  // eventType: "running",
+
+                ),
                 Container(
                     height: 410,
                     child: ListView(
@@ -194,7 +231,39 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 8, right: 8),
-                          child: InputTextField1(height: 35),
+                          child: GoogleMapsSearchField(
+                            text: (locationPos !=null) ? locationPos : "Tap to select",
+                              height: 35,
+                          onTap: () async
+                          {
+                            if(eventDetails['eventType'] == 'Gymming')
+                            {
+                              var res = await Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen("gymming")));
+
+                              var latlong = res.split(",");
+                              var lat = double.tryParse(latlong[0]);
+                              var lng = double.tryParse(latlong[1]);
+                              GeoPoint location = GeoPoint(lat, lng);
+                              eventDetails['location'] = location;
+                              await _goToPlace(LatLng(lat, lng));
+                              await setMarkers(LatLng(lat, lng));
+                            }
+                            else
+                            {
+                              var res = await Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen("zumba")));
+                              var latlong = res.split(",");
+                              var lat = double.tryParse(latlong[0]);
+                              var lng = double.tryParse(latlong[1]);
+                              GeoPoint location = GeoPoint(lat, lng);
+                              eventDetails['location'] = location;
+                              await _goToPlace(LatLng(lat, lng));
+                              await setMarkers(LatLng(lat, lng));
+
+                            }
+
+
+                            //call zoom to update camera thingy.
+                          },),
                         ),
                         (eventDetails['eventType'] == 'Zumba')
                             ? Column(
@@ -289,5 +358,82 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
         ),
       ),
     );
+  }
+
+  Future<void> _goToPlace(LatLng position) async {
+    final GoogleMapController controller = await _mapController.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+        target:
+        LatLng(position.latitude, position.longitude),
+        zoom: 15)));
+  }
+
+
+
+
+
+  Future<void> setMarkers(LatLng position) async {
+
+    locationPos = await PlacesService.searchCoordinateAddress(position);
+
+    markersSet.clear();
+    Marker locationMarker = Marker(
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+      infoWindow: InfoWindow(title: locationPos, snippet: "Selected Location"),
+      position: position,
+      markerId: MarkerId("${locationPos}Id"),
+    );
+
+    setState(() {
+      markersSet.add(locationMarker);
+
+    });
+
+    Circle locationCircle = Circle(
+      fillColor: Colors.blueAccent,
+      center: position,
+      radius: 12,
+      strokeWidth: 4,
+      strokeColor: Colors.blueAccent,
+      circleId: CircleId("${locationPos}Id"),
+    );
+
+    setState(() {
+      circlesSet.add(locationCircle);
+
+    });
+
+
+  }
+
+  Future<void> getFacilFeatures(String whichapi) async { //function for sports facilities.
+
+    var file;
+    if (whichapi == "zumba") {
+      file = "assets/sportsFacil.json";
+    }
+
+    var jsonText = await rootBundle.loadString(file);
+    //setState(() => data = json.decode(jsonText));
+   // Map<dynamic, dynamic> json = convert.jsonDecode(jsonText);
+    //var jsonFeatures = json['features'] as List;
+
+
+    //var jsonFeaturesco = jsonFeatures['geometry']['coordinates'] as List;
+    Map<dynamic, dynamic> json = convert.jsonDecode(jsonText);
+    List<dynamic>jsonFeatures = json['features'];
+    var jsonfeaturesgeo = json['geometry'] as List;
+    print(jsonfeaturesgeo.length);
+
+    /*facilcall = jsonFeatures.map((place) => Facilities.fromJson(place)).toList();
+    List<dynamic> facilcallfeatures = [];
+
+    for(int i=0;i<facilcall.length;i++){
+      facilcallfeatures.add(facilcall[i].coordinates);
+      print(facilcallfeatures);
+      //print("the coordinates are ${facilcall[i].coordinates}");
+      //print("name is ${facilcall[i].roadname}"+"${facilcall[i].lat} ${facilcall[i].lng}");
+    }*/
+
   }
 }

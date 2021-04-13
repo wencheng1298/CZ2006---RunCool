@@ -40,23 +40,7 @@ class _GoogleMapState extends State<GoogleMapPlacement> {
   Completer<GoogleMapController> _mapController = Completer();
 
   Map<String, dynamic> data;
-
-  Future<String> loadJsonData() async {
-    var file;
-    if (widget.eventType == "running") {
-      file = "assets/pcn.json";
-    } else if (widget.eventType == "gymming") {
-      file = "assets/gymData.json";
-    } else {
-      file = "assets/sportsFacil.json";
-    }
-
-    var jsonText = await rootBundle.loadString(file);
-    setState(() => data = json.decode(jsonText));
-    print(data);
-
-    return 'success';
-  }
+  
 
   @override
   void initState() {

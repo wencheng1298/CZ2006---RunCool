@@ -1,4 +1,10 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:runcool/utils/places_service.dart';
 import './../EventCreatedSuccessUI.dart';
 
 import './../../../utils/everythingUtils.dart';
@@ -21,6 +27,30 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
 
   Map eventDetails;
   _CreateRunningUI2State(this.eventDetails);
+
+  //googlemap stuff
+  Completer<GoogleMapController> _mapController = Completer();
+
+  List<LatLng> pLineCoordinates = [];
+
+  Set<Polyline> polylineSet = {};
+
+  Set<Marker> markersSet = Set();
+
+  Set<Circle> circlesSet = {};
+
+  String initialPos, finalPos;
+
+  LatLngBounds latLngBounds;
+
+  BitmapDescriptor nparklocationicon;
+  @override
+  void initState() {
+    // TODO: implement initState
+    setRoute();
+    super.initState();
+  }
+
 
   final _formKey = GlobalKey<FormState>(); // VALIDATE
 
@@ -66,7 +96,19 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
             height: MediaQuery.of(context).size.height,
             child: Column(
               children: [
-                GoogleMapPlacement(),
+                GoogleMapPlacement(
+                  onMapCreated: (GoogleMapController controller) {
+                    _mapController.complete(controller);
+                    //controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
+
+
+                  },
+                  polylineset: Set.of((polylineSet != null)? Set<Polyline>.of(polylineSet) : []), //set polyline
+                  markersset: Set.of((markersSet != null)? Set<Marker>.of(markersSet) : []),
+                  circlesset: Set.of((circlesSet != null)? Set<Circle>.of(circlesSet) : []),
+
+
+                ),
                 SizedBox(height: 10),
                 Container(
                   height: 470,
@@ -273,5 +315,174 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
         ),
       ),
     );
+  }
+
+  Future<void> setRoute() async {
+    //var initialPos = Provider.of<GoogleMapsAppData>(context, listen: false).startingPlace;
+    //var finalPos = Provider.of<GoogleMapsAppData>(context, listen: false).destPlace;
+
+    GeoPoint startLoc = eventDetails['startLocation'];
+    LatLng startLatLng = LatLng(startLoc.latitude, startLoc.longitude);
+    GeoPoint endLoc = eventDetails['endLocation'];
+    LatLng desLatLng = LatLng(endLoc.latitude, endLoc.longitude);
+
+    //event.endLocation;
+
+
+    initialPos = await PlacesService.searchCoordinateAddress(startLatLng);
+    finalPos = await PlacesService.searchCoordinateAddress(desLatLng);
+
+    //var startLatLng = LatLng(initialPos.geometry.location.lat, initialPos.geometry.location.lng);
+    /*print("this is the start");
+    print(initialPos.placeId);
+    print(startLatLng);
+    //var desLatLng = LatLng(finalPos.geometry.location.lat, finalPos.geometry.location.lng);
+    print("this is the end");
+    print(finalPos.placeId);
+    print(endLatLng);
+
+    /*showDialog(
+      context: context,
+      builder: (BuildContext context) => Loading()
+    );*/
+
+    var details = await PlacesService.obtainPlaceDirectionDetails(startLatLng, endLatLng);
+
+
+    */
+
+    print("this is encoded points: ");
+    print(eventDetails['encPoints']);
+    /*setState(() {
+      //todo check if this is correct
+      GeoPoint  start = GeoPoint(startLatLng.latitude, startLatLng.longitude);
+      eventDetails['startLocation'] = start;
+
+      GeoPoint  end = GeoPoint(desLatLng.latitude, desLatLng.longitude);
+      eventDetails['endLocation'] = end;
+
+      eventDetails['encPoints'] = details.encodedPoints;
+
+      EstimatedDistance = details.distanceText;
+      eventDetails['estDistance'] = EstimatedDistance;
+
+
+    });*/
+
+
+    PolylinePoints polylinePoints = PolylinePoints();
+    List<PointLatLng> decodePolyLinePointsResult = polylinePoints.decodePolyline(eventDetails['encPoints']);
+
+    pLineCoordinates.clear();
+    if(decodePolyLinePointsResult.isNotEmpty)
+    {
+      decodePolyLinePointsResult.forEach((PointLatLng pointLatLng) {
+        pLineCoordinates.add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
+
+      });
+    }
+
+
+    polylineSet.clear();
+    setState(() {
+      Polyline polyline = Polyline(
+        color: Colors.pink,
+        polylineId: PolylineId("PolylineID"),
+        jointType: JointType.round,
+        points: pLineCoordinates,
+        width: 5,
+        startCap: Cap.roundCap,
+        endCap: Cap.roundCap,
+        geodesic: true,
+      );
+
+      polylineSet.add(polyline);
+    });
+
+
+    if(startLatLng.latitude > desLatLng.latitude && startLatLng.longitude > desLatLng.longitude)
+    {
+      latLngBounds = LatLngBounds(southwest: desLatLng, northeast: startLatLng);
+    }
+    else if (startLatLng.longitude > desLatLng.longitude)
+    {
+      latLngBounds = LatLngBounds(southwest: LatLng(startLatLng.latitude, desLatLng.longitude), northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
+    }
+    else if (startLatLng.latitude > desLatLng.latitude)
+    {
+      latLngBounds = LatLngBounds(southwest: LatLng(desLatLng.latitude, startLatLng.longitude), northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
+    }
+    else
+    {
+      latLngBounds = LatLngBounds(southwest: startLatLng, northeast: desLatLng);
+    }
+
+    final GoogleMapController controller = await _mapController.future;
+    controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
+
+
+    Marker startLocMarker = Marker(
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+      infoWindow: InfoWindow(title: initialPos.toString(), snippet: "Starting Address"),
+      position: startLatLng,
+      markerId: MarkerId("startId"),
+    );
+
+    Marker destLocMarker = Marker(
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+      infoWindow: InfoWindow(title: finalPos.toString(), snippet: "Destination Address"),
+      position: desLatLng,
+      markerId: MarkerId("destId"),
+    );
+
+    List<dynamic> waypoint = eventDetails['checkpoints'];
+
+
+    if(waypoint.isNotEmpty) {
+      LatLng waypoint1 = LatLng(waypoint[0].latitude, waypoint[0].longitude);
+
+      Marker wayptLocMarker = Marker(
+        icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
+        infoWindow: InfoWindow(title: waypoint1.toString(), snippet: "Checkpoint"),
+        position: waypoint1,
+        markerId: MarkerId("wayptId"),
+
+      );
+      setState(() {
+        markersSet.add(wayptLocMarker);
+      });
+
+    }
+
+
+
+    setState(() {
+      markersSet.add(startLocMarker);
+      markersSet.add(destLocMarker);
+    });
+
+    Circle startLocCircle = Circle(
+      fillColor: Colors.blueAccent,
+      center: startLatLng,
+      radius: 12,
+      strokeWidth: 4,
+      strokeColor: Colors.blueAccent,
+      circleId: CircleId("startId"),
+    );
+
+    Circle destLocCircle = Circle(
+      fillColor: Colors.deepPurple,
+      center: desLatLng,
+      radius: 12,
+      strokeWidth: 4,
+      strokeColor: Colors.purpleAccent,
+      circleId: CircleId("destId"),
+    );
+
+    setState(() {
+      circlesSet.add(startLocCircle);
+      circlesSet.add(destLocCircle);
+
+    });
   }
 }

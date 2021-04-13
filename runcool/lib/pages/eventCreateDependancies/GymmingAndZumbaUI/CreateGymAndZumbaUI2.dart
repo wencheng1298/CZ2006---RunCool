@@ -1,4 +1,9 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:runcool/utils/places_service.dart';
 import '../EventCreatedSuccessUI.dart';
 
 import '../../../utils/everythingUtils.dart';
@@ -23,6 +28,28 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
 
   Map eventDetails;
   _CreateGymAndZumbaUI2State(this.eventDetails);
+
+  //googleMapstuff
+  Completer<GoogleMapController> _mapController = Completer();
+
+  List<LatLng> pLineCoordinates = [];
+  Set<Polyline> polylineSet = {};
+
+  Set<Marker> markersSet = Set();
+  Set<Circle> circlesSet = {};
+
+  String locationPos;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    setMarkers().then((_) {
+      _goToPlace(eventDetails['location']);
+
+    });
+    super.initState();
+  }
+
 
   List<String> difficultyLevels = ['Easy', 'Medium', 'Hard'];
   bool timeError = false;
@@ -67,7 +94,18 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
             height: MediaQuery.of(context).size.height,
             child: Column(
               children: [
-                GoogleMapPlacement(),
+                GoogleMapPlacement(
+                  onMapCreated: (GoogleMapController controller) {
+                    _mapController.complete(controller);
+
+
+                  },
+                  polylineset: Set.of((polylineSet != null)? Set<Polyline>.of(polylineSet) : []), //set polyline
+                  markersset: Set.of((markersSet != null)? Set<Marker>.of(markersSet) : []),
+                  circlesset: Set.of((circlesSet != null)? Set<Circle>.of(circlesSet) : []),
+                  // eventType: "running",
+
+                ),
                 SizedBox(height: 10),
                 Container(
                   height: 470,
@@ -291,5 +329,50 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
         ),
       ),
     );
+  }
+
+  Future<void> _goToPlace(GeoPoint position) async {
+    final GoogleMapController controller = await _mapController.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+        target:
+        LatLng(position.latitude, position.longitude),
+        zoom: 15)));
+  }
+
+  Future<void> setMarkers() async {
+
+    GeoPoint locationGeo = eventDetails['location'];
+    LatLng startLatLng = LatLng(locationGeo.latitude, locationGeo.longitude);
+
+    locationPos = await PlacesService.searchCoordinateAddress(startLatLng);
+
+    markersSet.clear();
+    Marker locationMarker = Marker(
+      icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+      infoWindow: InfoWindow(title: locationPos, snippet: "Selected Location"),
+      position: startLatLng,
+      markerId: MarkerId("${locationPos}Id"),
+    );
+
+    setState(() {
+      markersSet.add(locationMarker);
+
+    });
+
+    Circle locationCircle = Circle(
+      fillColor: Colors.blueAccent,
+      center: startLatLng,
+      radius: 12,
+      strokeWidth: 4,
+      strokeColor: Colors.blueAccent,
+      circleId: CircleId("${locationPos}Id"),
+    );
+
+    setState(() {
+      circlesSet.add(locationCircle);
+
+    });
+
+
   }
 }

@@ -49,7 +49,7 @@ class Event {
     switch (eventType) {
       case 'Gymming':
         final workout = data['workout'] ?? [];
-        final location = data['location'].toString(); //todo remove the to string
+        final location = data['location']; //todo remove the to string
         final duration = data['duration'] ?? 0.0;
         return GymmingEvent(
             name: name,
@@ -68,7 +68,7 @@ class Event {
       case 'Zumba':
         final danceGenre = data['danceGenre'] ?? '';
         final danceMusic = data['danceMusic'] ?? [];
-        final location = data['location'].toString() ?? ''; //todo remove the to string
+        final location = data['location'] ?? ''; //todo remove the to string
         final duration = data['duration'] ?? 0.0;
         return ZumbaEvent(
             name: name,
@@ -187,7 +187,7 @@ class RunningEvent extends Event {
 
 class GymmingEvent extends Event {
   List workout;
-  String location;
+  GeoPoint location;
   double duration;
 
   GymmingEvent(
@@ -220,7 +220,7 @@ class GymmingEvent extends Event {
 class ZumbaEvent extends Event {
   List danceMusic;
   String danceGenre;
-  String location;
+  GeoPoint location;
   double duration;
 
   ZumbaEvent(
