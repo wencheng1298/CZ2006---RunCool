@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'constants.dart';
 import './GoogleMapPlacement.dart';
 import 'package:runcool/models/User.dart';
-import './../../utils/everythingUtils.dart';
+import '../utils/everythingUtils.dart';
 import './../pages/profileDependancies/ProfileUI1.dart';
+
 class EventCard extends StatelessWidget {
   final Function fn;
   final dynamic event;
@@ -128,7 +129,9 @@ class EventCard extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              creator.name == '' ? "No name provided" : creator.name,
+                              creator.name == ''
+                                  ? "No name provided"
+                                  : creator.name,
                               style: TextStyle(color: Colors.white),
                             ),
                             SizedBox(width: 10),

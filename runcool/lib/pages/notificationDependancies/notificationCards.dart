@@ -3,7 +3,7 @@ import 'package:runcool/controllers/EventManager.dart';
 import 'package:runcool/controllers/NotificationManager.dart';
 import 'package:runcool/models/Event.dart';
 import 'package:runcool/models/User.dart';
-import 'package:runcool/pages/EventPage.dart';
+import 'package:runcool/pages/EventPageUI.dart';
 import '../../utils/everythingUtils.dart';
 import '../../models/Notification.dart';
 import '../profileDependancies/ProfileUI1.dart';
@@ -141,8 +141,8 @@ class EventInviteCard extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      EventPage(eventID: event.eventID)));
+                                  builder: (context) => EventPage(
+                                      eventID: event.eventID, invited: true)));
                         },
                         child: Text(
                           event.name,

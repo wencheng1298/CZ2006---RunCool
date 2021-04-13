@@ -2,7 +2,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:runcool/controllers/NotificationManager.dart';
-import 'package:runcool/pages/EventPage.dart';
+import 'package:runcool/pages/EventPageUI.dart';
 import '../models/Event.dart';
 
 class EventManager {
@@ -15,7 +15,7 @@ class EventManager {
     data['deleted'] = false;
     var docID = await events.add(data);
     DocumentSnapshot eventSnapshot = await docID.get();
-    Event event = Event.fromFirestore(eventSnapshot);
+    Event event = Event.createEventFromFirestore(eventSnapshot);
     return event;
   }
 

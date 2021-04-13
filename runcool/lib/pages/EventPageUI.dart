@@ -20,7 +20,8 @@ import 'eventCreateDependancies/EventDeletedSuccessUI.dart';
 class EventPage extends StatefulWidget {
   // final dynamic event;
   final String eventID;
-  EventPage({@required this.eventID});
+  final invited;
+  EventPage({@required this.eventID, this.invited});
 
   @override
   _EventPageState createState() => _EventPageState(eventID);
@@ -37,7 +38,6 @@ class _EventPageState extends State<EventPage> {
   final TextEditingController _controller = TextEditingController();
 
   StreamSubscription eventStream;
-
   void _initStatus() {
     final AppUser user = Provider.of<AppUser>(context, listen: false);
 
@@ -49,6 +49,8 @@ class _EventPageState extends State<EventPage> {
             viewStatus = 'creator';
           } else if (event.participants.contains(user.uid)) {
             viewStatus = 'participant';
+          } else if (widget.invited != null && widget.invited) {
+            viewStatus = 'invitedViewer';
           } else {
             viewStatus = 'viewer';
           }
@@ -540,35 +542,38 @@ class _EventPageState extends State<EventPage> {
                               : Container(),
                           Padding(
                             padding: const EdgeInsets.all(10.0),
-                            child: (viewStatus == 'creator')
-                                ? ButtonType1(
-                                    onPress: () async {
-                                      setState() {
-                                        viewStatus = null;
-                                      }
-
-                                      await EventManager().deleteEvent(event);
-                                      Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  (EventDeletedSuccessUI())));
-                                    },
-                                    text: "Delete Event",
-                                  )
-                                : (viewStatus == 'participant')
+                            child: (viewStatus == 'invitedViewer')
+                                ? Container()
+                                : (viewStatus == 'creator')
                                     ? ButtonType1(
-                                        onPress: quitPage,
-                                        text: "Quit",
-                                        colour: Colors.red)
-                                    : (event.participants.length <
-                                            event.noOfParticipants)
+                                        onPress: () async {
+                                          setState() {
+                                            viewStatus = null;
+                                          }
+
+                                          await EventManager()
+                                              .deleteEvent(event);
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      (EventDeletedSuccessUI())));
+                                        },
+                                        text: "Delete Event",
+                                      )
+                                    : (viewStatus == 'participant')
                                         ? ButtonType1(
-                                            onPress: joinPage, text: "Join")
-                                        : ButtonType1(
-                                            onPress: () {},
-                                            text: "Event Full",
-                                            colour: Colors.grey),
+                                            onPress: quitPage,
+                                            text: "Quit",
+                                            colour: Colors.red)
+                                        : (event.participants.length <
+                                                event.noOfParticipants)
+                                            ? ButtonType1(
+                                                onPress: joinPage, text: "Join")
+                                            : ButtonType1(
+                                                onPress: () {},
+                                                text: "Event Full",
+                                                colour: Colors.grey),
                           ),
                         ]),
                       ),

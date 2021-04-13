@@ -29,34 +29,30 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="Working Google Maps and API search handling.">
-      <change afterPath="$PROJECT_DIR$/runcool/assets/PCN_Access_Points_googlemaps.geojson" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/images/nparkscoast-to-coast.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/utils/custom_rect_tween.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/utils/datagovapi/features.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/utils/datagovapi_service.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/utils/hero_dialog_route.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/runcool/lib/utils/searchScreen.dart" afterDir="false" />
+    <list default="true" id="11c86717-981a-4121-b57d-3839056e31c2" name="Default Changelist" comment="refactored all the folders etc">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/RunningUI/CreateRunningUI1.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/RunningUI/CreateRunningUI1.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/utils/GoogleMapPlacement.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/GoogleMapPlacement.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/utils/GoogleMapsAppData.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/GoogleMapsAppData.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/utils/directionDetails.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/directionDetails.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/lib/utils/places_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/places_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/controllers/EventManager.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/controllers/EventManager.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/models/Event.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/models/Event.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/EventPage.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/EventPageUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/CreateEventUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/CreateEventUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/EventCreatedSuccessUI.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventCreateDependancies/EventCreatedSuccessUI.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/eventsForYouList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/eventsForYouList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/pastEventsList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/pastEventsList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/upcomingEventsList.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/eventDisplayDependancies/upcomingEventsList.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/pages/notificationDependancies/notificationCards.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/pages/notificationDependancies/notificationCards.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runcool/lib/utils/eventCard.dart" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/lib/utils/eventCard.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/runcool/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/runcool/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/runcool/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[b01aa090]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExportToHTMLSettings">
-    <option name="printScope" value="4" />
-    <option name="OUTPUT_DIRECTORY" value="C:\Users\keith\OneDrive - Nanyang Technological University\UNI\YEAR 2\SEM2\CZ2006 Software Engineering\Lab" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../3\exportToHTML" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -79,8 +75,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive - Nanyang Technological University/UNI/YEAR 2/SEM2/CZ2006 Software Engineering/Lab" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../src/flutter_new/flutter/bin/cache/dart-sdk" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="dart.settings" />
@@ -88,7 +84,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\assets" />
+      <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\lib\pages" />
+      <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\lib\pages\profileDependancies" />
+      <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\lib\firebase" />
+      <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\lib\pages\profile" />
+      <recent name="C:\Users\bairi\AndroidStudioProjects\CZ2006---RunCool\runcool\lib" />
     </key>
   </component>
   <component name="RunManager">
@@ -164,7 +164,147 @@
       <option name="project" value="LOCAL" />
       <updated>1617777617374</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="some changes to streams">
+      <created>1617778829686</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617778829686</updated>
+    </task>
+    <task id="LOCAL-00010" summary="some changes to streams">
+      <created>1617806893332</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1617806893332</updated>
+    </task>
+    <task id="LOCAL-00011" summary="added getEvents streams">
+      <created>1617811562747</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1617811562747</updated>
+    </task>
+    <task id="LOCAL-00012" summary="updated models">
+      <created>1617867588728</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617867588729</updated>
+    </task>
+    <task id="LOCAL-00013" summary="refactored notification stream">
+      <created>1617879511057</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617879511057</updated>
+    </task>
+    <task id="LOCAL-00014" summary="updated auth and profile management">
+      <created>1617904706149</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1617904706149</updated>
+    </task>
+    <task id="LOCAL-00015" summary="updated models">
+      <created>1617975739699</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1617975739699</updated>
+    </task>
+    <task id="LOCAL-00016" summary="updated profile">
+      <created>1618042488814</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1618042488814</updated>
+    </task>
+    <task id="LOCAL-00017" summary="adding image upload">
+      <created>1618061443060</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1618061443060</updated>
+    </task>
+    <task id="LOCAL-00018" summary="edited image upload and storage and notifications">
+      <created>1618080851219</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1618080851219</updated>
+    </task>
+    <task id="LOCAL-00019" summary="updated event page">
+      <created>1618127504302</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1618127504302</updated>
+    </task>
+    <task id="LOCAL-00020" summary="removed parent widget error">
+      <created>1618131757021</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1618131757021</updated>
+    </task>
+    <task id="LOCAL-00021" summary="announcements">
+      <created>1618145879186</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1618145879186</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added email Verification">
+      <created>1618161608024</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1618161608024</updated>
+    </task>
+    <task id="LOCAL-00023" summary="added validation for login page">
+      <created>1618207024399</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1618207024399</updated>
+    </task>
+    <task id="LOCAL-00024" summary="commented email verification">
+      <created>1618207701114</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1618207701114</updated>
+    </task>
+    <task id="LOCAL-00025" summary="added validation for login, forget password and sign up">
+      <created>1618220903230</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1618220903230</updated>
+    </task>
+    <task id="LOCAL-00026" summary="fixed the textfield going up issue">
+      <created>1618223458085</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1618223458085</updated>
+    </task>
+    <task id="LOCAL-00027" summary="updated delete event">
+      <created>1618232374646</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1618232374646</updated>
+    </task>
+    <task id="LOCAL-00028" summary="refactored all the folders etc">
+      <created>1618241984596</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1618241984596</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -199,8 +339,24 @@
     <MESSAGE value="added in data.gov files" />
     <MESSAGE value="added markers for gym events" />
     <MESSAGE value="some changes to streams" />
-    <MESSAGE value="Working Google Maps and API search handling." />
-    <option name="LAST_COMMIT_MESSAGE" value="Working Google Maps and API search handling." />
+    <MESSAGE value="added getEvents streams" />
+    <MESSAGE value="refactored notification stream" />
+    <MESSAGE value="updated auth and profile management" />
+    <MESSAGE value="updated models" />
+    <MESSAGE value="updated profile" />
+    <MESSAGE value="adding image upload" />
+    <MESSAGE value="edited image upload and storage and notifications" />
+    <MESSAGE value="updated event page" />
+    <MESSAGE value="removed parent widget error" />
+    <MESSAGE value="announcements" />
+    <MESSAGE value="added email Verification" />
+    <MESSAGE value="added validation for login page" />
+    <MESSAGE value="commented email verification" />
+    <MESSAGE value="added validation for login, forget password and sign up" />
+    <MESSAGE value="fixed the textfield going up issue" />
+    <MESSAGE value="updated delete event" />
+    <MESSAGE value="refactored all the folders etc" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored all the folders etc" />
   </component>
   <component name="WindowStateProjectService">
     <state x="121" y="0" key="#Project_Structure" timestamp="1616753566681">
@@ -211,118 +367,97 @@
       <screen x="0" y="0" width="912" height="568" />
     </state>
     <state x="0" y="0" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.912.568@0.0.912.568" timestamp="1615391820273" />
-    <state x="444" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1618257647842">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="444" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618257647842" />
     <state x="187" y="75" key="#com.intellij.ide.util.TreeFileChooserDialog" timestamp="1615391816166">
       <screen x="0" y="0" width="912" height="568" />
     </state>
     <state x="187" y="75" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.912.568@0.0.912.568" timestamp="1615391816166" />
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1618257351610">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1618201006239">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618257351610" />
-    <state x="126" y="149" width="1200" height="584" key="AVDManager" timestamp="1618085631826">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1618201006239" />
+    <state x="22" y="219" width="1200" height="584" key="AVDManager" timestamp="1618229811910">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="126" y="149" width="1200" height="584" key="AVDManager/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618085631826" />
-    <state x="22" y="219" width="1200" height="584" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1617775412749" />
-    <state x="349" y="167" key="AndroidCreateResourceFileDialog" timestamp="1618166146025">
+    <state x="22" y="219" width="1200" height="584" key="AVDManager/0.0.1536.824@0.0.1536.824" timestamp="1618229811910" />
+    <state x="349" y="167" key="AndroidCreateResourceFileDialog" timestamp="1618237645336">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="349" y="167" key="AndroidCreateResourceFileDialog/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618166146025" />
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1617783901541">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1617783901541" />
-    <state x="549" y="195" key="FileChooserDialogImpl" timestamp="1618257513406">
+    <state x="349" y="167" key="AndroidCreateResourceFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1618237645336" />
+    <state x="549" y="195" key="FileChooserDialogImpl" timestamp="1618270744121">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="391" y="163" key="FileChooserDialogImpl/0.0.1094.690@0.0.1094.690" timestamp="1615440083241" />
     <state x="489" y="206" key="FileChooserDialogImpl/0.0.1368.872@0.0.1368.872" timestamp="1616398725787" />
-    <state x="549" y="195" key="FileChooserDialogImpl/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618257513406" />
-    <state x="549" y="195" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1617111002997" />
-    <state width="1491" height="163" key="GridCell.Tab.0.bottom" timestamp="1618258910460">
+    <state x="549" y="195" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1618270744121" />
+    <state width="1491" height="310" key="GridCell.Tab.0.bottom" timestamp="1618244336744">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.bottom/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
     <state width="609" height="141" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616758938916" />
     <state width="551" height="104" key="GridCell.Tab.0.bottom/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
-    <state width="1491" height="163" key="GridCell.Tab.0.bottom/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618258910460" />
-    <state width="1491" height="247" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1617776617391" />
+    <state width="1491" height="197" key="GridCell.Tab.0.bottom/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1616749797560" />
+    <state width="1491" height="310" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1618244336744" />
     <state width="841" height="101" key="GridCell.Tab.0.bottom/0.0.912.568@0.0.912.568" timestamp="1615393853484" />
-    <state width="1491" height="163" key="GridCell.Tab.0.center" timestamp="1618258910460">
+    <state width="1491" height="310" key="GridCell.Tab.0.center" timestamp="1618244336744">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.center/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
     <state width="609" height="141" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616758938916" />
     <state width="551" height="104" key="GridCell.Tab.0.center/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
-    <state width="1491" height="163" key="GridCell.Tab.0.center/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618258910460" />
-    <state width="1491" height="247" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1617776617391" />
+    <state width="1491" height="197" key="GridCell.Tab.0.center/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1616749797559" />
+    <state width="1491" height="310" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1618244336744" />
     <state width="841" height="101" key="GridCell.Tab.0.center/0.0.912.568@0.0.912.568" timestamp="1615393853483" />
-    <state width="1491" height="163" key="GridCell.Tab.0.left" timestamp="1618258910460">
+    <state width="1491" height="310" key="GridCell.Tab.0.left" timestamp="1618244336744">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.left/0.0.1094.690@0.0.1094.690" timestamp="1615798491907" />
     <state width="609" height="141" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616758938916" />
     <state width="551" height="104" key="GridCell.Tab.0.left/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
-    <state width="1491" height="163" key="GridCell.Tab.0.left/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618258910460" />
-    <state width="1491" height="247" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1617776617390" />
+    <state width="1491" height="197" key="GridCell.Tab.0.left/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1616749797559" />
+    <state width="1491" height="310" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1618244336744" />
     <state width="841" height="101" key="GridCell.Tab.0.left/0.0.912.568@0.0.912.568" timestamp="1615393853483" />
-    <state width="1491" height="163" key="GridCell.Tab.0.right" timestamp="1618258910460">
+    <state width="1491" height="310" key="GridCell.Tab.0.right" timestamp="1618244336744">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="992" height="151" key="GridCell.Tab.0.right/0.0.1094.690@0.0.1094.690" timestamp="1615798491908" />
     <state width="609" height="141" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616758938916" />
     <state width="551" height="104" key="GridCell.Tab.0.right/0.0.1368.872@0.0.1368.872" timestamp="1616465382452" />
-    <state width="1491" height="163" key="GridCell.Tab.0.right/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618258910460" />
-    <state width="1491" height="247" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1617776617391" />
+    <state width="1491" height="197" key="GridCell.Tab.0.right/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1616749797560" />
+    <state width="1491" height="310" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1618244336744" />
     <state width="841" height="101" key="GridCell.Tab.0.right/0.0.912.568@0.0.912.568" timestamp="1615393853483" />
-    <state x="169" y="24" key="MergeDialog" timestamp="1618257671727">
+    <state x="113" y="62" key="MergeDialog" timestamp="1618270638185">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="104" key="MergeDialog/0.0.1094.690@0.0.1094.690" timestamp="1615900110451" />
-    <state x="169" y="24" key="MergeDialog/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618257671727" />
-    <state x="0" y="124" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1617110912013" />
+    <state x="113" y="62" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1618270638185" />
     <state x="210" y="215" key="MultipleFileMergeDialog" timestamp="1615900110491">
       <screen x="0" y="0" width="1094" height="690" />
     </state>
     <state x="210" y="215" key="MultipleFileMergeDialog/0.0.1094.690@0.0.1094.690" timestamp="1615900110491" />
-    <state x="485" y="133" key="RollbackChangesDialog" timestamp="1618257960941">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="485" y="133" key="RollbackChangesDialog/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618257960941" />
-    <state x="277" y="0" key="SettingsEditor" timestamp="1618075062144">
+    <state x="277" y="85" key="SettingsEditor" timestamp="1618270749051">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="0" y="0" key="SettingsEditor/0.0.1094.690@0.0.1094.690" timestamp="1615797736072" />
-    <state x="277" y="0" key="SettingsEditor/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618075062144" />
-    <state x="277" y="85" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617111004480" />
+    <state x="277" y="85" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1618270749051" />
     <state x="0" y="0" key="SettingsEditor/0.0.912.568@0.0.912.568" timestamp="1615391298134" />
-    <state x="207" y="129" key="Vcs.Push.Dialog.v2" timestamp="1617777622453">
+    <state x="207" y="129" key="Vcs.Push.Dialog.v2" timestamp="1618241991502">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-7" y="52" key="Vcs.Push.Dialog.v2/0.0.1094.690@0.0.1094.690" timestamp="1615899868818" />
     <state x="184" y="136" key="Vcs.Push.Dialog.v2/0.0.1368.872@0.0.1368.872" timestamp="1616408594636" />
-    <state x="207" y="129" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1617777622453" />
-    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618257842481">
+    <state x="207" y="129" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1618241991502" />
+    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618301902007">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="412" y="296" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1094.690@0.0.1094.690" timestamp="1615899967894" />
     <state x="515" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1368.872@0.0.1368.872" timestamp="1616578754004" />
-    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618257842481" />
-    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1617777592477" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1618201638660">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618201638660" />
-    <state x="198" y="-2" width="1133" height="984" key="search.everywhere.popup" timestamp="1618253343394">
+    <state x="578" y="354" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1618301902007" />
+    <state x="198" y="-2" width="1133" height="984" key="search.everywhere.popup" timestamp="1617871833343">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="165" y="-2" width="944" height="812" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1616757142402" />
     <state x="176" y="-2" width="1008" height="1041" key="search.everywhere.popup/0.0.1368.872@0.0.1368.872" timestamp="1616579666421" />
-    <state x="198" y="-2" width="1133" height="984" key="search.everywhere.popup/0.0.1536.824/-1360.0.1360.728@0.0.1536.824" timestamp="1618253343394" />
+    <state x="198" y="-2" width="1133" height="984" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1617871833343" />
     <state x="117" y="-1" width="672" height="678" key="search.everywhere.popup/0.0.912.568@0.0.912.568" timestamp="1615389681639" />
   </component>
 </project>
