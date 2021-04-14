@@ -227,7 +227,7 @@ class _EventPageState extends State<EventPage> {
     return (event == null || viewStatus == null)
         ? Loading()
         : Scaffold(
-            resizeToAvoidBottomInset: false,
+            resizeToAvoidBottomInset: true,
             appBar: AppBar(
               backgroundColor: Colors.black,
               centerTitle: true,
