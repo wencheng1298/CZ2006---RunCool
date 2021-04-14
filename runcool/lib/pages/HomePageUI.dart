@@ -39,6 +39,7 @@ class HomePageUIState extends State<HomePageUI> {
         body: BackgroundImage(
           child: SingleChildScrollView(
             child: Container(
+              height: 1000,
               width: MediaQuery.of(context).size.width,
               child: Row(
                 children: [

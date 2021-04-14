@@ -51,6 +51,7 @@ class MyActivitiesUIState extends State<MyActivitiesUI> {
         body: BackgroundImage(
           child: SingleChildScrollView(
             child: Container(
+              height: 1000,
               width: MediaQuery.of(context).size.width,
               child: Row(
                 children: [

@@ -27,7 +27,7 @@ class _PastEventsListState extends State<PastEventsList> {
     final user = Provider.of<AppUser>(context);
 
     pastEventsList.forEach((element) {
-      if (element.participants.contains(user.uid) &&
+      if ((element.participants.contains(user.uid) || element.creator == user.uid) &&
           element.startTime.isBefore(DateTime.now())) {
         eventWidget
             .add(EventCard(event: element, fn: () => goEventPage(element)));

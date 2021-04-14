@@ -12,11 +12,15 @@ class _FriendEventsListState extends State<FriendEventsList> {
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<AppUser>(context);
-    final List<dynamic> eventsForYou = Provider.of<List<dynamic>>(context) ?? [];
+    final List<dynamic> eventsForYou =
+        Provider.of<List<dynamic>>(context) ?? [];
     List<Widget> eventWidget = [];
 
     eventsForYou.forEach((event) {
       if (event.participants.any((person) => user.friends.contains(person))) {
+        eventWidget.add(EventCard(event: event));
+      }
+      if (user.friends.any((friend) => event.creator.contains(friend))) {
         eventWidget.add(EventCard(event: event));
       }
     });
@@ -24,7 +28,8 @@ class _FriendEventsListState extends State<FriendEventsList> {
     return (eventWidget.isEmpty)
         ? Align(
             alignment: Alignment.topCenter,
-            child: Text('Your friends have not joined any events / You have no friends',
+            child: Text(
+                'Your friends have not joined any events / You have no friends',
                 style: TextStyle(color: Colors.white)))
         : ListView(
             scrollDirection: Axis.horizontal,

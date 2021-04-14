@@ -426,9 +426,13 @@ class _EventPageState extends State<EventPage> {
                           Container(
                             child: Align(
                               alignment: Alignment.topLeft,
-                              child: EventTextDetails((event.description == '')
-                                  ? "-No decription from creator-"
-                                  : event.description),
+                              child: Padding(
+                                padding: const EdgeInsets.only(left:8.0, right: 8),
+                                child: Text((event.description == '')
+                                    ? "-No decription from creator-"
+                                    : event.description, 
+                                    style: TextStyle(color: Colors.white),),
+                              ),
                             ),
                           ),
                           Align(
