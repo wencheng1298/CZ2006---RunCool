@@ -46,6 +46,8 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
   String locationPos;
 
   List<Facilities> facilcall;
+  LatLng position;
+  List<LatLng> positionList = [];
 
 
   void _initVariables() {
@@ -183,7 +185,7 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
   void initState() {
     _initVariables();
     _fillWorkoutandSongWidgets();
-    //getFacilFeatures('zumba');
+    getFacilFeatures('zumba');
     super.initState();
   }
 
@@ -415,25 +417,108 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
 
     var jsonText = await rootBundle.loadString(file);
     //setState(() => data = json.decode(jsonText));
-   // Map<dynamic, dynamic> json = convert.jsonDecode(jsonText);
-    //var jsonFeatures = json['features'] as List;
+   Map<dynamic, dynamic> json = convert.jsonDecode(jsonText);
+    var jsonFeatures = json['features'] as List;
 
 
     //var jsonFeaturesco = jsonFeatures['geometry']['coordinates'] as List;
-    Map<dynamic, dynamic> json = convert.jsonDecode(jsonText);
+    /*Map<dynamic, dynamic> json = convert.jsonDecode(jsonText);
     List<dynamic>jsonFeatures = json['features'];
     var jsonfeaturesgeo = json['geometry'] as List;
-    print(jsonfeaturesgeo.length);
+    print(jsonfeaturesgeo.length);*/
 
-    /*facilcall = jsonFeatures.map((place) => Facilities.fromJson(place)).toList();
+    facilcall = jsonFeatures.map((place) => Facilities.fromJson(place)).toList();
     List<dynamic> facilcallfeatures = [];
+    //var facilcall;
 
-    for(int i=0;i<facilcall.length;i++){
+    for(int i=0;i<facilcall.length;i++)
+      {
+        print(facilcall[i].coordinates);
+      }
+    pLineCoordinates.clear();
+
+    /*await Future.forEach(facilcall, (element) async
+    {
+      List positions = element.coordinates as List;
+      await Future.forEach(positions, (element) {
+
+        position = LatLng(element[1],element[0]);
+        positionList.add(position);
+      });
+      addMarker();
+    });*/
+
+
+
+
+    /*for(int i=0;i<facilcall.length;i++)
+      {
+        for(int j=0;j<facilcall[i].coordinates.length;j++)
+          {
+            facilcallfeatures = facilcall[i].coordinates[j] as List;
+
+          }
+
+      }*/
+    for(int i =0;i<facilcallfeatures.length;i++)
+      {
+        pLineCoordinates.add(LatLng(facilcallfeatures[i][1],facilcallfeatures[i][0]));
+      }
+
+
+
+    //print(pLineCoordinates.length);
+    polylineSet.clear();
+    setState(() {
+      Polyline polyline = Polyline(
+        color: Colors.pink,
+        polylineId: PolylineId("PolylineID"),
+        jointType: JointType.round,
+        points: pLineCoordinates,
+        width: 5,
+        startCap: Cap.roundCap,
+        endCap: Cap.roundCap,
+        geodesic: true,
+      );
+
+      polylineSet.add(polyline);
+    });
+    /*for(int i=0;i<facilcallfeatures.length;i++)
+    {
+      print(facilcallfeatures[i]);
+    }*/
+
+
+    //for(int i = 0;i<facilcallfeatures.length;i++)
+     // {
+       // print(facilcallfeatures[i]);
+     // }
+
+
+
+    /*for(int i=0;i<facilcall.length;i++){
       facilcallfeatures.add(facilcall[i].coordinates);
       print(facilcallfeatures);
       //print("the coordinates are ${facilcall[i].coordinates}");
       //print("name is ${facilcall[i].roadname}"+"${facilcall[i].lat} ${facilcall[i].lng}");
     }*/
 
+  }
+  int polylinecounter = 1;
+
+  addMarker() async {
+    polylineSet.add(Polyline(
+      polylineId: PolylineId("${polylinecounter}Id"),
+      visible: true,
+      width: 6,
+      points: positionList,
+      jointType: JointType.round,
+      startCap: Cap.roundCap,
+      endCap: Cap.roundCap,
+      geodesic: true,
+
+
+    ));
+    polylinecounter++;
   }
 }

@@ -10,10 +10,10 @@ class Facilities {
   factory Facilities.fromJson(Map<String, dynamic> parsedJson) {
     return Facilities(
       roadname: parsedJson['properties']['ROAD_NAME'],
-      lat: parsedJson['geometry']['coordinates'][0][0][1],
-      lng: parsedJson['geometry']['coordinates'][0][0][0],
+      lat: parsedJson['geometry']['coordinates'][0][1],
+      lng: parsedJson['geometry']['coordinates'][0][0],
       description: parsedJson['properties']['FACILITIES'],
-      coordinates: List<dynamic>.from(parsedJson['geometry']['coordinates']),
+      coordinates: parsedJson['geometry']['coordinates'],
 
     );
   }

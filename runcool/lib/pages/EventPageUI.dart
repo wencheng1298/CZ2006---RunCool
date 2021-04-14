@@ -600,7 +600,7 @@ class _EventPageState extends State<EventPage> {
                                                         announcerID:
                                                             currUser.uid);
                                               }
-                                              print(message);
+                                              //print(message);
                                               setState(() {
                                                 message = '';
                                                 _controller.clear();
@@ -697,8 +697,8 @@ class _EventPageState extends State<EventPage> {
 
     */
 
-    print("this is encoded points: ");
-    print(event.encPoints);
+    //print("this is encoded points: ");
+    //print(event.encPoints);
     /*setState(() {
       //todo check if this is correct
       GeoPoint  start = GeoPoint(startLatLng.latitude, startLatLng.longitude);

@@ -480,9 +480,9 @@ class _SearchScreenState extends State<SearchScreen> {
     var jsonFeatures = json['features'] as List;
 
     apicall = jsonFeatures.map((place) => Features.fromJson(place)).toList();
-    for(int i=0;i<apicall.length;i++){
+    /*for(int i=0;i<apicall.length;i++){
       print("name is ${apicall[i].name}"+"${apicall[i].lat} ${apicall[i].lng}");
-    }
+    }*/
 
   }
   Future<void> getFacilFeatures(String whichapi) async {
@@ -498,9 +498,9 @@ class _SearchScreenState extends State<SearchScreen> {
     var jsonFeatures = json['features'] as List;
 
     facilcall = jsonFeatures.map((place) => Facilities.fromJson(place)).toList();
-    for(int i=0;i<facilcall.length;i++){
+    /*for(int i=0;i<facilcall.length;i++){
       print("name is ${facilcall[i].roadname}"+"${facilcall[i].lat} ${facilcall[i].lng}");
-    }
+    }*/
 
   }
 }
@@ -623,8 +623,8 @@ class PredictionTile extends StatelessWidget
 
 
       Provider.of<GoogleMapsAppData>(context, listen: false).updateDestLocationAddress(newplace);
-      print("this is drop off location");
-      print(newplace.name);
+      //print("this is drop off location");
+      //print(newplace.name);
 
       Navigator.pop(context, "obtainDirection");
 

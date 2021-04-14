@@ -268,8 +268,8 @@ class _EventCardState extends State<EventCard> {
 
     */
 
-    print("this is encoded points: ");
-    print(widget.event.encPoints);
+    //print("this is encoded points: ");
+    //print(widget.event.encPoints);
     /*setState(() {
       //todo check if this is correct
       GeoPoint  start = GeoPoint(startLatLng.latitude, startLatLng.longitude);

@@ -247,7 +247,7 @@ class _ProfileListState extends State<ProfileList> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                          width: 350,
+                          width: 320,
                           child: Text(
                             user.bio,
                             //bio,
