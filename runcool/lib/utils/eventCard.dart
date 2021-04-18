@@ -4,9 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:runcool/utils/places_service.dart';
 import 'constants.dart';
-import './GoogleMapPlacement.dart';
+
 import 'package:runcool/models/User.dart';
 import '../utils/everythingUtils.dart';
 import './../pages/profileDependancies/ProfileUI1.dart';
@@ -17,18 +16,14 @@ class EventCard extends StatefulWidget {
 
   EventCard({this.event, this.fn});
 
-
-
-
   @override
   _EventCardState createState() => _EventCardState();
 }
 
 class _EventCardState extends State<EventCard> {
-
   @override
   void setState(fn) {
-    if(mounted) {
+    if (mounted) {
       super.setState(fn);
     }
   }
@@ -56,15 +51,12 @@ class _EventCardState extends State<EventCard> {
   @override
   void initState() {
     // TODO: implement initState
-    if(widget.event.eventType == 'Running') {
+    if (widget.event.eventType == 'Running') {
       setRoute();
-    }
-    else {
+    } else {
       setMarkers().then((_) {
         _goToPlace(widget.event.location);
-
       });
-
     }
     super.initState();
   }
@@ -107,9 +99,13 @@ class _EventCardState extends State<EventCard> {
                   ),
                   Text(
                     (widget.event.startTime != null)
-                        ? (widget.event.startTime.hour.toString().padLeft(2, '0')) +
+                        ? (widget.event.startTime.hour
+                                .toString()
+                                .padLeft(2, '0')) +
                             ":" +
-                            (widget.event.startTime.minute.toString().padLeft(2, '0'))
+                            (widget.event.startTime.minute
+                                .toString()
+                                .padLeft(2, '0'))
                         : "", // Time
                     style: TextStyle(color: Colors.white),
                   ),
@@ -121,23 +117,24 @@ class _EventCardState extends State<EventCard> {
               style: TextStyle(fontSize: 24, color: kTurquoise),
             ),
             //The lag is killing me so imma gotto comment this out
-             Padding(
-               padding: const EdgeInsets.only(left: 15.0, right: 15.0),
-               child: Container(
-                 child: GoogleMapPlacement(
-                   onMapCreated: (GoogleMapController controller) {
-                     _mapController.complete(controller);
-                     //controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
-
-
-                   },
-                   polylineset: Set.of((polylineSet != null)? Set<Polyline>.of(polylineSet) : []), //set polyline
-                   markersset: Set.of((markersSet != null)? Set<Marker>.of(markersSet) : []),
-                   circlesset: Set.of((circlesSet != null)? Set<Circle>.of(circlesSet) : []),
-
-                 ),
-               ),
-             ),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0),
+              child: Container(
+                child: GoogleMapPlacement(
+                  onMapCreated: (GoogleMapController controller) {
+                    _mapController.complete(controller);
+                    //controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
+                  },
+                  polylineset: Set.of((polylineSet != null)
+                      ? Set<Polyline>.of(polylineSet)
+                      : []), //set polyline
+                  markersset: Set.of(
+                      (markersSet != null) ? Set<Marker>.of(markersSet) : []),
+                  circlesset: Set.of(
+                      (circlesSet != null) ? Set<Circle>.of(circlesSet) : []),
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.only(top: 5, left: 15.0, right: 15),
               child: Row(
@@ -146,7 +143,8 @@ class _EventCardState extends State<EventCard> {
                   Expanded(
                     child: Text(
                       (widget.event.eventType == 'Running')
-                          ? widget.event.estDistance //+ "km" - removed this cause it is in km
+                          ? widget.event
+                              .estDistance //+ "km" - removed this cause it is in km
                           : '', // Time
                       style: TextStyle(color: Colors.white),
                     ),
@@ -225,10 +223,8 @@ class _EventCardState extends State<EventCard> {
         ),
       ),
     );
-
-
-
   }
+
   Future<void> updateCamera() async {
     final GoogleMapController controller = await _mapController.future;
     controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
@@ -244,7 +240,6 @@ class _EventCardState extends State<EventCard> {
     LatLng desLatLng = LatLng(endLoc.latitude, endLoc.longitude);
 
     //event.endLocation;
-
 
     initialPos = await PlacesService.searchCoordinateAddress(startLatLng);
     finalPos = await PlacesService.searchCoordinateAddress(desLatLng);
@@ -286,19 +281,17 @@ class _EventCardState extends State<EventCard> {
 
     });*/
 
-
     PolylinePoints polylinePoints = PolylinePoints();
-    List<PointLatLng> decodePolyLinePointsResult = polylinePoints.decodePolyline(widget.event.encPoints);
+    List<PointLatLng> decodePolyLinePointsResult =
+        polylinePoints.decodePolyline(widget.event.encPoints);
 
     pLineCoordinates.clear();
-    if(decodePolyLinePointsResult.isNotEmpty)
-    {
+    if (decodePolyLinePointsResult.isNotEmpty) {
       decodePolyLinePointsResult.forEach((PointLatLng pointLatLng) {
-        pLineCoordinates.add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
-
+        pLineCoordinates
+            .add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
       });
     }
-
 
     polylineSet.clear();
     setState(() {
@@ -316,27 +309,23 @@ class _EventCardState extends State<EventCard> {
       polylineSet.add(polyline);
     });
 
-
-    if(startLatLng.latitude > desLatLng.latitude && startLatLng.longitude > desLatLng.longitude)
-    {
+    if (startLatLng.latitude > desLatLng.latitude &&
+        startLatLng.longitude > desLatLng.longitude) {
       latLngBounds = LatLngBounds(southwest: desLatLng, northeast: startLatLng);
-    }
-    else if (startLatLng.longitude > desLatLng.longitude)
-    {
-      latLngBounds = LatLngBounds(southwest: LatLng(startLatLng.latitude, desLatLng.longitude), northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
-    }
-    else if (startLatLng.latitude > desLatLng.latitude)
-    {
-      latLngBounds = LatLngBounds(southwest: LatLng(desLatLng.latitude, startLatLng.longitude), northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
-    }
-    else
-    {
+    } else if (startLatLng.longitude > desLatLng.longitude) {
+      latLngBounds = LatLngBounds(
+          southwest: LatLng(startLatLng.latitude, desLatLng.longitude),
+          northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
+    } else if (startLatLng.latitude > desLatLng.latitude) {
+      latLngBounds = LatLngBounds(
+          southwest: LatLng(desLatLng.latitude, startLatLng.longitude),
+          northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
+    } else {
       latLngBounds = LatLngBounds(southwest: startLatLng, northeast: desLatLng);
     }
 
     final GoogleMapController controller = await _mapController.future;
     controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
-
 
     Marker startLocMarker = Marker(
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
@@ -356,21 +345,18 @@ class _EventCardState extends State<EventCard> {
 
     LatLng waypoint1 = LatLng(waypoint[0].latitude, waypoint[0].longitude);
 
-    if(waypoint.isNotEmpty) {
+    if (waypoint.isNotEmpty) {
       Marker wayptLocMarker = Marker(
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
-        infoWindow: InfoWindow(title: waypoint1.toString(), snippet: "Checkpoint"),
+        infoWindow:
+            InfoWindow(title: waypoint1.toString(), snippet: "Checkpoint"),
         position: waypoint1,
         markerId: MarkerId("wayptId"),
-
       );
       setState(() {
         markersSet.add(wayptLocMarker);
       });
-
-        }
-
-
+    }
 
     setState(() {
       markersSet.add(startLocMarker);
@@ -398,20 +384,16 @@ class _EventCardState extends State<EventCard> {
     setState(() {
       circlesSet.add(startLocCircle);
       circlesSet.add(destLocCircle);
-
     });
   }
 
   Future<void> _goToPlace(GeoPoint position) async {
     final GoogleMapController controller = await _mapController.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target:
-        LatLng(position.latitude, position.longitude),
-        zoom: 15)));
+        target: LatLng(position.latitude, position.longitude), zoom: 15)));
   }
 
   Future<void> setMarkers() async {
-
     GeoPoint locationGeo = widget.event.location;
     LatLng startLatLng = LatLng(locationGeo.latitude, locationGeo.longitude);
 
@@ -427,7 +409,6 @@ class _EventCardState extends State<EventCard> {
 
     setState(() {
       markersSet.add(locationMarker);
-
     });
 
     Circle locationCircle = Circle(
@@ -441,10 +422,6 @@ class _EventCardState extends State<EventCard> {
 
     setState(() {
       circlesSet.add(locationCircle);
-
     });
-
-
   }
 }
-

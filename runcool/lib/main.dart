@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:runcool/utils/GoogleMapsAppData.dart';
+import 'package:runcool/utils/google_maps_api/GoogleMapsAppData.dart';
 import 'package:runcool/Wrapper.dart';
 import 'package:runcool/controllers/AuthenticationManager.dart';
 import 'package:runcool/models/User.dart';
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => GoogleMapsAppData()),
-        StreamProvider<User>.value(value: AuthenticationManager().user),
+        // StreamProvider<User>.value(value: AuthenticationManager().user),
         StreamProvider<AppUser>.value(value: AppUser.getUserFromID(uid))
       ],
       child: MaterialApp(

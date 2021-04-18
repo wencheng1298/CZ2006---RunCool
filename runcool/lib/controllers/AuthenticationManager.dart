@@ -6,16 +6,11 @@ import 'ProfileManager.dart';
 class AuthenticationManager {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  // create user obj based on firebase user
-  AppUser _userFromFirebaseUser(User user) {
-    return user != null ? AppUser(uid: user.uid) : null;
-  }
-
-  Stream<User> get user {
-    return _auth.authStateChanges();
-    // .map((User user) => ProfileManager().getUserFromID(user.uid));
-    // .map((User user) => _userFromFirebaseUser(user));
-  }
+  // Stream<User> get user {
+  //   return _auth.authStateChanges();
+  //   // .map((User user) => ProfileManager().getUserFromID(user.uid));
+  //   // .map((User user) => _userFromFirebaseUser(user));
+  // }
 
   User getCurrUserFromFirebase() {
     try {

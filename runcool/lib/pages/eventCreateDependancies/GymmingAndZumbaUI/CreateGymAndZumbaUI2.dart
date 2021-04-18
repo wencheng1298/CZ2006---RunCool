@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:runcool/utils/places_service.dart';
 import '../EventCreatedSuccessUI.dart';
 
 import '../../../utils/everythingUtils.dart';
@@ -45,11 +44,9 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
     // TODO: implement initState
     setMarkers().then((_) {
       _goToPlace(eventDetails['location']);
-
     });
     super.initState();
   }
-
 
   List<String> difficultyLevels = ['Easy', 'Medium', 'Hard'];
   bool timeError = false;
@@ -97,14 +94,15 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
                 GoogleMapPlacement(
                   onMapCreated: (GoogleMapController controller) {
                     _mapController.complete(controller);
-
-
                   },
-                  polylineset: Set.of((polylineSet != null)? Set<Polyline>.of(polylineSet) : []), //set polyline
-                  markersset: Set.of((markersSet != null)? Set<Marker>.of(markersSet) : []),
-                  circlesset: Set.of((circlesSet != null)? Set<Circle>.of(circlesSet) : []),
+                  polylineset: Set.of((polylineSet != null)
+                      ? Set<Polyline>.of(polylineSet)
+                      : []), //set polyline
+                  markersset: Set.of(
+                      (markersSet != null) ? Set<Marker>.of(markersSet) : []),
+                  circlesset: Set.of(
+                      (circlesSet != null) ? Set<Circle>.of(circlesSet) : []),
                   // eventType: "running",
-
                 ),
                 SizedBox(height: 10),
                 Container(
@@ -138,10 +136,8 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
                         padding: EdgeInsets.only(left: 23),
                         child: Text(
                           (dateError) ? 'Select a date' : '',
-                          style: TextStyle(
-                            color: Colors.redAccent,
-                            height: 0.6
-                          ),
+                          style:
+                              TextStyle(color: Colors.redAccent, height: 0.6),
                         ),
                       ),
                       Align(
@@ -334,13 +330,10 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
   Future<void> _goToPlace(GeoPoint position) async {
     final GoogleMapController controller = await _mapController.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target:
-        LatLng(position.latitude, position.longitude),
-        zoom: 15)));
+        target: LatLng(position.latitude, position.longitude), zoom: 15)));
   }
 
   Future<void> setMarkers() async {
-
     GeoPoint locationGeo = eventDetails['location'];
     LatLng startLatLng = LatLng(locationGeo.latitude, locationGeo.longitude);
 
@@ -356,7 +349,6 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
 
     setState(() {
       markersSet.add(locationMarker);
-
     });
 
     Circle locationCircle = Circle(
@@ -370,9 +362,6 @@ class _CreateGymAndZumbaUI2State extends State<CreateGymAndZumbaUI2>
 
     setState(() {
       circlesSet.add(locationCircle);
-
     });
-
-
   }
 }

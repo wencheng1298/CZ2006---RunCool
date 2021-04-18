@@ -8,13 +8,8 @@ import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geojson/geojson.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
-import 'package:runcool/utils/GoogleMapsAppData.dart';
-import 'package:runcool/utils/custom_rect_tween.dart';
+
 import 'package:runcool/utils/datagovapi/features.dart';
-import 'package:runcool/utils/place.dart';
-import 'package:runcool/utils/place_search.dart';
-import 'package:runcool/utils/places_service.dart';
-import 'package:runcool/utils/searchScreen.dart';
 import './CreateRunningUI2.dart';
 import './../../../utils/everythingUtils.dart';
 
@@ -30,7 +25,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:async';
 //import 'package:geocoder/geocoder.dart';
 
-
 //places_service
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
@@ -44,10 +38,10 @@ class CreateRunningUI1 extends StatefulWidget {
   final Map eventDetails;
   CreateRunningUI1({this.eventDetails});
 
-
   @override
   _CreateRunningUI1State createState() => _CreateRunningUI1State(eventDetails);
 }
+
 /// Tag-value used for the add todo popup button.
 const String _heroSearch = 'add-search-hero';
 
@@ -61,18 +55,13 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
   void _initVariables() {
     eventDetails["checkpoints"] = [];
 
-
     eventDetails["participants"] = [];
     eventDetails["notifications"] = [];
-
   }
 
   void _fillRunDetailsWidget() {
-    setState(() {
-
-    });
+    setState(() {});
   }
-
 
   Completer<GoogleMapController> _mapController = Completer();
   StreamSubscription locationSubscription;
@@ -96,25 +85,20 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
   List<Features> apicall;
   BitmapDescriptor nparklocationicon;
 
-
   //trial with searching function
   TextEditingController destTextEditingController = TextEditingController();
   List<PlaceSearch> placeSearchList = [];
 
-
-
-
-
-
   @override
   void initState() {
-    final googleMapsController =Provider.of<GoogleMapsAppData>(context, listen: false);
+    final googleMapsController =
+        Provider.of<GoogleMapsAppData>(context, listen: false);
     locationSubscription =
         googleMapsController.selectedLocation.stream.listen((place) {
-          if (place != null) {
-            _goToPlace(place);
-          }
-        });
+      if (place != null) {
+        _goToPlace(place);
+      }
+    });
     /*getBytesFromAsset('images/nparkscoast-to-coast.png', 64).then((onValue) {
 
       setState(() {
@@ -125,9 +109,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
 
     });*/
     getCoordinates('running').then((_) {
-
-      for(int i =0; i< apicall.length; i ++)
-      {
+      for (int i = 0; i < apicall.length; i++) {
         _geomarkers.add(Marker(
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
           //infoWindow: InfoWindow(title: point.name, snippet: "Starting Address"),
@@ -139,24 +121,18 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
       }
       setState(() {
         markersSet.addAll(_geomarkers);
-
-
       });
-
     });
 
     _initVariables(); //to initialise as empty list first.
 
-
-
     super.initState();
   }
-
 
   @override
   void dispose() {
     final googleMapsController =
-    Provider.of<GoogleMapsAppData>(context, listen: false);
+        Provider.of<GoogleMapsAppData>(context, listen: false);
     googleMapsController.dispose();
     locationSubscription.cancel();
     markersSet.clear();
@@ -164,8 +140,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     polylineSet.clear();
     //sub.cancel();
     getBytesFromAsset('images/nparkscoast-to-coast.png', 64).then((onValue) {
-      nparklocationicon =BitmapDescriptor.fromBytes(onValue);
-
+      nparklocationicon = BitmapDescriptor.fromBytes(onValue);
     });
 
     super.dispose();
@@ -173,23 +148,23 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
 
   //Map eventDetails = {"eventType": "Running"};
 
-
   static Future<Uint8List> getBytesFromAsset(String path, int width) async {
     ByteData data = await rootBundle.load(path);
-    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(), targetWidth: width);
+    ui.Codec codec = await ui.instantiateImageCodec(data.buffer.asUint8List(),
+        targetWidth: width);
     ui.FrameInfo fi = await codec.getNextFrame();
-    return (await fi.image.toByteData(format: ui.ImageByteFormat.png)).buffer.asUint8List();
+    return (await fi.image.toByteData(format: ui.ImageByteFormat.png))
+        .buffer
+        .asUint8List();
   }
-
-
-
 
   void goNextPage() {
     //todo should i be adding the must to add a checkpoint??
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (context) => CreateRunningUI2(eventDetails: eventDetails)));
+            builder: (context) =>
+                CreateRunningUI2(eventDetails: eventDetails)));
   }
 
   @override
@@ -198,7 +173,6 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     //String startingAddress = googleMapsAppData.startingPlace.name;
     //Place startingAddress;
     //startTextEditingController.text = startingAddress;
-
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -221,12 +195,14 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                   GoogleMapPlacement(
                     onMapCreated: (GoogleMapController controller) {
                       _mapController.complete(controller);
-
-
                     },
-                    polylineset: Set.of((polylineSet != null)? Set<Polyline>.of(polylineSet) : []), //set polyline
-                    markersset: Set.of((markersSet != null)? Set<Marker>.of(markersSet) : []),
-                    circlesset: Set.of((circlesSet != null)? Set<Circle>.of(circlesSet) : []),
+                    polylineset: Set.of((polylineSet != null)
+                        ? Set<Polyline>.of(polylineSet)
+                        : []), //set polyline
+                    markersset: Set.of(
+                        (markersSet != null) ? Set<Marker>.of(markersSet) : []),
+                    circlesset: Set.of(
+                        (circlesSet != null) ? Set<Circle>.of(circlesSet) : []),
                     // eventType: "running",
                   ),
                 ],
@@ -245,20 +221,34 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                       child: Column(
                         children: [
                           GoogleMapsSearchField(
-                            text:
-                            (Provider.of<GoogleMapsAppData>(context).startingPlace != null
-                                ? Provider.of<GoogleMapsAppData>(context).startingPlace.name
+                            text: (Provider.of<GoogleMapsAppData>(context)
+                                        .startingPlace !=
+                                    null
+                                ? Provider.of<GoogleMapsAppData>(context)
+                                    .startingPlace
+                                    .name
                                 : 'Starting Address'), //the hint text
 
-                            onTap: () async
-                            {
-                              var res = await Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen("Start")));
-                              if(Provider.of<GoogleMapsAppData>(context,listen: false).startingPlace != null)
-                                await _goToPlace(Provider.of<GoogleMapsAppData>(context,listen: false).startingPlace);
+                            onTap: () async {
+                              var res = await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          SearchScreen("Start")));
+                              if (Provider.of<GoogleMapsAppData>(context,
+                                          listen: false)
+                                      .startingPlace !=
+                                  null)
+                                await _goToPlace(Provider.of<GoogleMapsAppData>(
+                                        context,
+                                        listen: false)
+                                    .startingPlace);
 
-
-                              if(Provider.of<GoogleMapsAppData>(context,listen: false).destPlace != null && res== "obtainDirection")
-                              {
+                              if (Provider.of<GoogleMapsAppData>(context,
+                                              listen: false)
+                                          .destPlace !=
+                                      null &&
+                                  res == "obtainDirection") {
                                 await getPlaceDirection();
                               }
                             },
@@ -275,24 +265,31 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                       child: Column(
                         children: [
                           GoogleMapsSearchField(
-                            text: Provider.of<GoogleMapsAppData>(context).destPlace != null
-                                ? Provider.of<GoogleMapsAppData>(context).destPlace.name
-                                : 'Ending Address', //the hint text
-                            /*textcontroller: destTextEditingController,
+                              text: Provider.of<GoogleMapsAppData>(context)
+                                          .destPlace !=
+                                      null
+                                  ? Provider.of<GoogleMapsAppData>(context)
+                                      .destPlace
+                                      .name
+                                  : 'Ending Address', //the hint text
+                              /*textcontroller: destTextEditingController,
                             onChange: (value) =>
                                 googleMapsAppData.searchPlaces(value),*/
-                            onTap: () async
-                            {
-                              var res = await Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen("End")));
+                              onTap: () async {
+                                var res = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            SearchScreen("End")));
 
-
-                              if(Provider.of<GoogleMapsAppData>(context,listen: false).startingPlace != null && res== "obtainDirection")
-                              {
-                                await getPlaceDirection();
-                              }
-                            }
-
-                          ),
+                                if (Provider.of<GoogleMapsAppData>(context,
+                                                listen: false)
+                                            .startingPlace !=
+                                        null &&
+                                    res == "obtainDirection") {
+                                  await getPlaceDirection();
+                                }
+                              }),
                         ],
                       ),
                     ),
@@ -303,12 +300,22 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                     Padding(
                       padding: const EdgeInsets.only(left: 8.0, right: 8),
                       child: GestureDetector(
-                        onTap: () async
-                        {
-                          var res = await Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen("addwaypt")));
+                        onTap: () async {
+                          var res = await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      SearchScreen("addwaypt")));
 
-                          if(Provider.of<GoogleMapsAppData>(context,listen: false).destPlace != null && Provider.of<GoogleMapsAppData>(context,listen: false).startingPlace != null && res!="obtainDirection")
-                          {
+                          if (Provider.of<GoogleMapsAppData>(context,
+                                          listen: false)
+                                      .destPlace !=
+                                  null &&
+                              Provider.of<GoogleMapsAppData>(context,
+                                          listen: false)
+                                      .startingPlace !=
+                                  null &&
+                              res != "obtainDirection") {
                             var latlong = res.split(",");
                             print(latlong);
                             var lat = double.tryParse(latlong[0]);
@@ -320,7 +327,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                         },
                         child: Hero(
                           tag: _heroSearch,
-                          createRectTween: (begin, end){
+                          createRectTween: (begin, end) {
                             return CustomRectTween(begin: begin, end: end);
                           },
                           child: Container(
@@ -347,7 +354,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 16.0, top: 20),
-                    child:  Text(
+                    child: Text(
                       EstimatedDistance,
                       style: TextStyle(color: Colors.white),
                     ),
@@ -360,7 +367,7 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
                         child: Text('Next'),
                         onPressed: () => {
                           goNextPage(),
-                          },
+                        },
                         style: TextButton.styleFrom(
                           backgroundColor: Colors.white,
                           primary: Colors.black,
@@ -380,25 +387,27 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     );
   }
 
-
   Future<void> _goToPlace(Place place) async {
     final GoogleMapController controller = await _mapController.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
         target:
-        LatLng(place.geometry.location.lat, place.geometry.location.lng),
+            LatLng(place.geometry.location.lat, place.geometry.location.lng),
         zoom: 15)));
   }
 
   Future<void> getPlaceDirection() async {
-    var initialPos = Provider.of<GoogleMapsAppData>(context, listen: false).startingPlace;
-    var finalPos = Provider.of<GoogleMapsAppData>(context, listen: false).destPlace;
+    var initialPos =
+        Provider.of<GoogleMapsAppData>(context, listen: false).startingPlace;
+    var finalPos =
+        Provider.of<GoogleMapsAppData>(context, listen: false).destPlace;
 
-
-    var startLatLng = LatLng(initialPos.geometry.location.lat, initialPos.geometry.location.lng);
+    var startLatLng = LatLng(
+        initialPos.geometry.location.lat, initialPos.geometry.location.lng);
     print("this is the start");
     print(initialPos.placeId);
     print(startLatLng);
-    var desLatLng = LatLng(finalPos.geometry.location.lat, finalPos.geometry.location.lng);
+    var desLatLng =
+        LatLng(finalPos.geometry.location.lat, finalPos.geometry.location.lng);
     print("this is the end");
     print(finalPos.placeId);
     print(desLatLng);
@@ -408,41 +417,36 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
       builder: (BuildContext context) => Loading()
     );*/
 
-    var details = await PlacesService.obtainPlaceDirectionDetails(startLatLng, desLatLng);
-
-
+    var details =
+        await PlacesService.obtainPlaceDirectionDetails(startLatLng, desLatLng);
 
     print("this is encoded points: ");
     print(details.encodedPoints);
     setState(() {
       //todo check if this is correct
-      GeoPoint  start = GeoPoint(startLatLng.latitude, startLatLng.longitude);
+      GeoPoint start = GeoPoint(startLatLng.latitude, startLatLng.longitude);
       eventDetails['startLocation'] = start;
 
-      GeoPoint  end = GeoPoint(desLatLng.latitude, desLatLng.longitude);
+      GeoPoint end = GeoPoint(desLatLng.latitude, desLatLng.longitude);
       eventDetails['endLocation'] = end;
 
       eventDetails['encPoints'] = details.encodedPoints;
 
       EstimatedDistance = details.distanceText;
       eventDetails['estDistance'] = EstimatedDistance;
-
-
     });
 
-
     PolylinePoints polylinePoints = PolylinePoints();
-    List<PointLatLng> decodePolyLinePointsResult = polylinePoints.decodePolyline(details.encodedPoints);
+    List<PointLatLng> decodePolyLinePointsResult =
+        polylinePoints.decodePolyline(details.encodedPoints);
 
     pLineCoordinates.clear();
-    if(decodePolyLinePointsResult.isNotEmpty)
-    {
+    if (decodePolyLinePointsResult.isNotEmpty) {
       decodePolyLinePointsResult.forEach((PointLatLng pointLatLng) {
-        pLineCoordinates.add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
-
+        pLineCoordinates
+            .add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
       });
     }
-
 
     polylineSet.clear();
     setState(() {
@@ -461,37 +465,36 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     });
 
     LatLngBounds latLngBounds;
-    if(startLatLng.latitude > desLatLng.latitude && startLatLng.longitude > desLatLng.longitude)
-    {
+    if (startLatLng.latitude > desLatLng.latitude &&
+        startLatLng.longitude > desLatLng.longitude) {
       latLngBounds = LatLngBounds(southwest: desLatLng, northeast: startLatLng);
-    }
-    else if (startLatLng.longitude > desLatLng.longitude)
-    {
-      latLngBounds = LatLngBounds(southwest: LatLng(startLatLng.latitude, desLatLng.longitude), northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
-    }
-    else if (startLatLng.latitude > desLatLng.latitude)
-    {
-      latLngBounds = LatLngBounds(southwest: LatLng(desLatLng.latitude, startLatLng.longitude), northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
-    }
-    else
-    {
+    } else if (startLatLng.longitude > desLatLng.longitude) {
+      latLngBounds = LatLngBounds(
+          southwest: LatLng(startLatLng.latitude, desLatLng.longitude),
+          northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
+    } else if (startLatLng.latitude > desLatLng.latitude) {
+      latLngBounds = LatLngBounds(
+          southwest: LatLng(desLatLng.latitude, startLatLng.longitude),
+          northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
+    } else {
       latLngBounds = LatLngBounds(southwest: startLatLng, northeast: desLatLng);
     }
 
     final GoogleMapController controller = await _mapController.future;
     controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
 
-
     Marker startLocMarker = Marker(
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-      infoWindow: InfoWindow(title: initialPos.name, snippet: "Starting Address"),
+      infoWindow:
+          InfoWindow(title: initialPos.name, snippet: "Starting Address"),
       position: startLatLng,
       markerId: MarkerId("startId"),
     );
 
     Marker destLocMarker = Marker(
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
-      infoWindow: InfoWindow(title: finalPos.name, snippet: "Destination Address"),
+      infoWindow:
+          InfoWindow(title: finalPos.name, snippet: "Destination Address"),
       position: desLatLng,
       markerId: MarkerId("destId"),
     );
@@ -522,13 +525,10 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     setState(() {
       circlesSet.add(startLocCircle);
       circlesSet.add(destLocCircle);
-
     });
   }
 
-
   Future<void> getCoordinates(String whichapi) async {
-
     var file;
     if (whichapi == "running") {
       file = "assets/PCN_Access_Points_googlemaps.geojson";
@@ -544,22 +544,26 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     var jsonFeatures = json['features'] as List;
 
     apicall = jsonFeatures.map((place) => Features.fromJson(place)).toList();
-    for(int i=0;i<apicall.length;i++){
-      print("name is ${apicall[i].name}"+"${apicall[i].lat} ${apicall[i].lng}");
+    for (int i = 0; i < apicall.length; i++) {
+      print(
+          "name is ${apicall[i].name}" + "${apicall[i].lat} ${apicall[i].lng}");
     }
-
   }
+
   Future<void> addwaypointDirection(LatLng waypoint) async {
-    var initialPos = Provider.of<GoogleMapsAppData>(context, listen: false).startingPlace;
-    var finalPos = Provider.of<GoogleMapsAppData>(context, listen: false).destPlace;
+    var initialPos =
+        Provider.of<GoogleMapsAppData>(context, listen: false).startingPlace;
+    var finalPos =
+        Provider.of<GoogleMapsAppData>(context, listen: false).destPlace;
     //print(initialPos);
 
-
-    var startLatLng = LatLng(initialPos.geometry.location.lat, initialPos.geometry.location.lng);
+    var startLatLng = LatLng(
+        initialPos.geometry.location.lat, initialPos.geometry.location.lng);
     print("this is the start");
     print(initialPos.placeId);
     print(startLatLng);
-    var desLatLng = LatLng(finalPos.geometry.location.lat, finalPos.geometry.location.lng);
+    var desLatLng =
+        LatLng(finalPos.geometry.location.lat, finalPos.geometry.location.lng);
     print("this is the end");
     print(finalPos.placeId);
     print(desLatLng);
@@ -569,42 +573,37 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
       builder: (BuildContext context) => Loading()
     );*/
 
-    var details = await PlacesService.addingWaypoint(startLatLng, desLatLng, waypoint);
-
-
-
+    var details =
+        await PlacesService.addingWaypoint(startLatLng, desLatLng, waypoint);
 
     print("this is encoded points: ");
     print(details.encodedPoints);
 
     setState(() {
       //todo check if this is correct
-      GeoPoint  start = GeoPoint(startLatLng.latitude, startLatLng.longitude);
+      GeoPoint start = GeoPoint(startLatLng.latitude, startLatLng.longitude);
       eventDetails['startLocation'] = start;
 
-      GeoPoint  end = GeoPoint(desLatLng.latitude, desLatLng.longitude);
+      GeoPoint end = GeoPoint(desLatLng.latitude, desLatLng.longitude);
       eventDetails['endLocation'] = end;
 
       eventDetails['encPoints'] = details.encodedPoints;
 
       EstimatedDistance = details.distanceText;
       eventDetails['estDistance'] = EstimatedDistance;
-
-
     });
 
     PolylinePoints polylinePoints = PolylinePoints();
-    List<PointLatLng> decodePolyLinePointsResult = polylinePoints.decodePolyline(details.encodedPoints);
+    List<PointLatLng> decodePolyLinePointsResult =
+        polylinePoints.decodePolyline(details.encodedPoints);
 
     pLineCoordinates.clear();
-    if(decodePolyLinePointsResult.isNotEmpty)
-    {
+    if (decodePolyLinePointsResult.isNotEmpty) {
       decodePolyLinePointsResult.forEach((PointLatLng pointLatLng) {
-        pLineCoordinates.add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
-
+        pLineCoordinates
+            .add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
       });
     }
-
 
     polylineSet.clear();
     setState(() {
@@ -623,42 +622,40 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     });
 
     LatLngBounds latLngBounds;
-    if(startLatLng.latitude > desLatLng.latitude && startLatLng.longitude > desLatLng.longitude)
-    {
+    if (startLatLng.latitude > desLatLng.latitude &&
+        startLatLng.longitude > desLatLng.longitude) {
       latLngBounds = LatLngBounds(southwest: desLatLng, northeast: startLatLng);
-    }
-    else if (startLatLng.longitude > desLatLng.longitude)
-    {
-      latLngBounds = LatLngBounds(southwest: LatLng(startLatLng.latitude, desLatLng.longitude), northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
-    }
-    else if (startLatLng.latitude > desLatLng.latitude)
-    {
-      latLngBounds = LatLngBounds(southwest: LatLng(desLatLng.latitude, startLatLng.longitude), northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
-    }
-    else
-    {
+    } else if (startLatLng.longitude > desLatLng.longitude) {
+      latLngBounds = LatLngBounds(
+          southwest: LatLng(startLatLng.latitude, desLatLng.longitude),
+          northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
+    } else if (startLatLng.latitude > desLatLng.latitude) {
+      latLngBounds = LatLngBounds(
+          southwest: LatLng(desLatLng.latitude, startLatLng.longitude),
+          northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
+    } else {
       latLngBounds = LatLngBounds(southwest: startLatLng, northeast: desLatLng);
     }
 
     final GoogleMapController controller = await _mapController.future;
     controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
 
-
     markersSet.clear();
     Marker startLocMarker = Marker(
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-      infoWindow: InfoWindow(title: initialPos.name, snippet: "Starting Address"),
+      infoWindow:
+          InfoWindow(title: initialPos.name, snippet: "Starting Address"),
       position: startLatLng,
       markerId: MarkerId("startId"),
     );
 
     Marker destLocMarker = Marker(
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
-      infoWindow: InfoWindow(title: finalPos.name, snippet: "Destination Address"),
+      infoWindow:
+          InfoWindow(title: finalPos.name, snippet: "Destination Address"),
       position: desLatLng,
       markerId: MarkerId("destId"),
     );
-
 
     Marker wayptLocMarker = Marker(
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
@@ -695,7 +692,6 @@ class _CreateRunningUI1State extends State<CreateRunningUI1> {
     setState(() {
       circlesSet.add(startLocCircle);
       circlesSet.add(destLocCircle);
-
     });
   }
 }

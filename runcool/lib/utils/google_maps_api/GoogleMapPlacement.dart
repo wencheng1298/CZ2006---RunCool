@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'GoogleMapsAppData.dart';
-import 'everythingUtils.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 
@@ -28,7 +27,13 @@ class GoogleMapPlacement extends StatefulWidget {
   /*void getStartAddress(startAddress) {
     _GoogleMapState().getStartingAddress(startAddress);
   }*/
-  GoogleMapPlacement({this.onMapCreated, this.eventType, this.polylineset, this.circlesset,this.markersset, this.CameraPositionset});
+  GoogleMapPlacement(
+      {this.onMapCreated,
+      this.eventType,
+      this.polylineset,
+      this.circlesset,
+      this.markersset,
+      this.CameraPositionset});
 
   @override
   _GoogleMapState createState() => _GoogleMapState();
@@ -40,7 +45,6 @@ class _GoogleMapState extends State<GoogleMapPlacement> {
   Completer<GoogleMapController> _mapController = Completer();
 
   Map<String, dynamic> data;
-  
 
   @override
   void initState() {
@@ -61,8 +65,6 @@ class _GoogleMapState extends State<GoogleMapPlacement> {
   PolylinePoints polylinePoints;
   Map<PolylineId, Polyline> polylines = {};
   List<LatLng> polylineCoordinates = [];
-
-
 
   @override
   /*void initState() {
@@ -86,31 +88,36 @@ class _GoogleMapState extends State<GoogleMapPlacement> {
         width: MediaQuery.of(context).size.width,
         child: Stack(
           children: [
-            if (googleMapsAppData.currentLocation == null) Center(
-                    child: CircularProgressIndicator(),
-                  ) else GoogleMap(
-                    mapType: MapType.normal,
-                    //initialCameraPosition: _initialLocation,
-                    initialCameraPosition: CameraPosition(
-                        target: LatLng(
-                            googleMapsAppData.currentLocation.latitude,
-                            googleMapsAppData.currentLocation.longitude),
-                        zoom: 14),
-                    myLocationEnabled: true,
-                    compassEnabled: true,
-                    scrollGesturesEnabled: true,
-                    zoomGesturesEnabled: true,
-                    zoomControlsEnabled: true,
-                    markers: Set.of((widget.markersset != null) ? widget.markersset : [])
-              /*markers != null ? Set<Marker>.from(markers) : null*/,
-                    // markers: data != null
-                    //     ? getMarkers(data, widget.eventType)
-                    //     : null,
-                    polylines: Set.of((widget.polylineset != null) ? widget.polylineset : [])
-              /*Set<Polyline>.of(polylines.values)*/,
-                    circles: Set.of((widget.circlesset != null) ? widget.circlesset : []),
-                    onMapCreated: widget.onMapCreated,
-                  ),
+            if (googleMapsAppData.currentLocation == null)
+              Center(
+                child: CircularProgressIndicator(),
+              )
+            else
+              GoogleMap(
+                mapType: MapType.normal,
+                //initialCameraPosition: _initialLocation,
+                initialCameraPosition: CameraPosition(
+                    target: LatLng(googleMapsAppData.currentLocation.latitude,
+                        googleMapsAppData.currentLocation.longitude),
+                    zoom: 14),
+                myLocationEnabled: true,
+                compassEnabled: true,
+                scrollGesturesEnabled: true,
+                zoomGesturesEnabled: true,
+                zoomControlsEnabled: true,
+                markers:
+                    Set.of((widget.markersset != null) ? widget.markersset : [])
+                /*markers != null ? Set<Marker>.from(markers) : null*/,
+                // markers: data != null
+                //     ? getMarkers(data, widget.eventType)
+                //     : null,
+                polylines: Set.of(
+                    (widget.polylineset != null) ? widget.polylineset : [])
+                /*Set<Polyline>.of(polylines.values)*/,
+                circles: Set.of(
+                    (widget.circlesset != null) ? widget.circlesset : []),
+                onMapCreated: widget.onMapCreated,
+              ),
           ],
         ));
   }

@@ -1,20 +1,15 @@
 import 'dart:async';
 import 'dart:ui' as ui;
-import 'dart:typed_data';
+
 import 'dart:convert' as convert;
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:runcool/utils/places_service.dart';
-import 'package:runcool/utils/searchScreen.dart';
 import '../../../utils/everythingUtils.dart';
-import 'package:provider/provider.dart';
-import 'package:runcool/models/User.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:runcool/utils/datagovapi/facilities.dart';
-import 'package:runcool/utils/datagovapi/features.dart';
 
 import 'CreateGymAndZumbaUI2.dart';
 
@@ -48,7 +43,6 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
   List<Facilities> facilcall;
   LatLng position;
   List<LatLng> positionList = [];
-
 
   void _initVariables() {
     (eventDetails['eventType'] == 'Gymming')
@@ -144,10 +138,10 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
                             if (val.isEmpty) {
                               return '*Cannot be null';
                             }
-                            try{
+                            try {
                               val = int.parse(val);
                               return null;
-                            }catch(error){
+                            } catch (error) {
                               return 'Must be a number';
                             }
                           }
@@ -211,14 +205,15 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
                 GoogleMapPlacement(
                   onMapCreated: (GoogleMapController controller) {
                     _mapController.complete(controller);
-
-
                   },
-                  polylineset: Set.of((polylineSet != null)? Set<Polyline>.of(polylineSet) : []), //set polyline
-                  markersset: Set.of((markersSet != null)? Set<Marker>.of(markersSet) : []),
-                  circlesset: Set.of((circlesSet != null)? Set<Circle>.of(circlesSet) : []),
+                  polylineset: Set.of((polylineSet != null)
+                      ? Set<Polyline>.of(polylineSet)
+                      : []), //set polyline
+                  markersset: Set.of(
+                      (markersSet != null) ? Set<Marker>.of(markersSet) : []),
+                  circlesset: Set.of(
+                      (circlesSet != null) ? Set<Circle>.of(circlesSet) : []),
                   // eventType: "running",
-
                 ),
                 Container(
                     height: 410,
@@ -234,38 +229,43 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
                         Padding(
                           padding: const EdgeInsets.only(left: 8, right: 8),
                           child: GoogleMapsSearchField(
-                            text: (locationPos !=null) ? locationPos : "Tap to select",
-                              height: 35,
-                          onTap: () async
-                          {
-                            if(eventDetails['eventType'] == 'Gymming')
-                            {
-                              var res = await Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen("gymming")));
+                            text: (locationPos != null)
+                                ? locationPos
+                                : "Tap to select",
+                            height: 35,
+                            onTap: () async {
+                              if (eventDetails['eventType'] == 'Gymming') {
+                                var res = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            SearchScreen("gymming")));
 
-                              var latlong = res.split(",");
-                              var lat = double.tryParse(latlong[0]);
-                              var lng = double.tryParse(latlong[1]);
-                              GeoPoint location = GeoPoint(lat, lng);
-                              eventDetails['location'] = location;
-                              await _goToPlace(LatLng(lat, lng));
-                              await setMarkers(LatLng(lat, lng));
-                            }
-                            else
-                            {
-                              var res = await Navigator.push(context, MaterialPageRoute(builder: (context)=> SearchScreen("zumba")));
-                              var latlong = res.split(",");
-                              var lat = double.tryParse(latlong[0]);
-                              var lng = double.tryParse(latlong[1]);
-                              GeoPoint location = GeoPoint(lat, lng);
-                              eventDetails['location'] = location;
-                              await _goToPlace(LatLng(lat, lng));
-                              await setMarkers(LatLng(lat, lng));
+                                var latlong = res.split(",");
+                                var lat = double.tryParse(latlong[0]);
+                                var lng = double.tryParse(latlong[1]);
+                                GeoPoint location = GeoPoint(lat, lng);
+                                eventDetails['location'] = location;
+                                await _goToPlace(LatLng(lat, lng));
+                                await setMarkers(LatLng(lat, lng));
+                              } else {
+                                var res = await Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            SearchScreen("zumba")));
+                                var latlong = res.split(",");
+                                var lat = double.tryParse(latlong[0]);
+                                var lng = double.tryParse(latlong[1]);
+                                GeoPoint location = GeoPoint(lat, lng);
+                                eventDetails['location'] = location;
+                                await _goToPlace(LatLng(lat, lng));
+                                await setMarkers(LatLng(lat, lng));
+                              }
 
-                            }
-
-
-                            //call zoom to update camera thingy.
-                          },),
+                              //call zoom to update camera thingy.
+                            },
+                          ),
                         ),
                         (eventDetails['eventType'] == 'Zumba')
                             ? Column(
@@ -365,17 +365,10 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
   Future<void> _goToPlace(LatLng position) async {
     final GoogleMapController controller = await _mapController.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target:
-        LatLng(position.latitude, position.longitude),
-        zoom: 15)));
+        target: LatLng(position.latitude, position.longitude), zoom: 15)));
   }
 
-
-
-
-
   Future<void> setMarkers(LatLng position) async {
-
     locationPos = await PlacesService.searchCoordinateAddress(position);
 
     markersSet.clear();
@@ -388,7 +381,6 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
 
     setState(() {
       markersSet.add(locationMarker);
-
     });
 
     Circle locationCircle = Circle(
@@ -402,13 +394,11 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
 
     setState(() {
       circlesSet.add(locationCircle);
-
     });
-
-
   }
 
-  Future<void> getFacilFeatures(String whichapi) async { //function for sports facilities.
+  Future<void> getFacilFeatures(String whichapi) async {
+    //function for sports facilities.
 
     var file;
     if (whichapi == "zumba") {
@@ -417,9 +407,8 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
 
     var jsonText = await rootBundle.loadString(file);
     //setState(() => data = json.decode(jsonText));
-   Map<dynamic, dynamic> json = convert.jsonDecode(jsonText);
+    Map<dynamic, dynamic> json = convert.jsonDecode(jsonText);
     var jsonFeatures = json['features'] as List;
-
 
     //var jsonFeaturesco = jsonFeatures['geometry']['coordinates'] as List;
     /*Map<dynamic, dynamic> json = convert.jsonDecode(jsonText);
@@ -427,14 +416,14 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
     var jsonfeaturesgeo = json['geometry'] as List;
     print(jsonfeaturesgeo.length);*/
 
-    facilcall = jsonFeatures.map((place) => Facilities.fromJson(place)).toList();
+    facilcall =
+        jsonFeatures.map((place) => Facilities.fromJson(place)).toList();
     List<dynamic> facilcallfeatures = [];
     //var facilcall;
 
-    for(int i=0;i<facilcall.length;i++)
-      {
-        print(facilcall[i].coordinates);
-      }
+    for (int i = 0; i < facilcall.length; i++) {
+      print(facilcall[i].coordinates);
+    }
     pLineCoordinates.clear();
 
     /*await Future.forEach(facilcall, (element) async
@@ -448,9 +437,6 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
       addMarker();
     });*/
 
-
-
-
     /*for(int i=0;i<facilcall.length;i++)
       {
         for(int j=0;j<facilcall[i].coordinates.length;j++)
@@ -460,12 +446,10 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
           }
 
       }*/
-    for(int i =0;i<facilcallfeatures.length;i++)
-      {
-        pLineCoordinates.add(LatLng(facilcallfeatures[i][1],facilcallfeatures[i][0]));
-      }
-
-
+    for (int i = 0; i < facilcallfeatures.length; i++) {
+      pLineCoordinates
+          .add(LatLng(facilcallfeatures[i][1], facilcallfeatures[i][0]));
+    }
 
     //print(pLineCoordinates.length);
     polylineSet.clear();
@@ -488,13 +472,10 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
       print(facilcallfeatures[i]);
     }*/
 
-
     //for(int i = 0;i<facilcallfeatures.length;i++)
-     // {
-       // print(facilcallfeatures[i]);
-     // }
-
-
+    // {
+    // print(facilcallfeatures[i]);
+    // }
 
     /*for(int i=0;i<facilcall.length;i++){
       facilcallfeatures.add(facilcall[i].coordinates);
@@ -502,8 +483,8 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
       //print("the coordinates are ${facilcall[i].coordinates}");
       //print("name is ${facilcall[i].roadname}"+"${facilcall[i].lat} ${facilcall[i].lng}");
     }*/
-
   }
+
   int polylinecounter = 1;
 
   addMarker() async {
@@ -516,8 +497,6 @@ class _CreateGymmingAndZumbaUI1State extends State<CreateGymmingAndZumbaUI1> {
       startCap: Cap.roundCap,
       endCap: Cap.roundCap,
       geodesic: true,
-
-
     ));
     polylinecounter++;
   }

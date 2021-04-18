@@ -131,9 +131,10 @@ class NotificationManager {
         }, participant);
       } else {
         docs.docs.forEach((element) {
-          notifCollection
-              .doc(element.id)
-              .update({"eventUpdated": deleted ? "deleted" : "updated"});
+          notifCollection.doc(element.id).update({
+            "eventUpdated": deleted ? "deleted" : "updated",
+            "event": event.name
+          });
         });
       }
     }

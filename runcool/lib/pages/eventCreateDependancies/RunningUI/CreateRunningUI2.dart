@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:runcool/utils/places_service.dart';
 import './../EventCreatedSuccessUI.dart';
 
 import './../../../utils/everythingUtils.dart';
@@ -50,7 +49,6 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
     setRoute();
     super.initState();
   }
-
 
   final _formKey = GlobalKey<FormState>(); // VALIDATE
 
@@ -100,14 +98,14 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                   onMapCreated: (GoogleMapController controller) {
                     _mapController.complete(controller);
                     //controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
-
-
                   },
-                  polylineset: Set.of((polylineSet != null)? Set<Polyline>.of(polylineSet) : []), //set polyline
-                  markersset: Set.of((markersSet != null)? Set<Marker>.of(markersSet) : []),
-                  circlesset: Set.of((circlesSet != null)? Set<Circle>.of(circlesSet) : []),
-
-
+                  polylineset: Set.of((polylineSet != null)
+                      ? Set<Polyline>.of(polylineSet)
+                      : []), //set polyline
+                  markersset: Set.of(
+                      (markersSet != null) ? Set<Marker>.of(markersSet) : []),
+                  circlesset: Set.of(
+                      (circlesSet != null) ? Set<Circle>.of(circlesSet) : []),
                 ),
                 SizedBox(height: 10),
                 Container(
@@ -141,10 +139,8 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                         padding: EdgeInsets.only(left: 23),
                         child: Text(
                           (dateError) ? 'Select a date' : '',
-                          style: TextStyle(
-                              color: Colors.redAccent,
-                              height: 0.6
-                          ),
+                          style:
+                              TextStyle(color: Colors.redAccent, height: 0.6),
                         ),
                       ),
                       Align(
@@ -246,13 +242,13 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                             if (val.isEmpty) {
                               return 'Enter number of participants';
                             }
-                            try{
+                            try {
                               val = int.parse(val);
                               if (val < 1 || val > 8) {
                                 return "There must be between 1-8 participants";
                               }
                               return null;
-                            }catch(error){
+                            } catch (error) {
                               return 'Must be a number';
                             }
 
@@ -266,7 +262,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                       ),
                       Padding(
                         padding:
-                        EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                            EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                         child: DropdownFormFill(
                           value: eventDetails['difficulty'],
                           onChange: (newChoice) {
@@ -277,7 +273,7 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                           items: difficultyLevels,
                           text: "--None--",
                           validate: (val) =>
-                          val == null ? 'Choose your difficulty' : null,
+                              val == null ? 'Choose your difficulty' : null,
                         ),
                       ),
                       Align(
@@ -299,7 +295,6 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
                               {
                                 print("this works"),
                                 createEvent(eventDetails),
-
                               }
                           },
                           text: "Create",
@@ -327,7 +322,6 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
     LatLng desLatLng = LatLng(endLoc.latitude, endLoc.longitude);
 
     //event.endLocation;
-
 
     initialPos = await PlacesService.searchCoordinateAddress(startLatLng);
     finalPos = await PlacesService.searchCoordinateAddress(desLatLng);
@@ -369,19 +363,17 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
 
     });*/
 
-
     PolylinePoints polylinePoints = PolylinePoints();
-    List<PointLatLng> decodePolyLinePointsResult = polylinePoints.decodePolyline(eventDetails['encPoints']);
+    List<PointLatLng> decodePolyLinePointsResult =
+        polylinePoints.decodePolyline(eventDetails['encPoints']);
 
     pLineCoordinates.clear();
-    if(decodePolyLinePointsResult.isNotEmpty)
-    {
+    if (decodePolyLinePointsResult.isNotEmpty) {
       decodePolyLinePointsResult.forEach((PointLatLng pointLatLng) {
-        pLineCoordinates.add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
-
+        pLineCoordinates
+            .add(LatLng(pointLatLng.latitude, pointLatLng.longitude));
       });
     }
-
 
     polylineSet.clear();
     setState(() {
@@ -399,62 +391,56 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
       polylineSet.add(polyline);
     });
 
-
-    if(startLatLng.latitude > desLatLng.latitude && startLatLng.longitude > desLatLng.longitude)
-    {
+    if (startLatLng.latitude > desLatLng.latitude &&
+        startLatLng.longitude > desLatLng.longitude) {
       latLngBounds = LatLngBounds(southwest: desLatLng, northeast: startLatLng);
-    }
-    else if (startLatLng.longitude > desLatLng.longitude)
-    {
-      latLngBounds = LatLngBounds(southwest: LatLng(startLatLng.latitude, desLatLng.longitude), northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
-    }
-    else if (startLatLng.latitude > desLatLng.latitude)
-    {
-      latLngBounds = LatLngBounds(southwest: LatLng(desLatLng.latitude, startLatLng.longitude), northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
-    }
-    else
-    {
+    } else if (startLatLng.longitude > desLatLng.longitude) {
+      latLngBounds = LatLngBounds(
+          southwest: LatLng(startLatLng.latitude, desLatLng.longitude),
+          northeast: LatLng(desLatLng.latitude, startLatLng.longitude));
+    } else if (startLatLng.latitude > desLatLng.latitude) {
+      latLngBounds = LatLngBounds(
+          southwest: LatLng(desLatLng.latitude, startLatLng.longitude),
+          northeast: LatLng(startLatLng.latitude, desLatLng.longitude));
+    } else {
       latLngBounds = LatLngBounds(southwest: startLatLng, northeast: desLatLng);
     }
 
     final GoogleMapController controller = await _mapController.future;
     controller.animateCamera(CameraUpdate.newLatLngBounds(latLngBounds, 70));
 
-
     Marker startLocMarker = Marker(
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
-      infoWindow: InfoWindow(title: initialPos.toString(), snippet: "Starting Address"),
+      infoWindow:
+          InfoWindow(title: initialPos.toString(), snippet: "Starting Address"),
       position: startLatLng,
       markerId: MarkerId("startId"),
     );
 
     Marker destLocMarker = Marker(
       icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
-      infoWindow: InfoWindow(title: finalPos.toString(), snippet: "Destination Address"),
+      infoWindow: InfoWindow(
+          title: finalPos.toString(), snippet: "Destination Address"),
       position: desLatLng,
       markerId: MarkerId("destId"),
     );
 
     List<dynamic> waypoint = eventDetails['checkpoints'];
 
-
-    if(waypoint.isNotEmpty) {
+    if (waypoint.isNotEmpty) {
       LatLng waypoint1 = LatLng(waypoint[0].latitude, waypoint[0].longitude);
 
       Marker wayptLocMarker = Marker(
         icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueYellow),
-        infoWindow: InfoWindow(title: waypoint1.toString(), snippet: "Checkpoint"),
+        infoWindow:
+            InfoWindow(title: waypoint1.toString(), snippet: "Checkpoint"),
         position: waypoint1,
         markerId: MarkerId("wayptId"),
-
       );
       setState(() {
         markersSet.add(wayptLocMarker);
       });
-
     }
-
-
 
     setState(() {
       markersSet.add(startLocMarker);
@@ -482,7 +468,6 @@ class _CreateRunningUI2State extends State<CreateRunningUI2>
     setState(() {
       circlesSet.add(startLocCircle);
       circlesSet.add(destLocCircle);
-
     });
   }
 }
